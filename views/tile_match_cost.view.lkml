@@ -1,8 +1,8 @@
-# The name of this view in Looker is "Fruit Merge Cost"
-view: fruit_merge_cost {
+# The name of this view in Looker is "Tile Match Cost"
+view: tile_match_cost {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: adjust.fruit_merge_cost ;;
+  sql_table_name: adjust.tile_match_cost ;;
 
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -105,7 +105,7 @@ view: fruit_merge_cost {
 
   dimension: country_code {
     type: string
-    sql: UPPER(${TABLE}.country_code) ;;
+    sql: ${TABLE}.country_code ;;
   }
 
   dimension: creative {

@@ -1,4 +1,4 @@
-include: "/models/fruit-merge.model.lkml"
+include: "/models/tile_match.model.lkml"
 
 
 
@@ -44,7 +44,7 @@ view: raw_pdt {
                                                     THEN fb_install_referrer_adgroup_name
                                                 ELSE creative_name END), '(', 1) END))     as creative
 
-                from adjust.fruit_merge_raw
+                from adjust.tile_match_raw
                 group by idfa_or_gps_adid ;;
 
     publish_as_db_view: yes

@@ -8,7 +8,7 @@
   elements:
   - title: Per25 Play Time per User
     name: Per25 Play Time per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
@@ -103,7 +103,7 @@
     height: 6
   - title: Median Play Time per User
     name: Median Play Time per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
@@ -198,7 +198,7 @@
     height: 6
   - title: Per75 Play Time per User
     name: Per75 Play Time per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
@@ -293,7 +293,7 @@
     height: 6
   - title: Per90 Play Time per User
     name: Per90 Play Time per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
@@ -389,7 +389,7 @@
     height: 6
   - title: Per25 Session Count per User
     name: Per25 Session Count per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
@@ -453,7 +453,7 @@
     height: 6
   - title: Median Session Count per User
     name: Median Session Count per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
@@ -517,7 +517,7 @@
     height: 6
   - title: Per75 Session Count per User
     name: Per75 Session Count per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
@@ -581,7 +581,7 @@
     height: 6
   - title: Per90 Session Count per User
     name: Per90 Session Count per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
@@ -645,7 +645,7 @@
     height: 6
   - title: Avg Play Time per User
     name: Avg Play Time per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime]
@@ -725,7 +725,7 @@
     height: 6
   - title: Avg Session Count per User
     name: Avg Session Count per User
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime]
@@ -795,7 +795,7 @@
     height: 6
   - title: Per25 Session Time
     name: Per25 Session Time
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
@@ -882,7 +882,7 @@
     height: 6
   - title: Median Session Time
     name: Median Session Time
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
@@ -969,7 +969,7 @@
     height: 6
   - title: Per75 Session Time
     name: Per75 Session Time
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
@@ -1058,7 +1058,7 @@
     height: 6
   - title: Per90 Session Time
     name: Per90 Session Time
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
@@ -1147,7 +1147,7 @@
     height: 6
   - title: Avg Session Time
     name: Avg Session Time
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.avg_sessiontime]
@@ -1223,7 +1223,7 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.installed_date
@@ -1237,7 +1237,7 @@
       type: relative_timeframes
       display: inline
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.client_date
@@ -1251,7 +1251,7 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.install_day_of_user
@@ -1264,7 +1264,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.country
@@ -1277,7 +1277,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.app_version
@@ -1290,7 +1290,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.network
@@ -1303,7 +1303,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.campaign
@@ -1316,7 +1316,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.adgroup
@@ -1329,7 +1329,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
     field: engagement_pdt.creative

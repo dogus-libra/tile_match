@@ -9,26 +9,26 @@
   - name: Daily Report
     title: Daily Report
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -36,7 +36,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -52,7 +52,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -68,7 +68,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -98,7 +98,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -151,7 +151,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -358,7 +358,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
@@ -370,14 +370,14 @@
     size_to_fit: true
     minimum_column_width: 75
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     series_cell_visualizations:
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -428,12 +428,12 @@
     series_types: {}
     type: looker_grid
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -447,26 +447,26 @@
   - name: Retention 1
     title: Retention 1
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -474,7 +474,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -490,7 +490,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -506,7 +506,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -536,7 +536,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -589,7 +589,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -796,7 +796,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -820,7 +820,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -842,7 +842,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -886,12 +886,12 @@
       retention_3, retention_4, retention_2]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -905,26 +905,26 @@
   - name: Retention 2
     title: Retention 2
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -932,7 +932,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -948,7 +948,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -964,7 +964,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -994,7 +994,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -1047,7 +1047,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -1254,7 +1254,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1278,7 +1278,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -1300,7 +1300,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -1344,12 +1344,12 @@
       retention_3, retention_4, retention_1]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -1363,26 +1363,26 @@
   - name: Retention 3
     title: Retention 3
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -1390,7 +1390,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -1406,7 +1406,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -1422,7 +1422,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -1452,7 +1452,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -1505,7 +1505,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -1712,7 +1712,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1736,7 +1736,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -1758,7 +1758,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -1802,12 +1802,12 @@
       retention_4, retention_1, retention_2]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -1821,26 +1821,26 @@
   - name: Retention 7
     title: Retention 7
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -1848,7 +1848,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -1864,7 +1864,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -1880,7 +1880,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -1910,7 +1910,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -1963,7 +1963,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -2170,7 +2170,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2194,7 +2194,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -2216,7 +2216,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -2260,12 +2260,12 @@
       retention_1, retention_2, retention_3]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -2278,25 +2278,25 @@
     height: 8
   - title: CPI (Pivoted)
     name: CPI (Pivoted)
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     type: looker_line
-    fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
-      install_sum_cond, fruit_merge_cost.pivot_campaign_list]
-    pivots: [fruit_merge_cost.pivot_campaign_list]
-    fill_fields: [fruit_merge_cost.date_date]
+    fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      install_sum_cond, tile_match_cost.pivot_campaign_list]
+    pivots: [tile_match_cost.pivot_campaign_list]
+    fill_fields: [tile_match_cost.date_date]
     filters:
-      fruit_merge_cost.creative: ''
-      fruit_merge_cost.adgroup: ''
-      fruit_merge_cost.campaign: ''
-    sorts: [fruit_merge_cost.pivot_campaign_list, fruit_merge_cost.date_date desc]
+      tile_match_cost.creative: ''
+      tile_match_cost.adgroup: ''
+      tile_match_cost.campaign: ''
+    sorts: [tile_match_cost.pivot_campaign_list, tile_match_cost.date_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
     - category: measure
       expression: ''
       label: cost_sum
-      based_on: fruit_merge_cost.ad_spend_network
+      based_on: tile_match_cost.ad_spend_network
       _kind_hint: measure
       measure: cost_sum
       type: sum
@@ -2304,7 +2304,7 @@
     - category: measure
       expression: ''
       label: click_sum
-      based_on: fruit_merge_cost.clicks_network
+      based_on: tile_match_cost.clicks_network
       _kind_hint: measure
       measure: click_sum
       type: sum
@@ -2320,7 +2320,7 @@
     - category: measure
       expression: ''
       label: install_sum
-      based_on: fruit_merge_cost.installs_network
+      based_on: tile_match_cost.installs_network
       _kind_hint: measure
       measure: install_sum
       type: sum
@@ -2336,7 +2336,7 @@
     - category: measure
       expression: ''
       label: impression_sum
-      based_on: fruit_merge_cost.impressions_network
+      based_on: tile_match_cost.impressions_network
       _kind_hint: measure
       measure: impression_sum
       type: sum
@@ -2366,7 +2366,7 @@
       table_calculation: cpm
       _type_hint: number
     - category: dimension
-      expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+      expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
       label: conditional_installs
       value_format:
       value_format_name:
@@ -2423,12 +2423,12 @@
     hidden_fields: [cost_sum, click_sum, install_sum, impression_sum, install_sum_cond,
       cpc, cti, ctr, ipm, cpm]
     listen:
-      Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+      Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     row: 0
     col: 12
     width: 12
@@ -2436,26 +2436,26 @@
   - name: Retention 5
     title: Retention 5
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -2463,7 +2463,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -2479,7 +2479,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -2495,7 +2495,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -2525,7 +2525,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -2578,7 +2578,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -2785,7 +2785,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2809,7 +2809,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -2831,7 +2831,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -2875,12 +2875,12 @@
       retention_2, retention_3, retention_7]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -2894,26 +2894,26 @@
   - name: CPC
     title: CPC
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -2921,7 +2921,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -2937,7 +2937,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -2953,7 +2953,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -2983,7 +2983,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -3036,7 +3036,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -3243,7 +3243,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -3267,7 +3267,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -3289,7 +3289,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -3333,12 +3333,12 @@
       retention_2, retention_3, retention_7, retention_5]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -3352,26 +3352,26 @@
   - name: CTI
     title: CTI
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -3379,7 +3379,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -3395,7 +3395,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -3411,7 +3411,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -3441,7 +3441,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -3494,7 +3494,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -3701,7 +3701,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -3725,7 +3725,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -3747,7 +3747,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -3791,12 +3791,12 @@
       retention_3, retention_7, retention_5, cpc]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -3810,26 +3810,26 @@
   - name: CTR
     title: CTR
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -3837,7 +3837,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -3853,7 +3853,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -3869,7 +3869,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -3899,7 +3899,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -3952,7 +3952,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -4159,7 +4159,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -4183,7 +4183,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -4205,7 +4205,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -4249,12 +4249,12 @@
       retention_3, retention_7, retention_5, cpc, cti]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -4268,26 +4268,26 @@
   - name: IPM
     title: IPM
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -4295,7 +4295,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -4311,7 +4311,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -4327,7 +4327,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -4357,7 +4357,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -4410,7 +4410,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -4617,7 +4617,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -4641,7 +4641,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -4663,7 +4663,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -4707,12 +4707,12 @@
       retention_3, retention_7, retention_5, cpc, cti, ctr]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -4726,26 +4726,26 @@
   - name: CPM
     title: CPM
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -4753,7 +4753,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -4769,7 +4769,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -4785,7 +4785,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -4815,7 +4815,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -4868,7 +4868,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -5075,7 +5075,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -5099,7 +5099,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -5121,7 +5121,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -5165,12 +5165,12 @@
       retention_7, retention_5, cpc, cti, ctr, ipm]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -5184,26 +5184,26 @@
   - name: CPI
     title: CPI
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -5211,7 +5211,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -5227,7 +5227,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -5243,7 +5243,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -5273,7 +5273,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -5326,7 +5326,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -5533,7 +5533,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -5557,7 +5557,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -5579,7 +5579,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -5623,12 +5623,12 @@
       retention_7, retention_5, cpc, cti, ctr, ipm, cpm]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -5642,26 +5642,26 @@
   - name: INSTALLS
     title: INSTALLS
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
       - category: measure
         expression: ''
         label: cost_sum
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -5669,7 +5669,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -5685,7 +5685,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -5701,7 +5701,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -5731,7 +5731,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -5784,7 +5784,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -5991,7 +5991,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -6015,7 +6015,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -6037,7 +6037,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -6081,12 +6081,12 @@
       cpc, cti, ctr, ipm, cpm, cpi]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -6100,19 +6100,19 @@
   - name: AD SPEND (COST)
     title: AD SPEND (COST)
     merged_queries:
-    - model: fruit-merge
-      explore: fruit_merge_cost
+    - model: tile_match
+      explore: tile_match_cost
       type: looker_line
-      fields: [fruit_merge_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
+      fields: [tile_match_cost.date_date, cost_sum, click_sum, install_sum, impression_sum,
         install_sum_cond]
-      fill_fields: [fruit_merge_cost.date_date]
+      fill_fields: [tile_match_cost.date_date]
       filters:
-        fruit_merge_cost.partner: ''
-        fruit_merge_cost.date_date: ''
-        fruit_merge_cost.creative: ''
-        fruit_merge_cost.adgroup: ''
-        fruit_merge_cost.campaign: ''
-      sorts: [fruit_merge_cost.date_date desc]
+        tile_match_cost.partner: ''
+        tile_match_cost.date_date: ''
+        tile_match_cost.creative: ''
+        tile_match_cost.adgroup: ''
+        tile_match_cost.campaign: ''
+      sorts: [tile_match_cost.date_date desc]
       limit: 500
       column_limit: 50
       dynamic_fields:
@@ -6121,7 +6121,7 @@
         label: cost_sum
         value_format:
         value_format_name: usd_0
-        based_on: fruit_merge_cost.ad_spend_network
+        based_on: tile_match_cost.ad_spend_network
         _kind_hint: measure
         measure: cost_sum
         type: sum
@@ -6129,7 +6129,7 @@
       - category: measure
         expression: ''
         label: click_sum
-        based_on: fruit_merge_cost.clicks_network
+        based_on: tile_match_cost.clicks_network
         _kind_hint: measure
         measure: click_sum
         type: sum
@@ -6145,7 +6145,7 @@
       - category: measure
         expression: ''
         label: install_sum
-        based_on: fruit_merge_cost.installs_network
+        based_on: tile_match_cost.installs_network
         _kind_hint: measure
         measure: install_sum
         type: sum
@@ -6161,7 +6161,7 @@
       - category: measure
         expression: ''
         label: impression_sum
-        based_on: fruit_merge_cost.impressions_network
+        based_on: tile_match_cost.impressions_network
         _kind_hint: measure
         measure: impression_sum
         type: sum
@@ -6191,7 +6191,7 @@
         table_calculation: cpm
         _type_hint: number
       - category: dimension
-        expression: if(${fruit_merge_cost.partner}="Organic",${fruit_merge_cost.installs},${fruit_merge_cost.installs_network})
+        expression: if(${tile_match_cost.partner}="Organic",${tile_match_cost.installs},${tile_match_cost.installs_network})
         label: conditional_installs
         value_format:
         value_format_name:
@@ -6244,7 +6244,7 @@
       hidden_pivots: {}
       hidden_fields: [click_sum, install_sum, impression_sum, cpc, cpi, cpm, ipm,
         ctr, cti, cost_sum]
-    - model: fruit-merge
+    - model: tile_match
       explore: session_pdt
       type: table
       fields: [session_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -6451,7 +6451,7 @@
         player_3, player_4, player_5, player_7]
       join_fields:
       - field_name: session_pdt.installed_date
-        source_field_name: fruit_merge_cost.date_date
+        source_field_name: tile_match_cost.date_date
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -6475,7 +6475,7 @@
     series_types: {}
     point_style: none
     series_labels:
-      fruit_merge_cost.date_date: Install Date
+      tile_match_cost.date_date: Install Date
       cost_sum: Spend
       install_sum_cond: Installs
     show_value_labels: false
@@ -6497,7 +6497,7 @@
       cost_sum:
         is_active: false
     series_text_format:
-      fruit_merge_cost.date_date:
+      tile_match_cost.date_date:
         align: center
       cost_sum:
         align: center
@@ -6541,12 +6541,12 @@
       cpc, cti, ctr, ipm, cpm, cpi, install_sum_cond]
     type: looker_line
     listen:
-    - Creative: fruit_merge_cost.ad_network
-      Campaign: fruit_merge_cost.campaign_network
-      Partner: fruit_merge_cost.partner
-      Adgroup: fruit_merge_cost.adgroup_network
-      Install Date: fruit_merge_cost.date_date
-      Country Code: fruit_merge_cost.country_code
+    - Creative: tile_match_cost.ad_network
+      Campaign: tile_match_cost.campaign_network
+      Partner: tile_match_cost.partner
+      Adgroup: tile_match_cost.adgroup_network
+      Install Date: tile_match_cost.date_date
+      Country Code: tile_match_cost.country_code
     - Creative: session_pdt.creative
       Campaign: session_pdt.campaign
       Partner: session_pdt.network
@@ -6568,10 +6568,10 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.date_date
+    field: tile_match_cost.date_date
   - name: Country Code
     title: Country Code
     type: field_filter
@@ -6581,10 +6581,10 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.country_code
+    field: tile_match_cost.country_code
   - name: Partner
     title: Partner
     type: field_filter
@@ -6594,10 +6594,10 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.partner
+    field: tile_match_cost.partner
   - name: Campaign
     title: Campaign
     type: field_filter
@@ -6607,10 +6607,10 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.campaign_network
+    field: tile_match_cost.campaign_network
   - name: Adgroup
     title: Adgroup
     type: field_filter
@@ -6620,10 +6620,10 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.adgroup_network
+    field: tile_match_cost.adgroup_network
   - name: Creative
     title: Creative
     type: field_filter
@@ -6633,7 +6633,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
-    explore: fruit_merge_cost
+    model: tile_match
+    explore: tile_match_cost
     listens_to_filters: []
-    field: fruit_merge_cost.ad_network
+    field: tile_match_cost.ad_network

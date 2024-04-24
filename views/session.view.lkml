@@ -2,7 +2,7 @@
 view: session {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: fruit_merge.session ;;
+  sql_table_name: tile_match.session ;;
   drill_fields: [session_id]
 
   # This primary key is the unique key for this table in the underlying database.
@@ -210,6 +210,6 @@ view: session {
   }
   measure: count {
     type: count
-    drill_fields: [session_id, event_name, user_split_test_name, progression.count]
+    drill_fields: [session_id, user_split_test_name, event_name, progression.count]
   }
 }

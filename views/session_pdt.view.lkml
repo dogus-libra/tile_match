@@ -1,4 +1,4 @@
-include: "/models/fruit-merge.model.lkml"
+include: "/models/tile_match.model.lkml"
 
 
 view: session_pdt {
@@ -90,7 +90,7 @@ from (select *,
                    max(user_total_session_time)           as user_total_session_time
 
 
-            from fruit_merge.session
+            from tile_match.session
             where event_name = 'SessionActive'
             group by session_id, advertising_id) sess_in) sess
          left join (select idfa_or_gps_adid,
@@ -103,7 +103,7 @@ from (select *,
                            max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
                            max(country)                                 as country,
                            min(app_version)                             as app_version
-                    from adjust.fruit_merge_raw
+                    from adjust.tile_match_raw
                     group by idfa_or_gps_adid) fmr
                    on sess.advertising_id = fmr.idfa_or_gps_adid;;
 

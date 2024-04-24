@@ -8,7 +8,7 @@
   elements:
   - title: Retention Dashboard (Table)
     name: Retention Dashboard (Table)
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_grid
     fields: [session_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -311,7 +311,7 @@
     height: 11
   - title: Retention Report (Area)
     name: Retention Report (Area)
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_area
     fields: [session_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -610,7 +610,7 @@
     height: 9
   - title: Retention Coefficients (Table)
     name: Retention Coefficients (Table)
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_grid
     fields: [session_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -963,7 +963,7 @@
     height: 8
   - title: Retention Coefficients (Line)
     name: Retention Coefficients (Line)
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
@@ -1327,7 +1327,7 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.installed_date
@@ -1340,7 +1340,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.country
@@ -1353,7 +1353,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.app_version
@@ -1366,7 +1366,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.network
@@ -1379,7 +1379,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.campaign
@@ -1392,7 +1392,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.adgroup
@@ -1405,7 +1405,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: session_pdt
     listens_to_filters: []
     field: session_pdt.creative

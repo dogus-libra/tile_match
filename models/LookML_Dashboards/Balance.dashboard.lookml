@@ -8,7 +8,7 @@
   elements:
   - title: Level Balance Report
     name: Level Balance Report
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -170,7 +170,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -181,7 +181,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -191,7 +191,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -331,7 +331,7 @@
     height: 12
   - title: Win Rate Report (Table)
     name: Win Rate Report (Table)
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -495,7 +495,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -506,7 +506,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -516,7 +516,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -653,7 +653,7 @@
     height: 9
   - title: Win Rate Report (Graph)
     name: Win Rate Report (Graph)
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -817,7 +817,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -828,7 +828,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -838,7 +838,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -980,7 +980,7 @@
     height: 8
   - title: Churn Report (Table)
     name: Churn Report (Table)
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -1144,7 +1144,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -1155,7 +1155,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -1165,7 +1165,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -1307,7 +1307,7 @@
     height: 10
   - title: Churn Report (Graph)
     name: Churn Report (Graph)
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -1471,7 +1471,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -1482,7 +1482,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -1492,7 +1492,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -1641,7 +1641,7 @@
     height: 11
   - title: Level Retention
     name: Level Retention
-    model: fruit-merge
+    model: tile_match
     explore: progression
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
@@ -1805,7 +1805,7 @@
       table_calculation: churn_count
       _type_hint: number
     - measure: average_of_moves_made
-      based_on: progression.moves_made
+      based_on: progression.move_count
       expression: ''
       label: Average of Moves Made
       type: average
@@ -1816,7 +1816,7 @@
       label: Remaining Time (sec)
       value_format:
       value_format_name: decimal_1
-      based_on: progression.remaining
+      based_on: progression.time_remain
       _kind_hint: measure
       measure: remaining_time_sec
       type: average
@@ -1826,7 +1826,7 @@
       label: Avg Moves Made
       value_format:
       value_format_name: decimal_1
-      based_on: progression.moves_made
+      based_on: progression.move_count
       _kind_hint: measure
       measure: avg_moves_made
       type: average
@@ -1986,7 +1986,7 @@
     ui_config:
       type: relative_timeframes
       display: inline
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: progression.installed_date
@@ -2000,7 +2000,7 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: progression.event_timestamp_date
@@ -2013,7 +2013,7 @@
     ui_config:
       type: range_slider
       display: inline
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: progression.install_day_of_user
@@ -2026,7 +2026,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.country
@@ -2039,7 +2039,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.app_version
@@ -2052,7 +2052,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.network
@@ -2065,7 +2065,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.campaign
@@ -2078,7 +2078,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.adgroup
@@ -2091,7 +2091,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: raw_pdt.creative
@@ -2105,7 +2105,7 @@
       type: advanced
       display: popover
       options: []
-    model: fruit-merge
+    model: tile_match
     explore: progression
     listens_to_filters: []
     field: progression.user_level_at

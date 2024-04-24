@@ -2,7 +2,7 @@
 view: progression {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: fruit_merge.progression ;;
+  sql_table_name: tile_match.progression ;;
 
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -27,26 +27,6 @@ view: progression {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.arrival_ts ;;
-  }
-
-  dimension: begin {
-    type: number
-    sql: ${TABLE}.begin ;;
-  }
-
-  dimension: bombs_created {
-    type: number
-    sql: ${TABLE}.bombs_created ;;
-  }
-
-  dimension: booster_generator_fulled {
-    type: number
-    sql: ${TABLE}.booster_generator_fulled ;;
-  }
-
-  dimension: booster_generator_score {
-    type: number
-    sql: ${TABLE}.booster_generator_score ;;
   }
 
   dimension: build_no {
@@ -90,11 +70,6 @@ view: progression {
     sql: ${TABLE}.fail_type ;;
   }
 
-  dimension: game_mode {
-    type: string
-    sql: ${TABLE}.game_mode ;;
-  }
-
   dimension_group: installed {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -106,44 +81,19 @@ view: progression {
     sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.event_timestamp)/24) ;;
   }
 
-  dimension: inventory_coin {
-    type: number
-    sql: ${TABLE}.inventory_coin ;;
-  }
-
-  dimension: inventory_life {
-    type: number
-    sql: ${TABLE}.inventory_life ;;
-  }
-
   dimension: ip_address {
     type: string
     sql: ${TABLE}.ip_address ;;
   }
 
-  dimension: move_object {
+  dimension: move_count {
+    type: number
+    sql: ${TABLE}.move_count ;;
+  }
+
+  dimension: previous_event_id {
     type: string
-    sql: ${TABLE}.move_object ;;
-  }
-
-  dimension: moves_made {
-    type: number
-    sql: ${TABLE}.moves_made ;;
-  }
-
-  dimension: moves_made_string {
-    type: string
-    sql: ${TABLE}.moves_made_string ;;
-  }
-
-  dimension: propellers_activated {
-    type: number
-    sql: ${TABLE}.propellers_activated ;;
-  }
-
-  dimension: remaining {
-    type: number
-    sql: ${TABLE}.remaining ;;
+    sql: ${TABLE}.previous_event_id ;;
   }
 
   dimension_group: request {
@@ -174,144 +124,144 @@ view: progression {
     type: average
     sql: ${session_time} ;;  }
 
-  dimension: targets_completed_average {
+  dimension: target_acorn_nut {
     type: number
-    sql: ${TABLE}.targets_completed_average ;;
+    sql: ${TABLE}.target_acorn_nut ;;
   }
 
-  dimension: targets_completed_big {
+  dimension: target_apple {
     type: number
-    sql: ${TABLE}.targets_completed_big ;;
+    sql: ${TABLE}.target_apple ;;
   }
 
-  dimension: targets_completed_enormous {
+  dimension: target_armchair {
     type: number
-    sql: ${TABLE}.targets_completed_enormous ;;
+    sql: ${TABLE}.target_armchair ;;
   }
 
-  dimension: targets_completed_huge {
+  dimension: target_avocado {
     type: number
-    sql: ${TABLE}.targets_completed_huge ;;
+    sql: ${TABLE}.target_avocado ;;
   }
 
-  dimension: targets_completed_large {
+  dimension: target_banana {
     type: number
-    sql: ${TABLE}.targets_completed_large ;;
+    sql: ${TABLE}.target_banana ;;
   }
 
-  dimension: targets_completed_massive {
+  dimension: target_broom {
     type: number
-    sql: ${TABLE}.targets_completed_massive ;;
+    sql: ${TABLE}.target_broom ;;
   }
 
-  dimension: targets_completed_medium {
+  dimension: target_brush {
     type: number
-    sql: ${TABLE}.targets_completed_medium ;;
+    sql: ${TABLE}.target_brush ;;
   }
 
-  dimension: targets_completed_petite {
+  dimension: target_carrot {
     type: number
-    sql: ${TABLE}.targets_completed_petite ;;
+    sql: ${TABLE}.target_carrot ;;
   }
 
-  dimension: targets_completed_total_balloon {
+  dimension: target_cherry {
     type: number
-    sql: ${TABLE}.targets_completed_total_balloon ;;
+    sql: ${TABLE}.target_cherry ;;
   }
 
-  dimension: targets_completed_total_bush {
+  dimension: target_coconut {
     type: number
-    sql: ${TABLE}.targets_completed_total_bush ;;
+    sql: ${TABLE}.target_coconut ;;
   }
 
-  dimension: targets_completed_total_cantoss {
+  dimension: target_flame {
     type: number
-    sql: ${TABLE}.targets_completed_total_cantoss ;;
+    sql: ${TABLE}.target_flame ;;
   }
 
-  dimension: targets_completed_total_crate {
+  dimension: target_frame {
     type: number
-    sql: ${TABLE}.targets_completed_total_crate ;;
+    sql: ${TABLE}.target_frame ;;
   }
 
-  dimension: targets_completed_total_crusher {
+  dimension: target_grape {
     type: number
-    sql: ${TABLE}.targets_completed_total_crusher ;;
+    sql: ${TABLE}.target_grape ;;
   }
 
-  dimension: targets_completed_total_donut {
+  dimension: target_hammer {
     type: number
-    sql: ${TABLE}.targets_completed_total_donut ;;
+    sql: ${TABLE}.target_hammer ;;
   }
 
-  dimension: targets_total_average {
+  dimension: target_lemon {
     type: number
-    sql: ${TABLE}.targets_total_average ;;
+    sql: ${TABLE}.target_lemon ;;
   }
 
-  dimension: targets_total_balloon {
+  dimension: target_light {
     type: number
-    sql: ${TABLE}.targets_total_balloon ;;
+    sql: ${TABLE}.target_light ;;
   }
 
-  dimension: targets_total_big {
+  dimension: target_orange {
     type: number
-    sql: ${TABLE}.targets_total_big ;;
+    sql: ${TABLE}.target_orange ;;
   }
 
-  dimension: targets_total_bush {
+  dimension: target_pear {
     type: number
-    sql: ${TABLE}.targets_total_bush ;;
+    sql: ${TABLE}.target_pear ;;
   }
 
-  dimension: targets_total_cantoss {
+  dimension: target_pumpkin {
     type: number
-    sql: ${TABLE}.targets_total_cantoss ;;
+    sql: ${TABLE}.target_pumpkin ;;
   }
 
-  dimension: targets_total_crate {
+  dimension: target_shirt {
     type: number
-    sql: ${TABLE}.targets_total_crate ;;
+    sql: ${TABLE}.target_shirt ;;
   }
 
-  dimension: targets_total_crusher {
+  dimension: target_strawberry {
     type: number
-    sql: ${TABLE}.targets_total_crusher ;;
+    sql: ${TABLE}.target_strawberry ;;
   }
 
-  dimension: targets_total_donut {
+  dimension: target_table {
     type: number
-    sql: ${TABLE}.targets_total_donut ;;
+    sql: ${TABLE}.target_table ;;
   }
 
-  dimension: targets_total_enormous {
+  dimension: target_teddybear {
     type: number
-    sql: ${TABLE}.targets_total_enormous ;;
+    sql: ${TABLE}.target_teddybear ;;
   }
 
-  dimension: targets_total_huge {
+  dimension: target_tile {
     type: number
-    sql: ${TABLE}.targets_total_huge ;;
+    sql: ${TABLE}.target_tile ;;
   }
 
-  dimension: targets_total_large {
+  dimension: target_watermelon {
     type: number
-    sql: ${TABLE}.targets_total_large ;;
+    sql: ${TABLE}.target_watermelon ;;
   }
 
-  dimension: targets_total_massive {
+  dimension: time_begin {
     type: number
-    sql: ${TABLE}.targets_total_massive ;;
+    sql: ${TABLE}.time_begin ;;
   }
 
-  dimension: targets_total_medium {
+  dimension: time_remain {
     type: number
-    sql: ${TABLE}.targets_total_medium ;;
+    sql: ${TABLE}.time_remain ;;
   }
 
-  dimension: targets_total_petite {
-    type: number
-    sql: ${TABLE}.targets_total_petite ;;
+  dimension: total_attempt_at_current_level {
+    type: string
+    sql: ${TABLE}.total_attempt_at_current_level ;;
   }
 
   dimension: user_adgroup {
@@ -410,6 +360,6 @@ view: progression {
   }
   measure: count {
     type: count
-    drill_fields: [event_name, user_split_test_name, session.event_name, session.session_id, session.user_split_test_name]
+    drill_fields: [user_split_test_name, event_name, session.user_split_test_name, session.session_id, session.event_name]
   }
 }

@@ -1,4 +1,4 @@
-include: "/models/fruit-merge.model.lkml"
+include: "/models/tile_match.model.lkml"
 
 
 
@@ -45,7 +45,7 @@ view: engagement_pdt {
                           max(adgroup) as adgroup,
                           max(creative) as creative,
                           max(country) as country
-                from "LOOKER_SCRATCH"."5J_fruit_merge_session_pdt"
+                from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
                 group by advertising_id, client ;;
 
     publish_as_db_view: yes

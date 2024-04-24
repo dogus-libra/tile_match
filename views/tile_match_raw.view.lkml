@@ -1,8 +1,8 @@
-# The name of this view in Looker is "Fruit Merge Raw"
-view: fruit_merge_raw {
+# The name of this view in Looker is "Tile Match Raw"
+view: tile_match_raw {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: adjust.fruit_merge_raw ;;
+  sql_table_name: adjust.tile_match_raw ;;
 
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -1240,51 +1240,6 @@ view: fruit_merge_raw {
     type: yesno
     sql: ${TABLE}.within_callback_ttl ;;
   }
-
-  dimension: network {
-    type: string
-    sql: (CASE
-                    WHEN ${TABLE}.network_name = 'Apple Search Ads' THEN 'apple'
-                    WHEN ${TABLE}.network_name = 'Google Ads ACI' THEN 'adwords'
-                    WHEN ${TABLE}.network_name = 'Google Organic Search' THEN 'google_organic_search'
-                    WHEN ${TABLE}.network_name = 'Vungle' THEN 'vungle'
-                    WHEN ${TABLE}.network_name = 'ironSrc' THEN 'ironsource'
-                    WHEN ${TABLE}.network_name = 'Organic' OR ${TABLE}.network_name is null THEN 'Organic'
-                    WHEN ${TABLE}.network_name = 'UnityAds' THEN 'unity_ads'
-                    WHEN (${TABLE}.network_name = 'Unattributed' OR ${TABLE}.network_name = 'Facebook Installs' OR
-                          ${TABLE}.network_name = 'Off-Facebook Installs' OR
-                          ${TABLE}.network_name = 'Facebook Messenger Installs' OR
-                          ${TABLE}.network_name = 'Instagram Installs') THEN 'facebook' END) ;;
-  }
-
-  dimension: campaign {
-    type: string
-    sql: rtrim(CASE WHEN (${TABLE}.network_name = 'Google Organic Search' OR
-                               ${TABLE}.network_name = 'Organic' OR ${TABLE}.network_name is null) THEN NULL
-                         ELSE SPLIT_PART((CASE WHEN (${TABLE}.campaign_name = '' OR ${TABLE}.campaign_name IS NULL)
-                                                  THEN ${TABLE}.fb_install_referrer_campaign_group_name
-                                              ELSE ${TABLE}.campaign_name END), '(', 1) END) ;;
-  }
-
-  dimension: adgroup {
-    type: string
-    sql: rtrim(CASE WHEN (${TABLE}.network_name = 'Google Organic Search' OR
-                               ${TABLE}.network_name = 'Organic' OR ${TABLE}.network_name is null) THEN NULL
-                         WHEN ${TABLE}.network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
-                         ELSE SPLIT_PART((CASE WHEN (${TABLE}.adgroup_name = '' OR ${TABLE}.adgroup_name IS NULL)
-                                                  THEN ${TABLE}.fb_install_referrer_campaign_name
-                                              ELSE ${TABLE}.adgroup_name END), '(', 1) END) ;;
-  }
-
-  dimension: creative {
-    type: string
-    sql: rtrim(CASE WHEN (${TABLE}.network_name = 'Google Organic Search' OR
-                               ${TABLE}.network_name = 'Organic' OR ${TABLE}.network_name is null) THEN NULL
-                         ELSE SPLIT_PART((CASE WHEN (${TABLE}.creative_name = '' OR ${TABLE}.creative_name IS NULL)
-                                                  THEN ${TABLE}.fb_install_referrer_adgroup_name
-                                              ELSE ${TABLE}.creative_name END), '(', 1) END) ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -1293,28 +1248,28 @@ view: fruit_merge_raw {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-  iad_creative_set_name,
-  fb_install_referrer_ad_objective_name,
-  fb_install_referrer_campaign_group_name,
-  fb_install_referrer_campaign_name,
-  fb_install_referrer_adgroup_name,
-  dbm_line_item_name,
-  dcm_placement_name,
-  google_ads_adgroup_name,
-  google_ads_campaign_name,
-  event_name,
-  os_name,
-  device_name,
-  hardware_name,
-  creative_name,
-  adgroup_name,
-  campaign_name,
-  network_name,
-  last_tracker_name,
-  first_tracker_name,
-  tracker_name,
-  app_name
-  ]
+	iad_creative_set_name,
+	fb_install_referrer_ad_objective_name,
+	fb_install_referrer_campaign_group_name,
+	fb_install_referrer_campaign_name,
+	fb_install_referrer_adgroup_name,
+	dbm_line_item_name,
+	dcm_placement_name,
+	google_ads_adgroup_name,
+	google_ads_campaign_name,
+	event_name,
+	os_name,
+	device_name,
+	hardware_name,
+	creative_name,
+	adgroup_name,
+	campaign_name,
+	network_name,
+	last_tracker_name,
+	first_tracker_name,
+	tracker_name,
+	app_name
+	]
   }
 
 }
