@@ -105,7 +105,7 @@ view: tile_match_cost {
 
   dimension: country_code {
     type: string
-    sql: ${TABLE}.country_code ;;
+    sql: UPPER(${TABLE}.country_code) ;;
   }
 
   dimension: creative {
