@@ -274,6 +274,11 @@ view: progression {
     sql: ${TABLE}.user_balance_version ;;
   }
 
+  dimension: pivot_balance_version_list {
+    type: string
+    sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'USD' {% endif %};;
+  }
+
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
