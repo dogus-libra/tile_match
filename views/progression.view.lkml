@@ -269,6 +269,11 @@ view: progression {
     sql: ${TABLE}.user_adgroup ;;
   }
 
+  dimension: user_balance_version {
+    type: string
+    sql: ${TABLE}.user_balance_version ;;
+  }
+
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
