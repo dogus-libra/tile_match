@@ -53,7 +53,9 @@ from (select *,
              max(case when datediff('hour', installed, session_start_time) between 108 and 132 then 1 else 0 end)
              over (partition by advertising_id) as retention_5,
              max(case when datediff('hour', installed, session_start_time) between 156 and 180 then 1 else 0 end)
-             over (partition by advertising_id) as retention_7
+             over (partition by advertising_id) as retention_7,
+             max(case when datediff('hour', installed, session_start_time) between 324 and 348 then 1 else 0 end)
+             over (partition by advertising_id) as retention_14
 
       from (select advertising_id,
                    session_id,
@@ -228,6 +230,11 @@ from (select *,
   dimension: retention_7 {
     type: number
     sql: ${TABLE}.retention_7 ;;
+  }
+
+  dimension: retention_14 {
+    type: number
+    sql: ${TABLE}.retention_14 ;;
   }
 
   dimension: user_adgroup {
