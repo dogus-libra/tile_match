@@ -5,6 +5,7 @@ view: stdev{
       column: event_timestamp_date {}
       column: user_level_at {}
       column: stdev_time_remain {}
+      column: app_version {}
       filters: {
         field: progression.event_timestamp_date
         value: "180 days ago for 180 days"
@@ -21,6 +22,11 @@ view: stdev{
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('day',getdate())  ;;
     sortkeys: ["user_level_at"]
+  }
+
+  dimension: app_version {
+    description: ""
+    type: string
   }
 
   dimension: event_timestamp_date {
