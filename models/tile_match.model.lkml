@@ -50,3 +50,5 @@ explore: session_pdt {}
 explore: engagement_pdt {}
 
 explore: raw_pdt {}
+
+explore: stdev {}

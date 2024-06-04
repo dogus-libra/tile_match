@@ -368,6 +368,13 @@ view: progression {
     type: number
     sql: ${TABLE}.user_total_session_time ;;
   }
+
+  measure: stdev_time_remain {
+    type: number
+    sql: stddev(case when ${time_remain}>0 and ${time_remain}<600 then ${time_remain} end ) ;;
+    value_format: "##.00"
+  }
+
   measure: count {
     type: count
     drill_fields: [user_split_test_name, event_name, session.user_split_test_name, session.session_id, session.event_name]
