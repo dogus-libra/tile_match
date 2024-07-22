@@ -96,16 +96,16 @@ from (select *,
             where event_name = 'SessionActive'
             group by session_id, advertising_id) sess_in) sess
          left join (select idfa_or_gps_adid,
-                           max(network_name)                            as network_name,
-                           max(campaign_name)                           as campaign_name,
-                           max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
-                           max(adgroup_name)                            as adgroup_name,
-                           max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
-                           max(creative_name)                           as creative_name,
-                           max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
-                           max(country)                                 as country,
-                           min(app_version)                             as app_version
-                    from adjust.tile_match_raw
+                           coalesce(max(r.network_name),max(s.user_network))         as network_name,
+                           max(r.campaign_name)                                      as campaign_name,
+                           max(r.fb_install_referrer_campaign_group_name)            as fb_install_referrer_campaign_group_name,
+                           max(r.adgroup_name)                                       as adgroup_name,
+                           max(r.fb_install_referrer_campaign_name)                  as fb_install_referrer_campaign_name,
+                           max(r.creative_name)                                      as creative_name,
+                           max(r.fb_install_referrer_adgroup_name)                   as fb_install_referrer_adgroup_name,
+                           coalesce(max(r.country),max(s.user_country_code))         as country,
+                           coalesce(min(r.app_version),min(s.app_version))           as app_version
+                    from adjust.tile_match_raw r, tile_match.session s
                     group by idfa_or_gps_adid) fmr
                    on sess.advertising_id = fmr.idfa_or_gps_adid;;
 
