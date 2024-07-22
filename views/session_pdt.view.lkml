@@ -6,7 +6,7 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,COALESCE(fmr.country,sess.country_code) as country, fmr.app_version,
+    select sess.*,COALESCE(fmr.country,sess.user_country_code) as country, fmr.app_version,
        COALESCE((CASE
            WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
            WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
@@ -26,7 +26,7 @@ view: session_pdt {
                  ELSE SPLIT_PART((CASE
                                       WHEN (fmr.campaign_name = '' OR fmr.campaign_name IS NULL)
                                           THEN fmr.fb_install_referrer_campaign_group_name
-                                      ELSE fmr.campaign_name END), '(', 1) END)),sess.user_campaign) as campaign,
+                                      ELSE fmr.campaign_name END), '(', 1) END) ,sess.user_campaign) as campaign,
 
        rtrim(CASE
                  WHEN (fmr.network_name = 'Google Organic Search' OR
@@ -35,7 +35,7 @@ view: session_pdt {
                  ELSE SPLIT_PART((CASE
                                       WHEN (fmr.adgroup_name = '' OR fmr.adgroup_name IS NULL)
                                           THEN fmr.fb_install_referrer_campaign_name
-                                      ELSE fmr.adgroup_name END), '(', 1) END))  as adgroup,
+                                      ELSE fmr.adgroup_name END), '(', 1) END)  as adgroup,
 
        rtrim(CASE
                  WHEN (fmr.network_name = 'Google Organic Search' OR
@@ -43,7 +43,7 @@ view: session_pdt {
                  ELSE SPLIT_PART((CASE
                                       WHEN (creative_name = '' OR creative_name IS NULL)
                                           THEN fb_install_referrer_adgroup_name
-                                      ELSE creative_name END), '(', 1) END))     as creative
+                                      ELSE creative_name END), '(', 1) END)     as creative
 
 from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
@@ -93,7 +93,8 @@ from (select *,
                    max(user_test_routing_value)           as user_test_routing_value,
                    max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
                    max(user_total_payment)                as user_total_payment,
-                   max(user_total_session_time)           as user_total_session_time
+                   max(user_total_session_time)           as user_total_session_time,
+                   max(user_country_code)           as user_country_code
 
 
         from tile_match.session
