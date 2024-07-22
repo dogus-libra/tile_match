@@ -106,6 +106,7 @@ from (select *,
                            coalesce(max(r.country),max(s.user_country_code))         as country,
                            coalesce(min(r.app_version),min(s.app_version))           as app_version
                     from adjust.tile_match_raw r, tile_match.session s
+                    where r.idfa_or_gps_adid = s.advertising_id
                     group by idfa_or_gps_adid) fmr
                    on sess.advertising_id = fmr.idfa_or_gps_adid;;
 
