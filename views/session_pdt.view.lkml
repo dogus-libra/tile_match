@@ -6,7 +6,7 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,COALESCE(fmr.country,sess.user_country_code) as country, fmr.app_version,
+    select sess.*,COALESCE(fmr.country,sess.user_country_code) as country, COALESCE(fmr.app_version,sess.app_version_s) as app_version,
        COALESCE((CASE
            WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
            WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
@@ -45,7 +45,7 @@ view: session_pdt {
                                           THEN fb_install_referrer_adgroup_name
                                       ELSE creative_name END), '(', 1) END)     as creative
 
-from (select *,
+    from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
              over (partition by advertising_id) as retention_1,
              max(case when datediff('hour', installed, session_start_time) between 36 and 60 then 1 else 0 end)
@@ -94,7 +94,8 @@ from (select *,
                    max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
                    max(user_total_payment)                as user_total_payment,
                    max(user_total_session_time)           as user_total_session_time,
-                   max(user_country_code)           as user_country_code
+                   max(user_country_code)                 as user_country_code,
+                   min(app_version)                       as app_version_s
 
 
         from tile_match.session
