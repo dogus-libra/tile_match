@@ -6,7 +6,7 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,COALESCE(country,sess.country_code) as country, app_version,
+    select sess.*,COALESCE(fmr.country,sess.country_code) as country, fmr.app_version,
        COALESCE((CASE
            WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
            WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
