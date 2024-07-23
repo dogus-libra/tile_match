@@ -44,7 +44,7 @@ view: raw_pdt {
                                                     THEN r.fb_install_referrer_adgroup_name
                                                 ELSE r.creative_name END), '(', 1) END))     as creative
 
-                from adjust.tile_match_raw r left outer join tile_match.session s
+                from adjust.tile_match_raw r right outer join tile_match.session s
                 on r.idfa_or_gps_adid=s.advertising_id
                 group by idfa_or_gps_adid ;;
 
