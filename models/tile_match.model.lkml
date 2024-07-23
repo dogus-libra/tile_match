@@ -33,9 +33,9 @@ explore: progression {
     sql_on: ${progression.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
     relationship: many_to_one
   }
-  join: users {
+  join: users_pdt {
     type: left_outer
-    sql_on: ${progression.advertising_id} = ${users.advertising_id} ;;
+    sql_on: ${progression.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
 }
@@ -46,7 +46,7 @@ explore: progression {
 
 explore: session {}
 
-explore: users {}
+explore: users_pdt {}
 
 explore: tile_match_raw {}
 

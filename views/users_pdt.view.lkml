@@ -1,7 +1,7 @@
 include: "/models/tile_match.model.lkml"
 
 
-view: users {
+view: users_pdt {
   derived_table: {
     distribution: "advertising_id"
     sql:
