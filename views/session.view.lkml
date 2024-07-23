@@ -186,7 +186,9 @@ view: session {
 
   dimension: user_split_test_name {
     type: string
-    sql: ${TABLE}.user_split_test_name ;;
+    sql: case when ${TABLE}.user_split_test_name = '2' then 'W/out Target'
+              when ${TABLE}.user_split_test_name = '6' then 'Target'
+              else ${TABLE}.user_split_test_name end;;
   }
 
   dimension: user_test_routing_value {
