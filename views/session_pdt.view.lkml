@@ -117,7 +117,7 @@ view: session_pdt {
         ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/2)  ;;
     sortkeys: ["advertising_id","country","session_start_time"]
   }
 
