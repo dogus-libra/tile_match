@@ -95,7 +95,7 @@ view: session_pdt {
                    max(user_total_payment)                as user_total_payment,
                    max(user_total_session_time)           as user_total_session_time,
                    max(user_country_code)                 as user_country_code,
-                   min(app_version)                       as app_version_s
+                   max(app_version)                       as app_version_s
 
 
         from tile_match.session
@@ -110,7 +110,7 @@ view: session_pdt {
                            max(creative_name)                           as creative_name,
                            max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
                            max(country)                                 as country,
-                           min(app_version)                             as app_version
+                           max(app_version)                             as app_version
                     from adjust.tile_match_raw
                     group by idfa_or_gps_adid) fmr
         on sess.advertising_id = fmr.idfa_or_gps_adid
