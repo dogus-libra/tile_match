@@ -6,7 +6,7 @@ view: raw_pdt {
   derived_table: {
     distribution: "idfa_or_gps_adid"
     sql: select idfa_or_gps_adid,
-                coalesce(max(r.country),max(s.user_country_code)) as country,
+                max(r.country) as country,
                 min(r.app_version) as app_version,
                 max(r.installed_at) as installed_at,
                 max(CASE
@@ -44,12 +44,11 @@ view: raw_pdt {
                                                     THEN r.fb_install_referrer_adgroup_name
                                                 ELSE r.creative_name END), '(', 1) END))     as creative
 
-                from adjust.tile_match_raw r, tile_match.session s
-                where r.idfa_or_gps_adid=s.advertising_id
+                from adjust.tile_match_raw r
                 group by idfa_or_gps_adid ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/2)  ;;
     sortkeys: ["idfa_or_gps_adid","country"]
   }
 
