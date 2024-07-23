@@ -6,45 +6,46 @@ view: raw_pdt {
   derived_table: {
     distribution: "idfa_or_gps_adid"
     sql: select idfa_or_gps_adid,
-                max(country) as country,
-                min(app_version) as app_version,
-                max(installed_at) as installed_at,
+                coalesce(max(r.country),max(s.user_country_code)) as country,
+                min(r.app_version) as app_version,
+                max(r.installed_at) as installed_at,
                 max(CASE
-                     WHEN network_name = 'Apple Search Ads' THEN 'apple'
-                     WHEN network_name = 'Google Ads ACI' THEN 'adwords'
-                     WHEN network_name = 'Google Organic Search' THEN 'google_organic_search'
-                     WHEN network_name = 'Vungle' THEN 'vungle'
-                     WHEN network_name = 'ironSrc' THEN 'ironsource'
-                     WHEN network_name = 'Organic' OR network_name is null THEN 'Organic'
-                     WHEN network_name = 'UnityAds' THEN 'unity_ads'
-                     WHEN (network_name = 'Unattributed' OR network_name = 'Facebook Installs' OR
-                           network_name = 'Off-Facebook Installs' OR
-                           network_name = 'Facebook Messenger Installs' OR
-                           network_name = 'Instagram Installs') THEN 'facebook' END)   as network,
+                     WHEN r.network_name = 'Apple Search Ads' THEN 'apple'
+                     WHEN r.network_name = 'Google Ads ACI' THEN 'adwords'
+                     WHEN r.network_name = 'Google Organic Search' THEN 'google_organic_search'
+                     WHEN r.network_name = 'Vungle' THEN 'vungle'
+                     WHEN r.network_name = 'ironSrc' THEN 'ironsource'
+                     WHEN r.network_name = 'Organic' OR network_name is null THEN 'Organic'
+                     WHEN r.network_name = 'UnityAds' THEN 'unity_ads'
+                     WHEN (r.network_name = 'Unattributed' OR network_name = 'Facebook Installs' OR
+                           r.network_name = 'Off-Facebook Installs' OR
+                           r.network_name = 'Facebook Messenger Installs' OR
+                           r.network_name = 'Instagram Installs') THEN 'facebook' END)   as network,
                  max(rtrim(CASE
-                           WHEN (network_name = 'Google Organic Search' OR
-                                 network_name = 'Organic' OR network_name is null) THEN NULL
+                           WHEN (r.network_name = 'Google Organic Search' OR
+                                 r.network_name = 'Organic' OR r.network_name is null) THEN NULL
                            ELSE SPLIT_PART((CASE
-                                                WHEN (campaign_name = '' OR campaign_name IS NULL)
-                                                    THEN fb_install_referrer_campaign_group_name
-                                                ELSE campaign_name END), '(', 1) END)) as campaign,
+                                                WHEN (r.campaign_name = '' OR r.campaign_name IS NULL)
+                                                    THEN r.fb_install_referrer_campaign_group_name
+                                                ELSE r.campaign_name END), '(', 1) END)) as campaign,
                  max(rtrim(CASE
-                           WHEN (network_name = 'Google Organic Search' OR
-                                 network_name = 'Organic' OR network_name is null) THEN NULL
-                           WHEN network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
+                           WHEN (r.network_name = 'Google Organic Search' OR
+                                 r.network_name = 'Organic' OR r.network_name is null) THEN NULL
+                           WHEN r.network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
                            ELSE SPLIT_PART((CASE
-                                                WHEN (adgroup_name = '' OR adgroup_name IS NULL)
-                                                    THEN fb_install_referrer_campaign_name
-                                                ELSE adgroup_name END), '(', 1) END))  as adgroup,
+                                                WHEN (r.adgroup_name = '' OR r.adgroup_name IS NULL)
+                                                    THEN r.fb_install_referrer_campaign_name
+                                                ELSE r.adgroup_name END), '(', 1) END))  as adgroup,
                  max(rtrim(CASE
-                           WHEN (network_name = 'Google Organic Search' OR
-                                 network_name = 'Organic' OR network_name is null) THEN NULL
+                           WHEN (r.network_name = 'Google Organic Search' OR
+                                 r.network_name = 'Organic' OR r.network_name is null) THEN NULL
                            ELSE SPLIT_PART((CASE
-                                                WHEN (creative_name = '' OR creative_name IS NULL)
-                                                    THEN fb_install_referrer_adgroup_name
-                                                ELSE creative_name END), '(', 1) END))     as creative
+                                                WHEN (r.creative_name = '' OR creative_name IS NULL)
+                                                    THEN r.fb_install_referrer_adgroup_name
+                                                ELSE r.creative_name END), '(', 1) END))     as creative
 
-                from adjust.tile_match_raw
+                from adjust.tile_match_raw r, tile_match.session s
+                where r.idfa_or_gps_adid=s.advertising_id
                 group by idfa_or_gps_adid ;;
 
     publish_as_db_view: yes
