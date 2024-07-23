@@ -46,6 +46,8 @@ explore: progression {
 
 explore: session {}
 
+explore: users {}
+
 explore: tile_match_raw {}
 
 explore: tile_match_cost {}
