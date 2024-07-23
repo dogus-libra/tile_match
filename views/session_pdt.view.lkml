@@ -6,8 +6,8 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,COALESCE(fmr.country,sess.user_country_code) as country, COALESCE(fmr.app_version,sess.app_version_s) as app_version,
-       COALESCE((CASE
+    select sess.*,country, app_version,
+       CASE
            WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
            WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
            WHEN fmr.network_name = 'Google Organic Search' THEN 'google_organic_search'
@@ -16,18 +16,16 @@ view: session_pdt {
            WHEN fmr.network_name = 'Organic' OR fmr.network_name is null THEN 'Organic'
            WHEN fmr.network_name = 'UnityAds' THEN 'unity_ads'
            WHEN (fmr.network_name = 'Unattributed' OR fmr.network_name = 'Facebook Installs' OR
-             fmr.network_name = 'Off-Facebook Installs' OR
-             fmr.network_name = 'Facebook Messenger Installs' OR
-             fmr.network_name = 'Instagram Installs') THEN 'facebook' END),(sess.user_network))   as network,
-
-       COALESCE(rtrim(CASE
+                 fmr.network_name = 'Off-Facebook Installs' OR
+                 fmr.network_name = 'Facebook Messenger Installs' OR
+                 fmr.network_name = 'Instagram Installs') THEN 'facebook' END   as network,
+       rtrim(CASE
                  WHEN (fmr.network_name = 'Google Organic Search' OR
                        fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
                  ELSE SPLIT_PART((CASE
                                       WHEN (fmr.campaign_name = '' OR fmr.campaign_name IS NULL)
                                           THEN fmr.fb_install_referrer_campaign_group_name
-                                      ELSE fmr.campaign_name END), '(', 1) END) ,sess.user_campaign) as campaign,
-
+                                      ELSE fmr.campaign_name END), '(', 1) END) as campaign,
        rtrim(CASE
                  WHEN (fmr.network_name = 'Google Organic Search' OR
                        fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
@@ -36,7 +34,6 @@ view: session_pdt {
                                       WHEN (fmr.adgroup_name = '' OR fmr.adgroup_name IS NULL)
                                           THEN fmr.fb_install_referrer_campaign_name
                                       ELSE fmr.adgroup_name END), '(', 1) END)  as adgroup,
-
        rtrim(CASE
                  WHEN (fmr.network_name = 'Google Organic Search' OR
                        fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
@@ -44,8 +41,7 @@ view: session_pdt {
                                       WHEN (creative_name = '' OR creative_name IS NULL)
                                           THEN fb_install_referrer_adgroup_name
                                       ELSE creative_name END), '(', 1) END)     as creative
-
-    from (select *,
+from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
              over (partition by advertising_id) as retention_1,
              max(case when datediff('hour', installed, session_start_time) between 36 and 60 then 1 else 0 end)
@@ -61,7 +57,7 @@ view: session_pdt {
              max(case when datediff('hour', installed, session_start_time) between 324 and 348 then 1 else 0 end)
              over (partition by advertising_id) as retention_14
 
-        from (select advertising_id,
+      from (select advertising_id,
                    session_id,
                    max(session_time)                      as session_time,
                    min(event_timestamp)                   as session_start_time,
@@ -93,15 +89,13 @@ view: session_pdt {
                    max(user_test_routing_value)           as user_test_routing_value,
                    max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
                    max(user_total_payment)                as user_total_payment,
-                   max(user_total_session_time)           as user_total_session_time,
-                   max(user_country_code)                 as user_country_code,
-                   max(app_version)                       as app_version_s
+                   max(user_total_session_time)           as user_total_session_time
 
 
-        from tile_match.session
-        where event_name = 'SessionActive'
-        group by session_id, advertising_id) sess_in) sess
-        left join (select idfa_or_gps_adid,
+            from tile_match.session
+            where event_name = 'SessionActive'
+            group by session_id, advertising_id) sess_in) sess
+         left join (select idfa_or_gps_adid,
                            max(network_name)                            as network_name,
                            max(campaign_name)                           as campaign_name,
                            max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
@@ -110,14 +104,13 @@ view: session_pdt {
                            max(creative_name)                           as creative_name,
                            max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
                            max(country)                                 as country,
-                           max(app_version)                             as app_version
+                           min(app_version)                             as app_version
                     from adjust.tile_match_raw
                     group by idfa_or_gps_adid) fmr
-        on sess.advertising_id = fmr.idfa_or_gps_adid
-        ;;
+                   on sess.advertising_id = fmr.idfa_or_gps_adid;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/2)  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
     sortkeys: ["advertising_id","country","session_start_time"]
   }
 

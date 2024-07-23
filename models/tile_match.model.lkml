@@ -33,6 +33,11 @@ explore: progression {
     sql_on: ${progression.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
     relationship: many_to_one
   }
+  join: session_pdt {
+    type: left_outer
+    sql_on: ${progression.advertising_id} = ${session_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
 }
 
 # To create more sophisticated Explores that involve multiple views, you can use the join parameter.
