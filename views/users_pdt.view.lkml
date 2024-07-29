@@ -37,25 +37,25 @@ view: users_pdt {
 
      ret_table as (select advertising_id as ret_advertising_id,
                           max(case
-                                  when sysdate - session.installed_at > 36
+                                  when datediff('hour',session.installed_at,  sysdate) > 36
                                       then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
                           max(case
-                                  when sysdate - session.installed_at > 60
+                                  when datediff('hour',session.installed_at,  sysdate) > 60
                                       then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
                           max(case
-                                  when sysdate - session.installed_at > 84
+                                  when datediff('hour',session.installed_at,  sysdate) > 84
                                       then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
                           max(case
-                                  when sysdate - session.installed_at > 108
+                                  when datediff('hour',session.installed_at,  sysdate) > 108
                                       then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
                           max(case
-                                  when sysdate - session.installed_at > 132
+                                  when datediff('hour',session.installed_at,  sysdate) > 132
                                       then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
                           max(case
-                                  when sysdate - session.installed_at > 180
+                                  when datediff('hour',session.installed_at,  sysdate) > 180
                                       then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
                           max(case
-                                  when sysdate - session.installed_at > 348
+                                  when datediff('hour',session.installed_at,  sysdate) > 348
                                       then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14
                    from tile_match.session
                    group by advertising_id),
