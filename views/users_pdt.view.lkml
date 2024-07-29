@@ -7,77 +7,77 @@ view: users_pdt {
     sql:
       with sess_user as (select advertising_id,
 
-                                min(build_no)                    as first_build_no,
-                                max(connection_type)             as connection_type,
-                                max(event_version)               as last_event_version,
-                                max(installed_at)                as installed,
-                                max(ip_address)                  as ip_address,
-                                max(user_adgroup)                as user_adgroup,
-                                max(user_campaign)               as user_campaign,
-                                max(user_creative)               as user_creative,
-                                max(user_device)                 as user_device,
-                                max(user_level_at)               as user_level_at,
-                                max(user_level_id)               as user_level_id,
-                                max(user_manufacturer)           as user_manufacturer,
-                                max(user_network)                as user_network,
-                                bool_or(user_notification_state) as user_notification_state,
-                                max(user_os_version)             as user_os_version,
-                                max(user_platform)               as user_platform,
-                                max(user_session_count)          as user_session_count,
-                                max(user_split_test_name)        as user_split_test_name,
-                                max(user_test_routing_value)     as user_test_routing_value,
-                                max(user_total_payment)          as user_total_payment,
-                                max(user_total_session_time)     as user_total_session_time,
-                                max(user_country_code)           as user_country_code,
-                                max(app_version)                 as last_app_version,
-                                min(app_version)                 as first_app_version
-                         from tile_match.session
-                         where event_name = 'SessionActive'
-                         group by advertising_id),
+                          min(build_no)                    as first_build_no,
+                          max(connection_type)             as connection_type,
+                          max(event_version)               as last_event_version,
+                          max(installed_at)                as installed,
+                          max(ip_address)                  as ip_address,
+                          max(user_adgroup)                as user_adgroup,
+                          max(user_campaign)               as user_campaign,
+                          max(user_creative)               as user_creative,
+                          max(user_device)                 as user_device,
+                          max(user_level_at)               as user_level_at,
+                          max(user_level_id)               as user_level_id,
+                          max(user_manufacturer)           as user_manufacturer,
+                          max(user_network)                as user_network,
+                          bool_or(user_notification_state) as user_notification_state,
+                          max(user_os_version)             as user_os_version,
+                          max(user_platform)               as user_platform,
+                          max(user_session_count)          as user_session_count,
+                          max(user_split_test_name)        as user_split_test_name,
+                          max(user_test_routing_value)     as user_test_routing_value,
+                          max(user_total_payment)          as user_total_payment,
+                          max(user_total_session_time)     as user_total_session_time,
+                          max(user_country_code)           as user_country_code,
+                          max(app_version)                 as last_app_version,
+                          min(app_version)                 as first_app_version
+                   from tile_match.session
+                   where event_name = 'SessionActive'
+                   group by advertising_id),
 
-           ret_table as (select advertising_id as ret_advertising_id,
-                                max(case
-                                        when sysdate - session.installed_at > 36
-                                            then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
-                                max(case
-                                        when sysdate - session.installed_at > 60
-                                            then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
-                                max(case
-                                        when sysdate - session.installed_at > 84
-                                            then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
-                                max(case
-                                        when sysdate - session.installed_at > 108
-                                            then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
-                                max(case
-                                        when sysdate - session.installed_at > 132
-                                            then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
-                                max(case
-                                        when sysdate - session.installed_at > 180
-                                            then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
-                                max(case
-                                        when sysdate - session.installed_at > 348
-                                            then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14
-                         from tile_match.session
-                         group by advertising_id),
+     ret_table as (select advertising_id as ret_advertising_id,
+                          max(case
+                                  when sysdate - session.installed_at > 36
+                                      then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
+                          max(case
+                                  when sysdate - session.installed_at > 60
+                                      then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
+                          max(case
+                                  when sysdate - session.installed_at > 84
+                                      then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
+                          max(case
+                                  when sysdate - session.installed_at > 108
+                                      then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
+                          max(case
+                                  when sysdate - session.installed_at > 132
+                                      then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
+                          max(case
+                                  when sysdate - session.installed_at > 180
+                                      then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
+                          max(case
+                                  when sysdate - session.installed_at > 348
+                                      then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14
+                   from tile_match.session
+                   group by advertising_id),
 
-           adj_usr as (select idfa_or_gps_adid,
-                              max(network_name)                            as network_name,
-                              max(campaign_name)                           as campaign_name,
-                              max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
-                              max(adgroup_name)                            as adgroup_name,
-                              max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
-                              max(creative_name)                           as creative_name,
-                              max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
-                              max(country)                                 as country,
-                              max(app_version)                             as f_app_version,
-                              max(app_version)                             as l_app_version
-                       from adjust.tile_match_raw
-                       group by idfa_or_gps_adid),
+     adj_usr as (select idfa_or_gps_adid,
+                        max(network_name)                            as network_name,
+                        max(campaign_name)                           as campaign_name,
+                        max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
+                        max(adgroup_name)                            as adgroup_name,
+                        max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
+                        max(creative_name)                           as creative_name,
+                        max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
+                        max(country)                                 as country,
+                        max(app_version)                             as f_app_version,
+                        max(app_version)                             as l_app_version
+                 from adjust.tile_match_raw
+                 group by idfa_or_gps_adid),
 
-           joined_table as (select *
-                            from sess_user
-                                     left join ret_table on sess_user.advertising_id = ret_table.ret_advertising_id
-                                     left join adj_usr on sess_user.advertising_id = idfa_or_gps_adid)
+     joined_table as (select *
+                      from sess_user
+                               left join ret_table on sess_user.advertising_id = ret_table.ret_advertising_id
+                               left join adj_usr on sess_user.advertising_id = idfa_or_gps_adid)
 
       select advertising_id,
              first_build_no,
