@@ -29,8 +29,8 @@ view: users_pdt {
                           max(user_total_payment)          as user_total_payment,
                           max(user_total_session_time)     as user_total_session_time,
                           max(user_country_code)           as user_country_code,
-                          max(app_version)                 as last_app_version,
-                          min(app_version)                 as first_app_version
+                          max(app_version)                 as lst_app_version,
+                          min(app_version)                 as fst_app_version
                    from tile_match.session
                    where event_name = 'SessionActive'
                    group by advertising_id),
@@ -69,7 +69,7 @@ view: users_pdt {
                         max(creative_name)                           as creative_name,
                         max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
                         max(country)                                 as country,
-                        max(app_version)                             as f_app_version,
+                        min(app_version)                             as f_app_version,
                         max(app_version)                             as l_app_version
                  from adjust.tile_match_raw
                  group by idfa_or_gps_adid),
@@ -102,8 +102,6 @@ view: users_pdt {
              user_total_payment,
              user_total_session_time,
              user_country_code,
-             last_app_version,
-             first_app_version,
              retention_1,
              retention_2,
              retention_3,
@@ -120,7 +118,8 @@ view: users_pdt {
              creative_name,
              fb_install_referrer_adgroup_name,
              COALESCE(country, user_country_code) as country,
-             COALESCE(f_app_version, first_app_version) as first_app_version,
+             COALESCE(f_app_version, fst_app_version) as first_app_version,
+             COALESCE(l_app_version, lst_app_version) as last_app_version,
              COALESCE((CASE
                  WHEN network_name = 'Apple Search Ads' THEN 'apple'
                  WHEN network_name = 'Google Ads ACI' THEN 'adwords'
