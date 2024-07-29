@@ -173,7 +173,7 @@ view: users_pdt {
 
   dimension: app_version {
     type: string
-    sql: ${TABLE}.l_app_version ;;
+    sql: ${TABLE}.last_app_version ;;
   }
 
   dimension_group: arrival_ts {
