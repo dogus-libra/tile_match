@@ -59,3 +59,5 @@ explore: engagement_pdt {}
 explore: raw_pdt {}
 
 explore: stdev {}
+
+explore: monitoring {}
