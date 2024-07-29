@@ -5,113 +5,160 @@ view: users_pdt {
   derived_table: {
     distribution: "advertising_id"
     sql:
+      with sess_user as (select advertising_id,
 
-    select sess.*,COALESCE(fmr.country,sess.user_country_code) as country, COALESCE(fmr.app_version,sess.app_version_s) as app_version,
-       COALESCE((CASE
-           WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
-           WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
-           WHEN fmr.network_name = 'Google Organic Search' THEN 'google_organic_search'
-           WHEN fmr.network_name = 'Vungle' THEN 'vungle'
-           WHEN fmr.network_name = 'ironSrc' THEN 'ironsource'
-           WHEN fmr.network_name = 'Organic' OR fmr.network_name is null THEN 'Organic'
-           WHEN fmr.network_name = 'UnityAds' THEN 'unity_ads'
-           WHEN (fmr.network_name = 'Unattributed' OR fmr.network_name = 'Facebook Installs' OR
-             fmr.network_name = 'Off-Facebook Installs' OR
-             fmr.network_name = 'Facebook Messenger Installs' OR
-             fmr.network_name = 'Instagram Installs') THEN 'facebook' END),(sess.user_network))   as network,
+                                min(build_no)                    as first_build_no,
+                                max(connection_type)             as connection_type,
+                                max(event_version)               as last_event_version,
+                                max(installed_at)                as installed,
+                                max(ip_address)                  as ip_address,
+                                max(user_adgroup)                as user_adgroup,
+                                max(user_campaign)               as user_campaign,
+                                max(user_creative)               as user_creative,
+                                max(user_device)                 as user_device,
+                                max(user_level_at)               as user_level_at,
+                                max(user_level_id)               as user_level_id,
+                                max(user_manufacturer)           as user_manufacturer,
+                                max(user_network)                as user_network,
+                                bool_or(user_notification_state) as user_notification_state,
+                                max(user_os_version)             as user_os_version,
+                                max(user_platform)               as user_platform,
+                                max(user_session_count)          as user_session_count,
+                                max(user_split_test_name)        as user_split_test_name,
+                                max(user_test_routing_value)     as user_test_routing_value,
+                                max(user_total_payment)          as user_total_payment,
+                                max(user_total_session_time)     as user_total_session_time,
+                                max(user_country_code)           as user_country_code,
+                                max(app_version)                 as last_app_version,
+                                min(app_version)                 as first_app_version
+                         from tile_match.session
+                         where event_name = 'SessionActive'
+                         group by advertising_id),
 
-      COALESCE(rtrim(CASE
-      WHEN (fmr.network_name = 'Google Organic Search' OR
-      fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-      ELSE SPLIT_PART((CASE
-      WHEN (fmr.campaign_name = '' OR fmr.campaign_name IS NULL)
-      THEN fmr.fb_install_referrer_campaign_group_name
-      ELSE fmr.campaign_name END), '(', 1) END) ,sess.user_campaign) as campaign,
+           ret_table as (select advertising_id as ret_advertising_id,
+                                max(case
+                                        when sysdate - session.installed_at > 36
+                                            then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
+                                max(case
+                                        when sysdate - session.installed_at > 60
+                                            then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
+                                max(case
+                                        when sysdate - session.installed_at > 84
+                                            then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
+                                max(case
+                                        when sysdate - session.installed_at > 108
+                                            then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
+                                max(case
+                                        when sysdate - session.installed_at > 132
+                                            then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
+                                max(case
+                                        when sysdate - session.installed_at > 180
+                                            then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
+                                max(case
+                                        when sysdate - session.installed_at > 348
+                                            then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14
+                         from tile_match.session
+                         group by advertising_id),
 
-      rtrim(CASE
-      WHEN (fmr.network_name = 'Google Organic Search' OR
-      fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-      WHEN fmr.network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
-      ELSE SPLIT_PART((CASE
-      WHEN (fmr.adgroup_name = '' OR fmr.adgroup_name IS NULL)
-      THEN fmr.fb_install_referrer_campaign_name
-      ELSE fmr.adgroup_name END), '(', 1) END)  as adgroup,
+           adj_usr as (select idfa_or_gps_adid,
+                              max(network_name)                            as network_name,
+                              max(campaign_name)                           as campaign_name,
+                              max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
+                              max(adgroup_name)                            as adgroup_name,
+                              max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
+                              max(creative_name)                           as creative_name,
+                              max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
+                              max(country)                                 as country,
+                              max(app_version)                             as f_app_version,
+                              max(app_version)                             as l_app_version
+                       from adjust.tile_match_raw
+                       group by idfa_or_gps_adid),
 
-      rtrim(CASE
-      WHEN (fmr.network_name = 'Google Organic Search' OR
-      fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-      ELSE SPLIT_PART((CASE
-      WHEN (creative_name = '' OR creative_name IS NULL)
-      THEN fb_install_referrer_adgroup_name
-      ELSE creative_name END), '(', 1) END)     as creative
+           joined_table as (select *
+                            from sess_user
+                                     left join ret_table on sess_user.advertising_id = ret_table.ret_advertising_id
+                                     left join adj_usr on sess_user.advertising_id = idfa_or_gps_adid)
 
-      from (select *,
-      max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
-      over (partition by advertising_id) as retention_1,
-      max(case when datediff('hour', installed, session_start_time) between 36 and 60 then 1 else 0 end)
-      over (partition by advertising_id) as retention_2,
-      max(case when datediff('hour', installed, session_start_time) between 60 and 84 then 1 else 0 end)
-      over (partition by advertising_id) as retention_3,
-      max(case when datediff('hour', installed, session_start_time) between 84 and 108 then 1 else 0 end)
-      over (partition by advertising_id) as retention_4,
-      max(case when datediff('hour', installed, session_start_time) between 108 and 132 then 1 else 0 end)
-      over (partition by advertising_id) as retention_5,
-      max(case when datediff('hour', installed, session_start_time) between 156 and 180 then 1 else 0 end)
-      over (partition by advertising_id) as retention_7,
-      max(case when datediff('hour', installed, session_start_time) between 324 and 348 then 1 else 0 end)
-      over (partition by advertising_id) as retention_14
+      select advertising_id,
+             first_build_no,
+             connection_type,
+             last_event_version,
+             installed,
+             ip_address,
+             user_adgroup,
+             user_campaign,
+             user_creative,
+             user_device,
+             user_level_at,
+             user_level_id,
+             user_manufacturer,
+             user_network,
+             user_notification_state,
+             user_os_version,
+             user_platform,
+             user_session_count,
+             user_split_test_name,
+             user_test_routing_value,
+             user_total_payment,
+             user_total_session_time,
+             user_country_code,
+             last_app_version,
+             first_app_version,
+             retention_1,
+             retention_2,
+             retention_3,
+             retention_4,
+             retention_5,
+             retention_7,
+             retention_14,
+             idfa_or_gps_adid,
+             network_name,
+             campaign_name,
+             fb_install_referrer_campaign_group_name,
+             adgroup_name,
+             fb_install_referrer_campaign_name,
+             creative_name,
+             fb_install_referrer_adgroup_name,
+             COALESCE(country, user_country_code) as country,
+             COALESCE(f_app_version, first_app_version) as first_app_version,
+             COALESCE((CASE
+                 WHEN network_name = 'Apple Search Ads' THEN 'apple'
+                 WHEN network_name = 'Google Ads ACI' THEN 'adwords'
+                 WHEN network_name = 'Google Organic Search' THEN 'google_organic_search'
+                 WHEN network_name = 'Vungle' THEN 'vungle'
+                 WHEN network_name = 'ironSrc' THEN 'ironsource'
+                 WHEN network_name = 'Organic' OR network_name is null THEN 'Organic'
+                 WHEN network_name = 'UnityAds' THEN 'unity_ads'
+                 WHEN (network_name = 'Unattributed' OR network_name = 'Facebook Installs' OR
+                   network_name = 'Off-Facebook Installs' OR
+                   network_name = 'Facebook Messenger Installs' OR
+                   network_name = 'Instagram Installs') THEN 'facebook' END),(user_network))   as network,
 
-      from (select advertising_id,
-                  max(session_time)                      as session_time,
-                  min(event_timestamp)                   as session_start_time,
-                  min(arrival_ts)                        as arrival_ts,
-                  max(build_no)                          as build_no,
-                  max(connection_type)                   as connection_type,
-                  max(event_id)                          as event_id,
-                  max(event_name)                        as event_name,
-                  max(event_type)                        as event_type,
-                  max(event_version)                     as event_version,
-                  max(installed_at)                      as installed,
-                  max(inventory_coin)                    as inventory_coin,
-                  max(inventory_life)                    as inventory_life,
-                  max(ip_address)                        as ip_address,
-                  max(user_adgroup)                      as user_adgroup,
-                  max(user_campaign)                     as user_campaign,
-                  max(user_creative)                     as user_creative,
-                  max(user_current_fps)                  as user_current_fps,
-                  max(user_device)                       as user_device,
-                  max(user_level_at)                     as user_level_at,
-                  max(user_level_id)                     as user_level_id,
-                  max(user_manufacturer)                 as user_manufacturer,
-                  max(user_network)                      as user_network,
-                  bool_or(user_notification_state)       as user_notification_state,
-                  max(user_os_version)                   as user_os_version,
-                  max(user_platform)                     as user_platform,
-                  max(user_session_count)                as user_session_count,
-                  max(user_split_test_name)              as user_split_test_name,
-                  max(user_test_routing_value)           as user_test_routing_value,
-                  max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
-                  max(user_total_payment)                as user_total_payment,
-                  max(user_total_session_time)           as user_total_session_time,
-                  max(user_country_code)                 as user_country_code,
-                  max(app_version)                       as app_version_s
+            COALESCE(rtrim(CASE
+            WHEN (network_name = 'Google Organic Search' OR
+            network_name = 'Organic' OR network_name is null) THEN NULL
+            ELSE SPLIT_PART((CASE
+            WHEN (campaign_name = '' OR campaign_name IS NULL)
+            THEN fb_install_referrer_campaign_group_name
+            ELSE campaign_name END), '(', 1) END) ,user_campaign) as campaign,
 
-      from tile_match.session
-      where event_name = 'SessionActive'
-      group by advertising_id) sess_in) sess
-      left join (select idfa_or_gps_adid,
-      max(network_name)                            as network_name,
-      max(campaign_name)                           as campaign_name,
-      max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
-      max(adgroup_name)                            as adgroup_name,
-      max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
-      max(creative_name)                           as creative_name,
-      max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
-      max(country)                                 as country,
-      max(app_version)                             as app_version
-      from adjust.tile_match_raw
-      group by idfa_or_gps_adid) fmr
-      on sess.advertising_id = fmr.idfa_or_gps_adid
+            rtrim(CASE
+            WHEN (network_name = 'Google Organic Search' OR
+            network_name = 'Organic' OR network_name is null) THEN NULL
+            WHEN network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
+            ELSE SPLIT_PART((CASE
+            WHEN (adgroup_name = '' OR adgroup_name IS NULL)
+            THEN fb_install_referrer_campaign_name
+            ELSE adgroup_name END), '(', 1) END)  as adgroup,
+
+            rtrim(CASE
+            WHEN (network_name = 'Google Organic Search' OR
+            network_name = 'Organic' OR network_name is null) THEN NULL
+            ELSE SPLIT_PART((CASE
+            WHEN (creative_name = '' OR creative_name IS NULL)
+            THEN fb_install_referrer_adgroup_name
+            ELSE creative_name END), '(', 1) END)     as creative
+      from joined_table
       ;;
 
     publish_as_db_view: yes
@@ -126,7 +173,7 @@ view: users_pdt {
 
   dimension: app_version {
     type: string
-    sql: ${TABLE}.app_version ;;
+    sql: ${TABLE}.l_app_version ;;
   }
 
   dimension_group: arrival_ts {
