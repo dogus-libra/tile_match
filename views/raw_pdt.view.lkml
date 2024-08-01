@@ -88,6 +88,10 @@ view: raw_pdt {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: pivot_app_version_list {
+    type: string
+    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'Level Reach' {% endif %};;
+  }
 
   dimension: network {
     type: string
