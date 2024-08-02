@@ -10,6 +10,8 @@ view: max_attempt_ndt {
       column: event_timestamp_week {}
       column: installed_date {}
       column: max_att {}
+      column: user_split_test_name {}
+      column: user_balance_version {}
 
     }
     publish_as_db_view: yes
@@ -44,6 +46,14 @@ view: max_attempt_ndt {
   dimension: install_day_of_user {
     type: number
     sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_date,${TABLE}.event_timestamp_date)/24) ;;
+  }
+
+  dimension: user_split_test_name {
+    description: ""
+  }
+
+  dimension: user_balance_version {
+    description: ""
   }
 
   dimension: max_att {
