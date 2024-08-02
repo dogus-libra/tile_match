@@ -61,3 +61,11 @@ explore: raw_pdt {}
 explore: stdev {}
 
 explore: monitoring {}
+
+explore: max_attempt_ndt {
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${max_attempt_ndt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+}
