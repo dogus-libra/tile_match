@@ -225,7 +225,12 @@ view: tile_match_cost {
 
   dimension: pivot_campaign_list {
     type: string
-    sql: {% if ${campaign}._is_filtered %} ${campaign} {% else %} 'USD' {% endif %};;
+    sql: {% if ${campaign_network}._is_filtered %} ${campaign_network} {% else %} '???' {% endif %};;
+  }
+
+  dimension: pivot_creative_list {
+    type: string
+    sql: {% if ${ad_network}._is_filtered %} ${ad_network} {% else %} '???' {% endif %};;
   }
 
   measure: count {

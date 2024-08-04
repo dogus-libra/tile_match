@@ -377,6 +377,12 @@ view: progression {
     value_format: "##.00"
   }
 
+  measure: max_att {
+    type: max
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##.00"
+  }
+
   measure: count {
     type: count
     drill_fields: [user_split_test_name, event_name, session.user_split_test_name, session.session_id, session.event_name]
