@@ -90,7 +90,7 @@ view: raw_pdt {
 
   dimension: pivot_app_version_list {
     type: string
-    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'Level Reach' {% endif %};;
+    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'App Version' {% endif %};;
   }
 
   dimension: network {

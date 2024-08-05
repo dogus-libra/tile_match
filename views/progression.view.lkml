@@ -276,7 +276,7 @@ view: progression {
 
   dimension: pivot_balance_version_list {
     type: string
-    sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'goodwill' {% endif %};;
+    sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'Balance Version' {% endif %};;
   }
 
   dimension: user_campaign {

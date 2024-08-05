@@ -128,6 +128,21 @@ view: monitoring {
     sql: ${TABLE}.step ;;
   }
 
+  dimension: step_name {
+    type: string
+    sql: ${TABLE}.step_name ;;
+  }
+
+  dimension: step_index {
+    type: string
+    sql: ${TABLE}.step_index ;;
+  }
+
+  dimension: tutorial_name {
+    type: string
+    sql: ${TABLE}.tutorial_name ;;
+  }
+
   dimension: user_adgroup {
     type: string
     sql: ${TABLE}.user_adgroup ;;
