@@ -1,5 +1,5 @@
 # Define the database connection to be used for this model.
-connection: "libraredshiftprod"
+connection: "proudestprod"
 
 # include all the views
 include: "/views/**/*.view.lkml"
