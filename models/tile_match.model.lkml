@@ -46,6 +46,10 @@ explore: progression {
 
 explore: session {}
 
+explore: business {}
+
+explore: live_ops {}
+
 explore: users_pdt {}
 
 explore: tile_match_raw {}
