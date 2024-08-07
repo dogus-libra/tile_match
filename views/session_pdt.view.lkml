@@ -313,21 +313,21 @@ view: session_pdt {
     sql: ${TABLE}.user_split_test_name ;;
   }
 
-  dimension: target_test_name {
+  dimension: user_split_test_name_target {
     type: string
     sql:  case when ${TABLE}.user_split_test_name = '2' then 'W/out Target'
                when ${TABLE}.user_split_test_name = '6' then 'Target'
           end ;;
   }
 
-  dimension: tutorial_test_name {
+  dimension: user_split_test_name_tutorial {
     type: string
     sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' then 'MetaTutorialActive'
                when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'MetaTutorialPasssive'
           end ;;
   }
 
-  dimension: balance_test_name {
+  dimension: user_split_test_name_balance {
     type: string
     sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' then 'BalancedLevels'
                when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'OldLevels'
