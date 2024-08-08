@@ -64,6 +64,11 @@ view: engagement_pdt {
     sql: ${TABLE}.app_version ;;
   }
 
+  dimension: pivot_app_version_list {
+    type: string
+    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'App Version' {% endif %};;
+  }
+
   dimension_group: arrival_ts {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
