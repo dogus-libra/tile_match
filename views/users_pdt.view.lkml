@@ -161,7 +161,7 @@ view: users_pdt {
       ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT DATE_PART('hour', SYSDATE)  ;;
+    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
     sortkeys: ["advertising_id","country"]
   }
 

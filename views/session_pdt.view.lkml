@@ -116,7 +116,7 @@ view: session_pdt {
           on sess.advertising_id = fmr.idfa_or_gps_adid;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
+    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
     sortkeys: ["advertising_id","country","session_start_time"]
   }
 

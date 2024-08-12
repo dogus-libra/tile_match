@@ -15,7 +15,7 @@ view: max_attempt_ndt {
 
     }
     publish_as_db_view: yes
-    sql_trigger_value: select DATE_TRUNC('day',getdate())  ;;
+    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
     sortkeys: ["user_level_at","installed_date","event_timestamp_date","event_timestamp_week"]
   }
 
