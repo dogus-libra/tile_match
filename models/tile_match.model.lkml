@@ -66,6 +66,11 @@ explore: live_ops {
     sql_on: ${live_ops.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${live_ops.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: users_pdt {}
