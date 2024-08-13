@@ -243,6 +243,20 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_elements {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' then 'DefaultElements'
+               when ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedElements'
+          end ;;
+  }
+
+  dimension: user_split_test_name_simplifiedTutorials {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' then 'PassiveTutorials'
+               when ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedTutorials'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
