@@ -49,7 +49,7 @@ view: engagement_pdt {
                 group by advertising_id, client ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
+    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
     sortkeys: ["advertising_id","country","client"]
     }
 
