@@ -11,16 +11,6 @@ view: live_ops {
     # A dimension is a groupable field that can be used to filter query results.
     # This dimension will be called "Active Item Count" in Explore.
 
-  dimension: active_item_count {
-    type: string
-    sql: ${TABLE}.active_item_count ;;
-  }
-
-  dimension: active_item_count_int {
-    type: number
-    sql: ${TABLE}.active_item_count_int ;;
-  }
-
   dimension: advertising_id {
     type: string
     sql: ${TABLE}.advertising_id ;;
@@ -44,19 +34,9 @@ view: live_ops {
     sql: ${TABLE}.build_no ;;
   }
 
-  dimension: building_item_count {
-    type: number
-    sql: ${TABLE}.building_item_count ;;
-  }
-
   dimension: connection_type {
     type: number
     sql: ${TABLE}.connection_type ;;
-  }
-
-  dimension: environment_id {
-    type: string
-    sql: ${TABLE}.environment_id ;;
   }
 
   dimension: event_id {
@@ -169,6 +149,26 @@ view: live_ops {
   dimension: ip_address {
     type: string
     sql: ${TABLE}.ip_address ;;
+  }
+
+  dimension: meta_active_item_count {
+    type: string
+    sql: ${TABLE}.active_item_count ;;
+  }
+
+  dimension: meta_active_item_count_int {
+    type: number
+    sql: ${TABLE}.active_item_count_int ;;
+  }
+
+  dimension: meta_building_item_count {
+    type: number
+    sql: ${TABLE}.building_item_count ;;
+  }
+
+  dimension: meta_environment_id {
+    type: string
+    sql: ${TABLE}.environment_id ;;
   }
 
   dimension_group: request {

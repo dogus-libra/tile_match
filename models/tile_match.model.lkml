@@ -44,11 +44,29 @@ explore: progression {
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: session {}
+explore: session {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${session.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
-explore: business {}
+explore: business {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${business.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
-explore: live_ops {}
+explore: live_ops {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${live_ops.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: users_pdt {}
 
@@ -59,6 +77,19 @@ explore: tile_match_cost {}
 explore: session_pdt {}
 
 explore: engagement_pdt {}
+
+explore: progression_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${progression_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${progression_pdt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: raw_pdt {}
 
