@@ -39,6 +39,11 @@ view: live_ops {
     sql: ${TABLE}.connection_type ;;
   }
 
+  dimension: duration {
+    type: number
+    sql: ${TABLE}.duration ;;
+  }
+
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
@@ -169,6 +174,16 @@ view: live_ops {
   dimension: meta_environment_id {
     type: string
     sql: ${TABLE}.environment_id ;;
+  }
+
+  dimension: meta_item_id {
+    type: string
+    sql: ${TABLE}.item_id ;;
+  }
+
+  dimension: meta_tap_count {
+    type: number
+    sql: ${TABLE}.tap_count ;;
   }
 
   dimension_group: request {
