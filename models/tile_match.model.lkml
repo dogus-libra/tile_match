@@ -100,7 +100,13 @@ explore: raw_pdt {}
 
 explore: stdev {}
 
-explore: monitoring {}
+explore: monitoring {
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${monitoring.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: max_attempt_ndt {
   join: raw_pdt {
