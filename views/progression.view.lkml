@@ -272,9 +272,9 @@ view: progression {
   dimension: time_begin_streak {
     type: number
     sql:  case when ${user_win_streak_group} = 2 then ${time_begin} + 15
-               when ${user_win_streak_group} = 3 then ${time_begin} + 30
-               when ${user_win_streak_group} = 4 then ${time_begin} + 45
-               when ${user_win_streak_group} = 5 then ${time_begin} + 60
+               when ${user_win_streak_group} = 3 then ${time_begin} + 15
+               when ${user_win_streak_group} = 4 then ${time_begin} + 30
+               when ${user_win_streak_group} = 5 then ${time_begin} + 30
                else ${time_begin} end ;;
   }
 
@@ -476,6 +476,13 @@ view: progression {
   measure: level_play_time_per95 {
     type: percentile
     percentile: 95
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per99 {
+    type: percentile
+    percentile: 99
     sql: ${level_play_time} ;;
     value_format: "##.00"
   }
