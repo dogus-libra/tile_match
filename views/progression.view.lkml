@@ -39,6 +39,11 @@ view: progression {
     sql: ${TABLE}.connection_type ;;
   }
 
+  dimension: end_game_offer {
+    type: string
+    sql: ${TABLE}.end_game_offer ;;
+  }
+
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
@@ -259,6 +264,20 @@ view: progression {
     sql: ${TABLE}.time_remain ;;
   }
 
+  dimension: level_play_time {
+    type: number
+    sql:  ${time_begin_streak} - ${TABLE}.time_remain;;
+  }
+
+  dimension: time_begin_streak {
+    type: number
+    sql:  case when ${user_win_streak_group} = 2 then ${time_begin} + 15
+               when ${user_win_streak_group} = 3 then ${time_begin} + 30
+               when ${user_win_streak_group} = 4 then ${time_begin} + 45
+               when ${user_win_streak_group} = 5 then ${time_begin} + 60
+               else ${time_begin} end ;;
+  }
+
   dimension: total_attempt_at_current_level {
     type: string
     sql: ${TABLE}.total_attempt_at_current_level ;;
@@ -404,6 +423,16 @@ view: progression {
     sql: ${TABLE}.user_total_session_time ;;
   }
 
+  dimension: user_win_streak_count {
+    type: number
+    sql: ${TABLE}.user_win_streak_count ;;
+  }
+
+  dimension: user_win_streak_group {
+    type: number
+    sql: ${TABLE}.user_win_streak_group ;;
+  }
+
   measure: stdev_time_remain {
     type: number
     sql: stddev(case when ${time_remain}>0 and ${time_remain}<600 then ${time_remain} end ) ;;
@@ -413,6 +442,47 @@ view: progression {
   measure: max_att {
     type: max
     sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per25 {
+    type: percentile
+    percentile: 25
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per75 {
+    type: percentile
+    percentile: 75
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_per95 {
+    type: percentile
+    percentile: 95
+    sql: ${level_play_time} ;;
+    value_format: "##.00"
+  }
+
+  measure: level_play_time_avg {
+    type: average
+    sql: ${level_play_time} ;;
     value_format: "##.00"
   }
 
