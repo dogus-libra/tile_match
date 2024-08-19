@@ -628,6 +628,55 @@ view: business {
     sql: ${TABLE}.user_split_test_name ;;
   }
 
+  dimension: user_split_test_name_target {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '2' then 'W/out Target'
+               when ${TABLE}.user_split_test_name = '6' then 'Target'
+          end ;;
+  }
+
+  dimension: user_split_test_name_tutorial {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' then 'MetaTutorialActive'
+               when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'MetaTutorialPasssive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_balance {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' then 'BalancedLevels'
+               when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'OldLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_elements {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' then 'DefaultElements'
+               when ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedElements'
+          end ;;
+  }
+
+  dimension: user_split_test_name_simplifiedTutorials {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' then 'PassiveTutorials'
+               when ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedTutorials'
+          end ;;
+  }
+
+  dimension: user_split_test_name_challengeLevel {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' then 'ChallengeLevels'
+               when ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'NormalLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_collectAndWin {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' then 'CollectAndWinActive'
+               when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'CollectAndWinPassive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;

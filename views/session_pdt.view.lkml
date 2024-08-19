@@ -353,6 +353,20 @@ view: session_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_challengeLevel {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' then 'ChallengeLevels'
+               when ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'NormalLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_collectAndWin {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' then 'CollectAndWinActive'
+               when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'CollectAndWinPassive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;

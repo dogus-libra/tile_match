@@ -29,6 +29,11 @@ view: progression {
     sql: ${TABLE}.arrival_ts ;;
   }
 
+  dimension: boosters {
+    type: string
+    sql: ${TABLE}.boosters ;;
+  }
+
   dimension: build_no {
     type: number
     sql: ${TABLE}.build_no ;;
@@ -94,6 +99,11 @@ view: progression {
   dimension: move_count {
     type: number
     sql: ${TABLE}.move_count ;;
+  }
+
+  dimension: obstacles {
+    type: string
+    sql: ${TABLE}.obstacles ;;
   }
 
   dimension: previous_event_id {
@@ -278,6 +288,21 @@ view: progression {
                else ${time_begin} end ;;
   }
 
+  dimension: tiles_on_board {
+    type: string
+    sql: ${TABLE}.tiles_on_board ;;
+  }
+
+  dimension: remain_tile_count {
+    type: string
+    sql: ${TABLE}.remain_tile_count ;;
+  }
+
+  dimension: total_tile_count {
+    type: string
+    sql: ${TABLE}.total_tile_count ;;
+  }
+
   dimension: total_attempt_at_current_level {
     type: string
     sql: ${TABLE}.total_attempt_at_current_level ;;
@@ -400,6 +425,20 @@ view: progression {
     type: string
     sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' then 'PassiveTutorials'
                when ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedTutorials'
+          end ;;
+  }
+
+  dimension: user_split_test_name_challengeLevel {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' then 'ChallengeLevels'
+               when ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'NormalLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_collectAndWin {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' then 'CollectAndWinActive'
+               when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'CollectAndWinPassive'
           end ;;
   }
 
