@@ -468,8 +468,13 @@ view: progression {
   }
 
   dimension: user_win_streak_group {
-    type: number
-    sql: ${TABLE}.user_win_streak_group ;;
+    type: string
+    sql: case when ${TABLE}.user_win_streak_group is null then 'Default'
+              when ${TABLE}.user_win_streak_group = 1 then 'Streak1'
+              when ${TABLE}.user_win_streak_group = 2 then 'Streak2'
+              when ${TABLE}.user_win_streak_group = 3 then 'Streak3'
+              when ${TABLE}.user_win_streak_group = 4 then 'Streak4'
+              when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
   }
 
   measure: stdev_time_remain {

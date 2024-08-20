@@ -12,6 +12,7 @@ view: max_attempt_ndt {
       column: max_att {}
       column: user_split_test_name {}
       column: user_balance_version {}
+      column: user_win_streak_group {}
 
     }
     publish_as_db_view: yes
@@ -53,6 +54,10 @@ view: max_attempt_ndt {
   }
 
   dimension: user_balance_version {
+    description: ""
+  }
+
+  dimension: user_win_streak_group {
     description: ""
   }
 
