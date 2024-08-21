@@ -49,6 +49,11 @@ view: progression {
     sql: ${TABLE}.end_game_offer ;;
   }
 
+  dimension: extra_move_count {
+    type: number
+    sql: (length(${TABLE}.end_game_offer) - length(replace(${TABLE}.end_game_offer, 'failtype', ''))) / length('failtype') ;;
+  }
+
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
@@ -537,8 +542,43 @@ view: progression {
     value_format: "##.00"
   }
 
+  measure: distinct_user_count {
+    type: count_distinct
+    sql: ${TABLE}.advertising_id ;;
+  }
+
+  measure: average {
+    type: average
+  }
+
   measure: count {
     type: count
     drill_fields: [user_split_test_name, event_name, session.user_split_test_name, session.session_id, session.event_name]
   }
+
+  measure: median {
+    type: median
+  }
+
+  measure: start_count {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelStarted' then 1 else 0 end) ;;
+  }
+
+  measure: win_count {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${extra_move_count} is null then 1 else 0 end) ;;
+  }
+
+  measure: fail_count {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelFailed' or ${extra_move_count}>0  then 1 else 0 end) ;;
+  }
+
+  measure: win_rate {
+    type: number
+    sql: (1.0*${win_count}/nullif(${win_count} + ${fail_count},0)) ;;
+    value_format: "0%"
+  }
+
 }
