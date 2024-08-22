@@ -402,43 +402,43 @@ view: live_ops {
 
   dimension: user_split_test_name_tutorial {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' then 'MetaTutorialActive'
-               when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'MetaTutorialPasssive'
+    sql:  case when ${TABLE}.user_split_test_name like '%MetaTutorialsActive%' then 'MetaTutorialActive'
+               when ${TABLE}.user_split_test_name like '%MetaTutorialsPassive%' then 'MetaTutorialsPassive'
           end ;;
   }
 
   dimension: user_split_test_name_balance {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","BalancedLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsActive","BalancedLevels"]' then 'BalancedLevels'
-               when ${TABLE}.user_split_test_name = '["MetaTutorialsActive","OldLevels"]' OR ${TABLE}.user_split_test_name = '["MetaTutorialsPassive","OldLevels"]' then 'OldLevels'
+    sql:  case when ${TABLE}.user_split_test_name like '%BalancedLevels%' then 'BalancedLevels'
+               when ${TABLE}.user_split_test_name like '%OldLevels%' then 'OldLevels'
           end ;;
   }
 
   dimension: user_split_test_name_elements {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' then 'DefaultElements'
-               when ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedElements'
+    sql:  case when ${TABLE}.user_split_test_name like '%DefaultElements%' then 'DefaultElements'
+               when ${TABLE}.user_split_test_name like '%SimplifiedElements%' then 'SimplifiedElements'
           end ;;
   }
 
   dimension: user_split_test_name_simplifiedTutorials {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["DefaultElements","PassiveTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","PassiveTutorials"]' then 'PassiveTutorials'
-               when ${TABLE}.user_split_test_name = '["DefaultElements","SimplifiedTutorials"]' OR ${TABLE}.user_split_test_name = '["SimplifiedElements","SimplifiedTutorials"]' then 'SimplifiedTutorials'
+    sql:  case when ${TABLE}.user_split_test_name like '%PassiveTutorials%' then 'PassiveTutorials'
+               when ${TABLE}.user_split_test_name like '%SimplifiedTutorials%' then 'SimplifiedTutorials'
           end ;;
   }
 
   dimension: user_split_test_name_challengeLevel {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' then 'ChallengeLevels'
-               when ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'NormalLevels'
+    sql:  case when ${TABLE}.user_split_test_name like '%ChallengeLevels%' then 'ChallengeLevels'
+               when ${TABLE}.user_split_test_name like '%NormalLevels%' then 'NormalLevels'
           end ;;
   }
 
   dimension: user_split_test_name_collectAndWin {
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinActive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinActive"]' then 'CollectAndWinActive'
-               when ${TABLE}.user_split_test_name = '["1608ChallengeLevels","CollectAndWinPassive"]' OR ${TABLE}.user_split_test_name = '["1608NormalLevels","CollectAndWinPassive"]' then 'CollectAndWinPassive'
+    sql:  case when ${TABLE}.user_split_test_name like '%CollectAndWinActive%' then 'CollectAndWinActive'
+               when ${TABLE}.user_split_test_name like '%CollectAndWinPassive%' then 'CollectAndWinPassive'
           end ;;
   }
 
