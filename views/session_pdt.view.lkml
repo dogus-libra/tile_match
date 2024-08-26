@@ -412,6 +412,12 @@ view: session_pdt {
     sql: UPPER(${TABLE}.country) ;;
   }
 
+  dimension: country_location {
+    type: string
+    sql: UPPER(${TABLE}.country) ;;
+    map_layer_name: countries
+  }
+
   measure: count {
     type: count
   }
