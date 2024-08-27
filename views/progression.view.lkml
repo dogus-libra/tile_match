@@ -286,10 +286,10 @@ view: progression {
 
   dimension: time_begin_streak {
     type: number
-    sql:  case when ${user_win_streak_group} = 2 then ${time_begin} + 15
-               when ${user_win_streak_group} = 3 then ${time_begin} + 15
-               when ${user_win_streak_group} = 4 then ${time_begin} + 30
-               when ${user_win_streak_group} = 5 then ${time_begin} + 30
+    sql:  case when ${user_win_streak_group} = 'Streak2' then ${time_begin} + 15
+               when ${user_win_streak_group} = 'Streak3' then ${time_begin} + 15
+               when ${user_win_streak_group} = 'Streak4' then ${time_begin} + 30
+               when ${user_win_streak_group} = 'Streak5' then ${time_begin} + 30
                when ${event_name} = 'LevelStarted' and ${boosters} like '%extratime:1%' then ${time_begin} + 15
                else ${time_begin} end ;;
   }
