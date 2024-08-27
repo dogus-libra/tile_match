@@ -8,6 +8,8 @@ view: progression_pdt {
            max(total_attempt_at_current_level) as max_attempt,
            min(date_trunc('day',event_timestamp)) as event_timestamp_min,
            max(installed_at) as install_dt,
+           max(user_session_count) as  max_session_count,
+           1.0*(total_level_win) / max_session_count as level_comp_per_session,
            floor(datediff(hour,install_dt,event_timestamp_min)/24) as install_day_of_user,
            max(user_platform) as user_platform
 
@@ -39,6 +41,11 @@ view: progression_pdt {
   dimension: install_day_of_user {
     type: number
     sql: ${TABLE}.install_day_of_user ;;
+  }
+
+  dimension: level_comp_per_session {
+    type: number
+    sql:  ${TABLE}.level_comp_per_session ;;
   }
 
   dimension: max_attempt {
@@ -100,6 +107,29 @@ view: progression_pdt {
     percentile: 99
     sql: ${TABLE}.total_level_win  ;;
     value_format: "0.00"
+  }
+
+  measure: level_comp_per_sess_avg {
+    type: average
+    sql:  ${TABLE}.level_comp_per_session;;
+  }
+
+  measure: level_comp_per_sess_per25 {
+    type: percentile
+    percentile: 25
+    sql:  ${TABLE}.level_comp_per_session;;
+  }
+
+  measure: level_comp_per_sess_per50 {
+    type: percentile
+    percentile: 50
+    sql:  ${TABLE}.level_comp_per_session;;
+  }
+
+  measure: level_comp_per_sess_per75 {
+    type: percentile
+    percentile: 75
+    sql:  ${TABLE}.level_comp_per_session;;
   }
 
   measure: count {
