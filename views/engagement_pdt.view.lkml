@@ -271,6 +271,14 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_TF_TT_levels {
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2908Default%' then 'DefaultLevels'
+               when ${TABLE}.user_split_test_name like '%2908TF%' then 'TileFamilyLevels'
+               when ${TABLE}.user_split_test_name like '%2908TT%' then 'TripleTilesLevels'
+          end ;;
+  }
+
 
   dimension: user_test_routing_value {
     type: number
