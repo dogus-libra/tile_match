@@ -11,6 +11,16 @@ view: live_ops {
     # A dimension is a groupable field that can be used to filter query results.
     # This dimension will be called "Active Item Count" in Explore.
 
+  dimension: active_item_count {
+    type: string
+    sql: ${TABLE}.active_item_count ;;
+  }
+
+  dimension: active_item_count_int {
+    type: number
+    sql: ${TABLE}.active_item_count_int ;;
+  }
+
   dimension: advertising_id {
     type: string
     sql: ${TABLE}.advertising_id ;;
@@ -34,6 +44,11 @@ view: live_ops {
     sql: ${TABLE}.build_no ;;
   }
 
+  dimension: building_item_count {
+    type: number
+    sql: ${TABLE}.building_item_count ;;
+  }
+
   dimension: connection_type {
     type: number
     sql: ${TABLE}.connection_type ;;
@@ -42,6 +57,22 @@ view: live_ops {
   dimension: duration {
     type: number
     sql: ${TABLE}.duration ;;
+  }
+
+  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
+  # measures for this dimension, but you can also add measures of many different aggregates.
+  # Click on the type parameter to see all the options in the Quick Help panel on the right.
+
+  measure: total_duration {
+    type: sum
+    sql: ${duration} ;;  }
+  measure: average_duration {
+    type: average
+    sql: ${duration} ;;  }
+
+  dimension: environment_id {
+    type: string
+    sql: ${TABLE}.environment_id ;;
   }
 
   dimension: event_id {
@@ -156,34 +187,55 @@ view: live_ops {
     sql: ${TABLE}.ip_address ;;
   }
 
-  dimension: meta_active_item_count {
-    type: string
-    sql: ${TABLE}.active_item_count ;;
-  }
-
-  dimension: meta_active_item_count_int {
-    type: number
-    sql: ${TABLE}.active_item_count_int ;;
-  }
-
-  dimension: meta_building_item_count {
-    type: number
-    sql: ${TABLE}.building_item_count ;;
-  }
-
-  dimension: meta_environment_id {
-    type: string
-    sql: ${TABLE}.environment_id ;;
-  }
-
-  dimension: meta_item_id {
+  dimension: item_id {
     type: string
     sql: ${TABLE}.item_id ;;
   }
 
-  dimension: meta_tap_count {
+  dimension: live_ops_complete_ratio {
     type: number
-    sql: ${TABLE}.tap_count ;;
+    sql: ${TABLE}.live_ops_complete_ratio ;;
+  }
+
+  dimension: live_ops_connection_error {
+    type: yesno
+    sql: ${TABLE}.live_ops_connection_error ;;
+  }
+
+  dimension: live_ops_event_name {
+    type: string
+    sql: ${TABLE}.live_ops_event_name ;;
+  }
+
+  dimension: live_ops_racers_group_id {
+    type: string
+    sql: ${TABLE}.live_ops_racers_group_id ;;
+  }
+
+  dimension: live_ops_ranking {
+    type: number
+    sql: ${TABLE}.live_ops_ranking ;;
+  }
+
+  dimension: live_ops_score {
+    type: number
+    sql: ${TABLE}.live_ops_score ;;
+  }
+
+  dimension_group: live_ops_start {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.live_ops_start_date ;;
+  }
+
+  dimension: live_ops_step {
+    type: number
+    sql: ${TABLE}.live_ops_step ;;
+  }
+
+  dimension: live_ops_template_id {
+    type: string
+    sql: ${TABLE}.live_ops_template_id ;;
   }
 
   dimension_group: request {
@@ -202,16 +254,10 @@ view: live_ops {
     sql: ${TABLE}.session_time ;;
   }
 
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_session_time {
-    type: sum
-    sql: ${session_time} ;;  }
-  measure: average_session_time {
-    type: average
-    sql: ${session_time} ;;  }
+  dimension: tap_count {
+    type: number
+    sql: ${TABLE}.tap_count ;;
+  }
 
   dimension: team_activity {
     type: number
@@ -326,6 +372,16 @@ view: live_ops {
   dimension: user_elo_rank {
     type: number
     sql: ${TABLE}.user_elo_rank ;;
+  }
+
+  dimension: user_game_mode {
+    type: number
+    sql: ${TABLE}.user_game_mode ;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
   }
 
   dimension: user_id {
@@ -495,6 +551,6 @@ view: live_ops {
 
   measure: count {
     type: count
-    drill_fields: [team_name, user_split_test_name, event_name]
+    drill_fields: [live_ops_event_name, user_split_test_name, event_name, team_name]
   }
 }
