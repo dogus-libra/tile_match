@@ -288,6 +288,21 @@ view: monitoring {
           end ;;
   }
 
+  dimension: user_split_test_name_TF_challenged{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1309DefaultChallenged"]' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name = '["1309SimplifiedChallenged"]' then 'SimplifiedChallenged'
+               when ${TABLE}.user_split_test_name = '["1309TFLevels"]' then 'TileFamilyLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Ruby_Rush{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1309RubyRushActive%' then 'Ruby Rush Active'
+               when ${TABLE}.user_split_test_name like '%1309RubyRushPassive%' then 'Ruby Rush Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
