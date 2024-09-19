@@ -156,6 +156,52 @@ view: live_ops {
     sql: ${TABLE}.ip_address ;;
   }
 
+  dimension: live_ops_complete_ratio {
+    type: number
+    sql: ${TABLE}.live_ops_complete_ratio ;;
+  }
+
+  dimension: live_ops_connection_error {
+    type: yesno
+    sql: ${TABLE}.live_ops_connection_error ;;
+  }
+
+  dimension: live_ops_event_name {
+    type: string
+    sql: ${TABLE}.live_ops_event_name ;;
+  }
+
+  dimension: live_ops_racers_group_id {
+    type: string
+    sql: ${TABLE}.live_ops_racers_group_id ;;
+  }
+
+  dimension: live_ops_ranking {
+    type: number
+    sql: ${TABLE}.live_ops_ranking ;;
+  }
+
+  dimension: live_ops_score {
+    type: number
+    sql: ${TABLE}.live_ops_score ;;
+  }
+
+  dimension_group: live_ops_start {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.live_ops_start_date ;;
+  }
+
+  dimension: live_ops_step {
+    type: number
+    sql: ${TABLE}.live_ops_step ;;
+  }
+
+  dimension: live_ops_template_id {
+    type: string
+    sql: ${TABLE}.live_ops_template_id ;;
+  }
+
   dimension: meta_active_item_count {
     type: string
     sql: ${TABLE}.active_item_count ;;
@@ -201,17 +247,6 @@ view: live_ops {
     type: number
     sql: ${TABLE}.session_time ;;
   }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_session_time {
-    type: sum
-    sql: ${session_time} ;;  }
-  measure: average_session_time {
-    type: average
-    sql: ${session_time} ;;  }
 
   dimension: team_activity {
     type: number
@@ -326,6 +361,16 @@ view: live_ops {
   dimension: user_elo_rank {
     type: number
     sql: ${TABLE}.user_elo_rank ;;
+  }
+
+  dimension: user_game_mode {
+    type: number
+    sql: ${TABLE}.user_game_mode ;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
   }
 
   dimension: user_id {
@@ -450,6 +495,29 @@ view: live_ops {
           end ;;
   }
 
+  dimension: user_split_test_name_more_challenged_levels{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0609DefaultLevels%' then 'DefaultLevels'
+               when ${TABLE}.user_split_test_name like '%0609DefaultChallenged%' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name like '%0609SimplifiedChallenged%' then 'SimplifiedChallenged'
+          end ;;
+  }
+
+  dimension: user_split_test_name_TF_challenged{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1309DefaultChallenged"]' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name = '["1309SimplifiedChallenged"]' then 'SimplifiedChallenged'
+               when ${TABLE}.user_split_test_name = '["1309TFLevels"]' then 'TileFamilyLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Ruby_Rush{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1309RubyRushActive%' then 'Ruby Rush Active'
+               when ${TABLE}.user_split_test_name like '%1309RubyRushPassive%' then 'Ruby Rush Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
@@ -487,6 +555,16 @@ view: live_ops {
 
   measure: count {
     type: count
-    drill_fields: [team_name, user_split_test_name, event_name]
+    drill_fields: [live_ops_event_name, user_split_test_name, event_name, team_name]
+  }
+
+  measure: total_duration {
+    type: sum
+    sql: ${duration} ;;
+  }
+
+  measure: average_duration {
+    type: average
+    sql: ${duration} ;;
   }
 }

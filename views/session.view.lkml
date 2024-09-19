@@ -55,6 +55,11 @@ view: session {
     sql: ${TABLE}.event_name ;;
   }
 
+  dimension: event_previous_id {
+    type: string
+    sql: ${TABLE}.event_previous_id ;;
+  }
+
   dimension_group: event_timestamp {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -77,14 +82,74 @@ view: session {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: inventory_avatar {
+    type: number
+    sql: ${TABLE}.inventory_avatar ;;
+  }
+
   dimension: inventory_coin {
     type: number
     sql: ${TABLE}.inventory_coin ;;
   }
 
+  dimension: inventory_environment_token {
+    type: number
+    sql: ${TABLE}.inventory_environment_token ;;
+  }
+
+  dimension: inventory_event_score_multiplier {
+    type: number
+    sql: ${TABLE}.inventory_event_score_multiplier ;;
+  }
+
+  dimension: inventory_event_token {
+    type: number
+    sql: ${TABLE}.inventory_event_token ;;
+  }
+
+  dimension: inventory_extra_slot {
+    type: number
+    sql: ${TABLE}.inventory_extra_slot ;;
+  }
+
+  dimension: inventory_extra_time {
+    type: number
+    sql: ${TABLE}.inventory_extra_time ;;
+  }
+
+  dimension: inventory_glove {
+    type: number
+    sql: ${TABLE}.inventory_glove ;;
+  }
+
   dimension: inventory_life {
     type: number
     sql: ${TABLE}.inventory_life ;;
+  }
+
+  dimension: inventory_magic_wand {
+    type: number
+    sql: ${TABLE}.inventory_magic_wand ;;
+  }
+
+  dimension: inventory_magnet {
+    type: number
+    sql: ${TABLE}.inventory_magnet ;;
+  }
+
+  dimension: inventory_shuffle {
+    type: number
+    sql: ${TABLE}.inventory_shuffle ;;
+  }
+
+  dimension: inventory_time_freezer {
+    type: number
+    sql: ${TABLE}.inventory_time_freezer ;;
+  }
+
+  dimension: inventory_toss {
+    type: number
+    sql: ${TABLE}.inventory_toss ;;
   }
 
   dimension: ip_address {
@@ -114,9 +179,94 @@ view: session {
     type: average
     sql: ${session_time} ;;  }
 
+  dimension: team_activity {
+    type: number
+    sql: ${TABLE}.team_activity ;;
+  }
+
+  dimension: team_id {
+    type: number
+    sql: ${TABLE}.team_id ;;
+  }
+
+  dimension: team_name {
+    type: string
+    sql: ${TABLE}.team_name ;;
+  }
+
+  dimension: team_score {
+    type: number
+    sql: ${TABLE}.team_score ;;
+  }
+
+  dimension: team_size {
+    type: number
+    sql: ${TABLE}.team_size ;;
+  }
+
+  dimension: team_user_life_help_count {
+    type: number
+    sql: ${TABLE}.team_user_life_help_count ;;
+  }
+
+  dimension: team_user_life_req_count {
+    type: number
+    sql: ${TABLE}.team_user_life_req_count ;;
+  }
+
+  dimension: team_user_lifetime_life_help_count {
+    type: number
+    sql: ${TABLE}.team_user_lifetime_life_help_count ;;
+  }
+
+  dimension: team_user_lifetime_life_req_count {
+    type: number
+    sql: ${TABLE}.team_user_lifetime_life_req_count ;;
+  }
+
+  dimension: team_user_lifetime_message_count {
+    type: number
+    sql: ${TABLE}.team_user_lifetime_message_count ;;
+  }
+
+  dimension: team_user_message_count {
+    type: number
+    sql: ${TABLE}.team_user_message_count ;;
+  }
+
+  dimension: user_active_events {
+    type: string
+    sql: ${TABLE}.user_active_events ;;
+  }
+
   dimension: user_adgroup {
     type: string
     sql: ${TABLE}.user_adgroup ;;
+  }
+
+  dimension: user_adjust_ad_id {
+    type: string
+    sql: ${TABLE}.user_adjust_ad_id ;;
+  }
+
+  dimension: user_available_events {
+    type: string
+    sql: ${TABLE}.user_available_events ;;
+  }
+
+  dimension: user_avatar_id {
+    type: string
+    sql: ${TABLE}.user_avatar_id ;;
+  }
+
+  dimension: user_balance_version {
+    type: string
+    sql: ${TABLE}.user_balance_version ;;
+  }
+
+  dimension: user_bonus_level_at {
+    type: number
+    sql: ${TABLE}.user_bonus_level_at ;;
   }
 
   dimension: user_campaign {
@@ -134,6 +284,11 @@ view: session {
     sql: ${TABLE}.user_creative ;;
   }
 
+  dimension: user_current_elo_score {
+    type: number
+    sql: ${TABLE}.user_current_elo_score ;;
+  }
+
   dimension: user_current_fps {
     type: number
     sql: ${TABLE}.user_current_fps ;;
@@ -144,6 +299,71 @@ view: session {
     sql: ${TABLE}.user_device ;;
   }
 
+  dimension: user_elo_rank {
+    type: number
+    sql: ${TABLE}.user_elo_rank ;;
+  }
+
+  dimension: user_fb_install_referrer_account_id {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_account_id ;;
+  }
+
+  dimension: user_fb_install_referrer_ad_id {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_ad_id ;;
+  }
+
+  dimension: user_fb_install_referrer_ad_objective_name {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_ad_objective_name ;;
+  }
+
+  dimension: user_fb_install_referrer_adgroup_id {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_adgroup_id ;;
+  }
+
+  dimension: user_fb_install_referrer_adgroup_name {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_adgroup_name ;;
+  }
+
+  dimension: user_fb_install_referrer_campaign_group_id {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_campaign_group_id ;;
+  }
+
+  dimension: user_fb_install_referrer_campaign_group_name {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_campaign_group_name ;;
+  }
+
+  dimension: user_fb_install_referrer_campaign_id {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_campaign_id ;;
+  }
+
+  dimension: user_fb_install_referrer_campaign_name {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_campaign_name ;;
+  }
+
+  dimension: user_fb_install_referrer_publisher_platform {
+    type: string
+    sql: ${TABLE}.user_fb_install_referrer_publisher_platform ;;
+  }
+
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
+  }
+
+  dimension: user_is_bonus_mode_active {
+    type: yesno
+    sql: ${TABLE}.user_is_bonus_mode_active ;;
+  }
+
   dimension: user_level_at {
     type: number
     sql: ${TABLE}.user_level_at ;;
@@ -152,6 +372,11 @@ view: session {
   dimension: user_level_id {
     type: number
     sql: ${TABLE}.user_level_id ;;
+  }
+
+  dimension: user_level_id_string {
+    type: string
+    sql: ${TABLE}.user_level_id_string ;;
   }
 
   dimension: user_manufacturer {
@@ -172,6 +397,16 @@ view: session {
   dimension: user_os_version {
     type: string
     sql: ${TABLE}.user_os_version ;;
+  }
+
+  dimension: user_pass_stage {
+    type: number
+    sql: ${TABLE}.user_pass_stage ;;
+  }
+
+  dimension: user_pass_type {
+    type: string
+    sql: ${TABLE}.user_pass_type ;;
   }
 
   dimension: user_platform {
@@ -246,6 +481,29 @@ view: session {
           end ;;
   }
 
+  dimension: user_split_test_name_more_challenged_levels{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0609DefaultLevels%' then 'DefaultLevels'
+               when ${TABLE}.user_split_test_name like '%0609DefaultChallenged%' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name like '%0609SimplifiedChallenged%' then 'SimplifiedChallenged'
+          end ;;
+  }
+
+  dimension: user_split_test_name_TF_challenged{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name = '["1309DefaultChallenged"]' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name = '["1309SimplifiedChallenged"]' then 'SimplifiedChallenged'
+               when ${TABLE}.user_split_test_name = '["1309TFLevels"]' then 'TileFamilyLevels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Ruby_Rush{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1309RubyRushActive%' then 'Ruby Rush Active'
+               when ${TABLE}.user_split_test_name like '%1309RubyRushPassive%' then 'Ruby Rush Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
@@ -283,6 +541,21 @@ view: session {
 
   measure: count {
     type: count
-    drill_fields: [session_id, user_split_test_name, event_name, progression.count]
+    drill_fields: [detail*]
   }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+  session_id,
+  user_fb_install_referrer_adgroup_name,
+  user_fb_install_referrer_campaign_name,
+  user_fb_install_referrer_campaign_group_name,
+  user_fb_install_referrer_ad_objective_name,
+  team_name,
+  user_split_test_name,
+  event_name
+  ]
+  }
+
 }
