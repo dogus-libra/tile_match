@@ -6,6 +6,8 @@ view: stdev{
       column: user_level_at {}
       column: stdev_time_remain {}
       column: app_version {}
+      column: user_split_test_name {}
+
       filters: {
         field: progression.event_timestamp_date
         value: "180 days ago for 180 days"
@@ -44,6 +46,12 @@ view: stdev{
     value_format: "##.00"
     type: number
   }
+
+  dimension: user_split_test_name {
+    description: ""
+    type: string
+  }
+
   measure: count {
     type: count
   }
