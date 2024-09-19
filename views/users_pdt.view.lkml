@@ -425,9 +425,9 @@ view: users_pdt {
 
   dimension: user_split_test_name_TF_challenged{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["1309DefaultChallenged"]' then 'DefaultChallenged'
-               when ${TABLE}.user_split_test_name = '["1309SimplifiedChallenged"]' then 'SimplifiedChallenged'
-               when ${TABLE}.user_split_test_name = '["1309TFLevels"]' then 'TileFamilyLevels'
+    sql:  case when ${TABLE}.user_split_test_name like '%1309DefaultChallenged%' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name = '%1309SimplifiedChallenged%' then 'SimplifiedChallenged'
+               when ${TABLE}.user_split_test_name = '%1309TFLevels%' then 'TileFamilyLevels'
           end ;;
   }
 
