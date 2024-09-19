@@ -10,7 +10,7 @@ view: users_pdt {
                           min(build_no)                    as first_build_no,
                           max(connection_type)             as connection_type,
                           max(event_version)               as last_event_version,
-                          max(installed_at)                as installed,
+                          min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
                           max(user_adgroup)                as user_adgroup,
                           max(user_campaign)               as user_campaign,
