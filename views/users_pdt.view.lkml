@@ -438,6 +438,15 @@ view: users_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_level_test{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2009DefaultChallenged%' then 'Default Challenged'
+               when ${TABLE}.user_split_test_name like '%2009SimplifiedChallenged%' then 'Simplified Challenged'
+               when ${TABLE}.user_split_test_name like '%2009NewOrder%' then 'New Order'
+               when ${TABLE}.user_split_test_name like '%2009TF%' then 'TF'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;

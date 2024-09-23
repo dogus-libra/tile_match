@@ -466,9 +466,9 @@ view: progression {
 
   dimension: user_split_test_name_TF_challenged{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name = '["1309DefaultChallenged"]' then 'DefaultChallenged'
-               when ${TABLE}.user_split_test_name = '["1309SimplifiedChallenged"]' then 'SimplifiedChallenged'
-               when ${TABLE}.user_split_test_name = '["1309TFLevels"]' then 'TileFamilyLevels'
+    sql:  case when ${TABLE}.user_split_test_name like '%1309DefaultChallenged%' then 'DefaultChallenged'
+               when ${TABLE}.user_split_test_name like '%1309SimplifiedChallenged%' then 'SimplifiedChallenged'
+               when ${TABLE}.user_split_test_name like '%1309TFLevels%' then 'TileFamilyLevels'
           end ;;
   }
 
@@ -476,6 +476,15 @@ view: progression {
     type: string
     sql:  case when ${TABLE}.user_split_test_name like '%1309RubyRushActive%' then 'Ruby Rush Active'
                when ${TABLE}.user_split_test_name like '%1309RubyRushPassive%' then 'Ruby Rush Passive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_level_test{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2009DefaultChallenged%' then 'Default Challenged'
+               when ${TABLE}.user_split_test_name like '%2009SimplifiedChallenged%' then 'Simplified Challenged'
+               when ${TABLE}.user_split_test_name like '%2009NewOrder%' then 'New Order'
+               when ${TABLE}.user_split_test_name like '%2009TF%' then 'TF'
           end ;;
   }
 
