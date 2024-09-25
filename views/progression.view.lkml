@@ -34,6 +34,56 @@ view: progression {
     sql: ${TABLE}.boosters ;;
   }
 
+  dimension: boosters_magnet_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%magnet%' then (split_part(split_part(${TABLE}.boosters, 'magnet:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_toss_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%toss%' then (split_part(split_part(${TABLE}.boosters, 'toss:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_glove_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%glove%' then (split_part(split_part(${TABLE}.boosters, 'glove:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_extraslot_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%extraslot%' then (split_part(split_part(${TABLE}.boosters, 'extraslot:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_extratime_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%extratime%' then (split_part(split_part(${TABLE}.boosters, 'extratime:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_shuffle_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%shuffle%' then (split_part(split_part(${TABLE}.boosters, 'shuffle:', 2), '|', 1))::INT else 0 end  ;;
+  }
+
+  dimension: boosters_timefreezer_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%timefreezer%' then (split_part(split_part(${TABLE}.boosters, 'timefreezer:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_magicwand_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%magicwand%' then (split_part(split_part(${TABLE}.boosters, 'magicwand:', 2), '|', 1))::INT else 0 end ;;
+  }
+
+  dimension: boosters_ingame_num {
+    type: number
+    sql:  ${boosters_extraslot_num} + ${boosters_glove_num} + ${boosters_magicwand_num} + ${boosters_shuffle_num} + ${boosters_timefreezer_num} + ${boosters_toss_num} ;;
+  }
+
+  dimension: boosters_pregame_num {
+    type: number
+    sql:  ${boosters_extratime_num} + ${boosters_magnet_num}  ;;
+  }
+
   dimension: build_no {
     type: number
     sql: ${TABLE}.build_no ;;
@@ -535,52 +585,452 @@ view: progression {
     value_format: "##.00"
   }
 
+  measure: level_play_time_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${level_play_time} ;;
+    value_format: "##"
+  }
+
+  measure: level_play_time_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${level_play_time} ;;
+    value_format: "##"
+  }
+
   measure: level_play_time_per25 {
     type: percentile
     percentile: 25
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
+  }
+
+  measure: level_play_time_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${level_play_time} ;;
+    value_format: "##"
+  }
+
+  measure: level_play_time_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${level_play_time} ;;
+    value_format: "##"
   }
 
   measure: level_play_time_per50 {
     type: percentile
     percentile: 50
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
+  }
+
+  measure: level_play_time_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${level_play_time} ;;
+    value_format: "##"
+  }
+
+  measure: level_play_time_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${level_play_time} ;;
+    value_format: "##"
   }
 
   measure: level_play_time_per75 {
     type: percentile
     percentile: 75
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
+  }
+
+  measure: level_play_time_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${level_play_time} ;;
+    value_format: "##"
   }
 
   measure: level_play_time_per90 {
     type: percentile
     percentile: 90
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
   }
 
   measure: level_play_time_per95 {
     type: percentile
     percentile: 95
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
   }
 
   measure: level_play_time_per99 {
     type: percentile
     percentile: 99
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
   }
 
   measure: level_play_time_avg {
     type: average
     sql: ${level_play_time} ;;
-    value_format: "##.00"
+    value_format: "##"
+  }
+
+  measure: time_remain_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_avg {
+    type: average
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: level_attempt_avg {
+    type: average
+    sql: ${user_total_attempt_at_current_lvl} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: extra_move_count_avg {
+    type: average
+    sql: ${extra_move_count} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${boosters_ingame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_ingame_avg {
+    type: average
+    sql: (${boosters_ingame_num})::double precision ;;
+    value_format: "0.00"
+  }
+
+  measure: booster_ingame_sum {
+    type: number
+    sql: SUM(${boosters_ingame_num}) ;;
+    value_format: "0.00"
+  }
+
+  measure: booster_pregame_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${boosters_pregame_num} ;;
+    value_format: "##"
+  }
+
+  measure: booster_pregame_avg {
+    type: average
+    sql: (${boosters_pregame_num})::double precision ;;
+    value_format: "0.00"
   }
 
   measure: distinct_user_count {
