@@ -407,6 +407,27 @@ view: session_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Dynamic_Backgrounds{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2709_DefaultBackground%' then 'Default Background'
+               when ${TABLE}.user_split_test_name like '%2709_DynamicBackgrounds%' then 'Dynamic Backgrounds'
+          end ;;
+  }
+
+  dimension: user_split_test_name_LevelDetails_PopUp{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2709_AggresiveLevelDetailsPopUp%' then 'Aggresive Level Details PopUp'
+               when ${TABLE}.user_split_test_name like '%2709_DefaultLevelDetailsPopUp%' then 'Default Level Details PopUp'
+          end ;;
+  }
+
+  dimension: user_split_test_name_New_Balanced_Levels{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0110BalancedLevels%' then 'Balanced Levels'
+               when ${TABLE}.user_split_test_name like '%0110DefaultLevels%' then 'Default Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
