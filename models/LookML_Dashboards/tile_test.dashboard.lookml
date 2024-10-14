@@ -1,23 +1,23 @@
 ---
-- dashboard: 13__level_test
-  title: 13 - Level Test
+- dashboard: 16__new_balanced_level_test
+  title: 16 - New Balanced Level Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: lWT8Murnq0OVQwBwBpZTXB
+  preferred_slug: SEPktcFfcI7OVQxVLOoaeX
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,7 +314,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_New_Balanced_Levels: 263
+      progression.user_split_test_name_Well_Balanced_Levels: 263
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -333,13 +333,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -563,21 +563,21 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_New_Balanced_Levels, player_count, level_5_reach_rate,
-      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
-      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
-      level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [progression.user_split_test_name_Well_Balanced_Levels, player_count,
+      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
+      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
+      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       level_5_reach_rate:
         align: center
@@ -680,7 +680,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_New_Balanced_Levels: 280
+      progression.user_split_test_name_Well_Balanced_Levels: 280
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -700,13 +700,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [engagement_pdt.user_split_test_name_New_Balanced_Levels]
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [engagement_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_New_Balanced_Levels, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Well_Balanced_Levels, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -786,13 +786,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [engagement_pdt.user_split_test_name_New_Balanced_Levels]
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [engagement_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_New_Balanced_Levels, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Well_Balanced_Levels, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -862,13 +862,14 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [session_pdt.user_split_test_name_New_Balanced_Levels]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [session_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [session_pdt.user_split_test_name_New_Balanced_Levels, session_pdt.client_date desc]
+      session_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Well_Balanced_Levels, session_pdt.client_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -938,13 +939,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [engagement_pdt.user_split_test_name_New_Balanced_Levels]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [engagement_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_New_Balanced_Levels, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Well_Balanced_Levels, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1041,13 +1042,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [engagement_pdt.user_split_test_name_New_Balanced_Levels]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [engagement_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_New_Balanced_Levels, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Well_Balanced_Levels, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1111,13 +1112,14 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [session_pdt.user_split_test_name_New_Balanced_Levels]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [session_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [session_pdt.user_split_test_name_New_Balanced_Levels, session_pdt.client_date desc]
+      session_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Well_Balanced_Levels, session_pdt.client_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1205,11 +1207,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1266,12 +1268,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1321,11 +1323,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[10,20]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1382,12 +1384,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1437,11 +1439,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[20,30]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1498,12 +1500,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1553,11 +1555,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[30,50]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1614,12 +1616,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1669,11 +1671,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[50,75]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1730,12 +1732,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1785,11 +1787,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[75,100]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1846,12 +1848,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -1901,11 +1903,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[100,125]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1962,12 +1964,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -2017,11 +2019,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_New_Balanced_Levels, win_count, fail_count]
+    fields: [progression.user_split_test_name_Well_Balanced_Levels, win_count, fail_count]
     filters:
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
       progression.user_level_at: "[125,150]"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels]
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2078,12 +2080,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_New_Balanced_Levels: Test Group
+      progression.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_New_Balanced_Levels:
+      progression.user_split_test_name_Well_Balanced_Levels:
         align: center
       win_rate:
         align: center
@@ -2135,11 +2137,12 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+      users_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, users_pdt.installed_date desc]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2410,7 +2413,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2521,13 +2524,14 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, users_pdt.installed_week desc]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, users_pdt.installed_week
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2798,8 +2802,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_New_Balanced_Levels: Test Group
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      session_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2910,10 +2914,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3184,7 +3188,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3205,7 +3209,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_New_Balanced_Levels:
+      users_pdt.user_split_test_name_Well_Balanced_Levels:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -3275,7 +3279,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_New_Balanced_Levels: 256
+      users_pdt.user_split_test_name_Well_Balanced_Levels: 256
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -3295,12 +3299,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, ret_1 desc 0]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3571,7 +3575,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3592,7 +3596,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_New_Balanced_Levels:
+      users_pdt.user_split_test_name_Well_Balanced_Levels:
         align: center
       users_pdt.app_version:
         align: center
@@ -3683,11 +3687,12 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_New_Balanced_Levels]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+      ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, users_pdt.installed_date desc]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3972,7 +3977,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4100,13 +4105,14 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, users_pdt.installed_week desc]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, users_pdt.installed_week
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4391,7 +4397,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -4519,12 +4525,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_New_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4809,7 +4815,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4935,10 +4941,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_New_Balanced_Levels]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Well_Balanced_Levels]
     filters:
-      users_pdt.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [users_pdt.user_split_test_name_New_Balanced_Levels]
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5223,9 +5229,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_New_Balanced_Levels: Test Group
+      users_pdt.user_split_test_name_Well_Balanced_Levels: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_New_Balanced_Levels: 279
+      users_pdt.user_split_test_name_Well_Balanced_Levels: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -5258,7 +5264,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_New_Balanced_Levels:
+      users_pdt.user_split_test_name_Well_Balanced_Levels:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -5352,8 +5358,8 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_New_Balanced_Levels]
-    pivots: [progression.user_split_test_name_New_Balanced_Levels]
+      progression.user_split_test_name_Well_Balanced_Levels]
+    pivots: [progression.user_split_test_name_Well_Balanced_Levels]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
@@ -5367,8 +5373,8 @@
       progression.user_level_at: "[1,150]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_New_Balanced_Levels: "-NULL"
-    sorts: [progression.user_split_test_name_New_Balanced_Levels, progression.user_level_at]
+      progression.user_split_test_name_Well_Balanced_Levels: "-NULL"
+    sorts: [progression.user_split_test_name_Well_Balanced_Levels, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5693,6 +5699,435 @@
     col: 0
     width: 24
     height: 10
+  - title: Level Report
+    name: Level Report
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
+      total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Well_Balanced_Levels]
+    pivots: [users_pdt.user_split_test_name_Well_Balanced_Levels]
+    filters:
+      progression.installed_date: 30 days
+      progression.install_day_of_user: ''
+      raw_pdt.country: ''
+      raw_pdt.app_version: ''
+      raw_pdt.network: ''
+      raw_pdt.campaign: ''
+      raw_pdt.adgroup: ''
+      raw_pdt.creative: ''
+      progression.user_level_at: "[1,200]"
+      progression.user_split_test_name: ''
+      progression.event_version: 1.0.2
+      progression.connection_type: not 2
+      progression.user_win_streak_group: ''
+      users_pdt.user_split_test_name_Well_Balanced_Levels: "-NULL"
+      progression.user_balance_version: ''
+      users_pdt.install_day_of_user: ''
+    sorts: [users_pdt.user_split_test_name_Well_Balanced_Levels, progression.user_level_at]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Total Start
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_start
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+    - category: measure
+      expression:
+      label: Unique Start
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: unique_start
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+    - category: measure
+      expression:
+      label: Total Lose (Time)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_time
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+        progression.fail_type: TimeOver
+    - category: measure
+      expression:
+      label: Total Lose (Zone)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_zone
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+        progression.fail_type: OutOfZone
+    - category: measure
+      expression:
+      label: Total Lose (Quit)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_quit
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+        progression.fail_type: Quit
+    - category: measure
+      expression:
+      label: Total Lose (All)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_all
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: win_count
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: table_calculation
+      expression: "${win_count}/${total_start}"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${win_count}/(${total_lose_all}+${win_count})"
+      label: Win Rate (wo/kills)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_wokills
+      _type_hint: number
+    - category: table_calculation
+      expression: "${total_start}-${win_count}-${total_lose_all}"
+      label: App Kills
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: app_kills
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start}-${win_count})/${unique_start}"
+      label: Churn InGame
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_ingame
+      _type_hint: number
+    - category: table_calculation
+      expression: offset(${unique_start},1)
+      label: UniqueStart1
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: uniquestart1
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${win_count}-${uniquestart1})/${win_count}"
+      label: Churn Between
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_between
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start}-${uniquestart1})/${unique_start}"
+      label: Churn Total
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_total
+      _type_hint: number
+    - category: table_calculation
+      expression: "${churn_total}*${unique_start}"
+      label: Churn Count
+      value_format:
+      value_format_name: decimal_0
+      _kind_hint: measure
+      table_calculation: churn_count
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: Avg Remaining Time (sec)
+      value_format:
+      value_format_name: decimal_1
+      based_on: progression.time_remain
+      _kind_hint: measure
+      measure: avg_remaining_time_sec
+      type: average
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: Time Begin (sec)
+      value_format:
+      value_format_name: decimal_1
+      based_on: progression.time_begin
+      _kind_hint: measure
+      measure: time_begin_sec
+      type: average
+      _type_hint: number
+    - category: table_calculation
+      expression: "${time_begin_sec} - ${avg_remaining_time_sec}"
+      label: Avg Level Play Time
+      value_format:
+      value_format_name: decimal_1
+      _kind_hint: measure
+      table_calculation: avg_level_play_time
+      _type_hint: number
+    - category: table_calculation
+      expression: "${app_kills} /${total_start}"
+      label: App Kills Ratio
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: app_kills_ratio
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: Time Begin (sec) (median)
+      value_format:
+      value_format_name: decimal_1
+      based_on: progression.time_begin
+      _kind_hint: measure
+      measure: time_begin_sec_median
+      type: median
+      _type_hint: number
+    - category: measure
+      expression:
+      label: All Extra Moves
+      value_format:
+      value_format_name:
+      based_on: progression.extra_move_count
+      _kind_hint: measure
+      measure: all_extra_moves
+      type: sum
+      _type_hint: number
+      filters:
+        progression.extra_move_count: ">=1"
+    - category: table_calculation
+      expression: "${all_extra_moves} / ${win_count}"
+      label: All ExtraMoves Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: all_extramoves_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    pinned_columns:
+      progression.user_level_at: left
+    column_order: [progression.user_level_at, Balanced Levels_unique_start, Default
+        Levels_unique_start, Balanced Levels_total_start, Default Levels_total_start,
+      Balanced Levels_win_count, Default Levels_win_count, Balanced Levels_total_lose_time,
+      Default Levels_total_lose_time, Balanced Levels_total_lose_zone, Default Levels_total_lose_zone,
+      Balanced Levels_total_lose_quit, Default Levels_total_lose_quit, Balanced Levels_total_lose_all,
+      Default Levels_total_lose_all, Balanced Levels_avg_remaining_time_sec, Default
+        Levels_avg_remaining_time_sec, Balanced Levels_time_begin_sec, Default Levels_time_begin_sec,
+      Balanced Levels_progression.win_rate, Default Levels_progression.win_rate, Balanced
+        Levels_win_rate, Default Levels_win_rate, Balanced Levels_win_rate_wokills,
+      Default Levels_win_rate_wokills, Balanced Levels_app_kills, Default Levels_app_kills,
+      Balanced Levels_churn_ingame, Default Levels_churn_ingame, Balanced Levels_churn_between,
+      Default Levels_churn_between, Balanced Levels_churn_total, Default Levels_churn_total,
+      Balanced Levels_churn_count, Default Levels_churn_count, Balanced Levels_avg_level_play_time,
+      Default Levels_avg_level_play_time, Balanced Levels_app_kills_ratio, Default
+        Levels_app_kills_ratio, Balanced Levels_all_extramoves_rate, Default Levels_all_extramoves_rate]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_level_at: Level No
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_column_widths:
+      progression.win_rate: 124
+    series_cell_visualizations:
+      unique_start:
+        is_active: false
+    series_text_format:
+      progression.user_level_at:
+        align: center
+      unique_start:
+        align: center
+      total_start:
+        align: center
+      total_lose_quit:
+        align: center
+      total_lose_zone:
+        align: center
+      win_rate:
+        align: center
+      total_lose_all:
+        align: center
+      win_rate_wkills:
+        align: center
+      app_kills:
+        align: center
+      churn_ingame:
+        align: center
+      churn_between:
+        align: center
+      churn_total:
+        align: center
+      churn_count:
+        align: center
+      win_count:
+        align: center
+      total_lose_time:
+        align: center
+      avg_time_begin_sec:
+        align: center
+      avg_remaining_time_sec:
+        align: center
+      time_begin_sec:
+        align: center
+      avg_level_play_time:
+        align: center
+      app_kills_ratio:
+        align: center
+      win_rate_wokills:
+        align: center
+      progression.win_rate:
+        align: center
+      all_extramoves_rate:
+        align: center
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [win_rate]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [win_rate_wokills]}, {type: along a scale...,
+        value: !!null '', background_color: "#1A73E8", font_color: !!null '', color_application: {
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [churn_ingame]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [churn_between]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4620e8de-df7a-40e0-89d6-7401f6e64d96,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [churn_total]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [app_kills_ratio]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [progression.win_rate]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [all_extramoves_rate]}]
+    series_value_format:
+      progression.win_rate:
+        name: percent_1
+        decimals: '1'
+        format_string: "#,##0.0%"
+        label: Percent (1)
+        label_prefix: Percent
+    hidden_pivots: {}
+    hidden_fields: [uniquestart1, all_extra_moves]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    listen:
+      Installed Date: users_pdt.installed_date
+      Client Date (only for Engagement): progression.event_timestamp_date
+      Country: users_pdt.country
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
+    row: 94
+    col: 0
+    width: 24
+    height: 15
   filters:
   - name: Installed Date
     title: Installed Date
@@ -5725,7 +6160,7 @@
   - name: Country
     title: Country
     type: field_filter
-    default_value: BR
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
@@ -5738,7 +6173,7 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: 0.1.6
+    default_value: 0.1.7
     allow_multiple_values: true
     required: false
     ui_config:

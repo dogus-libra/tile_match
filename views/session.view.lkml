@@ -534,6 +534,29 @@ view: session {
           end ;;
   }
 
+  dimension: user_split_test_name_Initial_Coin{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1110_InitialCoin200"%' then 'Initial Coin 200'
+               when ${TABLE}.user_split_test_name like '%1110_InitialCoin300%' then 'Initial Coin 300'
+               when ${TABLE}.user_split_test_name like '%1110_InitialCoin400%' then 'Initial Coin 400'
+               when ${TABLE}.user_split_test_name like '%1110_InitialCoin2000%' then 'Initial Coin 2000'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Seasonal_Pass{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1101_SeasonalPassActive%' then 'Seasonal Pass Active'
+               when ${TABLE}.user_split_test_name like '%1101_SeasonalPassPassive%' then 'Seasonal Pass Passive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Well_Balanced_Levels{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1110_WellBalancedLevels%' then 'Well Balanced Levels'
+               when ${TABLE}.user_split_test_name like '%1110_DefaultLevels%' then 'Default Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
