@@ -202,6 +202,61 @@ view: live_ops {
     sql: ${TABLE}.live_ops_template_id ;;
   }
 
+  dimension: live_ops_is_free {
+    type: yesno
+    sql: ${TABLE}.live_ops_is_free ;;
+  }
+
+  dimension: live_ops_bonus_bank_score {
+    type: number
+    sql: ${TABLE}.live_ops_bonus_bank_score ;;
+  }
+
+  dimension: live_ops_default_stage_index {
+    type: number
+    sql: ${TABLE}.live_ops_default_stage_index ;;
+  }
+
+  dimension: live_ops_bonus_bank_reward_collected {
+    type: yesno
+    sql: ${TABLE}.live_ops_bonus_bank_reward_collected ;;
+  }
+
+  dimension: live_ops_default_stage_count {
+    type: number
+    sql: ${TABLE}.live_ops_default_stage_count ;;
+  }
+
+  dimension: live_ops_bonus_bank_max_score {
+    type: number
+    sql: ${TABLE}.live_ops_bonus_bank_max_score ;;
+  }
+
+  dimension: live_ops_pass_type {
+    type: string
+    sql: ${TABLE}.live_ops_pass_type ;;
+  }
+
+  dimension: live_ops_is_accepted {
+    type: yesno
+    sql: ${TABLE}.live_ops_is_accepted ;;
+  }
+
+  dimension: live_ops_purchase_source {
+    type: number
+    sql: ${TABLE}.live_ops_purchase_source ;;
+  }
+
+  dimension: live_ops_store_open_source {
+    type: number
+    sql: ${TABLE}.live_ops_store_open_source ;;
+  }
+
+  dimension: live_ops_claimed_stage {
+    type: number
+    sql: ${TABLE}.live_ops_claimed_stage ;;
+  }
+
   dimension: meta_active_item_count {
     type: string
     sql: ${TABLE}.active_item_count ;;
