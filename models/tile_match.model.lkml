@@ -115,3 +115,20 @@ explore: max_attempt_ndt {
     relationship: many_to_one
   }
 }
+
+explore: progression2_pdt {
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${progression2_pdt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: session2_pdt {
+  join: raw_pdt {
+    type: left_outer
+    sql_on: ${session2_pdt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+
+}

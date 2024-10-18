@@ -422,15 +422,57 @@ view: engagement_pdt {
     sql: ${TABLE}.playtime ;;
   }
 
+  measure: per20playtime {
+    type: percentile
+    percentile: 20
+    sql: ${TABLE}.playtime ;;
+  }
+
   measure: per25playtime {
     type: percentile
     percentile: 25
     sql: ${TABLE}.playtime ;;
   }
 
+  measure: per30playtime {
+    type: percentile
+    percentile: 30
+    sql: ${TABLE}.playtime ;;
+  }
+
+  measure: per40playtime {
+    type: percentile
+    percentile: 40
+    sql: ${TABLE}.playtime ;;
+  }
+
+  measure: per50playtime {
+    type: percentile
+    percentile: 50
+    sql: ${TABLE}.playtime ;;
+  }
+
+  measure: per60playtime {
+    type: percentile
+    percentile: 60
+    sql: ${TABLE}.playtime ;;
+  }
+
+  measure: per70playtime {
+    type: percentile
+    percentile: 70
+    sql: ${TABLE}.playtime ;;
+  }
+
   measure: per75playtime {
     type: percentile
     percentile: 75
+    sql: ${TABLE}.playtime ;;
+  }
+
+  measure: per80playtime {
+    type: percentile
+    percentile: 80
     sql: ${TABLE}.playtime ;;
   }
 
