@@ -355,6 +355,42 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Stamp_Mission{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2510_StampMissionActive%' then 'Stamp Mission Active'
+               when ${TABLE}.user_split_test_name like '%2510_StampMissionPassive%' then 'Stamp Mission Passive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Meta_Flow{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2510_MetaAuto%' then 'Meta Auto'
+               when ${TABLE}.user_split_test_name like '%2510_MetaDefault%' then 'Meta Default'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Pass_Tutorial{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2510_PassTutorialDefault%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%2510_PassTutorialIgnoreInfo%' then 'Ignore Info'
+               when ${TABLE}.user_split_test_name like '%2510_PassTutorialIgnoreButton%' then 'Ignore Button'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Stamp_Mission_Tutorial{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2510_StampMissionTutorialsActive%' then 'Tutorials Active'
+               when ${TABLE}.user_split_test_name like '%2510_StampMissionTutorialsPassive%' then 'Tutorials Passive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Level_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2510_BalancedLevels%' then 'Balanced Levels'
+               when ${TABLE}.user_split_test_name like '%2510_DefaultLevels%' then 'Default Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
