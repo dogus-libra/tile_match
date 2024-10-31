@@ -515,9 +515,9 @@ view: users_pdt {
 
   dimension: user_split_test_name_Stamp_Mission_Tutorial{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name like '%2510_StampMissionTutorialsActive%' then 'Tutorials Active'
+    sql: case when ${TABLE}.user_split_test_name like '%2510_StampMissionActive%' then (case when ${TABLE}.user_split_test_name like '%2510_StampMissionTutorialsActive%' then 'Tutorials Active'
                when ${TABLE}.user_split_test_name like '%2510_StampMissionTutorialsPassive%' then 'Tutorials Passive'
-          end ;;
+          end) end ;;
   }
 
   dimension: user_split_test_name_Level_Balance{
