@@ -443,6 +443,11 @@ view: business {
     sql: ${TABLE}.status ;;
   }
 
+  dimension: step {
+    type: number
+    sql: ${TABLE}.step ;;
+  }
+
   dimension: store_visit_source {
     type: number
     sql: ${TABLE}.store_visit_source ;;

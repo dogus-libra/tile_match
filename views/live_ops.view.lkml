@@ -44,9 +44,19 @@ view: live_ops {
     sql: ${TABLE}.duration ;;
   }
 
+  dimension: engagement_type {
+    type: number
+    sql: ${TABLE}.engagement_type ;;
+  }
+
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
+  }
+
+  dimension: elo_rank {
+    type: string
+    sql: ${TABLE}.elo_rank ;;
   }
 
   dimension: event_name {

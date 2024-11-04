@@ -567,6 +567,21 @@ view: users_pdt {
     sql: ${TABLE}.campaign ;;
   }
 
+  dimension: pivot_campaign_list {
+    type: string
+    sql: {% if ${campaign}._is_filtered %} ${campaign} {% else %} 'Campaign' {% endif %};;
+  }
+
+  dimension: pivot_platform_list {
+    type: string
+    sql: {% if ${user_platform}._is_filtered %} ${user_platform} {% else %} 'Platform' {% endif %};;
+  }
+
+  dimension: pivot_network_list {
+    type: string
+    sql: {% if ${network}._is_filtered %} ${network} {% else %} 'network' {% endif %};;
+  }
+
   dimension: country {
     type: string
     sql: UPPER(${TABLE}.country) ;;
