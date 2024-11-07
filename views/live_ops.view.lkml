@@ -44,19 +44,9 @@ view: live_ops {
     sql: ${TABLE}.duration ;;
   }
 
-  dimension: engagement_type {
-    type: number
-    sql: ${TABLE}.engagement_type ;;
-  }
-
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
-  }
-
-  dimension: elo_rank {
-    type: string
-    sql: ${TABLE}.elo_rank ;;
   }
 
   dimension: event_name {
@@ -267,9 +257,40 @@ view: live_ops {
     sql: ${TABLE}.live_ops_claimed_stage ;;
   }
 
-  dimension: meta_active_item_count {
+  dimension: live_ops_quest {
     type: string
-    sql: ${TABLE}.active_item_count ;;
+    sql: ${TABLE}.live_ops_quest ;;
+  }
+
+  dimension: live_ops_engagement_type {
+    type: number
+    sql: ${TABLE}.live_ops_engagement_type ;;
+  }
+
+  dimension: live_ops_target {
+    type: number
+    sql: ${TABLE}.live_ops_target ;;
+  }
+
+  dimension: live_ops_elo_rank {
+    type: number
+    sql: ${TABLE}.live_ops_elo_rank ;;
+  }
+
+  dimension: live_ops_is_bonus {
+    type: yesno
+    sql: ${TABLE}.live_ops_is_bonus ;;
+  }
+
+  dimension: live_ops_difficulty {
+    type: number
+    sql: ${TABLE}.live_ops_difficulty ;;
+  }
+
+  dimension_group: live_ops_start_time {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.live_ops_start_time ;;
   }
 
   dimension: meta_active_item_count_int {
