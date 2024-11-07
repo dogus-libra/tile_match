@@ -156,7 +156,9 @@ view: users_pdt {
             ELSE SPLIT_PART((CASE
             WHEN (creative_name = '' OR creative_name IS NULL)
             THEN fb_install_referrer_adgroup_name
-            ELSE creative_name END), '(', 1) END)     as creative
+            ELSE creative_name END), '(', 1) END)     as creative,
+
+            (case when campaign is null then (case when network = 'Organic' or network = 'google_organic_search' then 'Organic' end) else campaign end) as campaign2
       from joined_table
       ;;
 
@@ -552,6 +554,11 @@ view: users_pdt {
     sql: ${TABLE}.network ;;
   }
 
+  dimension: network_name {
+    type: string
+    sql: ${TABLE}.network_name ;;
+  }
+
   dimension: creative {
     type: string
     sql: ${TABLE}.creative ;;
@@ -567,9 +574,14 @@ view: users_pdt {
     sql: ${TABLE}.campaign ;;
   }
 
+  dimension: campaign2 {
+    type: string
+    sql: ${TABLE}.campaign2 ;;
+  }
+
   dimension: pivot_campaign_list {
     type: string
-    sql: {% if ${campaign}._is_filtered %} ${campaign} {% else %} 'Campaign' {% endif %};;
+    sql: {% if ${campaign2}._is_filtered %} ${campaign2} {% else %} 'Campaign' {% endif %};;
   }
 
   dimension: pivot_platform_list {
