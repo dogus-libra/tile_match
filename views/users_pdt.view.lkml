@@ -581,7 +581,7 @@ view: users_pdt {
 
   dimension: pivot_campaign_list {
     type: string
-    sql: {% if ${campaign2}._is_filtered %} ${campaign2} {% else %} 'Campaign' {% endif %};;
+    sql: {% if ${campaign2}._is_filtered %} ${campaign} {% else %} ${campaign2} {% endif %};;
   }
 
   dimension: pivot_platform_list {
