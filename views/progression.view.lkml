@@ -618,6 +618,13 @@ view: progression {
           end ;;
   }
 
+  dimension: user_split_test_name_Time_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0811_TimeBalanced%' then 'Time Balanced Levels'
+               when ${TABLE}.user_split_test_name like '%0811_OldLevels%' then 'Old Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
