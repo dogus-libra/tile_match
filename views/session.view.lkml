@@ -600,6 +600,14 @@ view: session {
           end ;;
   }
 
+  dimension: user_split_test_name_Real_Time_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1311_TimeBalanced%' then 'Time Balanced Levels'
+               when ${TABLE}.user_split_test_name like '%1311_OldLevels%' then 'Old Levels'
+               when ${TABLE}.user_split_test_name like '%1311_Balanced%' then 'Balanced Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
