@@ -132,3 +132,5 @@ explore: session2_pdt {
   }
 
 }
+
+explore: active_users {}
