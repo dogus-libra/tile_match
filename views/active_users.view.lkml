@@ -3,52 +3,22 @@ view: active_users {
     distribution: "event_day"
     sql:
 
-WITH date_groups AS (
-    SELECT
-        TRUNC(event_timestamp) AS event_day,
-        DATE_TRUNC('week', TRUNC(event_timestamp)) AS week_start,
-        DATE_TRUNC('month', TRUNC(event_timestamp)) AS month_start
-    FROM
-        tile_match.session
-    GROUP BY
-        TRUNC(event_timestamp)
-),
-      wau AS (
-    SELECT
-        DATE_TRUNC('week', TRUNC(event_timestamp)) AS week_start,
-        COUNT(DISTINCT advertising_id) AS weekly_active_users
-    FROM
-        tile_match.session
-    GROUP BY
-        DATE_TRUNC('week', TRUNC(event_timestamp))
-),
-      mau AS (
-    SELECT
-        DATE_TRUNC('month', TRUNC(event_timestamp)) AS month_start,
-        COUNT(DISTINCT advertising_id) AS monthly_active_users
-    FROM
-        tile_match.session
-    GROUP BY
-        DATE_TRUNC('month', TRUNC(event_timestamp))
-)
+
 SELECT
-    dg.event_day,
-    CASE
-        WHEN dg.event_day = dg.week_start THEN wau.weekly_active_users
-        ELSE NULL
-    END AS weekly_active_users,
-    CASE
-        WHEN dg.event_day = dg.month_start THEN mau.monthly_active_users
-        ELSE NULL
-    END AS monthly_active_users
-FROM
-    date_groups dg
-LEFT JOIN
-    wau ON dg.week_start = wau.week_start
-LEFT JOIN
-    mau ON dg.month_start = mau.month_start
-ORDER BY
-    dg.event_day;;
+    event_day,
+    (SELECT
+        COUNT(DISTINCT advertising_id)
+     FROM tile_match.session
+     WHERE trunc(event_timestamp) BETWEEN event_day - INTERVAL '7 days' AND event_day) AS weekly_active_users,
+
+    (SELECT
+        COUNT(DISTINCT advertising_id)
+     FROM tile_match.session
+     WHERE trunc(event_timestamp) BETWEEN event_day - INTERVAL '30 days' AND event_day) AS monthly_active_users
+FROM (SELECT
+        DISTINCT trunc(event_timestamp) AS event_day
+      FROM tile_match.session) days
+ORDER BY event_day;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
