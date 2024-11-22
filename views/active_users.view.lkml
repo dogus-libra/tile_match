@@ -65,7 +65,7 @@ ORDER BY event_day
 
   dimension: country {
     type: string
-    sql: ${TABLE}.country ;;
+    sql: UPPER(${TABLE}.country) ;;
   }
 
   dimension: user_platform {

@@ -200,7 +200,7 @@ view: tile_match_cost {
 
   dimension: os_name {
     type: string
-    sql: ${TABLE}.os_name ;;
+    sql: case when ${TABLE}.os_name = 'android' then 'Android' else ${TABLE}.os_name end ;;
   }
 
   dimension: partner {
