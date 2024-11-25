@@ -502,6 +502,27 @@ view: session_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Oz_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2211_DefaultLevels%' then 'Default Levels'
+               when ${TABLE}.user_split_test_name like '%2211_BalancedLevels%' then 'Balanced Levels'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Level_Coin{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2211_DefaultCoin%' then 'Default Coin'
+               when ${TABLE}.user_split_test_name like '%2211_NoCoin%' then 'No Coin'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Fortune_Forest{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2211_ActiveFortune%' then 'Fortune Forest Active'
+               when ${TABLE}.user_split_test_name like '%2211_PassiveFortune%' then 'Fortune Forest Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
