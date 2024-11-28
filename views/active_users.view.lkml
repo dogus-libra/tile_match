@@ -5,32 +5,30 @@ view: active_users {
 
 SELECT
     event_day, creative, network, campaign, adgroup, country, user_platform,
-    (
-    SELECT COUNT(DISTINCT advertising_id)
-    FROM ${session_pdt.SQL_TABLE_NAME} s
+
+    (SELECT COUNT(DISTINCT advertising_id)
+    FROM ${session_pdt.SQL_TABLE_NAME} se
     WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '7 days' AND days.event_day
-      AND s.country = days.country
-      AND s.creative = days.creative
-      AND s.network = days.network
-      AND s.campaign = days.campaign
-      AND s.adgroup = days.adgroup
-      AND s.user_platform = days.user_platform
-) AS weekly_active_users,
-(
-    SELECT COUNT(DISTINCT advertising_id)
+      AND se.country = days.country
+      AND se.creative = days.creative
+      AND se.campaign = days.campaign
+      AND se.adgroup = days.adgroup
+      AND se.user_platform = days.user_platform) AS weekly_active_users,
+
+    (SELECT COUNT(DISTINCT advertising_id)
     FROM ${session_pdt.SQL_TABLE_NAME} s
     WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '30 days' AND days.event_day
       AND s.country = days.country
       AND s.creative = days.creative
-      AND s.network = days.network
       AND s.campaign = days.campaign
       AND s.adgroup = days.adgroup
-      AND s.user_platform = days.user_platform
-) AS monthly_active_users
+      AND s.user_platform = days.user_platform) AS monthly_active_users
+
 FROM (
     SELECT DISTINCT trunc(session_start_time) AS event_day, creative, network, campaign, adgroup, country, user_platform
     FROM ${session_pdt.SQL_TABLE_NAME}
 ) days
+
 GROUP BY event_day, creative, network, campaign, adgroup, country, user_platform
 ORDER BY event_day  ;;
 
