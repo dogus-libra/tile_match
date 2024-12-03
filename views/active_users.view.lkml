@@ -3,31 +3,41 @@ view: active_users {
     distribution: "event_day"
     sql:
 
-SELECT
-    event_day, creative, network, campaign, adgroup, country, user_platform,
+SELECT event_day,
+       network,
+       campaign,
+       adgroup,
+       creative,
+       country,
+       user_platform,
 
-    (SELECT COUNT(DISTINCT advertising_id)
-    FROM ${session_pdt.SQL_TABLE_NAME} se
-    WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '7 days' AND days.event_day
-      AND se.country = days.country
-      AND se.creative = days.creative
-      AND se.campaign = days.campaign
-      AND se.adgroup = days.adgroup
-      AND se.user_platform = days.user_platform) AS weekly_active_users,
+       (SELECT COUNT(DISTINCT advertising_id)
 
-    (SELECT COUNT(DISTINCT advertising_id)
-    FROM ${session_pdt.SQL_TABLE_NAME} s
-    WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '30 days' AND days.event_day
-      AND s.country = days.country
-      AND s.creative = days.creative
-      AND s.campaign = days.campaign
-      AND s.adgroup = days.adgroup
-      AND s.user_platform = days.user_platform) AS monthly_active_users
+        FROM ${session_pdt.SQL_TABLE_NAME} se
+        WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '7 days' AND days.event_day
+          AND se.country = days.country
+          AND coalesce(se.campaign, 'organic') = days.campaign
+          AND coalesce(se.adgroup, 'organic') = days.adgroup
+          AND coalesce(se.creative, 'organic') = days.creative
+          AND se.user_platform = days.user_platform) AS weekly_active_users,
 
-FROM (
-    SELECT DISTINCT trunc(session_start_time) AS event_day, creative, network, campaign, adgroup, country, user_platform
-    FROM ${session_pdt.SQL_TABLE_NAME}
-) days
+       (SELECT COUNT(DISTINCT advertising_id)
+        FROM ${session_pdt.SQL_TABLE_NAME} s
+        WHERE trunc(session_start_time) BETWEEN days.event_day - INTERVAL '30 days' AND days.event_day
+          AND s.country = days.country
+          AND coalesce(s.campaign, 'organic')  = days.campaign
+          AND coalesce(s.adgroup, 'organic')   = days.adgroup
+          AND coalesce(s.creative, 'organic') = days.creative
+          AND s.user_platform = days.user_platform)  AS monthly_active_users
+
+FROM (SELECT DISTINCT trunc(session_start_time)     AS event_day,
+                      coalesce(campaign, 'organic') as campaign,
+                      coalesce(adgroup, 'organic')  as adgroup,
+                      coalesce(creative, 'organic') as creative,
+                      network,
+                      country,
+                      user_platform
+      FROM ${session_pdt.SQL_TABLE_NAME}) days
 
 GROUP BY event_day, creative, network, campaign, adgroup, country, user_platform
 ORDER BY event_day  ;;
