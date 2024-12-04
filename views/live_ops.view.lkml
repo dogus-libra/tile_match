@@ -247,9 +247,39 @@ view: live_ops {
     sql: ${TABLE}.live_ops_purchase_source ;;
   }
 
+  dimension: live_ops_purchase_source_str {
+    type: string
+    sql: case when ${live_ops_purchase_source} = 0 then 'None'
+              when ${live_ops_purchase_source} = 1 then 'Store'
+              when ${live_ops_purchase_source} = 2 then 'StarterPackPanel'
+              when ${live_ops_purchase_source} = 3 then 'StarterPackStore'
+              when ${live_ops_purchase_source} = 4 then 'StarterPackEndGame'
+              when ${live_ops_purchase_source} = 5 then 'SeasonalPassPremiumOfferPanel'
+              when ${live_ops_purchase_source} = 6 then 'SeasonalPassSuperOfferPanel'
+              when ${live_ops_purchase_source} = 7 then 'SeasonalPassLastChancePanel'
+              when ${live_ops_purchase_source} = 8 then 'SeasonalPassFullScreenPanel'
+              when ${live_ops_purchase_source} = 9 then 'SeasonalPassEndGameOfferPanel' end ;;
+  }
+
   dimension: live_ops_store_open_source {
     type: number
     sql: ${TABLE}.live_ops_store_open_source ;;
+  }
+
+  dimension: live_ops_store_open_source_str {
+    type: string
+    sql: case when ${live_ops_store_open_source} = 0 then 'None'
+              when ${live_ops_store_open_source} = 1 then 'BoosterExchangePanelMenu'
+              when ${live_ops_store_open_source} = 2 then 'BoosterExchangePanelGamePlay'
+              when ${live_ops_store_open_source} = 3 then 'CoinIndicatorMenu'
+              when ${live_ops_store_open_source} = 4 then 'CoinIndicatorGamePlay'
+              when ${live_ops_store_open_source} = 5 then 'LifeIndicatorMenu'
+              when ${live_ops_store_open_source} = 6 then 'LifeIndicatorGamePlay'
+              when ${live_ops_store_open_source} = 7 then 'ExtraLifePanelMenu'
+              when ${live_ops_store_open_source} = 8 then 'ExtraLifePanelGamePlay'
+              when ${live_ops_store_open_source} = 9 then 'EndGameOfferPanel'
+              when ${live_ops_store_open_source} = 9 then 'MenuStoreButton'
+              when ${live_ops_store_open_source} = 9 then 'MenuSwipe' end ;;
   }
 
   dimension: live_ops_claimed_stage {
