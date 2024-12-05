@@ -801,6 +801,61 @@ view: live_ops {
               when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
   }
 
+  dimension: tile_pass_start_time_raw {
+    type:  date_time
+    sql: case
+         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}<=5
+         then ${TABLE}.event_timestamp
+         end
+        ;;
+  }
+
+  measure: tile_pass_start_time {
+    type: date
+    sql: min(${tile_pass_start_time_raw}) ;;
+  }
+
+  dimension: tile_pass_10th_stage_time_raw {
+    type:  date_time
+    sql: case
+         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}<=12 and ${live_ops_default_stage_index}>=8
+         then ${TABLE}.event_timestamp
+         end
+        ;;
+  }
+
+  measure: tile_pass_10th_stage_time {
+    type: date
+    sql: max(${tile_pass_10th_stage_time_raw}) ;;
+  }
+
+  dimension: tile_pass_20th_stage_time_raw {
+    type:  date_time
+    sql: case
+         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}<=22 and ${live_ops_default_stage_index}>=18
+         then ${TABLE}.event_timestamp
+         end
+        ;;
+  }
+
+  measure: tile_pass_20th_stage_time {
+    type: date
+    sql: max(${tile_pass_20th_stage_time_raw}) ;;
+  }
+
+  dimension: tile_pass_30th_stage_time_raw {
+    type:  date_time
+    sql: case
+         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}>=27
+         then ${TABLE}.event_timestamp
+         end
+        ;;
+  }
+
+  measure: tile_pass_30th_stage_time {
+    type: date
+    sql: max(${tile_pass_30th_stage_time_raw}) ;;
+  }
   measure: count {
     type: count
     drill_fields: [live_ops_event_name, user_split_test_name, event_name, team_name]
