@@ -636,6 +636,14 @@ view: session {
           end ;;
   }
 
+  dimension: user_split_test_name_Mixed_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0612_DefaultLevels%' then 'Default Levels'
+               when ${TABLE}.user_split_test_name like '%0612_NewStickers%' then 'New_Stickers'
+               when ${TABLE}.user_split_test_name like '%0612_BalancedLevels%' then 'Balanced Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
