@@ -580,6 +580,22 @@ view: users_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Rack_Feedback{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0612_RackFeedbackActive%' then 'Rack Feedback Active'
+               when ${TABLE}.user_split_test_name like '%0612_RackFeedbackPassive%' then 'Rack Feedback Passive'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Live_Event_Calendar{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0612_FortuneSingle%' then 'Fortune Single'
+               when ${TABLE}.user_split_test_name like '%0612_FortuneMulti%' then 'Fortune Multi'
+               when ${TABLE}.user_split_test_name like '%0612_CoinRushActive%' then 'Coin Rush Active'
+               when ${TABLE}.user_split_test_name like '%0612_PassiveEvents%' then 'Passive Events'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
