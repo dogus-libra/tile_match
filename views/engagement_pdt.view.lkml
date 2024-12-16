@@ -458,6 +458,13 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_New_Live_Event_Calendar{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1312_FortuneSingle%' then 'Fortune Single'
+               when ${TABLE}.user_split_test_name like '%1312_FortuneMulti%' then 'Fortune Multi'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
