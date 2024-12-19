@@ -364,6 +364,17 @@ view: session {
     sql: ${TABLE}.user_is_bonus_mode_active ;;
   }
 
+  dimension: user_game_mode {
+    type: string
+    sql: case when ${TABLE}.user_game_mode is null then 'Normal'
+              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
   dimension: user_level_at {
     type: number
     sql: ${TABLE}.user_level_at ;;

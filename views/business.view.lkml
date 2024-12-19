@@ -463,6 +463,17 @@ view: business {
     sql: ${TABLE}.team_id ;;
   }
 
+  dimension: user_game_mode {
+    type: string
+    sql: case when ${TABLE}.user_game_mode is null then 'Normal'
+              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
   dimension: team_name {
     type: string
     sql: ${TABLE}.team_name ;;

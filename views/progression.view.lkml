@@ -94,6 +94,11 @@ view: progression {
     sql: ${TABLE}.connection_type ;;
   }
 
+  dimension: difficulty {
+    type: number
+    sql: ${TABLE}.difficulty ;;
+  }
+
   dimension: end_game_offer {
     type: string
     sql: ${TABLE}.end_game_offer ;;
@@ -402,6 +407,17 @@ view: progression {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_game_mode {
+    type: string
+    sql: case when ${TABLE}.user_game_mode is null then 'Normal'
+              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
   }
 
   dimension: user_level_at {
