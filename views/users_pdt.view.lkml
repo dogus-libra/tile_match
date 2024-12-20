@@ -30,7 +30,12 @@ view: users_pdt {
                           max(user_total_session_time)     as user_total_session_time,
                           max(user_country_code)           as user_country_code,
                           max(app_version)                 as lst_app_version,
-                          min(app_version)                 as fst_app_version
+                          min(app_version)                 as fst_app_version,
+                          max(user_game_mode)              as user_game_mode,
+                          max(user_grand_mode_level)       as user_grand_mode_level,
+                          max(user_win_streak_count)       as user_win_streak_count,
+                          max(user_win_streak_group)       as user_win_streak_group
+
                    from tile_match.session
                    where event_name = 'SessionActive'
                    group by advertising_id),
@@ -102,6 +107,10 @@ view: users_pdt {
              user_total_payment,
              user_total_session_time,
              user_country_code,
+             user_game_mode,
+             user_grand_mode_level,
+             user_win_streak_count,
+             user_win_streak_group,
              retention_1,
              retention_2,
              retention_3,
@@ -219,11 +228,6 @@ view: users_pdt {
     sql: ${TABLE}.installed ;;
   }
 
-  dimension: install_day_of_user {
-    type: number
-    sql: FLOOR(DATEDIFF(hour,${TABLE}.installed,${TABLE}.session_start_time)/24) ;;
-  }
-
   dimension: inventory_coin {
     type: number
     sql: ${TABLE}.inventory_coin ;;
@@ -247,12 +251,6 @@ view: users_pdt {
   dimension: session_time {
     type: number
     sql: ${TABLE}.session_time ;;
-  }
-
-  dimension_group: client {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.session_start_time ;;
   }
 
   dimension: retention_1 {
@@ -313,6 +311,32 @@ view: users_pdt {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_game_mode {
+    type: string
+    sql: case when ${TABLE}.user_game_mode is null then 'Normal'
+              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
+  dimension: user_win_streak_count {
+    type: number
+    sql: ${TABLE}.user_win_streak_count ;;
+  }
+
+  dimension: user_win_streak_group {
+    type: string
+    sql: case when ${TABLE}.user_win_streak_group is null then 'Default'
+              when ${TABLE}.user_win_streak_group = 1 then 'Streak1'
+              when ${TABLE}.user_win_streak_group = 2 then 'Streak2'
+              when ${TABLE}.user_win_streak_group = 3 then 'Streak3'
+              when ${TABLE}.user_win_streak_group = 4 then 'Streak4'
+              when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end ;;
   }
 
   dimension: user_level_at {

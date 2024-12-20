@@ -44,7 +44,11 @@ view: engagement_pdt {
                           max(campaign) as campaign,
                           max(adgroup) as adgroup,
                           max(creative) as creative,
-                          max(country) as country
+                          max(country) as country,
+                          max(user_game_mode)                    as user_game_mode,
+                          max(user_grand_mode_level)             as user_grand_mode_level,
+                          max(user_win_streak_count)             as user_win_streak_count,
+                          max(user_win_streak_group)             as user_win_streak_group
                 from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
                 group by advertising_id, client ;;
 
@@ -175,6 +179,32 @@ view: engagement_pdt {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_game_mode {
+    type: string
+    sql: case when ${TABLE}.user_game_mode is null then 'Normal'
+              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
+  dimension: user_win_streak_count {
+    type: number
+    sql: ${TABLE}.user_win_streak_count ;;
+  }
+
+  dimension: user_win_streak_group {
+    type: string
+    sql: case when ${TABLE}.user_win_streak_group is null then 'Default'
+              when ${TABLE}.user_win_streak_group = 1 then 'Streak1'
+              when ${TABLE}.user_win_streak_group = 2 then 'Streak2'
+              when ${TABLE}.user_win_streak_group = 3 then 'Streak3'
+              when ${TABLE}.user_win_streak_group = 4 then 'Streak4'
+              when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end ;;
   }
 
   dimension: user_level_at {

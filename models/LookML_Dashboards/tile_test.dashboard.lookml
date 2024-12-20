@@ -5724,7 +5724,7 @@
       progression.user_win_streak_group: ''
       users_pdt.user_split_test_name_New_Live_Event_Calendar: "-NULL"
       progression.user_balance_version: ''
-      users_pdt.install_day_of_user: ''
+
     sorts: [users_pdt.user_split_test_name_New_Live_Event_Calendar, progression.user_level_at]
     limit: 500
     column_limit: 50
