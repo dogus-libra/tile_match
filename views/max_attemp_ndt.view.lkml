@@ -8,6 +8,9 @@ view: max_attempt_ndt {
       column: advertising_id {}
       column: event_timestamp_date {}
       column: event_timestamp_week {}
+      column: event_version {}
+      column: user_game_mode {}
+      column: connection_type {}
       column: installed_date {}
       column: max_att {}
       column: user_split_test_name {}
@@ -54,6 +57,18 @@ view: max_attempt_ndt {
   }
 
   dimension: user_balance_version {
+    description: ""
+  }
+
+  dimension: event_version {
+    description: ""
+  }
+
+  dimension: user_game_mode {
+    description: ""
+  }
+
+  dimension: connection_type {
     description: ""
   }
 
