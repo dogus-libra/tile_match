@@ -591,6 +591,14 @@ view: session_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Ekin_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2012_Default%' then 'Default Levels'
+               when ${TABLE}.user_split_test_name like '%2012_OldDefault%' then 'Old Default Levels'
+               when ${TABLE}.user_split_test_name like '%2012_Balanced%' then 'Balanced Levels'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
