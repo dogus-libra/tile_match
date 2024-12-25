@@ -108,6 +108,12 @@ view: tile_match_cost {
     sql: UPPER(${TABLE}.country_code) ;;
   }
 
+  dimension: country_tier {
+    type: string
+    sql: case when ${country_code} in ('DE','GB','IE','AU','NZ','US','CA','FR','IT','ES','AT','BE','NL','LU','FI','SE','CH','NO','DK','JP','KR')
+      then 'Tier 1' else ${country_code} end;;
+  }
+
   dimension: creative {
     type: string
     sql: ${TABLE}.creative ;;

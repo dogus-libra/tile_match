@@ -705,6 +705,12 @@ view: users_pdt {
     sql: UPPER(${TABLE}.country) ;;
   }
 
+  dimension: country_tier {
+    type: string
+    sql: case when ${country} in ('DE','GB','IE','AU','NZ','US','CA','FR','IT','ES','AT','BE','NL','LU','FI','SE','CH','NO','DK','JP','KR')
+              then 'Tier 1' else ${country} end;;
+  }
+
   measure: count {
     type: count
   }
