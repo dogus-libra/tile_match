@@ -1,23 +1,23 @@
 ---
-- dashboard: 16__new_balanced_level_test
-  title: 16 - New Balanced Level Test
+- dashboard: 35__ekin_balanced_level_test
+  title: 35 - Ekin Balanced Level Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: SEPktcFfcI7OVQxVLOoaeX
+  preferred_slug: N2TB3SYbzxHJfnQtiUJb8j
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,7 +314,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Ekin_Balance: 263
+      progression.user_split_test_name_Pay_and_Proceed: 263
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -324,6 +324,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 63
     col: 0
     width: 24
@@ -333,13 +334,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -563,21 +564,21 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Ekin_Balance, player_count,
-      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
-      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
-      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_rate,
+      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
+      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
+      level_100_level_5, level_50_level_10, level_100_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       level_5_reach_rate:
         align: center
@@ -680,7 +681,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Ekin_Balance: 280
+      progression.user_split_test_name_Pay_and_Proceed: 280
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -690,6 +691,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 67
     col: 0
     width: 24
@@ -700,13 +702,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Ekin_Balance]
+      engagement_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ekin_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -776,6 +778,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
+      Country (Tier): engagement_pdt.country_tier
     row: 71
     col: 0
     width: 8
@@ -786,13 +789,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Ekin_Balance]
+      engagement_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ekin_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -853,6 +856,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
+      Country (Tier): engagement_pdt.country_tier
     row: 71
     col: 8
     width: 8
@@ -862,13 +866,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [session_pdt.user_split_test_name_Ekin_Balance]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [session_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Ekin_Balance, session_pdt.client_date
+      session_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Pay_and_Proceed, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -929,6 +933,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
+      Country (Tier): session_pdt.country_tier
     row: 71
     col: 16
     width: 8
@@ -939,13 +944,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Ekin_Balance]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ekin_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1032,6 +1037,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
+      Country (Tier): engagement_pdt.country_tier
     row: 78
     col: 0
     width: 8
@@ -1042,13 +1048,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Ekin_Balance]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ekin_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1102,6 +1108,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
+      Country (Tier): engagement_pdt.country_tier
     row: 78
     col: 8
     width: 8
@@ -1112,13 +1119,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [session_pdt.user_split_test_name_Ekin_Balance]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [session_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Ekin_Balance, session_pdt.client_date
+      session_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Pay_and_Proceed, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1198,6 +1205,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
+      Country (Tier): session_pdt.country_tier
     row: 78
     col: 16
     width: 8
@@ -1207,11 +1215,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1268,12 +1276,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1314,6 +1322,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 85
     col: 0
     width: 8
@@ -1323,11 +1332,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[10,20]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1384,12 +1393,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1430,6 +1439,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 85
     col: 8
     width: 8
@@ -1439,11 +1449,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[20,30]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1500,12 +1510,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1546,6 +1556,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 85
     col: 16
     width: 8
@@ -1555,11 +1566,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[30,50]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1616,12 +1627,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1662,6 +1673,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 88
     col: 0
     width: 8
@@ -1671,11 +1683,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[50,75]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1732,12 +1744,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1778,6 +1790,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 88
     col: 8
     width: 8
@@ -1787,11 +1800,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[75,100]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1848,12 +1861,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -1894,6 +1907,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 88
     col: 16
     width: 8
@@ -1903,11 +1917,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[100,125]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1964,12 +1978,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -2010,6 +2024,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 91
     col: 0
     width: 8
@@ -2019,11 +2034,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ekin_Balance, win_count, fail_count]
+    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_level_at: "[125,150]"
-    sorts: [progression.user_split_test_name_Ekin_Balance]
+    sorts: [progression.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2080,12 +2095,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Ekin_Balance: Test Group
+      progression.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ekin_Balance:
+      progression.user_split_test_name_Pay_and_Proceed:
         align: center
       win_rate:
         align: center
@@ -2126,6 +2141,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 91
     col: 8
     width: 8
@@ -2137,11 +2153,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+      users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, users_pdt.installed_date
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -2413,7 +2429,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2514,6 +2530,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 4
     col: 0
     width: 24
@@ -2524,13 +2541,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, users_pdt.installed_week
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -2802,8 +2819,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Ekin_Balance: Test Group
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      session_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2904,6 +2921,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 12
     col: 0
     width: 24
@@ -2914,10 +2932,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance]
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3188,7 +3206,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3209,7 +3227,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Ekin_Balance:
+      users_pdt.user_split_test_name_Pay_and_Proceed:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -3279,7 +3297,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Ekin_Balance: 256
+      users_pdt.user_split_test_name_Pay_and_Proceed: 256
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -3289,6 +3307,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 0
     col: 0
     width: 24
@@ -3299,12 +3318,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, ret_1 desc 0]
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3575,7 +3594,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3596,7 +3615,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Ekin_Balance:
+      users_pdt.user_split_test_name_Pay_and_Proceed:
         align: center
       users_pdt.app_version:
         align: center
@@ -3676,6 +3695,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 20
     col: 0
     width: 24
@@ -3687,11 +3707,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+      ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, users_pdt.installed_date
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -3977,7 +3997,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4095,6 +4115,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 30
     col: 0
     width: 24
@@ -4105,13 +4126,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, users_pdt.installed_week
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -4397,7 +4418,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -4515,6 +4536,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 39
     col: 0
     width: 24
@@ -4525,12 +4547,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4815,7 +4837,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4931,6 +4953,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 48
     col: 0
     width: 24
@@ -4941,10 +4964,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ekin_Balance]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance]
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5229,9 +5252,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Ekin_Balance: Test Group
+      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Ekin_Balance: 279
+      users_pdt.user_split_test_name_Pay_and_Proceed: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -5264,7 +5287,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Ekin_Balance:
+      users_pdt.user_split_test_name_Pay_and_Proceed:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -5347,6 +5370,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 25
     col: 0
     width: 24
@@ -5358,8 +5382,8 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_Ekin_Balance]
-    pivots: [progression.user_split_test_name_Ekin_Balance]
+      progression.user_split_test_name_Pay_and_Proceed]
+    pivots: [progression.user_split_test_name_Pay_and_Proceed]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
@@ -5373,8 +5397,8 @@
       progression.user_level_at: "[1,150]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_Ekin_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Ekin_Balance, progression.user_level_at]
+      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+    sorts: [progression.user_split_test_name_Pay_and_Proceed, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5695,6 +5719,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 53
     col: 0
     width: 24
@@ -5706,8 +5731,8 @@
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Ekin_Balance]
-    pivots: [users_pdt.user_split_test_name_Ekin_Balance]
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
@@ -5722,10 +5747,9 @@
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Ekin_Balance: "-NULL"
+      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
       progression.user_balance_version: ''
-
-    sorts: [users_pdt.user_split_test_name_Ekin_Balance, progression.user_level_at]
+    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6124,6 +6148,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      Country (Tier): users_pdt.country_tier
     row: 94
     col: 0
     width: 24
@@ -6170,10 +6195,23 @@
     explore: users_pdt
     listens_to_filters: []
     field: users_pdt.country
+  - name: Country (Tier)
+    title: Country (Tier)
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+    model: tile_match
+    explore: users_pdt
+    listens_to_filters: []
+    field: users_pdt.country_tier
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: 0.1.7
+    default_value: 0.2.4
     allow_multiple_values: true
     required: false
     ui_config:

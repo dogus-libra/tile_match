@@ -599,6 +599,13 @@ view: session_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Pay_and_Proceed{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2612_Default%' then 'Pay and Proceed Passive'
+               when ${TABLE}.user_split_test_name like '%2612_PPActive%' then 'Pay and Proceed Active'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
