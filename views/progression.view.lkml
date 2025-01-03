@@ -10,6 +10,10 @@ view: progression {
     # Here's what a typical dimension looks like in LookML.
     # A dimension is a groupable field that can be used to filter query results.
     # This dimension will be called "Advertising ID" in Explore.
+  dimension: active_fail_safe_scenario {
+    type: number
+    sql: ${TABLE}.active_fail_safe_scenario ;;
+  }
 
   dimension: advertising_id {
     type: string
@@ -99,6 +103,11 @@ view: progression {
     sql: ${TABLE}.difficulty ;;
   }
 
+  dimension: difficulty_rank {
+    type: number
+    sql: ${TABLE}.difficulty_rank ;;
+  }
+
   dimension: end_game_offer {
     type: string
     sql: ${TABLE}.end_game_offer ;;
@@ -159,6 +168,11 @@ view: progression {
   dimension: move_count {
     type: number
     sql: ${TABLE}.move_count ;;
+  }
+
+  dimension: last_input_time {
+    type: number
+    sql: ${TABLE}.last_input_time ;;
   }
 
   dimension: obstacles {
