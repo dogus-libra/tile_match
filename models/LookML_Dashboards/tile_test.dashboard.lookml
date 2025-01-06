@@ -11,13 +11,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Path, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+      progression.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,7 +314,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Pay_and_Proceed: 263
+      progression.user_split_test_name_Streak_Path: 263
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -334,13 +334,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Path, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+      progression.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -564,7 +564,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Pay_and_Proceed, player_count, level_5_reach_rate,
+    column_order: [progression.user_split_test_name_Streak_Path, player_count, level_5_reach_rate,
       level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
       level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
       level_100_level_5, level_50_level_10, level_100_level_50]
@@ -573,12 +573,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       level_5_reach_rate:
         align: center
@@ -681,7 +681,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Pay_and_Proceed: 280
+      progression.user_split_test_name_Streak_Path: 280
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -702,13 +702,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
+      engagement_pdt.user_split_test_name_Streak_Path]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Path]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Path, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -789,13 +789,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
+      engagement_pdt.user_split_test_name_Streak_Path]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Path]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Path, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -866,13 +866,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [session_pdt.user_split_test_name_Pay_and_Proceed]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Streak_Path]
+    pivots: [session_pdt.user_split_test_name_Streak_Path]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Pay_and_Proceed, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Path, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -944,13 +944,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Streak_Path]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Path]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Path, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1048,13 +1048,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [engagement_pdt.user_split_test_name_Pay_and_Proceed]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Streak_Path]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Path]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Pay_and_Proceed, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Path, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1119,13 +1119,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [session_pdt.user_split_test_name_Pay_and_Proceed]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Streak_Path]
+    pivots: [session_pdt.user_split_test_name_Streak_Path]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Pay_and_Proceed, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Path, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1215,11 +1215,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1276,12 +1276,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1332,11 +1332,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[10,20]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1393,12 +1393,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1449,11 +1449,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[20,30]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1510,12 +1510,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1566,11 +1566,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[30,50]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1627,12 +1627,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1683,11 +1683,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[50,75]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1744,12 +1744,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1800,11 +1800,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[75,100]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1861,12 +1861,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -1917,11 +1917,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[100,125]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1978,12 +1978,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -2034,11 +2034,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Pay_and_Proceed, win_count, fail_count]
+    fields: [progression.user_split_test_name_Streak_Path, win_count, fail_count]
     filters:
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
+      progression.user_split_test_name_Streak_Path: "-NULL"
       progression.user_level_at: "[125,150]"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed]
+    sorts: [progression.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2095,12 +2095,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Pay_and_Proceed: Test Group
+      progression.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Pay_and_Proceed:
+      progression.user_split_test_name_Streak_Path:
         align: center
       win_rate:
         align: center
@@ -2153,11 +2153,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+      users_pdt.user_split_test_name_Streak_Path]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -2429,7 +2429,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2541,13 +2541,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -2819,8 +2819,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Pay_and_Proceed: Test Group
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      session_pdt.user_split_test_name_Streak_Path: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2932,10 +2932,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed]
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3206,7 +3206,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3227,7 +3227,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Pay_and_Proceed:
+      users_pdt.user_split_test_name_Streak_Path:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -3297,7 +3297,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Pay_and_Proceed: 256
+      users_pdt.user_split_test_name_Streak_Path: 256
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -3318,12 +3318,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, ret_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3594,7 +3594,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3615,7 +3615,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Pay_and_Proceed:
+      users_pdt.user_split_test_name_Streak_Path:
         align: center
       users_pdt.app_version:
         align: center
@@ -3707,11 +3707,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+      ret_14, users_pdt.user_split_test_name_Streak_Path]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -3997,7 +3997,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4126,13 +4126,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -4418,7 +4418,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -4547,12 +4547,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4837,7 +4837,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4964,10 +4964,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Pay_and_Proceed]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Path]
     filters:
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed]
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Path]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5252,9 +5252,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Pay_and_Proceed: Test Group
+      users_pdt.user_split_test_name_Streak_Path: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Pay_and_Proceed: 279
+      users_pdt.user_split_test_name_Streak_Path: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -5287,7 +5287,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Pay_and_Proceed:
+      users_pdt.user_split_test_name_Streak_Path:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -5382,8 +5382,8 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_Pay_and_Proceed]
-    pivots: [progression.user_split_test_name_Pay_and_Proceed]
+      progression.user_split_test_name_Streak_Path]
+    pivots: [progression.user_split_test_name_Streak_Path]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
@@ -5397,8 +5397,8 @@
       progression.user_level_at: "[1,150]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_Pay_and_Proceed: "-NULL"
-    sorts: [progression.user_split_test_name_Pay_and_Proceed, progression.user_level_at]
+      progression.user_split_test_name_Streak_Path: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Path, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5731,8 +5731,8 @@
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Pay_and_Proceed]
-    pivots: [users_pdt.user_split_test_name_Pay_and_Proceed]
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Streak_Path]
+    pivots: [users_pdt.user_split_test_name_Streak_Path]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
@@ -5747,9 +5747,9 @@
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Pay_and_Proceed: "-NULL"
+      users_pdt.user_split_test_name_Streak_Path: "-NULL"
       progression.user_balance_version: ''
-    sorts: [users_pdt.user_split_test_name_Pay_and_Proceed, progression.user_level_at]
+    sorts: [users_pdt.user_split_test_name_Streak_Path, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:

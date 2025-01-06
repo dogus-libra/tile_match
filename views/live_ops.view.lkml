@@ -813,6 +813,13 @@ view: live_ops {
           end ;;
   }
 
+  dimension: user_split_test_name_Streak_Path{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0301_StreakPathActive%' then 'Streak Path Active'
+               when ${TABLE}.user_split_test_name like '%0301_StreakPathPassive%' then 'Streak Path Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
