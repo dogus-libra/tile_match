@@ -549,6 +549,11 @@ view: business {
     sql: ${TABLE}.user_campaign ;;
   }
 
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
+  }
+
   dimension: user_country_code {
     type: string
     sql: ${TABLE}.user_country_code ;;

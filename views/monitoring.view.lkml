@@ -39,6 +39,11 @@ view: monitoring {
     sql: ${TABLE}.connection_type ;;
   }
 
+  dimension: conversion_data {
+    type: string
+    sql: ${TABLE}.conversion_data ;;
+  }
+
   dimension: duration {
     type: number
     sql: ${TABLE}.duration ;;
@@ -55,6 +60,11 @@ view: monitoring {
     type: average
     sql: ${duration} ;;  }
 
+  dimension: error_string {
+    type: string
+    sql: ${TABLE}.error_string ;;
+  }
+
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
@@ -69,6 +79,11 @@ view: monitoring {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.event_timestamp ;;
+  }
+
+  dimension: event_previous_id {
+    type: string
+    sql: ${TABLE}.event_previous_id ;;
   }
 
   dimension: event_type {
@@ -102,6 +117,11 @@ view: monitoring {
     sql: ${TABLE}.ip_address ;;
   }
 
+  dimension: occured_issue {
+    type: number
+    sql: ${TABLE}.occured_issue ;;
+  }
+
   dimension_group: request {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -111,6 +131,11 @@ view: monitoring {
   dimension: response {
     type: yesno
     sql: ${TABLE}.response ;;
+  }
+
+  dimension: response_time {
+    type: number
+    sql: ${TABLE}.response_time ;;
   }
 
   dimension: session_id {
@@ -153,9 +178,19 @@ view: monitoring {
     sql: ${TABLE}.user_balance_version ;;
   }
 
+  dimension: user_bonus_level_at {
+    type: string
+    sql: ${TABLE}.user_bonus_level_at ;;
+  }
+
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
   }
 
   dimension: user_country_code {
@@ -178,6 +213,16 @@ view: monitoring {
     sql: ${TABLE}.user_device ;;
   }
 
+  dimension: user_game_mode {
+    type: number
+    sql: ${TABLE}.user_game_mode ;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
   dimension: user_level_at {
     type: number
     sql: ${TABLE}.user_level_at ;;
@@ -186,6 +231,11 @@ view: monitoring {
   dimension: user_level_id {
     type: number
     sql: ${TABLE}.user_level_id ;;
+  }
+
+  dimension: user_level_id_string {
+    type: number
+    sql: ${TABLE}.user_level_id_string ;;
   }
 
   dimension: user_manufacturer {

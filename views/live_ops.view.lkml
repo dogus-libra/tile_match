@@ -348,6 +348,11 @@ view: live_ops {
     sql: ${TABLE}.tap_count ;;
   }
 
+  dimension: package_order {
+    type: number
+    sql: ${TABLE}.package_order ;;
+  }
+
   dimension_group: request {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -447,6 +452,11 @@ view: live_ops {
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
   }
 
   dimension: user_country_code {

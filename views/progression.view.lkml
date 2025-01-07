@@ -393,6 +393,11 @@ view: progression {
     sql: ${TABLE}.user_balance_version ;;
   }
 
+  dimension: user_is_bonus_mode_active {
+    type: yesno
+    sql: ${TABLE}.user_is_bonus_mode_active ;;
+  }
+
   dimension: pivot_balance_version_list {
     type: string
     sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'Balance Version' {% endif %};;
@@ -401,6 +406,11 @@ view: progression {
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
   }
 
   dimension: user_country_code {
@@ -421,6 +431,11 @@ view: progression {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_elo_rank {
+    type: number
+    sql: ${TABLE}.user_elo_rank ;;
   }
 
   dimension: user_game_mode {
