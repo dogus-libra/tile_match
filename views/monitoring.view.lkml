@@ -102,6 +102,11 @@ view: monitoring {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.event_timestamp)/24) ;;
+  }
+
   dimension: inventory_coin {
     type: number
     sql: ${TABLE}.inventory_coin ;;
