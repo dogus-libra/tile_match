@@ -1265,6 +1265,13 @@ view: progression {
           end ;;
   }
 
+  dimension: user_split_test_name_IOS_Android_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1701Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1701Balanced%' then 'Balanced'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
