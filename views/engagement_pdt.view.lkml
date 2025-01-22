@@ -519,8 +519,8 @@ view: engagement_pdt {
 
   dimension: user_split_test_name_IOS_Android_Balance{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name like '%1701Default%' then 'Default'
-               when ${TABLE}.user_split_test_name like '%1701Balanced%' then 'Balanced'
+    sql:  case when ${TABLE}.user_split_test_name like '%2201Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%2201Balanced%' then 'Balanced'
           end ;;
   }
 
