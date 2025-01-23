@@ -61,7 +61,22 @@ view: users_pdt {
                                       then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
                           max(case
                                   when datediff('hour',session.installed_at,  sysdate) > 348
-                                      then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14
+                                      then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14,
+                          max(case
+                                  when datediff('hour',session.installed_at,  sysdate) > 684
+                                      then case when datediff('hour', installed_at, event_timestamp) between 660 and 684 then 1 else 0 end end) as retention_28,
+                          max(case
+                                  when datediff('hour',session.installed_at,  sysdate) > 1452
+                                      then case when datediff('hour', installed_at, event_timestamp) between 1428 and 1452 then 1 else 0 end end) as retention_60,
+                          max(case
+                                  when datediff('hour',session.installed_at,  sysdate) > 2172
+                                      then case when datediff('hour', installed_at, event_timestamp) between 2148 and 2172 then 1 else 0 end end) as retention_90,
+                          max(case
+                                  when datediff('hour',session.installed_at,  sysdate) > 4332
+                                      then case when datediff('hour', installed_at, event_timestamp) between 4308 and 4332 then 1 else 0 end end) as retention_180,
+                          max(case
+                                  when datediff('hour',session.installed_at,  sysdate) > 8652
+                                      then case when datediff('hour', installed_at, event_timestamp) between 8628 and 8652 then 1 else 0 end end) as retention_360
                    from tile_match.session
                    group by advertising_id),
 
@@ -118,6 +133,11 @@ view: users_pdt {
              retention_5,
              retention_7,
              retention_14,
+             retention_28,
+             retention_60,
+             retention_90,
+             retention_180,
+             retention_360,
              idfa_or_gps_adid,
              network_name,
              campaign_name,
@@ -286,6 +306,31 @@ view: users_pdt {
   dimension: retention_14 {
     type: number
     sql: ${TABLE}.retention_14 ;;
+  }
+
+  dimension: retention_28 {
+    type: number
+    sql: ${TABLE}.retention_28 ;;
+  }
+
+  dimension: retention_60 {
+    type: number
+    sql: ${TABLE}.retention_60 ;;
+  }
+
+  dimension: retention_90 {
+    type: number
+    sql: ${TABLE}.retention_90 ;;
+  }
+
+  dimension: retention_180 {
+    type: number
+    sql: ${TABLE}.retention_180 ;;
+  }
+
+  dimension: retention_360 {
+    type: number
+    sql: ${TABLE}.retention_360 ;;
   }
 
   dimension: user_adgroup {
