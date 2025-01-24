@@ -60,6 +60,26 @@ view: business {
     sql: ${TABLE}.connection_type ;;
   }
 
+  dimension: completed_ad_count {
+    type: number
+    sql: ${TABLE}.completed_ad_count ;;
+  }
+
+  dimension: completed_rewarded_count_in_day {
+    type: number
+    sql: ${TABLE}.completed_rewarded_count_in_day ;;
+  }
+
+  dimension: completed_rewarded_count_in_session {
+    type: number
+    sql: ${TABLE}.completed_rewarded_count_in_session ;;
+  }
+
+  dimension: completed_rewarded_count_alltime {
+    type: number
+    sql: ${TABLE}.completed_rewarded_count_alltime ;;
+  }
+
   dimension: currency_change_avatar_amount_type {
     type: string
     sql: ${TABLE}.currency_change_avatar_amount_type ;;
@@ -275,6 +295,26 @@ view: business {
     sql: ${TABLE}.currency_code ;;
   }
 
+  dimension: displayed_ad_count {
+    type: number
+    sql: ${TABLE}.displayed_ad_count ;;
+  }
+
+  dimension: displayed_rewarded_count_in_day {
+    type: number
+    sql: ${TABLE}.displayed_rewarded_count_in_day ;;
+  }
+
+  dimension: displayed_rewarded_count_in_session {
+    type: number
+    sql: ${TABLE}.displayed_rewarded_count_in_session ;;
+  }
+
+  dimension: displayed_rewarded_count_alltime {
+    type: number
+    sql: ${TABLE}.displayed_rewarded_count_alltime ;;
+  }
+
   dimension: duration {
     type: number
     sql: ${TABLE}.duration ;;
@@ -309,6 +349,22 @@ view: business {
   dimension: event_version {
     type: string
     sql: ${TABLE}.event_version ;;
+  }
+
+  dimension: goodwill_pass_purchase_details_pass_type {
+    type: number
+    sql: ${TABLE}.goodwill_pass_purchase_details_pass_type ;;
+  }
+
+  dimension: goodwill_pass_purchase_details_step {
+    type: number
+    sql: ${TABLE}.goodwill_pass_purchase_details_step ;;
+  }
+
+  dimension_group: goodwill_pass_purchase_details_start_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.goodwill_pass_purchase_details_start_date ;;
   }
 
   dimension: initialized {
@@ -407,6 +463,22 @@ view: business {
     sql: ${TABLE}.package_id ;;
   }
 
+  dimension_group: pay_and_proceed_purchase_details_start_day {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.pay_and_proceed_purchase_details_start_day ;;
+  }
+
+  dimension: pay_and_proceed_purchase_details_step {
+    type: number
+    sql: ${TABLE}.pay_and_proceed_purchase_details_step ;;
+  }
+
+  dimension: pay_and_proceed_purchase_details_template_id {
+    type: string
+    sql: ${TABLE}.pay_and_proceed_purchase_details_template_id ;;
+  }
+
   dimension: purchase_source {
     type: number
     sql: ${TABLE}.purchase_source ;;
@@ -423,6 +495,81 @@ view: business {
     sql: ${TABLE}.request_time ;;
   }
 
+  dimension: rewarded_ad_limit_in_session {
+    type: number
+    sql: ${TABLE}.rewarded_ad_limit_in_session ;;
+  }
+
+  dimension: rewarded_ad_limit_in_day {
+    type: number
+    sql: ${TABLE}.rewarded_ad_limit_in_day ;;
+  }
+
+  dimension: rewarded_ad_type {
+    type: number
+    sql: ${TABLE}.rewarded_ad_type ;;
+  }
+
+  dimension: rewarded_ad_reward_coin_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_coin_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_coin_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_coin_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_magnet_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_magnet_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_magnet_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_magnet_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_shuffle_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_shuffle_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_shuffle_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_shuffle_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_glove_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_glove_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_glove_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_glove_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_life_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_life_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_life_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_life_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_toss_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_toss_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_toss_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_toss_amount_type ;;
+  }
+
   dimension: session_id {
     type: string
     sql: ${TABLE}.session_id ;;
@@ -431,6 +578,11 @@ view: business {
   dimension: session_time {
     type: number
     sql: ${TABLE}.session_time ;;
+  }
+
+  dimension: special_offer_details_id {
+    type: number
+    sql: ${TABLE}.special_offer_details_id ;;
   }
 
   dimension: source {
@@ -550,6 +702,16 @@ view: business {
   }
 
   dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
+  }
+
+  dimension: user_af_campaign {
+    type: string
+    sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_af_campaign_code {
     type: string
     sql: ${TABLE}.user_campaign_code ;;
   }
