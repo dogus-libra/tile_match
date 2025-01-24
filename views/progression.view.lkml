@@ -40,42 +40,42 @@ view: progression {
 
   dimension: boosters_magnet_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%magnet%' then (split_part(split_part(${TABLE}.boosters, 'magnet:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%magnet%' then (split_part(split_part(${TABLE}.boosters, 'magnet:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_toss_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%toss%' then (split_part(split_part(${TABLE}.boosters, 'toss:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%toss%' then (split_part(split_part(${TABLE}.boosters, 'toss:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_glove_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%glove%' then (split_part(split_part(${TABLE}.boosters, 'glove:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%glove%' then (split_part(split_part(${TABLE}.boosters, 'glove:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_extraslot_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%extraslot%' then (split_part(split_part(${TABLE}.boosters, 'extraslot:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%extraslot%' then (split_part(split_part(${TABLE}.boosters, 'extraslot:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_extratime_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%extratime%' then (split_part(split_part(${TABLE}.boosters, 'extratime:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%extratime%' then (split_part(split_part(${TABLE}.boosters, 'extratime:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_shuffle_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%shuffle%' then (split_part(split_part(${TABLE}.boosters, 'shuffle:', 2), '|', 1))::INT else 0 end  ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%shuffle%' then (split_part(split_part(${TABLE}.boosters, 'shuffle:', 2), '|', 1))::INT else 0 end  ;;
   }
 
   dimension: boosters_timefreezer_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%timefreezer%' then (split_part(split_part(${TABLE}.boosters, 'timefreezer:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%timefreezer%' then (split_part(split_part(${TABLE}.boosters, 'timefreezer:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_magicwand_num {
     type: number
-    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.boosters like '%magicwand%' then (split_part(split_part(${TABLE}.boosters, 'magicwand:', 2), '|', 1))::INT else 0 end ;;
+    sql: case when (${TABLE}.event_name = 'LevelCompleted' or ${TABLE}.event_name = 'LevelFailed') and ${TABLE}.boosters like '%magicwand%' then (split_part(split_part(${TABLE}.boosters, 'magicwand:', 2), '|', 1))::INT else 0 end ;;
   }
 
   dimension: boosters_ingame_num {
