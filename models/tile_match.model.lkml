@@ -136,3 +136,7 @@ explore: session2_pdt {
 explore: active_users {}
 
 explore: tile_pass_ndt {}
+
+explore: goodwill_tile_cost {}
+
+explore: goodwill_tile_raw {}
