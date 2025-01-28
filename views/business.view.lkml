@@ -510,6 +510,18 @@ view: business {
     sql: ${TABLE}.rewarded_ad_type ;;
   }
 
+  dimension: rewarded_ad_type_str {
+    type: string
+    sql: case when ${TABLE}.rewarded_ad_type = 0 then  'StartGameWithExtraSlot'
+              when ${TABLE}.rewarded_ad_type = 1 then  'StartGameWithBoosters'
+              when ${TABLE}.rewarded_ad_type = 2 then  'RetryGameWithBoosters'
+              when ${TABLE}.rewarded_ad_type = 3 then  'ContinueGameWithEndGameOffer'
+              when ${TABLE}.rewarded_ad_type = 4 then  'GetInGameBoosters'
+              when ${TABLE}.rewarded_ad_type = 5 then  'GetExtraLives'
+
+        end ;;
+  }
+
   dimension: rewarded_ad_reward_coin_amount {
     type: number
     sql: ${TABLE}.rewarded_ad_reward_coin_amount ;;
