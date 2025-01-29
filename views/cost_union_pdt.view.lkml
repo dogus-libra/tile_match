@@ -8,15 +8,14 @@ view: cost_union_pdt {
       ad_cost as
         (select "ad_network" as "ad", "ad_id_network" as "ad_id", "adgroup_network" as "adset", "adgroup_id_network" as "adset_id", "campaign_network" as "campaign", "campaign_id_network" as "campaign_id",
           "network" as "channel", date_trunc('day',"date_time") as "date", "country_code" as "geo", "partner" as "media_source", "os_name" as "os", "source_network" as "site", "source_id_network" as "site_id",
-          'cost_etl_geo' as "t", "impressions_network" as "impressions", "clicks_network" as "clicks", "installs_network" as "installs", "installs" as "organic_installs",  "ad_spend_network" as "cost",
-          "ad_spend_network" as "original_cost", null as "re_attributions", null as "re_engagements", null as "video_25p_views" , null as "video_50p_views", null as "video_75p_views", null as "video_completions",
-          'ad_cost' as "cost_table"
+          'cost_etl_geo' as "t", "impressions_network" as "impressions", "clicks_network" as "clicks", "installs_network" as "installs", "ad_spend_network" as "cost", "ad_spend_network" as "original_cost",
+           null as "re_attributions", null as "re_engagements", null as "video_25p_views" , null as "video_50p_views", null as "video_75p_views", null as "video_completions", 'ad_cost' as "cost_table"
           from adjust.tile_match_cost
         ),
 
       af_cost as
         (select "ad", "ad_id", "adset", "adset_id", "campaign", "campaign_id", "channel", date_trunc('day',"date") as "date", "geo", "media_source", "os", null as "site", "site_id", "t", "impressions", "clicks",
-          "installs", null as "organic_installs", "cost", "original_cost", "re_attributions", "re_engagements", "video_25p_views" , "video_50p_views", "video_75p_views", "video_completions", 'af_cost' as "cost_table"
+           "installs", "cost", "original_cost", "re_attributions", "re_engagements", "video_25p_views" , "video_50p_views", "video_75p_views", "video_completions", 'af_cost' as "cost_table"
           from apps_flyer.goodwill_tile_cost
         )
 
@@ -116,7 +115,7 @@ view: cost_union_pdt {
 
     dimension: clicks {
       type: number
-      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.clicks
+      sql: case when t='cost_etl_geo' and (${media_source} in ('facebook','','') ) and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.clicks
                 when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.clicks
                 else null
            end ;;
@@ -127,15 +126,7 @@ view: cost_union_pdt {
       sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.installs
                 when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.installs
                 else null
-           end ;;
-    }
-
-    dimension: organic_installs {
-      type: number
-      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.organic_installs
-                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.organic_installs
-                else null
-           end ;;
+           end  ;;
     }
 
     dimension: cost {
