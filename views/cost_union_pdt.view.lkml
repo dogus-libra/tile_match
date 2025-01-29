@@ -28,7 +28,7 @@ view: cost_union_pdt {
 
       publish_as_db_view: yes
       sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
-      sortkeys: ["date","country","media_source"]
+      sortkeys: ["date","geo","media_source"]
     }
 
     dimension: ad {
