@@ -1,0 +1,190 @@
+view: cost_union_pdt {
+
+    derived_table: {
+      distribution: "date"
+      sql:
+
+      with
+      ad_cost as
+        (select "ad_network" as "ad", "ad_id_network" as "ad_id", "adgroup_network" as "adset", "adgroup_id_network" as "adset_id", "campaign_network" as "campaign", "campaign_id_network" as "campaign_id",
+          "network" as "channel", date_trunc('day',"date_time") as "date", "country_code" as "geo", "partner" as "media_source", "os_name" as "os", "source_network" as "site", "source_id_network" as "site_id",
+          'cost_etl_geo' as "t", "impressions_network" as "impressions", "clicks_network" as "clicks", "installs_network" as "installs", "installs" as "organic_installs",  "ad_spend_network" as "cost",
+          "ad_spend_network" as "original_cost", null as "re_attributions", null as "re_engagements", null as "video_25p_views" , null as "video_50p_views", null as "video_75p_views", null as "video_completions",
+          'ad_cost' as "cost_table"
+          from adjust.tile_match_cost
+        ),
+
+      af_cost as
+        (select "ad", "ad_id", "adset", "adset_id", "campaign", "campaign_id", "channel", date_trunc('day',"date") as "date", "geo", "media_source", "os", null as "site", "site_id", "t", "impressions", "clicks",
+          "installs", null as "organic_installs", "cost", "original_cost", "re_attributions", "re_engagements", "video_25p_views" , "video_50p_views", "video_75p_views", "video_completions", 'af_cost' as "cost_table"
+          from apps_flyer.goodwill_tile_cost
+        )
+
+      select * from ad_cost
+      union all
+      select * from af_cost
+
+      ;;
+
+      publish_as_db_view: yes
+      sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
+      sortkeys: ["date","country","media_source"]
+    }
+
+    dimension: ad {
+      type: string
+      sql: ${TABLE}.ad ;;
+    }
+
+    dimension: ad_id {
+      type: number
+      sql: ${TABLE}.ad_id ;;
+    }
+
+    dimension: adset {
+      type: number
+      sql: ${TABLE}.adset ;;
+    }
+
+    dimension: adset_id {
+      type: number
+      sql: ${TABLE}.adset_id ;;
+    }
+
+    dimension: campaign {
+      type: string
+      sql: ${TABLE}.campaign ;;
+    }
+
+    dimension: campaign_id {
+      type: number
+      sql: ${TABLE}.campaign_id ;;
+    }
+
+    dimension: channel {
+      type: string
+      sql: ${TABLE}.channel ;;
+    }
+
+    dimension_group: date {
+      type: time
+      timeframes: [date, week, month, quarter, year]
+      sql: ${TABLE}.date ;;
+    }
+
+    dimension: geo {
+      type: string
+      sql: UPPER(${TABLE}.geo) ;;
+    }
+
+    dimension: media_source {
+      type: string
+      sql: ${TABLE}.media_source ;;
+    }
+
+    dimension: os {
+      type: string
+      sql: case when ${TABLE}.os = 'android' then 'Android' else ${TABLE}.os_name end ;;
+    }
+
+    dimension: site {
+      type: string
+      sql: ${TABLE}.site ;;
+    }
+
+    dimension: site_id {
+      type: string
+      sql: ${TABLE}.site_id ;;
+    }
+
+    dimension: t {
+      type: string
+      sql: ${TABLE}.t ;;
+    }
+
+    dimension: impressions {
+      type: number
+      sql: ${TABLE}.impressions ;;
+    }
+
+    dimension: clicks {
+      type: number
+      sql: ${TABLE}.clicks ;;
+    }
+
+    dimension: installs {
+      type: number
+      sql: ${TABLE}.installs ;;
+    }
+
+    dimension: organic_installs {
+      type: number
+      sql: ${TABLE}.organic_installs ;;
+    }
+
+    dimension: cost {
+      type: number
+      sql: ${TABLE}.cost ;;
+    }
+
+    dimension: original_cost {
+      type: number
+      sql: ${TABLE}.original_cost ;;
+    }
+
+    dimension: re_attributions {
+      type: number
+      sql: ${TABLE}.re_attributions ;;
+    }
+
+    dimension: re_engagements {
+      type: number
+      sql: ${TABLE}.re_engagements ;;
+    }
+
+    dimension: video_25p_views {
+      type: number
+      sql: ${TABLE}.video_25p_views ;;
+    }
+
+    dimension: video_50p_views {
+      type: number
+      sql: ${TABLE}.video_50p_views ;;
+    }
+
+    dimension: video_75p_views {
+      type: number
+      sql: ${TABLE}.video_75p_views ;;
+    }
+
+    dimension: video_completions {
+      type: number
+      sql: ${TABLE}.video_completions ;;
+    }
+
+    dimension: cost_table {
+      type: string
+      sql: ${TABLE}.cost_table ;;
+    }
+
+    dimension: country_tier {
+      type: string
+      sql: case when ${geo} in ('DE','GB','IE','AU','NZ','US','CA','FR','IT','ES','AT','BE','NL','LU','FI','SE','CH','NO','DK','JP','KR')
+        then 'Tier 1' else ${geo} end;;
+    }
+
+    dimension: pivot_campaign_list {
+      type: string
+      sql: {% if ${campaign}._is_filtered %} ${campaign} {% else %} '???' {% endif %};;
+    }
+
+    dimension: pivot_creative_list {
+      type: string
+      sql: {% if ${ad}._is_filtered %} ${ad} {% else %} '???' {% endif %};;
+    }
+
+    measure: count {
+      type: count
+      drill_fields: [os]
+    }
+  }
