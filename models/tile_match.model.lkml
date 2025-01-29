@@ -140,3 +140,5 @@ explore: tile_pass_ndt {}
 explore: goodwill_tile_cost {}
 
 explore: goodwill_tile_raw {}
+
+explore: cost_union_pdt {}
