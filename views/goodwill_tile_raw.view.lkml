@@ -418,6 +418,12 @@ view: goodwill_tile_raw {
     type: number
     sql: ${TABLE}.event_revenue_usd ;;
   }
+
+  dimension: event_revenue_usd_round {
+    type: number
+    sql: ROUND(${TABLE}.event_revenue_usd, 1) ;;
+  }
+
   dimension: event_source {
     type: string
     sql: ${TABLE}.event_source ;;
@@ -435,6 +441,17 @@ view: goodwill_tile_raw {
     type: string
     sql: ${TABLE}.event_value ;;
   }
+
+  dimension: package {
+    type: string
+    sql:  case when ${TABLE}.event_name = 'af_purchase' then (split_part(split_part(${TABLE}.event_value, 'goodwilltiles.', 2), '.', 1)) end  ;;
+  }
+
+  dimension: receipt_package_price {
+    type: string
+    sql: case when ${TABLE}.event_name = 'af_purchase' then replace((split_part(split_part(${TABLE}.event_value, '"af_revenue":"', 2), '"', 1)),',','.') end  ;;
+  }
+
   dimension: fraud_reason {
     type: string
     sql: ${TABLE}.fraud_reason ;;
