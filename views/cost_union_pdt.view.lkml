@@ -79,12 +79,16 @@ view: cost_union_pdt {
 
     dimension: media_source {
       type: string
-      sql: ${TABLE}.media_source ;;
+      sql: case when ${TABLE}.media_source='Facebook Ads' then 'facebook'
+                when ${TABLE}.media_source='applovin_int' then 'applovin'
+                when ${TABLE}.media_source='adjoe_int' then 'adjoe'
+                else ${TABLE}.media_source
+           end ;;
     }
 
     dimension: os {
       type: string
-      sql: case when ${TABLE}.os = 'android' then 'Android' else ${TABLE}.os_name end ;;
+      sql: ${TABLE}.os ;;
     }
 
     dimension: site {
@@ -104,32 +108,50 @@ view: cost_union_pdt {
 
     dimension: impressions {
       type: number
-      sql: ${TABLE}.impressions ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.impressions
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.impressions
+                else null
+           end ;;
     }
 
     dimension: clicks {
       type: number
-      sql: ${TABLE}.clicks ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.clicks
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.clicks
+                else null
+           end ;;
     }
 
     dimension: installs {
       type: number
-      sql: ${TABLE}.installs ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.installs
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.installs
+                else null
+           end ;;
     }
 
     dimension: organic_installs {
       type: number
-      sql: ${TABLE}.organic_installs ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.organic_installs
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.organic_installs
+                else null
+           end ;;
     }
 
     dimension: cost {
       type: number
-      sql: ${TABLE}.cost ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.cost
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.cost
+                else null
+           end ;;
     }
 
     dimension: original_cost {
       type: number
-      sql: ${TABLE}.original_cost ;;
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.original_cost
+                when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.original_cost
+                else null
+           end ;;
     }
 
     dimension: re_attributions {
