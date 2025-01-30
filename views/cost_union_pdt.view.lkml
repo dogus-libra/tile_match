@@ -6,23 +6,73 @@ view: cost_union_pdt {
 
       with
       ad_cost as
-        (select "ad_network" as "ad", "ad_id_network" as "ad_id", "adgroup_network" as "adset", "adgroup_id_network" as "adset_id", "campaign_network" as "campaign", "campaign_id_network" as "campaign_id",
-          "network" as "channel", date_trunc('day',"date_time") as "date", "country_code" as "geo", "partner" as "media_source", "os_name" as "os", "source_network" as "site", "source_id_network" as "site_id",
-          'cost_etl_geo' as "t", "impressions_network" as "impressions", "clicks_network" as "clicks", "installs_network" as "installs", "ad_spend_network" as "cost", "ad_spend_network" as "original_cost",
-           null as "re_attributions", null as "re_engagements", null as "video_25p_views" , null as "video_50p_views", null as "video_75p_views", null as "video_completions", 'ad_cost' as "cost_table"
+        (select
+
+        "ad_network" as "ad",
+        "ad_id_network" as "ad_id",
+        "adgroup_network" as "adset",
+        "adgroup_id_network" as "adset_id",
+        "campaign_network" as "campaign",
+        "campaign_id_network" as "campaign_id",
+        "network" as "channel",
+        date_trunc('day',"date_time") as "date",
+        "country_code" as "geo",
+        "partner" as "media_source",
+        "os_name" as "os",
+        "source_network" as "site",
+        "source_id_network" as "site_id",
+        'cost_etl_geo' as "t",
+        "impressions_network" as "impressions",
+        "clicks_network" as "clicks",
+        "installs_network" as "installs",
+        "ad_spend_network" as "cost",
+        "ad_spend_network" as "original_cost",
+        null as "re_attributions",
+        null as "re_engagements",
+        null as "video_25p_views" ,
+        null as "video_50p_views",
+        null as "video_75p_views",
+        null as "video_completions",
+
+        'ad_cost' as "cost_table"
           from adjust.tile_match_cost
         ),
 
       af_cost as
-        (select "ad", "ad_id", "adset", "adset_id", "campaign", "campaign_id", "channel", date_trunc('day',"date") as "date", "geo", "media_source", "os", null as "site", "site_id", "t", "impressions", "clicks",
-           "installs", "cost", "original_cost", "re_attributions", "re_engagements", "video_25p_views" , "video_50p_views", "video_75p_views", "video_completions", 'af_cost' as "cost_table"
+        (select
+        "ad",
+        "ad_id",
+        "adset",
+        "adset_id",
+        "campaign",
+        "campaign_id",
+        "channel",
+        date_trunc('day',"date") as "date",
+        "geo",
+        "media_source",
+        "os",
+        null as "site",
+        "site_id",
+        "t",
+        "impressions",
+        "clicks",
+        "installs",
+        "cost",
+        "original_cost",
+        "re_attributions",
+        "re_engagements",
+        "video_25p_views" ,
+        "video_50p_views",
+        "video_75p_views",
+        "video_completions",
+
+        'af_cost' as "cost_table"
           from apps_flyer.goodwill_tile_cost
         )
 
       select * from ad_cost
       union all
       select * from af_cost
-
       ;;
 
       publish_as_db_view: yes
