@@ -101,7 +101,7 @@ view: users_pdt {
                               when media_source='applovin_int' then 'applovin'
                               when media_source='adjoe_int' then 'adjoe'
                             else media_source end)                   as network_name,
-                        max(campaign)                                as campaign,
+                        max(campaign)                                as campaign_name,
                         null                                         as fb_install_referrer_campaign_group_name,
                         max(adset)                                   as adgroup_name,
                         null                                         as fb_install_referrer_campaign_name,
