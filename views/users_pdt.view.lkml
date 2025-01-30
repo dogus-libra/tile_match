@@ -80,7 +80,7 @@ view: users_pdt {
                    from tile_match.session
                    group by advertising_id),
 
-     adj_usr as (select idfa_or_gps_adid,
+     ad_usr as (select idfa_or_gps_adid,
                         max(network_name)                            as network_name,
                         max(campaign_name)                           as campaign_name,
                         max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
@@ -88,10 +88,45 @@ view: users_pdt {
                         max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
                         max(creative_name)                           as creative_name,
                         max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
-                        max(country)                                 as country,
+                        max(UPPER(country))                          as country,
+                        min(app_version_short)                       as f_app_version,
+                        max(app_version_short)                       as l_app_version
+                 from adjust.tile_match_raw
+                 group by idfa_or_gps_adid),
+
+     af_usr as (select coalesce(UPPER(idfv), LOWER(advertising_id))  as idfa_or_gps_adid,
+                        max(case
+                              when media_source in ('Facebook Ads','restricted') then 'facebook'
+                              when (media_source is null or media_source in ('Null','organic')) then 'Organic'
+                              when media_source='applovin_int' then 'applovin'
+                              when media_source='adjoe_int' then 'adjoe'
+                            else media_source end)                   as network_name,
+                        max(campaign)                                as campaign,
+                        null                                         as fb_install_referrer_campaign_group_name,
+                        max(adset)                                   as adgroup_name,
+                        null                                         as fb_install_referrer_campaign_name,
+                        max(ad)                                      as creative_name,
+                        null                                         as fb_install_referrer_adgroup_name,
+                        max(UPPER(country_code))                     as country,
                         min(app_version)                             as f_app_version,
                         max(app_version)                             as l_app_version
-                 from adjust.tile_match_raw
+                 from apps_flyer.goodwill_tile_raw
+                 group by idfa_or_gps_adid),
+
+     adf_usr as (select * from ad_usr union all select * from af_usr),
+
+     adj_usr as (select idfa_or_gps_adid,
+                        max(case when network_name<>'Organic' then network_name else 'Organic' end)        as network_name,
+                        max(campaign_name)                                                                 as campaign_name,
+                        max(fb_install_referrer_campaign_group_name)                                       as fb_install_referrer_campaign_group_name,
+                        max(adgroup_name)                                                                  as adgroup_name,
+                        max(fb_install_referrer_campaign_name)                                             as fb_install_referrer_campaign_name,
+                        max(creative_name)                                                                 as creative_name,
+                        max(fb_install_referrer_adgroup_name)                                              as fb_install_referrer_adgroup_name,
+                        max(country)                                                                       as country,
+                        min(f_app_version)                                                                 as f_app_version,
+                        max(l_app_version)                                                                 as l_app_version
+                 from adf_usr
                  group by idfa_or_gps_adid),
 
      joined_table as (select *
@@ -160,7 +195,7 @@ view: users_pdt {
                  WHEN (network_name = 'Unattributed' OR network_name = 'Facebook Installs' OR
                    network_name = 'Off-Facebook Installs' OR
                    network_name = 'Facebook Messenger Installs' OR
-                   network_name = 'Instagram Installs') THEN 'facebook' END),(user_network))   as network,
+                   network_name = 'Instagram Installs') THEN 'facebook' ELSE network_name END),(user_network))   as network,
 
             COALESCE(rtrim(CASE
             WHEN (network_name = 'Google Organic Search' OR
