@@ -165,10 +165,10 @@ view: cost_union_pdt {
 
     dimension: clicks {
       type: number
-      sql: case when t='cost_etl_geo' and (${media_source} in ('facebook','','') ) and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.clicks
+      sql: case when t='cost_etl_geo' and ${media_source}='facebook' and ${TABLE}.date<to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='ad_cost' then ${TABLE}.installs
                 when t='cost_etl_geo' and ${TABLE}.date>=to_timestamp('20.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${cost_table}='af_cost' then ${TABLE}.clicks
                 else null
-           end ;;
+           end  ;;
     }
 
     dimension: installs {
