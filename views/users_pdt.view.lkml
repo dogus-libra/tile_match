@@ -639,6 +639,231 @@ view: users_pdt {
     sql: ${TABLE}.ltv90_iap ;;
   }
 
+  dimension: ltv1_iap_net {
+    type: number
+    sql: ${TABLE}.ltv1_iap*0.7 ;;
+  }
+
+  dimension: ltv2_iap_net {
+    type: number
+    sql: ${TABLE}.ltv2_iap*0.7 ;;
+  }
+
+  dimension: ltv3_iap_net {
+    type: number
+    sql: ${TABLE}.ltv3_iap*0.7 ;;
+  }
+
+  dimension: ltv4_iap_net {
+    type: number
+    sql: ${TABLE}.ltv4_iap*0.7 ;;
+  }
+
+  dimension: ltv5_iap_net {
+    type: number
+    sql: ${TABLE}.ltv5_iap*0.7 ;;
+  }
+
+  dimension: ltv7_iap_net {
+    type: number
+    sql: ${TABLE}.ltv7_iap*0.7 ;;
+  }
+
+  dimension: ltv10_iap_net {
+    type: number
+    sql: ${TABLE}.ltv10_iap*0.7 ;;
+  }
+
+  dimension: ltv14_iap_net {
+    type: number
+    sql: ${TABLE}.ltv14_iap*0.7 ;;
+  }
+
+  dimension: ltv18_iap_net {
+    type: number
+    sql: ${TABLE}.ltv18_iap*0.7 ;;
+  }
+
+  dimension: ltv21_iap_net {
+    type: number
+    sql: ${TABLE}.ltv21_iap*0.7 ;;
+  }
+
+  dimension: ltv24_iap_net {
+    type: number
+    sql: ${TABLE}.ltv24_iap*0.7 ;;
+  }
+
+  dimension: ltv28_iap_net {
+    type: number
+    sql: ${TABLE}.ltv28_iap*0.7 ;;
+  }
+
+  dimension: ltv45_iap_net {
+    type: number
+    sql: ${TABLE}.ltv45_iap*0.7 ;;
+  }
+
+  dimension: ltv60_iap_net {
+    type: number
+    sql: ${TABLE}.ltv60_iap*0.7 ;;
+  }
+
+  dimension: ltv90_iap_net {
+    type: number
+    sql: ${TABLE}.ltv90_iap*0.7 ;;
+  }
+
+  dimension: ltv1_blended_net {
+    type: number
+    sql: ${TABLE}.ltv1_iap_net + ${TABLE}.ltv1_ad ;;
+  }
+
+  dimension: ltv2_blended_net {
+    type: number
+    sql: ${TABLE}.ltv2_iap_net + ${TABLE}.ltv2_ad ;;
+  }
+
+  dimension: ltv3_blended_net {
+    type: number
+    sql: ${TABLE}.ltv3_iap_net + ${TABLE}.ltv3_ad ;;
+  }
+
+  dimension: ltv4_blended_net {
+    type: number
+    sql: ${TABLE}.ltv4_iap_net + ${TABLE}.ltv4_ad ;;
+  }
+
+  dimension: ltv5_blended_net {
+    type: number
+    sql: ${TABLE}.ltv5_iap_net + ${TABLE}.ltv5_ad ;;
+  }
+
+  dimension: ltv7_blended_net {
+    type: number
+    sql: ${TABLE}.ltv7_iap_net + ${TABLE}.ltv7_ad ;;
+  }
+
+  dimension: ltv10_blended_net {
+    type: number
+    sql: ${TABLE}.ltv10_iap_net + ${TABLE}.ltv10_ad ;;
+  }
+
+  dimension: ltv14_blended_net {
+    type: number
+    sql: ${TABLE}.ltv14_iap_net + ${TABLE}.ltv14_ad ;;
+  }
+
+  dimension: ltv18_blended_net {
+    type: number
+    sql: ${TABLE}.ltv18_iap_net + ${TABLE}.ltv18_ad ;;
+  }
+
+  dimension: ltv21_blended_net {
+    type: number
+    sql: ${TABLE}.ltv21_iap_net + ${TABLE}.ltv21_ad ;;
+  }
+
+  dimension: ltv24_blended_net {
+    type: number
+    sql: ${TABLE}.ltv24_iap_net + ${TABLE}.ltv24_ad ;;
+  }
+
+  dimension: ltv28_blended_net {
+    type: number
+    sql: ${TABLE}.ltv28_iap_net + ${TABLE}.ltv28_ad ;;
+  }
+
+  dimension: ltv45_blended_net {
+    type: number
+    sql: ${TABLE}.ltv45_iap_net + ${TABLE}.ltv45_ad ;;
+  }
+
+  dimension: ltv60_blended_net {
+    type: number
+    sql: ${TABLE}.ltv60_iap_net + ${TABLE}.ltv60_ad ;;
+  }
+
+  dimension: ltv90_blended_net {
+    type: number
+    sql: ${TABLE}.ltv90_iap_net + ${TABLE}.ltv90_ad ;;
+  }
+
+  dimension: ltv1_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv1_iap + ${TABLE}.ltv1_ad ;;
+  }
+
+  dimension: ltv2_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv2_iap + ${TABLE}.ltv2_ad ;;
+  }
+
+  dimension: ltv3_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv3_iap + ${TABLE}.ltv3_ad ;;
+  }
+
+  dimension: ltv4_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv4_iap + ${TABLE}.ltv4_ad ;;
+  }
+
+  dimension: ltv5_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv5_iap + ${TABLE}.ltv5_ad ;;
+  }
+
+  dimension: ltv7_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv7_iap + ${TABLE}.ltv7_ad ;;
+  }
+
+  dimension: ltv10_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv10_iap + ${TABLE}.ltv10_ad ;;
+  }
+
+  dimension: ltv14_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv14_iap + ${TABLE}.ltv14_ad ;;
+  }
+
+  dimension: ltv18_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv18_iap + ${TABLE}.ltv18_ad ;;
+  }
+
+  dimension: ltv21_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv21_iap + ${TABLE}.ltv21_ad ;;
+  }
+
+  dimension: ltv24_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv24_iap + ${TABLE}.ltv24_ad ;;
+  }
+
+  dimension: ltv28_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv28_iap + ${TABLE}.ltv28_ad ;;
+  }
+
+  dimension: ltv45_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv45_iap + ${TABLE}.ltv45_ad ;;
+  }
+
+  dimension: ltv60_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv60_iap + ${TABLE}.ltv60_ad ;;
+  }
+
+  dimension: ltv90_blended_gross {
+    type: number
+    sql: ${TABLE}.ltv90_iap + ${TABLE}.ltv90_ad ;;
+  }
+
   dimension: ltv1_ad {
     type: number
     sql: ${TABLE}.ltv1_ad ;;
