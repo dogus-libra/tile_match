@@ -1205,7 +1205,9 @@ view: users_pdt {
 
   dimension: user_platform {
     type: string
-    sql: ${TABLE}.user_platform ;;
+    sql: case when ${TABLE}.user_platform = 'Android' then 'android'
+              when ${TABLE}.user_platform = 'IPhonePlayer' then 'ios'
+        end ;;
   }
 
   dimension: user_session_count {
@@ -1543,11 +1545,6 @@ view: users_pdt {
   dimension: pivot_campaign_list {
     type: string
     sql: {% if ${campaign2}._is_filtered %} ${campaign} {% else %} ${campaign2} {% endif %};;
-  }
-
-  dimension: pivot_platform_list {
-    type: string
-    sql: {% if ${user_platform}._is_filtered %} ${user_platform} {% else %} 'Platform' {% endif %};;
   }
 
   dimension: pivot_network_list {

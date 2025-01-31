@@ -987,7 +987,7 @@ view: progression {
 
   dimension: user_platform {
     type: string
-    sql: ${TABLE}.user_platform ;;
+    sql:  ${TABLE}.user_platform  ;;
   }
 
   dimension: user_session_count {
