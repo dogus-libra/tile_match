@@ -939,6 +939,51 @@ view: users_pdt {
     sql: ${TABLE}.ltv90_ad ;;
   }
 
+  dimension: payer1 {
+    type: number
+    sql: case when ${TABLE}.ltv1_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer3 {
+    type: number
+    sql: case when ${TABLE}.ltv3_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer7 {
+    type: number
+    sql: case when ${TABLE}.ltv7_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer14 {
+    type: number
+    sql: case when ${TABLE}.ltv14_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer21 {
+    type: number
+    sql: case when ${TABLE}.ltv21_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer28 {
+    type: number
+    sql: case when ${TABLE}.ltv28_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer45 {
+    type: number
+    sql: case when ${TABLE}.ltv45_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer60 {
+    type: number
+    sql: case when ${TABLE}.ltv60_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
+  dimension: payer90 {
+    type: number
+    sql: case when ${TABLE}.ltv90_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
   dimension: user_adgroup {
     type: string
     sql: ${TABLE}.user_adgroup ;;
