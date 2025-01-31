@@ -716,77 +716,77 @@ view: users_pdt {
 
   dimension: ltv1_blended_net {
     type: number
-    sql: ${TABLE}.ltv1_iap_net + ${TABLE}.ltv1_ad ;;
+    sql: ${ltv1_iap_net} + ${TABLE}.ltv1_ad ;;
   }
 
   dimension: ltv2_blended_net {
     type: number
-    sql: ${TABLE}.ltv2_iap_net + ${TABLE}.ltv2_ad ;;
+    sql: ${ltv2_iap_net} + ${TABLE}.ltv2_ad ;;
   }
 
   dimension: ltv3_blended_net {
     type: number
-    sql: ${TABLE}.ltv3_iap_net + ${TABLE}.ltv3_ad ;;
+    sql: ${ltv3_iap_net} + ${TABLE}.ltv3_ad ;;
   }
 
   dimension: ltv4_blended_net {
     type: number
-    sql: ${TABLE}.ltv4_iap_net + ${TABLE}.ltv4_ad ;;
+    sql: ${ltv4_iap_net} + ${TABLE}.ltv4_ad ;;
   }
 
   dimension: ltv5_blended_net {
     type: number
-    sql: ${TABLE}.ltv5_iap_net + ${TABLE}.ltv5_ad ;;
+    sql: ${ltv5_iap_net} + ${TABLE}.ltv5_ad ;;
   }
 
   dimension: ltv7_blended_net {
     type: number
-    sql: ${TABLE}.ltv7_iap_net + ${TABLE}.ltv7_ad ;;
+    sql: ${ltv7_iap_net} + ${TABLE}.ltv7_ad ;;
   }
 
   dimension: ltv10_blended_net {
     type: number
-    sql: ${TABLE}.ltv10_iap_net + ${TABLE}.ltv10_ad ;;
+    sql: ${ltv10_iap_net} + ${TABLE}.ltv10_ad ;;
   }
 
   dimension: ltv14_blended_net {
     type: number
-    sql: ${TABLE}.ltv14_iap_net + ${TABLE}.ltv14_ad ;;
+    sql: ${ltv14_iap_net} + ${TABLE}.ltv14_ad ;;
   }
 
   dimension: ltv18_blended_net {
     type: number
-    sql: ${TABLE}.ltv18_iap_net + ${TABLE}.ltv18_ad ;;
+    sql: ${ltv18_iap_net} + ${TABLE}.ltv18_ad ;;
   }
 
   dimension: ltv21_blended_net {
     type: number
-    sql: ${TABLE}.ltv21_iap_net + ${TABLE}.ltv21_ad ;;
+    sql: ${ltv21_iap_net} + ${TABLE}.ltv21_ad ;;
   }
 
   dimension: ltv24_blended_net {
     type: number
-    sql: ${TABLE}.ltv24_iap_net + ${TABLE}.ltv24_ad ;;
+    sql: ${ltv24_iap_net} + ${TABLE}.ltv24_ad ;;
   }
 
   dimension: ltv28_blended_net {
     type: number
-    sql: ${TABLE}.ltv28_iap_net + ${TABLE}.ltv28_ad ;;
+    sql: ${ltv28_iap_net} + ${TABLE}.ltv28_ad ;;
   }
 
   dimension: ltv45_blended_net {
     type: number
-    sql: ${TABLE}.ltv45_iap_net + ${TABLE}.ltv45_ad ;;
+    sql: ${ltv45_iap_net} + ${TABLE}.ltv45_ad ;;
   }
 
   dimension: ltv60_blended_net {
     type: number
-    sql: ${TABLE}.ltv60_iap_net + ${TABLE}.ltv60_ad ;;
+    sql: ${ltv60_iap_net} + ${TABLE}.ltv60_ad ;;
   }
 
   dimension: ltv90_blended_net {
     type: number
-    sql: ${TABLE}.ltv90_iap_net + ${TABLE}.ltv90_ad ;;
+    sql: ${ltv90_iap_net} + ${TABLE}.ltv90_ad ;;
   }
 
   dimension: ltv1_blended_gross {
