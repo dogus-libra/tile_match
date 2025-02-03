@@ -7,9 +7,9 @@ view: progression {
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
 
-    # Here's what a typical dimension looks like in LookML.
-    # A dimension is a groupable field that can be used to filter query results.
-    # This dimension will be called "Advertising ID" in Explore.
+  # Here's what a typical dimension looks like in LookML.
+  # A dimension is a groupable field that can be used to filter query results.
+  # This dimension will be called "Advertising ID" in Explore.
   dimension: active_fail_safe_scenario {
     type: number
     sql: ${TABLE}.active_fail_safe_scenario ;;
@@ -111,6 +111,40 @@ view: progression {
   dimension: end_game_offer {
     type: string
     sql: ${TABLE}.end_game_offer ;;
+  }
+
+  dimension: end_game_offer_1_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_1_bonus_time ;;
+  }
+  dimension: end_game_offer_1_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_1_bonus_slot ;;
+  }
+  dimension: end_game_offer_1_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_1_offer_type ;;
+  }
+  dimension: end_game_offer_1_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_1_fail_type ;;
+  }
+
+  dimension: end_game_offer_2_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_1_bonus_time ;;
+  }
+  dimension: end_game_offer_2_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_1_bonus_slot ;;
+  }
+  dimension: end_game_offer_2_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_1_offer_type ;;
+  }
+  dimension: end_game_offer_2_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_1_fail_type ;;
   }
 
   dimension: extra_move_count {
@@ -441,7 +475,7 @@ view: progression {
   dimension: user_game_mode {
     type: string
     sql: case when ${TABLE}.user_game_mode is null then 'Normal'
-              when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
+      when ${TABLE}.user_game_mode = 1 then 'Grand Mode' end;;
   }
 
   dimension: user_grand_mode_level {
@@ -1792,12 +1826,22 @@ view: progression {
 
   measure: win_count {
     type: sum
-    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${extra_move_count} is null then 1 else 0 end) ;;
+    sql: (case when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and ${extra_move_count} is null then 1
+
+               when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+                else 0
+           end)  ;;
   }
 
   measure: fail_count {
     type: sum
-    sql: (case when ${TABLE}.event_name='LevelFailed' or ${extra_move_count}>0  then 1 else 0 end) ;;
+    sql: (case when ${TABLE}.event_timestamp<to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
+
+               when ${TABLE}.event_timestamp>=to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+                else 0
+           end) ;;
   }
 
   measure: win_rate {
