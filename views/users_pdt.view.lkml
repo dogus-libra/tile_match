@@ -709,7 +709,7 @@ view: users_pdt {
 
   dimension: ltvcurr_iap {
     type: number
-    sql: coalesce(${TABLE}.ltvcurr_iap ;;
+    sql: coalesce(${TABLE}.ltvcurr_iap,0) ;;
   }
 
   dimension: ltv1_iap_net {
