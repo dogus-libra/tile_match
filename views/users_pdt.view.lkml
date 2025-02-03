@@ -634,82 +634,82 @@ view: users_pdt {
 
   dimension: ltv1_iap {
     type: number
-    sql: ${TABLE}.ltv1_iap ;;
+    sql: coalesce(${TABLE}.ltv1_iap,0) ;;
   }
 
   dimension: ltv2_iap {
     type: number
-    sql: ${TABLE}.ltv2_iap ;;
+    sql: coalesce(${TABLE}.ltv2_iap,0) ;;
   }
 
   dimension: ltv3_iap {
     type: number
-    sql: ${TABLE}.ltv3_iap ;;
+    sql: coalesce(${TABLE}.ltv3_iap,0) ;;
   }
 
   dimension: ltv4_iap {
     type: number
-    sql: ${TABLE}.ltv4_iap ;;
+    sql: coalesce(${TABLE}.ltv4_iap,0) ;;
   }
 
   dimension: ltv5_iap {
     type: number
-    sql: ${TABLE}.ltv5_iap ;;
+    sql: coalesce(${TABLE}.ltv5_iap,0) ;;
   }
 
   dimension: ltv7_iap {
     type: number
-    sql: ${TABLE}.ltv7_iap ;;
+    sql: coalesce(${TABLE}.ltv7_iap,0) ;;
   }
 
   dimension: ltv10_iap {
     type: number
-    sql: ${TABLE}.ltv10_iap ;;
+    sql: coalesce(${TABLE}.ltv10_iap,0) ;;
   }
 
   dimension: ltv14_iap {
     type: number
-    sql: ${TABLE}.ltv14_iap ;;
+    sql: coalesce(${TABLE}.ltv14_iap,0) ;;
   }
 
   dimension: ltv18_iap {
     type: number
-    sql: ${TABLE}.ltv18_iap ;;
+    sql: coalesce(${TABLE}.ltv18_iap,0) ;;
   }
 
   dimension: ltv21_iap {
     type: number
-    sql: ${TABLE}.ltv21_iap ;;
+    sql: coalesce(${TABLE}.ltv21_iap,0) ;;
   }
 
   dimension: ltv24_iap {
     type: number
-    sql: ${TABLE}.ltv24_iap ;;
+    sql: coalesce(${TABLE}.ltv24_iap,0) ;;
   }
 
   dimension: ltv28_iap {
     type: number
-    sql: ${TABLE}.ltv28_iap ;;
+    sql: coalesce(${TABLE}.ltv28_iap,0) ;;
   }
 
   dimension: ltv45_iap {
     type: number
-    sql: ${TABLE}.ltv45_iap ;;
+    sql: coalesce(${TABLE}.ltv45_iap,0) ;;
   }
 
   dimension: ltv60_iap {
     type: number
-    sql: ${TABLE}.ltv60_iap ;;
+    sql: coalesce(${TABLE}.ltv60_iap,0) ;;
   }
 
   dimension: ltv90_iap {
     type: number
-    sql: ${TABLE}.ltv90_iap ;;
+    sql: coalesce(${TABLE}.ltv90_iap,0) ;;
   }
 
   dimension: ltvcurr_iap {
     type: number
-    sql: ${TABLE}.ltvcurr_iap ;;
+    sql: coalesce(${TABLE}.ltvcurr_iap ;;
   }
 
   dimension: ltv1_iap_net {
@@ -954,82 +954,82 @@ view: users_pdt {
 
   dimension: ltv1_ad {
     type: number
-    sql: ${TABLE}.ltv1_ad ;;
+    sql: coalesce(${TABLE}.ltv1_ad,0) ;;
   }
 
   dimension: ltv2_ad {
     type: number
-    sql: ${TABLE}.ltv2_ad ;;
+    sql: coalesce(${TABLE}.ltv2_ad,0) ;;
   }
 
   dimension: ltv3_ad {
     type: number
-    sql: ${TABLE}.ltv3_ad ;;
+    sql: coalesce(${TABLE}.ltv3_ad,0) ;;
   }
 
   dimension: ltv4_ad {
     type: number
-    sql: ${TABLE}.ltv4_ad ;;
+    sql: coalesce(${TABLE}.ltv4_ad,0) ;;
   }
 
   dimension: ltv5_ad {
     type: number
-    sql: ${TABLE}.ltv5_ad ;;
+    sql: coalesce(${TABLE}.ltv5_ad,0) ;;
   }
 
   dimension: ltv7_ad {
     type: number
-    sql: ${TABLE}.ltv7_ad ;;
+    sql: coalesce(${TABLE}.ltv7_ad,0) ;;
   }
 
   dimension: ltv10_ad {
     type: number
-    sql: ${TABLE}.ltv10_ad ;;
+    sql: coalesce(${TABLE}.ltv10_ad,0) ;;
   }
 
   dimension: ltv14_ad {
     type: number
-    sql: ${TABLE}.ltv14_ad ;;
+    sql: coalesce(${TABLE}.ltv14_ad,0) ;;
   }
 
   dimension: ltv18_ad {
     type: number
-    sql: ${TABLE}.ltv18_ad ;;
+    sql: coalesce(${TABLE}.ltv18_ad,0) ;;
   }
 
   dimension: ltv21_ad {
     type: number
-    sql: ${TABLE}.ltv21_ad ;;
+    sql: coalesce(${TABLE}.ltv21_ad,0) ;;
   }
 
   dimension: ltv24_ad {
     type: number
-    sql: ${TABLE}.ltv24_ad ;;
+    sql: coalesce(${TABLE}.ltv24_ad,0) ;;
   }
 
   dimension: ltv28_ad {
     type: number
-    sql: ${TABLE}.ltv28_ad ;;
+    sql: coalesce(${TABLE}.ltv28_ad,0) ;;
   }
 
   dimension: ltv45_ad {
     type: number
-    sql: ${TABLE}.ltv45_ad ;;
+    sql: coalesce(${TABLE}.ltv45_ad,0) ;;
   }
 
   dimension: ltv60_ad {
     type: number
-    sql: ${TABLE}.ltv60_ad ;;
+    sql: coalesce(${TABLE}.ltv60_ad,0) ;;
   }
 
   dimension: ltv90_ad {
     type: number
-    sql: ${TABLE}.ltv90_ad ;;
+    sql: coalesce(${TABLE}.ltv90_ad,0) ;;
   }
 
   dimension: ltvcurr_ad {
     type: number
-    sql: ${TABLE}.ltvcurr_ad ;;
+    sql: coalesce(${TABLE}.ltvcurr_ad,0) ;;
   }
 
   dimension: payer1 {
@@ -1079,47 +1079,47 @@ view: users_pdt {
 
   dimension: payment1 {
     type: number
-    sql: ${TABLE}.payment_1 ;;
+    sql: coalesce(${TABLE}.payment_1,0) ;;
   }
 
   dimension: payment3 {
     type: number
-    sql: ${TABLE}.payment_3 ;;
+    sql: coalesce(${TABLE}.payment_3,0) ;;
   }
 
   dimension: payment7 {
     type: number
-    sql: ${TABLE}.payment_7 ;;
+    sql: coalesce(${TABLE}.payment_7,0) ;;
   }
 
   dimension: payment14 {
     type: number
-    sql: ${TABLE}.payment_14 ;;
+    sql: coalesce(${TABLE}.payment_14,0) ;;
   }
 
   dimension: payment21 {
     type: number
-    sql: ${TABLE}.payment_21 ;;
+    sql: coalesce(${TABLE}.payment_21,0) ;;
   }
 
   dimension: payment28 {
     type: number
-    sql: ${TABLE}.payment_28 ;;
+    sql: coalesce(${TABLE}.payment_28,0) ;;
   }
 
   dimension: payment45 {
     type: number
-    sql: ${TABLE}.payment_45 ;;
+    sql: coalesce(${TABLE}.payment_45,0) ;;
   }
 
   dimension: payment60 {
     type: number
-    sql: ${TABLE}.payment_60 ;;
+    sql: coalesce(${TABLE}.payment_60,0) ;;
   }
 
   dimension: payment90 {
     type: number
-    sql: ${TABLE}.payment_90 ;;
+    sql: coalesce(${TABLE}.payment_90,0) ;;
   }
 
   dimension: user_adgroup {
