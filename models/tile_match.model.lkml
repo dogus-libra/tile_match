@@ -106,12 +106,22 @@ explore: monitoring {
     sql_on: ${monitoring.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
     relationship: many_to_one
   }
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${monitoring.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: max_attempt_ndt {
   join: raw_pdt {
     type: left_outer
     sql_on: ${max_attempt_ndt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
+    relationship: many_to_one
+  }
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${max_attempt_ndt.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
 }
@@ -122,6 +132,11 @@ explore: progression2_pdt {
     sql_on: ${progression2_pdt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
     relationship: many_to_one
   }
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${progression2_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: session2_pdt {
@@ -130,7 +145,11 @@ explore: session2_pdt {
     sql_on: ${session2_pdt.advertising_id} = ${raw_pdt.idfa_or_gps_adid} ;;
     relationship: many_to_one
   }
-
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${session2_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: active_users {}
