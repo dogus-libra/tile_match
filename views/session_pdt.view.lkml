@@ -6,8 +6,14 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,network, campaign, adgroup, creative, country, app_version
-from (select *,
+    select sess.*,
+            COALESCE(fmr.country,sess.user_country_code) as country,
+            COALESCE(sess.app_version_s,fmr.app_version) as app_version,
+            COALESCE(fmr.network,sess.user_network) as network,
+            COALESCE(fmr.campaign,sess.user_campaign) as campaign,
+            COALESCE(fmr.adgroup,sess.user_adgroup) as adgroup,
+            COALESCE(fmr.creative,sess.user_creative) as creative
+    from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
              over (partition by advertising_id) as retention_1,
              max(case when datediff('hour', installed, session_start_time) between 36 and 60 then 1 else 0 end)
@@ -55,11 +61,18 @@ from (select *,
                    max(user_test_routing_value)           as user_test_routing_value,
                    max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
                    max(user_total_payment)                as user_total_payment,
-                   max(user_total_session_time)           as user_total_session_time
+                   max(user_total_session_time)           as user_total_session_time,
+                   max(user_country_code)                 as user_country_code,
+                   min(app_version)                       as app_version_s,
+                   max(user_game_mode)                    as user_game_mode,
+                   max(user_grand_mode_level)             as user_grand_mode_level,
+                   max(user_win_streak_count)             as user_win_streak_count,
+                   max(user_win_streak_group)             as user_win_streak_group
 
           from tile_match.session
           where event_name = 'SessionActive'
-          group by session_id, advertising_id) sess_in) sess
+          group by session_id, advertising_id
+          having session_start_time between (trunc(sysdate)-721) and (trunc(sysdate)-1) ) sess_in) sess
           left join (select advertising_id,
                              max(network)                                 as network,
                              max(campaign)                                as campaign,
@@ -72,7 +85,7 @@ from (select *,
                              min(first_app_version)                       as app_version
                       from "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
                       group by advertising_id) fmr
-          on sess.advertising_id = fmr.advertising_id;;
+    on (sess.advertising_id = fmr.advertising_id) ;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
