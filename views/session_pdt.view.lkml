@@ -72,7 +72,7 @@ view: session_pdt {
           from tile_match.session
           where event_name = 'SessionActive'
           group by session_id, advertising_id
-          having session_start_time between (trunc(sysdate)-721) and (trunc(sysdate)-1) ) sess_in) sess
+          having trunc(session_start_time) between (trunc(sysdate)-721) and (trunc(sysdate)-1) ) sess_in) sess
           left join (select advertising_id,
                              max(network)                                 as network,
                              max(campaign)                                as campaign,
