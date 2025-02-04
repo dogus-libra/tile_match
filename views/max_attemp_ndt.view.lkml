@@ -30,6 +30,7 @@ view: max_attempt_ndt {
 
   dimension: advertising_id {
     description: ""
+    type: string
   }
 
   dimension: event_timestamp_date {
@@ -54,26 +55,32 @@ view: max_attempt_ndt {
 
   dimension: user_split_test_name {
     description: ""
+    type: string
   }
 
   dimension: user_balance_version {
     description: ""
+    type: string
   }
 
   dimension: event_version {
     description: ""
+    type: string
   }
 
   dimension: user_game_mode {
     description: ""
+    type: string
   }
 
   dimension: connection_type {
-    description: ""
+    type: number
+    sql: ${TABLE}.connection_type ;;
   }
 
   dimension: user_win_streak_group {
     description: ""
+    type: string
   }
 
   dimension: max_att {

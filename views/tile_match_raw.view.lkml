@@ -214,6 +214,17 @@ view: tile_match_raw {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: country_tier {
+    type: string
+    sql: case when ${country} in ('AU','AT','BE','BN','CA','KY','DK','FI','FR','DE','GL','HK','IS','IE','IM','IL','LI','LU','NL','NZ','NO','QA','SG','SE','CH','AE','GB','US','ES','IT','JP','KR','SA')
+              then 'Tier 1'
+              when ${country} in ('AD','AG','AR','AW','AZ','BS','BH','BB','BY','BA','BW','BR','IO','BG','BQ','CL','CN','CK','CR','HR','CU','CW','CY','CZ','DM','DO','EE','GF','PF','GA','GE','GR','GD','GP','GU','GG','GY','HU','IR','JE','KZ','KW','LV','LT','MO','MY','MV','MT','MQ','MU','YT','MX','ME','NR','NC','MK','OM','PA','PE','PL','PT','PR','RE','RO','RU','ST','RS','SC','SX','SK','SI','ZA','BL','KN','LC','PM','VC','TW','TH','TR','TM','VI','UY')
+              then 'Tier 2'
+              when ${country} in ('AU','AT','BE','BN','CA','KY','DK','FI','FR','DE','GL','HK','IS','IE','IM','IL','LI','LU','NL','NZ','NO','QA','SG','SE','CH','AE','GB','US')
+              then 'Tier 3'
+              else ${country} end;;
+  }
+
   dimension: country_subdivision {
     type: string
     sql: ${TABLE}.country_subdivision ;;
@@ -1248,28 +1259,28 @@ view: tile_match_raw {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	iad_creative_set_name,
-	fb_install_referrer_ad_objective_name,
-	fb_install_referrer_campaign_group_name,
-	fb_install_referrer_campaign_name,
-	fb_install_referrer_adgroup_name,
-	dbm_line_item_name,
-	dcm_placement_name,
-	google_ads_adgroup_name,
-	google_ads_campaign_name,
-	event_name,
-	os_name,
-	device_name,
-	hardware_name,
-	creative_name,
-	adgroup_name,
-	campaign_name,
-	network_name,
-	last_tracker_name,
-	first_tracker_name,
-	tracker_name,
-	app_name
-	]
+  iad_creative_set_name,
+  fb_install_referrer_ad_objective_name,
+  fb_install_referrer_campaign_group_name,
+  fb_install_referrer_campaign_name,
+  fb_install_referrer_adgroup_name,
+  dbm_line_item_name,
+  dcm_placement_name,
+  google_ads_adgroup_name,
+  google_ads_campaign_name,
+  event_name,
+  os_name,
+  device_name,
+  hardware_name,
+  creative_name,
+  adgroup_name,
+  campaign_name,
+  network_name,
+  last_tracker_name,
+  first_tracker_name,
+  tracker_name,
+  app_name
+  ]
   }
 
 }
