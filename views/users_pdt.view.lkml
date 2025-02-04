@@ -463,6 +463,7 @@ view: users_pdt {
 
             (case when campaign is null then (case when network = 'Organic' or network = 'google_organic_search' then 'Organic' end) else campaign end) as campaign2
       from joined_table
+      where trunc(installed) < trunc(sysdate)
       ;;
 
     publish_as_db_view: yes
