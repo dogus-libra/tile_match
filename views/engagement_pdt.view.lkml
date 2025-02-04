@@ -6,19 +6,19 @@ view: engagement_pdt {
   derived_table: {
     distribution: "advertising_id"
       sql: select advertising_id,
-                           date_trunc('day', session_start_time) as client,
-                           count(distinct session_id) as sessioncount,
-                           sum(session_time) / 60 as playtime,
-                           max(session_id) as session_id,
-                           min(arrival_ts) as arrival_ts,
-                           max(app_version) as app_version,
-                           max(build_no) as build_no,
-                           max(connection_type) as connection_type,
-                           max(event_id) as event_id,
-                           max(event_name) as event_name,
-                           max(event_type) as event_type,
-                           max(event_version) as event_version,
-                           max(installed) as installed_at,
+                          date_trunc('day', session_start_time) as client,
+                          count(distinct session_id) as sessioncount,
+                          sum(session_time) / 60 as playtime,
+                          max(session_id) as session_id,
+                          min(arrival_ts) as arrival_ts,
+                          max(app_version) as app_version,
+                          max(build_no) as build_no,
+                          max(connection_type) as connection_type,
+                          max(event_id) as event_id,
+                          max(event_name) as event_name,
+                          max(event_type) as event_type,
+                          max(event_version) as event_version,
+                          max(installed) as installed_at,
                           max(inventory_coin) as inventory_coin,
                           max(inventory_life) as inventory_life,
                           max(ip_address) as ip_address,
@@ -49,11 +49,11 @@ view: engagement_pdt {
                           max(user_grand_mode_level)             as user_grand_mode_level,
                           max(user_win_streak_count)             as user_win_streak_count,
                           max(user_win_streak_group)             as user_win_streak_group
-                from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
-                group by advertising_id, client ;;
+           from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
+           group by advertising_id, client ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
     sortkeys: ["advertising_id","country","client"]
     }
 

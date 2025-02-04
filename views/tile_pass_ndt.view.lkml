@@ -19,7 +19,7 @@ view: tile_pass_ndt {
       }
     }
     publish_as_db_view: yes
-    sql_trigger_value: select DATE_TRUNC('day',getdate())  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
     sortkeys: ["advertising_id","live_ops_start_date"]
   }
   dimension: advertising_id {
