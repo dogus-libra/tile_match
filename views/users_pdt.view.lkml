@@ -442,7 +442,11 @@ view: users_pdt {
             ELSE SPLIT_PART((CASE
             WHEN (campaign_name = '' OR campaign_name IS NULL)
             THEN fb_install_referrer_campaign_group_name
-            ELSE campaign_name END), '(', 1) END) ,user_campaign) as campaign,
+            ELSE campaign_name END), '(', 1) END) ,user_campaign) as campaig,
+            (case when network_name in ('google_organic_search','Google Organic Search')
+                    or network in ('google_organic_search','Google Organic Search')
+                    or user_network in ('google_organic_search','Google Organic Search')
+                  then 'Organic' else campaig end) as campaign,
 
             COALESCE(rtrim(CASE
             WHEN (network_name = 'Google Organic Search' OR
@@ -461,7 +465,17 @@ view: users_pdt {
             THEN fb_install_referrer_adgroup_name
             ELSE creative_name END), '(', 1) END) ,user_creative)  as creative,
 
-            (case when campaign is null then (case when network = 'Organic' or network = 'google_organic_search' then 'Organic' end) else campaign end) as campaign2
+            (case when campaign is null then (case when network = 'Organic' or network = 'google_organic_search' then 'Organic' end) else campaign end) as campaig2,
+            (case when network_name in ('google_organic_search','Google Organic Search')
+                    or network in ('google_organic_search','Google Organic Search')
+                    or user_network in ('google_organic_search','Google Organic Search')
+                  then 'Organic' else campaig2 end) as campaign2,
+
+            (case when network_name in ('google_organic_search','Google Organic Search')
+                    or network in ('google_organic_search','Google Organic Search')
+                    or user_network in ('google_organic_search','Google Organic Search')
+                  then coalesce(campaign,campaign2) end) as google_search_keyword
+
       from joined_table
       where trunc(installed) between (trunc(sysdate)-721) and (trunc(sysdate)-1)
       ;;
@@ -495,21 +509,6 @@ view: users_pdt {
   dimension: connection_type {
     type: number
     sql: ${TABLE}.connection_type ;;
-  }
-
-  dimension: event_id {
-    type: string
-    sql: ${TABLE}.event_id ;;
-  }
-
-  dimension: event_name {
-    type: string
-    sql: ${TABLE}.event_name ;;
-  }
-
-  dimension: event_type {
-    type: string
-    sql: ${TABLE}.event_type ;;
   }
 
   dimension: event_version {
@@ -1543,9 +1542,14 @@ view: users_pdt {
     sql: ${TABLE}.campaign2 ;;
   }
 
+  dimension: google_search_keyword {
+    type: string
+    sql: ${TABLE}.google_search_keyword ;;
+  }
+
   dimension: pivot_campaign_list {
     type: string
-    sql: {% if ${campaign2}._is_filtered %} ${campaign} {% else %} ${campaign2} {% endif %};;
+    sql: {% if ${campaign2}._is_filtered %} ${campaign} {% else %} ${campaign2} {% endif %} ;;
   }
 
   dimension: pivot_network_list {
