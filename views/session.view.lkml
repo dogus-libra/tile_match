@@ -427,7 +427,9 @@ view: session {
 
   dimension: user_platform {
     type: string
-    sql: ${TABLE}.user_platform ;;
+    sql: case when ${TABLE}.user_platform = 'Android' then 'android'
+              when ${TABLE}.user_platform = 'IPhonePlayer' then 'ios'
+        end ;;
   }
 
   dimension: user_session_count {
