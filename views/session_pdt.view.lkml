@@ -105,19 +105,19 @@ view: session_pdt {
           from tile_match.session
           where event_name = 'SessionActive'
           group by session_id, advertising_id) sess_in) sess
-          left join (select idfa_or_gps_adid,
-                             max(network_name)                            as network_name,
-                             max(campaign_name)                           as campaign_name,
-                             max(fb_install_referrer_campaign_group_name) as fb_install_referrer_campaign_group_name,
-                             max(adgroup_name)                            as adgroup_name,
-                             max(fb_install_referrer_campaign_name)       as fb_install_referrer_campaign_name,
-                             max(creative_name)                           as creative_name,
-                             max(fb_install_referrer_adgroup_name)        as fb_install_referrer_adgroup_name,
+          left join (select advertising_id,
+                             max(network)                                 as network_name,
+                             max(campaign)                                as campaign_name,
+                             null                                         as fb_install_referrer_campaign_group_name,
+                             max(adgroup)                                 as adgroup_name,
+                             null                                         as fb_install_referrer_campaign_name,
+                             max(creative)                                as creative_name,
+                             null                                         as fb_install_referrer_adgroup_name,
                              max(country)                                 as country,
                              min(app_version)                             as app_version
-                      from adjust.tile_match_raw
-                      group by idfa_or_gps_adid) fmr
-          on sess.advertising_id = fmr.idfa_or_gps_adid;;
+                      from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
+                      group by advertising_id) fmr
+          on sess.advertising_id = fmr.advertising_id;;
 
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
