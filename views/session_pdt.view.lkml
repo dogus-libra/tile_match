@@ -6,41 +6,7 @@ view: session_pdt {
     distribution: "advertising_id"
     sql:
 
-    select sess.*,country, app_version,
-       CASE
-           WHEN fmr.network_name = 'Apple Search Ads' THEN 'apple'
-           WHEN fmr.network_name = 'Google Ads ACI' THEN 'adwords'
-           WHEN fmr.network_name = 'Google Organic Search' THEN 'google_organic_search'
-           WHEN fmr.network_name = 'Vungle' THEN 'vungle'
-           WHEN fmr.network_name = 'ironSrc' THEN 'ironsource'
-           WHEN fmr.network_name = 'Organic' OR fmr.network_name is null THEN 'Organic'
-           WHEN fmr.network_name = 'UnityAds' THEN 'unity_ads'
-           WHEN (fmr.network_name = 'Unattributed' OR fmr.network_name = 'Facebook Installs' OR
-                 fmr.network_name = 'Off-Facebook Installs' OR
-                 fmr.network_name = 'Facebook Messenger Installs' OR
-                 fmr.network_name = 'Instagram Installs') THEN 'facebook' END   as network,
-       rtrim(CASE
-                 WHEN (fmr.network_name = 'Google Organic Search' OR
-                       fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-                 ELSE SPLIT_PART((CASE
-                                      WHEN (fmr.campaign_name = '' OR fmr.campaign_name IS NULL)
-                                          THEN fmr.fb_install_referrer_campaign_group_name
-                                      ELSE fmr.campaign_name END), '(', 1) END) as campaign,
-       rtrim(CASE
-                 WHEN (fmr.network_name = 'Google Organic Search' OR
-                       fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-                 WHEN fmr.network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
-                 ELSE SPLIT_PART((CASE
-                                      WHEN (fmr.adgroup_name = '' OR fmr.adgroup_name IS NULL)
-                                          THEN fmr.fb_install_referrer_campaign_name
-                                      ELSE fmr.adgroup_name END), '(', 1) END)  as adgroup,
-       rtrim(CASE
-                 WHEN (fmr.network_name = 'Google Organic Search' OR
-                       fmr.network_name = 'Organic' OR fmr.network_name is null) THEN NULL
-                 ELSE SPLIT_PART((CASE
-                                      WHEN (creative_name = '' OR creative_name IS NULL)
-                                          THEN fb_install_referrer_adgroup_name
-                                      ELSE creative_name END), '(', 1) END)     as creative
+    select sess.*,network, campaign, adgroup, creative, country, app_version
 from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
              over (partition by advertising_id) as retention_1,
@@ -95,15 +61,15 @@ from (select *,
           where event_name = 'SessionActive'
           group by session_id, advertising_id) sess_in) sess
           left join (select advertising_id,
-                             max(network)                                 as network_name,
-                             max(campaign)                                as campaign_name,
+                             max(network)                                 as network,
+                             max(campaign)                                as campaign,
                              null                                         as fb_install_referrer_campaign_group_name,
-                             max(adgroup)                                 as adgroup_name,
+                             max(adgroup)                                 as adgroup,
                              null                                         as fb_install_referrer_campaign_name,
-                             max(creative)                                as creative_name,
+                             max(creative)                                as creative,
                              null                                         as fb_install_referrer_adgroup_name,
                              max(country)                                 as country,
-                             min(app_version)                             as app_version
+                             min(first_app_version)                       as app_version
                       from "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
                       group by advertising_id) fmr
           on sess.advertising_id = fmr.advertising_id;;

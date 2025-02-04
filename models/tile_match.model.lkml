@@ -98,7 +98,13 @@ explore: progression_pdt {
 
 explore: raw_pdt {}
 
-explore: stdev {}
+explore: stdev {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${stdev.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: monitoring {
   join: raw_pdt {
@@ -154,7 +160,13 @@ explore: session2_pdt {
 
 explore: active_users {}
 
-explore: tile_pass_ndt {}
+explore: tile_pass_ndt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${tile_pass_ndt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: goodwill_tile_cost {}
 

@@ -7,6 +7,7 @@ view: stdev{
       column: stdev_time_remain {}
       column: app_version {}
       column: user_split_test_name {}
+      column: advertising_id {}
 
       filters: {
         field: progression.event_timestamp_date
@@ -27,6 +28,11 @@ view: stdev{
   }
 
   dimension: app_version {
+    description: ""
+    type: string
+  }
+
+  dimension: advertising_id {
     description: ""
     type: string
   }
