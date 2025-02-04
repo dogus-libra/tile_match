@@ -444,22 +444,22 @@ view: users_pdt {
             THEN fb_install_referrer_campaign_group_name
             ELSE campaign_name END), '(', 1) END) ,user_campaign) as campaign,
 
-            rtrim(CASE
+            COALESCE(rtrim(CASE
             WHEN (network_name = 'Google Organic Search' OR
             network_name = 'Organic' OR network_name is null) THEN NULL
             WHEN network_name in ('UnityAds', 'ironSrc') THEN 'unity_ironSrc'
             ELSE SPLIT_PART((CASE
             WHEN (adgroup_name = '' OR adgroup_name IS NULL)
             THEN fb_install_referrer_campaign_name
-            ELSE adgroup_name END), '(', 1) END)  as adgroup,
+            ELSE adgroup_name END), '(', 1) END) ,user_adgroup)  as adgroup,
 
-            rtrim(CASE
+            COALESCE(rtrim(CASE
             WHEN (network_name = 'Google Organic Search' OR
             network_name = 'Organic' OR network_name is null) THEN NULL
             ELSE SPLIT_PART((CASE
             WHEN (creative_name = '' OR creative_name IS NULL)
             THEN fb_install_referrer_adgroup_name
-            ELSE creative_name END), '(', 1) END)     as creative,
+            ELSE creative_name END), '(', 1) END) ,user_creative)  as creative,
 
             (case when campaign is null then (case when network = 'Organic' or network = 'google_organic_search' then 'Organic' end) else campaign end) as campaign2
       from joined_table
@@ -488,7 +488,7 @@ view: users_pdt {
 
   dimension: build_no {
     type: number
-    sql: ${TABLE}.build_no ;;
+    sql: ${TABLE}.first_build_no ;;
   }
 
   dimension: connection_type {
@@ -513,7 +513,7 @@ view: users_pdt {
 
   dimension: event_version {
     type: string
-    sql: ${TABLE}.event_version ;;
+    sql: ${TABLE}.last_event_version ;;
   }
 
   dimension_group: installed {
