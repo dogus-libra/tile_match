@@ -307,6 +307,36 @@ view: session_pdt {
     sql: ${TABLE}.user_total_session_time ;;
   }
 
+  dimension: user_country_code {
+    type: string
+    sql: ${TABLE}.user_country_code ;;
+  }
+
+  dimension: app_version_s {
+    type: string
+    sql: ${TABLE}.app_version_s ;;
+  }
+
+  dimension: user_game_mode {
+    type: string
+    sql: ${TABLE}.user_game_mode ;;
+  }
+
+  dimension: user_grand_mode_level {
+    type: number
+    sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
+  dimension: user_win_streak_count {
+    type: number
+    sql: ${TABLE}.user_win_streak_count ;;
+  }
+
+  dimension: user_win_streak_group {
+    type: string
+    sql: ${TABLE}.user_win_streak_group ;;
+  }
+
   dimension: network {
     type: string
     sql: ${TABLE}.network ;;
