@@ -91,7 +91,7 @@ view: cost_union_pdt {
     }
 
     dimension: adset {
-      type: number
+      type: string
       sql: ${TABLE}.adset ;;
     }
 
