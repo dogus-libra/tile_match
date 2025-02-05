@@ -449,7 +449,12 @@ view: progression {
     sql: ${TABLE}.user_is_bonus_mode_active ;;
   }
 
-  dimension: pivot_balance_version_list {
+  dimension: pivot_app_version_list {
+    type: string
+    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'App Version' {% endif %};;
+  }
+
+  dimension: pivot_version_list {
     type: string
     sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'Balance Version' {% endif %};;
   }
