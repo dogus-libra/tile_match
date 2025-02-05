@@ -198,6 +198,16 @@ view: monitoring {
     sql: ${TABLE}.user_campaign_code ;;
   }
 
+  dimension: user_af_campaign {
+    type: string
+    sql: ${TABLE}.user_af_campaign ;;
+  }
+
+  dimension: user_af_campaign_code {
+    type: string
+    sql: ${TABLE}.user_af_campaign_code ;;
+  }
+
   dimension: user_country_code {
     type: string
     sql: ${TABLE}.user_country_code ;;

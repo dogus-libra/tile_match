@@ -37,62 +37,61 @@ view: users_pdt {
                           max(user_win_streak_group)       as user_win_streak_group
 
                    from tile_match.session
-                   where event_name = 'SessionActive'
                    group by advertising_id),
 
      ret_table as (select advertising_id as ret_advertising_id,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 36
+                                  when datediff('hour',installed_at,  sysdate) > 36
                                       then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 60
+                                  when datediff('hour',installed_at,  sysdate) > 60
                                       then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 84
+                                  when datediff('hour',installed_at,  sysdate) > 84
                                       then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 108
+                                  when datediff('hour',installed_at,  sysdate) > 108
                                       then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 132
+                                  when datediff('hour',installed_at,  sysdate) > 132
                                       then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 180
+                                  when datediff('hour',installed_at,  sysdate) > 180
                                       then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 252
+                                  when datediff('hour',installed_at,  sysdate) > 252
                                       then case when datediff('hour', installed_at, event_timestamp) between 228 and 252 then 1 else 0 end end) as retention_10,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 348
+                                  when datediff('hour',installed_at,  sysdate) > 348
                                       then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 444
+                                  when datediff('hour',installed_at,  sysdate) > 444
                                       then case when datediff('hour', installed_at, event_timestamp) between 420 and 444 then 1 else 0 end end) as retention_18,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 516
+                                  when datediff('hour',installed_at,  sysdate) > 516
                                       then case when datediff('hour', installed_at, event_timestamp) between 492 and 516 then 1 else 0 end end) as retention_21,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 588
+                                  when datediff('hour',installed_at,  sysdate) > 588
                                       then case when datediff('hour', installed_at, event_timestamp) between 564 and 588 then 1 else 0 end end) as retention_24,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 684
+                                  when datediff('hour',installed_at,  sysdate) > 684
                                       then case when datediff('hour', installed_at, event_timestamp) between 660 and 684 then 1 else 0 end end) as retention_28,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 1092
+                                  when datediff('hour',installed_at,  sysdate) > 1092
                                       then case when datediff('hour', installed_at, event_timestamp) between 1068 and 1092 then 1 else 0 end end) as retention_45,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 1452
+                                  when datediff('hour',installed_at,  sysdate) > 1452
                                       then case when datediff('hour', installed_at, event_timestamp) between 1428 and 1452 then 1 else 0 end end) as retention_60,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 2172
+                                  when datediff('hour',installed_at,  sysdate) > 2172
                                       then case when datediff('hour', installed_at, event_timestamp) between 2148 and 2172 then 1 else 0 end end) as retention_90,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 4332
+                                  when datediff('hour',installed_at,  sysdate) > 4332
                                       then case when datediff('hour', installed_at, event_timestamp) between 4308 and 4332 then 1 else 0 end end) as retention_180,
                           max(case
-                                  when datediff('hour',session.installed_at,  sysdate) > 8652
+                                  when datediff('hour',installed_at,  sysdate) > 8652
                                       then case when datediff('hour', installed_at, event_timestamp) between 8628 and 8652 then 1 else 0 end end) as retention_360
-                   from tile_match.session
+                   from tile_match.monitoring
                    group by advertising_id),
 
      ad_usr as (select idfa_or_gps_adid,
@@ -152,21 +151,22 @@ view: users_pdt {
                  group by idfa_or_gps_adid),
 
      af_usr as (select coalesce(UPPER(idfv), LOWER(advertising_id))  as idfa_or_gps_adid,
-                        max(case
-                              when media_source in ('Facebook Ads','restricted') then 'facebook'
-                              when (media_source is null or media_source in ('Null','organic')) then 'Organic'
-                              when media_source='applovin_int' then 'applovin'
-                              when media_source='adjoe_int' then 'adjoe'
-                            else media_source end)                   as network_name,
-                        max(campaign)                                as campaign_name,
-                        null                                         as fb_install_referrer_campaign_group_name,
-                        max(adset)                                   as adgroup_name,
-                        null                                         as fb_install_referrer_campaign_name,
-                        max(ad)                                      as creative_name,
-                        null                                         as fb_install_referrer_adgroup_name,
-                        max(UPPER(country_code))                     as country,
-                        min(app_version)                             as f_app_version,
-                        max(app_version)                             as l_app_version,
+                        max(case when event_name='install' then
+                              (case
+                                 when media_source in ('Facebook Ads','restricted') then 'facebook'
+                                 when (media_source is null or media_source in ('Null','organic')) then 'Organic'
+                                 when media_source='applovin_int' then 'applovin'
+                                 when media_source='adjoe_int' then 'adjoe'
+                               else media_source end)  end)                                                  as network_name,
+                        max(case when event_name='install' then campaign end)                                as campaign_name,
+                        null                                                                                 as fb_install_referrer_campaign_group_name,
+                        max(case when event_name='install' then adset end)                                   as adgroup_name,
+                        null                                                                                 as fb_install_referrer_campaign_name,
+                        max(case when event_name='install' then ad end)                                      as creative_name,
+                        null                                                                                 as fb_install_referrer_adgroup_name,
+                        max(UPPER(country_code))                                                             as country,
+                        min(app_version)                                                                     as f_app_version,
+                        max(app_version)                                                                     as l_app_version,
                         sum(case
                                 when (datediff('hour', install_time, event_time) < 36) and event_name='af_purchase' then event_revenue_usd  end)         as ltv1_iap,
                         sum(case
@@ -233,7 +233,6 @@ view: users_pdt {
                         sum(case
                                 when event_name='af_ad_revenue' then event_revenue_usd  end)
                                   as ltvcurr_ad,
-
                         count(distinct case
                                             when (datediff('hour', install_time, event_time) < 36) and event_name='af_purchase' then event_time end)
                                   as payment_1,
