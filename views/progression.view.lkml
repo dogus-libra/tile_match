@@ -132,19 +132,155 @@ view: progression {
 
   dimension: end_game_offer_2_bonus_time {
     type: number
-    sql: ${TABLE}.end_game_offer_1_bonus_time ;;
+    sql: ${TABLE}.end_game_offer_2_bonus_time ;;
   }
   dimension: end_game_offer_2_bonus_slot {
     type: number
-    sql: ${TABLE}.end_game_offer_1_bonus_slot ;;
+    sql: ${TABLE}.end_game_offer_2_bonus_slot ;;
   }
   dimension: end_game_offer_2_offer_type {
     type: string
-    sql: ${TABLE}.end_game_offer_1_offer_type ;;
+    sql: ${TABLE}.end_game_offer_2_offer_type ;;
   }
   dimension: end_game_offer_2_fail_type {
     type: string
-    sql: ${TABLE}.end_game_offer_1_fail_type ;;
+    sql: ${TABLE}.end_game_offer_2_fail_type ;;
+  }
+
+  dimension: end_game_offer_3_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_3_bonus_time ;;
+  }
+  dimension: end_game_offer_3_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_3_bonus_slot ;;
+  }
+  dimension: end_game_offer_3_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_3_offer_type ;;
+  }
+  dimension: end_game_offer_3_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_3_fail_type ;;
+  }
+
+  dimension: end_game_offer_4_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_4_bonus_time ;;
+  }
+  dimension: end_game_offer_4_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_4_bonus_slot ;;
+  }
+  dimension: end_game_offer_4_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_4_offer_type ;;
+  }
+  dimension: end_game_offer_4_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_4_fail_type ;;
+  }
+
+  dimension: end_game_offer_5_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_5_bonus_time ;;
+  }
+  dimension: end_game_offer_5_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_5_bonus_slot ;;
+  }
+  dimension: end_game_offer_5_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_5_offer_type ;;
+  }
+  dimension: end_game_offer_5_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_5_fail_type ;;
+  }
+
+  dimension: end_game_offer_6_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_6_bonus_time ;;
+  }
+  dimension: end_game_offer_6_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_6_bonus_slot ;;
+  }
+  dimension: end_game_offer_6_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_6_offer_type ;;
+  }
+  dimension: end_game_offer_6_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_6_fail_type ;;
+  }
+
+  dimension: end_game_offer_7_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_7_bonus_time ;;
+  }
+  dimension: end_game_offer_7_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_7_bonus_slot ;;
+  }
+  dimension: end_game_offer_7_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_7_offer_type ;;
+  }
+  dimension: end_game_offer_7_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_7_fail_type ;;
+  }
+
+  dimension: end_game_offer_8_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_8_bonus_time ;;
+  }
+  dimension: end_game_offer_8_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_8_bonus_slot ;;
+  }
+  dimension: end_game_offer_8_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_8_offer_type ;;
+  }
+  dimension: end_game_offer_8_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_8_fail_type ;;
+  }
+
+  dimension: end_game_offer_9_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_9_bonus_time ;;
+  }
+  dimension: end_game_offer_9_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_9_bonus_slot ;;
+  }
+  dimension: end_game_offer_9_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_9_offer_type ;;
+  }
+  dimension: end_game_offer_9_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_9_fail_type ;;
+  }
+
+  dimension: end_game_offer_10_bonus_time {
+    type: number
+    sql: ${TABLE}.end_game_offer_10_bonus_time ;;
+  }
+  dimension: end_game_offer_10_bonus_slot {
+    type: number
+    sql: ${TABLE}.end_game_offer_10_bonus_slot ;;
+  }
+  dimension: end_game_offer_10_offer_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_10_offer_type ;;
+  }
+  dimension: end_game_offer_10_fail_type {
+    type: string
+    sql: ${TABLE}.end_game_offer_10_fail_type ;;
   }
 
   dimension: extra_move_count {
@@ -449,7 +585,12 @@ view: progression {
     sql: ${TABLE}.user_is_bonus_mode_active ;;
   }
 
-  dimension: pivot_balance_version_list {
+  dimension: pivot_app_version_list {
+    type: string
+    sql: {% if ${app_version}._is_filtered %} ${app_version} {% else %} 'App Version' {% endif %};;
+  }
+
+  dimension: pivot_version_list {
     type: string
     sql: {% if ${user_balance_version}._is_filtered %} ${user_balance_version} {% else %} 'Balance Version' {% endif %};;
   }
