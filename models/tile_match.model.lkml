@@ -63,7 +63,28 @@ explore: live_ops {
   }
 }
 
-explore: users_pdt {}
+explore: users_pdt {
+  join: progression {
+    relationship: one_to_many
+    sql_on: ${users_pdt.advertising_id}=${progression.advertising_id}  ;;
+  }
+  join: session {
+    relationship: one_to_many
+    sql_on: ${users_pdt.advertising_id}=${session.advertising_id}  ;;
+  }
+  join: live_ops {
+    relationship: one_to_many
+    sql_on: ${users_pdt.advertising_id}=${live_ops.advertising_id}  ;;
+  }
+  join: monitoring {
+    relationship: one_to_many
+    sql_on: ${users_pdt.advertising_id}=${monitoring.advertising_id}  ;;
+  }
+  join: business {
+    relationship: one_to_many
+    sql_on: ${users_pdt.advertising_id}=${business.advertising_id}  ;;
+  }
+}
 
 explore: tile_match_raw {}
 
@@ -71,7 +92,13 @@ explore: tile_match_cost {}
 
 explore: session_pdt {}
 
-explore: engagement_pdt {}
+explore: engagement_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${engagement_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: progression_pdt {
   join: users_pdt {

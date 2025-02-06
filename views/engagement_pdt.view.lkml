@@ -151,6 +151,13 @@ view: engagement_pdt {
     sql: ${TABLE}.sessioncount ;;
   }
 
+  dimension: sessioncount_day0_group {
+    type: string
+    sql:  case  when ${install_day_of_user}=0 AND ${sessioncount} = 1 then '1'
+                when ${install_day_of_user}=0 AND ${sessioncount} = 2 then '2'
+                when ${install_day_of_user}=0 AND ${sessioncount} >= 3 then '3+' else 'others' end ;;
+  }
+
   dimension: playtime {
     type: number
     sql: ${TABLE}.playtime ;;

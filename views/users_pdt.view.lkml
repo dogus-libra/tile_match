@@ -9,6 +9,8 @@ view: users_pdt {
 
                           min(build_no)                    as first_build_no,
                           max(connection_type)             as connection_type,
+                          max(event_timestamp)             as last_event_time,
+                          (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no,
                           max(event_version)               as last_event_version,
                           min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
@@ -329,6 +331,8 @@ view: users_pdt {
       select advertising_id,
              first_build_no,
              connection_type,
+             churn_last_level_no,
+             last_event_time,
              last_event_version,
              installed,
              ip_address,
@@ -505,6 +509,11 @@ view: users_pdt {
     sql: ${TABLE}.first_build_no ;;
   }
 
+  dimension: churn_last_level_no {
+    type: number
+    sql: ${TABLE}.churn_last_level_no ;;
+  }
+
   dimension: connection_type {
     type: number
     sql: ${TABLE}.connection_type ;;
@@ -534,6 +543,11 @@ view: users_pdt {
   dimension: ip_address {
     type: string
     sql: ${TABLE}.ip_address ;;
+  }
+
+  dimension: last_event_time {
+    type: date_time
+    sql: ${TABLE}.last_event_time ;;
   }
 
   dimension: session_id {
