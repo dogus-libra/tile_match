@@ -16,6 +16,7 @@ view: max_attempt_ndt {
       column: user_split_test_name {}
       column: user_balance_version {}
       column: user_win_streak_group {}
+      column: app_version {}
 
     }
     publish_as_db_view: yes
@@ -29,6 +30,11 @@ view: max_attempt_ndt {
   }
 
   dimension: advertising_id {
+    description: ""
+    type: string
+  }
+
+  dimension: app_version {
     description: ""
     type: string
   }

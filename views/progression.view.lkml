@@ -285,11 +285,11 @@ view: progression {
 
   dimension: extra_move_count {
     type: number
-    sql:  (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+    sql:   (case when ${TABLE}.end_game_offer is not null
 
             then (length(${TABLE}.end_game_offer) - length(replace(${TABLE}.end_game_offer, 'failtype', ''))) / length('failtype')
 
-          when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+          when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is null
 
             then (case when end_game_offer_1_offer_type is not null and end_game_offer_2_offer_type is null then 1
                        when end_game_offer_2_offer_type is not null and end_game_offer_3_offer_type is null then 2
@@ -303,7 +303,7 @@ view: progression {
                        when end_game_offer_10_offer_type is not null  then 10 end )
 
                 else 0
-           end)  ;;
+           end) ;;
   }
 
   dimension: event_id {
@@ -1997,20 +1997,20 @@ view: progression {
 
   measure: win_count {
     type: sum
-    sql: (case when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+    sql: (case when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and ${extra_move_count} is null then 1
 
-               when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+               when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
                 else 0
            end)  ;;
   }
 
   measure: fail_count {
     type: sum
-    sql: (case when ${TABLE}.event_timestamp<to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+    sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
 
-               when ${TABLE}.event_timestamp>=to_timestamp('18.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+               when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
                 else 0
            end) ;;
   }

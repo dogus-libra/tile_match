@@ -498,6 +498,11 @@ view: users_pdt {
     sql: ${TABLE}.first_app_version ;;
   }
 
+  dimension: app_version_last {
+    type: string
+    sql: ${TABLE}.last_app_version ;;
+  }
+
   dimension_group: arrival_ts {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
