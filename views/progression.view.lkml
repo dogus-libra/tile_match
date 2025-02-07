@@ -285,11 +285,7 @@ view: progression {
 
   dimension: extra_move_count {
     type: number
-    sql:   (case when ${TABLE}.end_game_offer is not null
-
-            then (length(${TABLE}.end_game_offer) - length(replace(${TABLE}.end_game_offer, 'failtype', ''))) / length('failtype')
-
-          when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is null
+    sql:   (case when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is not null
 
             then (case when end_game_offer_1_offer_type is not null and end_game_offer_2_offer_type is null then 1
                        when end_game_offer_2_offer_type is not null and end_game_offer_3_offer_type is null then 2
@@ -300,9 +296,9 @@ view: progression {
                        when end_game_offer_7_offer_type is not null and end_game_offer_8_offer_type is null then 7
                        when end_game_offer_8_offer_type is not null and end_game_offer_9_offer_type is null then 8
                        when end_game_offer_9_offer_type is not null and end_game_offer_10_offer_type is null then 9
-                       when end_game_offer_10_offer_type is not null  then 10 end )
+                       when end_game_offer_10_offer_type is not null  then 10 end)
 
-                else 0
+                else (length(${TABLE}.end_game_offer) - length(replace(${TABLE}.end_game_offer, 'failtype', ''))) / length('failtype')
            end) ;;
   }
 
