@@ -6,6 +6,7 @@ view: max_attempt_ndt {
     explore_source: progression {
       column: user_level_at {}
       column: advertising_id {}
+      column: app_version {}
       column: event_timestamp_date {}
       column: event_timestamp_week {}
       column: event_version {}
@@ -16,7 +17,7 @@ view: max_attempt_ndt {
       column: user_split_test_name {}
       column: user_balance_version {}
       column: user_win_streak_group {}
-      column: app_version {}
+      column: user_platform {}
 
     }
     publish_as_db_view: yes
@@ -85,6 +86,11 @@ view: max_attempt_ndt {
   }
 
   dimension: user_win_streak_group {
+    description: ""
+    type: string
+  }
+
+  dimension: user_platform {
     description: ""
     type: string
   }
