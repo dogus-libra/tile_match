@@ -11,7 +11,8 @@ view: progression_pdt {
            max(user_session_count) as  max_session_count,
            1.0*(total_level_win) / max_session_count as level_comp_per_session,
            floor(datediff(hour,install_dt,event_timestamp_min)/24) as install_day_of_user,
-           max(user_platform) as user_platform
+           max(user_platform) as user_platform,
+           max(app_version) as app_version
 
          FROM tile_match.progression
          GROUP BY advertising_id, event_timestamp_day  ;;
@@ -24,6 +25,11 @@ view: progression_pdt {
   dimension: advertising_id {
     type: string
     sql: ${TABLE}.advertising_id ;;
+  }
+
+  dimension: app_version {
+    type: string
+    sql: ${TABLE}.app_version ;;
   }
 
   dimension_group: event_timestamp {
