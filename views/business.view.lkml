@@ -593,7 +593,7 @@ view: business {
   }
 
   dimension: special_offer_details_id {
-    type: number
+    type: string
     sql: ${TABLE}.special_offer_details_id ;;
   }
 
