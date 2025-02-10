@@ -285,7 +285,7 @@ view: progression {
 
   dimension: extra_move_count {
     type: number
-    sql:   (case when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is not null
+    sql:   (case when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is null
 
             then (case when end_game_offer_1_offer_type is not null and end_game_offer_2_offer_type is null then 1
                        when end_game_offer_2_offer_type is not null and end_game_offer_3_offer_type is null then 2
