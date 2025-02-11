@@ -20,6 +20,11 @@ view: monitoring {
     type: string
     sql: ${TABLE}.app_version ;;
   }
+
+  dimension: apps_flyer_response_time {
+    type: number
+    sql: ${TABLE}.apps_flyer_response_time ;;
+  }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -42,6 +47,11 @@ view: monitoring {
   dimension: conversion_data {
     type: string
     sql: ${TABLE}.conversion_data ;;
+  }
+
+  dimension: deeplink_event_args {
+    type: string
+    sql: ${TABLE}.deeplink_event_args ;;
   }
 
   dimension: duration {
@@ -94,6 +104,11 @@ view: monitoring {
   dimension: event_version {
     type: string
     sql: ${TABLE}.event_version ;;
+  }
+
+  dimension: from {
+    type: string
+    sql: ${TABLE}.from ;;
   }
 
   dimension_group: installed {
@@ -178,6 +193,11 @@ view: monitoring {
     sql: ${TABLE}.user_adgroup ;;
   }
 
+  dimension: user_apps_flyer_id {
+    type: string
+    sql: ${TABLE}.user_apps_flyer_id ;;
+  }
+
   dimension: user_balance_version {
     type: string
     sql: ${TABLE}.user_balance_version ;;
@@ -239,6 +259,11 @@ view: monitoring {
     sql: ${TABLE}.user_device ;;
   }
 
+  dimension: user_difficulty_elo_score {
+    type: number
+    sql: ${TABLE}.user_difficulty_elo_score ;;
+  }
+
   dimension: user_game_mode {
     type: number
     sql: ${TABLE}.user_game_mode ;;
@@ -289,6 +314,12 @@ view: monitoring {
     sql: case when ${TABLE}.user_platform = 'Android' then 'android'
               when ${TABLE}.user_platform = 'IPhonePlayer' then 'ios'
         end ;;
+  }
+
+  dimension_group: user_remote_config_update_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.user_remote_config_update_date ;;
   }
 
   dimension: user_session_count {
@@ -581,6 +612,11 @@ view: monitoring {
   dimension: user_total_attempt_at_current_lvl {
     type: number
     sql: ${TABLE}.user_total_attempt_at_current_lvl ;;
+  }
+
+  dimension: user_total_valid_attempt_at_current_level {
+    type: number
+    sql: ${TABLE}.user_total_valid_attempt_at_current_level ;;
   }
 
   dimension: user_total_payment {

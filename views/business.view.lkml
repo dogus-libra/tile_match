@@ -532,6 +532,76 @@ view: business {
     sql: ${TABLE}.rewarded_ad_reward_coin_amount_type ;;
   }
 
+  dimension: rewarded_ad_reward_environment_token_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_environment_token_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_environment_token_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_environment_token_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_event_score_multiplier_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_event_score_multiplier_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_event_score_multiplier_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_event_score_multiplier_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_event_token_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_event_token_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_event_token_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_event_token_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_extra_slot_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_extra_slot_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_extra_slot_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_extra_slot_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_extra_time_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_extra_time_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_extra_time_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_extra_time_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_avatar_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_avatar_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_avatar_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_avatar_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_magic_wand_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_magic_wand_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_magic_wand_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_magic_wand_amount_type ;;
+  }
+
   dimension: rewarded_ad_reward_magnet_amount {
     type: number
     sql: ${TABLE}.rewarded_ad_reward_magnet_amount ;;
@@ -570,6 +640,16 @@ view: business {
   dimension: rewarded_ad_reward_life_amount_type {
     type: string
     sql: ${TABLE}.rewarded_ad_reward_life_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_time_freezer_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_time_freezer_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_time_freezer_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_time_freezer_amount_type ;;
   }
 
   dimension: rewarded_ad_reward_toss_amount {
@@ -693,6 +773,11 @@ view: business {
     sql: ${TABLE}.user_adgroup ;;
   }
 
+  dimension: user_apps_flyer_id {
+    type: string
+    sql: ${TABLE}.user_apps_flyer_id ;;
+  }
+
   dimension: user_available_events {
     type: string
     sql: ${TABLE}.user_available_events ;;
@@ -769,6 +854,11 @@ view: business {
     sql: ${TABLE}.user_elo_rank ;;
   }
 
+  dimension: user_difficulty_elo_score {
+    type: number
+    sql: ${TABLE}.user_difficulty_elo_score ;;
+  }
+
   dimension: user_id {
     type: string
     sql: ${TABLE}.user_id ;;
@@ -824,6 +914,12 @@ view: business {
     sql: case when ${TABLE}.user_platform = 'Android' then 'android'
               when ${TABLE}.user_platform = 'IPhonePlayer' then 'ios'
         end ;;
+  }
+
+  dimension_group: user_remote_config_update_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.user_remote_config_update_date ;;
   }
 
   dimension: user_session_count {
@@ -1116,6 +1212,11 @@ view: business {
   dimension: user_total_attempt_at_current_lvl {
     type: number
     sql: ${TABLE}.user_total_attempt_at_current_lvl ;;
+  }
+
+  dimension: user_total_valid_attempt_at_current_level {
+    type: number
+    sql: ${TABLE}.user_total_valid_attempt_at_current_level ;;
   }
 
   dimension: user_total_payment {

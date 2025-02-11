@@ -459,6 +459,21 @@ view: live_ops {
     sql: ${TABLE}.user_campaign_code ;;
   }
 
+  dimension: user_af_campaign {
+    type: string
+    sql: ${TABLE}.user_af_campaign ;;
+  }
+
+  dimension: user_af_campaign_code {
+    type: string
+    sql: ${TABLE}.user_af_campaign_code ;;
+  }
+
+  dimension: user_apps_flyer_id {
+    type: string
+    sql: ${TABLE}.user_apps_flyer_id ;;
+  }
+
   dimension: user_country_code {
     type: string
     sql: ${TABLE}.user_country_code ;;
@@ -493,6 +508,11 @@ view: live_ops {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_difficulty_elo_score {
+    type: number
+    sql: ${TABLE}.user_difficulty_elo_score ;;
   }
 
   dimension: user_elo_rank {
@@ -566,6 +586,12 @@ view: live_ops {
     sql: case when ${TABLE}.user_platform = 'Android' then 'android'
               when ${TABLE}.user_platform = 'IPhonePlayer' then 'ios'
         end ;;
+  }
+
+  dimension_group: user_remote_config_update_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.user_remote_config_update_date ;;
   }
 
   dimension: user_session_count {
@@ -858,6 +884,11 @@ view: live_ops {
   dimension: user_total_attempt_at_current_lvl {
     type: number
     sql: ${TABLE}.user_total_attempt_at_current_lvl ;;
+  }
+
+  dimension: user_total_valid_attempt_at_current_level {
+    type: number
+    sql: ${TABLE}.user_total_valid_attempt_at_current_level ;;
   }
 
   dimension: user_total_payment {
