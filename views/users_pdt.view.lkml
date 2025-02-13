@@ -333,6 +333,7 @@ view: users_pdt {
              first_build_no,
              connection_type,
              churn_last_level_no,
+             churn_timestamp,
              last_event_time,
              last_event_version,
              installed,
@@ -518,6 +519,11 @@ view: users_pdt {
   dimension: churn_last_level_no {
     type: number
     sql: ${TABLE}.churn_last_level_no ;;
+  }
+
+  dimension: churn_timestamp {
+    type: date_time
+    sql: ${TABLE}.churn_timestamp ;;
   }
 
   dimension: connection_type {
