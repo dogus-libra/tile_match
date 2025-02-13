@@ -11,6 +11,7 @@ view: users_pdt {
                           max(connection_type)             as connection_type,
                           max(event_timestamp)             as last_event_time,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no,
+                          (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp,
                           max(event_version)               as last_event_version,
                           min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
@@ -38,7 +39,7 @@ view: users_pdt {
                           max(user_win_streak_count)       as user_win_streak_count,
                           max(user_win_streak_group)       as user_win_streak_group
 
-                   from tile_match.session
+                   from tile_match.progression
                    group by advertising_id),
 
      ret_table as (select advertising_id as ret_advertising_id,
