@@ -533,6 +533,14 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Banner_IOS{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%3101BannerOff%' then 'Banner Off'
+               when ${TABLE}.user_split_test_name like '%3101BannerTop%' then 'Banner Top'
+               when ${TABLE}.user_split_test_name like '%3101BannerBottom%' then 'Banner Bottom'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
