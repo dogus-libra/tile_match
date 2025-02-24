@@ -1525,6 +1525,20 @@ view: users_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Melisa_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1402Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1402Balanced%' then 'Balanced'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Invite_Friend{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1402InviteFriendsActive%' then 'Invite Friends Active'
+               when ${TABLE}.user_split_test_name like '%1402InviteFriendsPassive%' then 'Invite Friends Passive'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
