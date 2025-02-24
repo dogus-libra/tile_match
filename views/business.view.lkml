@@ -300,6 +300,11 @@ view: business {
     sql: ${TABLE}.displayed_ad_count ;;
   }
 
+  dimension: displayed_ad_count_in_level {
+    type: number
+    sql: ${TABLE}.displayed_ad_count_in_level ;;
+  }
+
   dimension: displayed_rewarded_count_in_day {
     type: number
     sql: ${TABLE}.displayed_rewarded_count_in_day ;;
@@ -477,6 +482,11 @@ view: business {
   dimension: pay_and_proceed_purchase_details_template_id {
     type: string
     sql: ${TABLE}.pay_and_proceed_purchase_details_template_id ;;
+  }
+
+  dimension: position {
+    type: number
+    sql: ${TABLE}.position ;;
   }
 
   dimension: purchase_source {

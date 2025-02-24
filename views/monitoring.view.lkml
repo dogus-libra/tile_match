@@ -16,6 +16,11 @@ view: monitoring {
     sql: ${TABLE}.advertising_id ;;
   }
 
+  dimension: action {
+    type: string
+    sql: ${TABLE}.action ;;
+  }
+
   dimension: app_version {
     type: string
     sql: ${TABLE}.app_version ;;
@@ -181,6 +186,16 @@ view: monitoring {
   dimension: step_index {
     type: string
     sql: ${TABLE}.step_index ;;
+  }
+
+  dimension: source {
+    type: number
+    sql: ${TABLE}.source ;;
+  }
+
+  dimension: period_index {
+    type: number
+    sql: ${TABLE}.period_index ;;
   }
 
   dimension: tutorial_name {

@@ -171,6 +171,11 @@ view: live_ops {
     sql: ${TABLE}.live_ops_event_name ;;
   }
 
+  dimension: live_ops_id {
+    type: string
+    sql: ${TABLE}.live_ops_id ;;
+  }
+
   dimension: live_ops_racers_group_id {
     type: string
     sql: ${TABLE}.live_ops_racers_group_id ;;
@@ -300,6 +305,11 @@ view: live_ops {
   dimension: live_ops_target {
     type: number
     sql: ${TABLE}.live_ops_target ;;
+  }
+
+  dimension: live_ops_type {
+    type: string
+    sql: ${TABLE}.live_ops_type ;;
   }
 
   dimension: live_ops_elo_rank {
