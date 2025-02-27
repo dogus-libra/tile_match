@@ -12,6 +12,8 @@ view: users_pdt {
                           max(event_timestamp)             as last_event_time,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp,
+                          (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no_3days,
+                          (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp_3days,
                           max(event_version)               as last_event_version,
                           min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
@@ -334,6 +336,8 @@ view: users_pdt {
              connection_type,
              churn_last_level_no,
              churn_timestamp,
+             churn_last_level_no_3days,
+             churn_timestamp_3days,
              last_event_time,
              last_event_version,
              installed,
@@ -521,9 +525,19 @@ view: users_pdt {
     sql: ${TABLE}.churn_last_level_no ;;
   }
 
+  dimension: churn_last_level_no_3days {
+    type: number
+    sql: ${TABLE}.churn_last_level_no_3days ;;
+  }
+
   dimension: churn_timestamp {
     type: date_time
     sql: ${TABLE}.churn_timestamp ;;
+  }
+
+  dimension: churn_timestamp_3days {
+    type: date_time
+    sql: ${TABLE}.churn_timestamp_3days ;;
   }
 
   dimension: connection_type {
