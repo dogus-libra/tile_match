@@ -364,6 +364,45 @@ view: progression {
     sql: ${TABLE}.obstacles ;;
   }
 
+  dimension: obstacle1 {
+    type: string
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 1), ':', 1) end ;;
+  }
+
+  dimension: obstacle1_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 1), ':', 2) end ;;
+  }
+
+  dimension: obstacle2 {
+    type: string
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 2), ':', 1) end ;;
+  }
+
+  dimension: obstacle2_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 2), ':', 2) end  ;;
+  }
+
+  dimension: obstacle3 {
+    type: string
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 3), ':', 1) end ;;
+  }
+
+  dimension: obstacle3_num {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 3), ':', 2) end ;;
+  }
+
+  dimension: obstacles_count {
+    type: number
+    sql: case when ${TABLE}.event_name = 'LevelStarted' then (
+          (CASE WHEN SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 1), ':', 1) <> '' THEN 1 ELSE 0 END) +
+          (CASE WHEN SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 2), ':', 1) <> '' THEN 1 ELSE 0 END) +
+          (CASE WHEN SPLIT_PART(SPLIT_PART(${TABLE}.obstacles, '|', 3), ':', 1) <> '' THEN 1 ELSE 0 END)
+        ) end ;;
+  }
+
   dimension: previous_event_id {
     type: string
     sql: ${TABLE}.previous_event_id ;;
@@ -551,6 +590,24 @@ view: progression {
     sql: ${TABLE}.tiles_on_board ;;
   }
 
+  dimension: unique_tile_count {
+    type: number
+    sql:  case when ${TABLE}.event_name = 'LevelStarted' then LENGTH(${TABLE}.tiles_on_board) - LENGTH(REPLACE(${TABLE}.tiles_on_board, '|', '')) + 1  end;;
+  }
+
+  dimension: unique_color_count {
+    type: number
+    sql: (
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%blue%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%brown%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%green%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%orange%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%purple%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%red%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%yellow%' THEN 1 ELSE 0 END)
+        ) ;;
+  }
+
   dimension: remain_tile_count {
     type: string
     sql: ${TABLE}.remain_tile_count ;;
@@ -559,6 +616,11 @@ view: progression {
   dimension: total_tile_count {
     type: string
     sql: ${TABLE}.total_tile_count ;;
+  }
+
+  dimension: total_tile_count_num {
+    type: number
+    sql: CAST(${TABLE}.total_tile_count AS NUMERIC) ;;
   }
 
   dimension: total_attempt_at_current_level {
