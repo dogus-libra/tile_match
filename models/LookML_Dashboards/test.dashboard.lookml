@@ -1,23 +1,23 @@
 ---
-- dashboard: 38__pelin_balance_level_test
-  title: 38 - Pelin Balance Level Test
+- dashboard: 40__melisa_balanced_level_test
+  title: 40 - Melisa Balanced Level Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: TDSrjGIqTv7e87z2uKY628
+  preferred_slug: 3RMELW57inGR326JCJFxAU
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,7 +314,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Invite_Friend: 263
+      progression.user_split_test_name_Streak_Breaker: 263
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -334,13 +334,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -564,7 +564,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Invite_Friend, player_count,
+    column_order: [progression.user_split_test_name_Streak_Breaker, player_count,
       level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
       level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
       level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
@@ -573,12 +573,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       level_5_reach_rate:
         align: center
@@ -681,7 +681,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Invite_Friend: 280
+      progression.user_split_test_name_Streak_Breaker: 280
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -702,13 +702,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Invite_Friend]
-    pivots: [engagement_pdt.user_split_test_name_Invite_Friend]
+      engagement_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Invite_Friend, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -789,13 +789,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Invite_Friend]
-    pivots: [engagement_pdt.user_split_test_name_Invite_Friend]
+      engagement_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Invite_Friend, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -866,13 +866,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Invite_Friend]
-    pivots: [session_pdt.user_split_test_name_Invite_Friend]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [session_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Invite_Friend, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Breaker, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -944,13 +944,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Invite_Friend]
-    pivots: [engagement_pdt.user_split_test_name_Invite_Friend]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Invite_Friend, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1048,13 +1048,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Invite_Friend]
-    pivots: [engagement_pdt.user_split_test_name_Invite_Friend]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Invite_Friend, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1119,13 +1119,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Invite_Friend]
-    pivots: [session_pdt.user_split_test_name_Invite_Friend]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [session_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Invite_Friend, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Breaker, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1215,12 +1215,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1277,7 +1277,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -1285,7 +1285,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -1338,11 +1338,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Invite_Friend]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+      users_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -1614,7 +1614,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -1726,13 +1726,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -2004,8 +2004,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Invite_Friend: Test Group
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      session_pdt.user_split_test_name_Streak_Breaker: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2117,10 +2117,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2391,7 +2391,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2412,7 +2412,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Invite_Friend:
+      users_pdt.user_split_test_name_Streak_Breaker:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2482,7 +2482,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Invite_Friend: 256
+      users_pdt.user_split_test_name_Streak_Breaker: 256
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
@@ -2503,12 +2503,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, ret_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2779,7 +2779,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2800,7 +2800,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Invite_Friend:
+      users_pdt.user_split_test_name_Streak_Breaker:
         align: center
       users_pdt.app_version:
         align: center
@@ -2892,11 +2892,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Invite_Friend]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+      ret_14, users_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -3182,7 +3182,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3311,13 +3311,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -3603,7 +3603,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -3732,12 +3732,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4022,7 +4022,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4149,10 +4149,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Invite_Friend]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4437,9 +4437,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Invite_Friend: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Invite_Friend: 279
+      users_pdt.user_split_test_name_Streak_Breaker: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4472,7 +4472,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Invite_Friend:
+      users_pdt.user_split_test_name_Streak_Breaker:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4567,8 +4567,8 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_Invite_Friend]
-    pivots: [progression.user_split_test_name_Invite_Friend]
+      progression.user_split_test_name_Streak_Breaker]
+    pivots: [progression.user_split_test_name_Streak_Breaker]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
@@ -4577,8 +4577,8 @@
       progression.user_level_at: "[1,500]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [progression.user_split_test_name_Invite_Friend, progression.user_level_at]
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Breaker, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4911,19 +4911,20 @@
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Invite_Friend]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Streak_Breaker,
+      target_win_rate, mean_attempt]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
-      progression.user_level_at: "[1,200]"
+      progression.user_level_at: "[1,500]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_balance_version: ''
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, progression.user_level_at]
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5144,6 +5145,55 @@
       _kind_hint: measure
       table_calculation: all_extramoves_rate
       _type_hint: number
+    - category: measure
+      expression:
+      label: Target Win Rate
+      value_format:
+      value_format_name:
+      based_on: progression.target_win_rate
+      _kind_hint: measure
+      measure: target_win_rate
+      type: min
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: table_calculation
+      expression: 1/${target_win_rate}
+      label: Target Diff
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: target_diff
+      _type_hint: number
+    - category: table_calculation
+      expression: "(1/${progression.win_rate})*0.75 + (${mean_attempt})*0.25"
+      label: Eff Diff
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: eff_diff
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Mean Attempt
+      value_format:
+      value_format_name:
+      based_on: progression.user_total_attempt_at_current_lvl
+      _kind_hint: measure
+      measure: mean_attempt
+      type: average
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+        progression.user_total_attempt_at_current_lvl: "<=20"
+    - category: table_calculation
+      expression: abs(${target_diff}-${eff_diff})/${target_diff}
+      label: Abs Diff Target Diff and Eff Diff
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: abs_diff_target_diff_and_eff_diff
+      _type_hint: number
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -5234,6 +5284,8 @@
         align: center
       all_extramoves_rate:
         align: center
+      abs_diff_target_diff_and_eff_diff:
+        align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
@@ -5272,9 +5324,14 @@
         bold: false, italic: false, strikethrough: false, fields: [progression.win_rate]},
       {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
-              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [all_extramoves_rate]}]
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [all_extramoves_rate]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [abs_diff_target_diff_and_eff_diff]}]
     series_value_format:
       progression.win_rate:
         name: percent_1
@@ -5283,7 +5340,8 @@
         label: Percent (1)
         label_prefix: Percent
     hidden_pivots: {}
-    hidden_fields: [uniquestart1, all_extra_moves]
+    hidden_fields: [uniquestart1, all_extra_moves, target_win_rate, target_diff, eff_diff,
+      mean_attempt]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -5334,11 +5392,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Invite_Friend]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -5802,11 +5860,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Invite_Friend]
-    pivots: [users_pdt.user_split_test_name_Invite_Friend]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -6270,10 +6328,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Invite_Friend]
+      new_users, users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6662,7 +6720,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Invite_Friend:
+      users_pdt.user_split_test_name_Streak_Breaker:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6736,10 +6794,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Invite_Friend]
+      new_users, users_pdt.user_split_test_name_Streak_Breaker]
     filters:
-      users_pdt.user_split_test_name_Invite_Friend: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Invite_Friend]
+      users_pdt.user_split_test_name_Streak_Breaker: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7128,7 +7186,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Invite_Friend:
+      users_pdt.user_split_test_name_Streak_Breaker:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -7198,12 +7256,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[11,20]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7260,7 +7318,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7268,7 +7326,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7319,12 +7377,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[21,30]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7381,7 +7439,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7389,7 +7447,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7440,12 +7498,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[31,50]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7502,7 +7560,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7510,7 +7568,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7561,12 +7619,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[51,75]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7623,7 +7681,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7631,7 +7689,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7682,12 +7740,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[76,100]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7744,7 +7802,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7752,7 +7810,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7803,12 +7861,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[126,150]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7865,7 +7923,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7873,7 +7931,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -7924,12 +7982,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[101,125]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7986,7 +8044,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7994,7 +8052,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -8045,12 +8103,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[151,200]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8107,7 +8165,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8115,7 +8173,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -8166,12 +8224,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[301,400]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8228,7 +8286,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8236,7 +8294,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -8287,12 +8345,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[201,300]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8349,7 +8407,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8357,7 +8415,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -8408,12 +8466,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Invite_Friend, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Invite_Friend: "-NULL"
+      progression.user_split_test_name_Streak_Breaker: "-NULL"
       progression.user_level_at: "[401,500]"
-    sorts: [progression.user_split_test_name_Invite_Friend]
+    sorts: [progression.user_split_test_name_Streak_Breaker]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8470,7 +8528,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Invite_Friend: Test Group
+      progression.user_split_test_name_Streak_Breaker: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8478,7 +8536,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Invite_Friend:
+      progression.user_split_test_name_Streak_Breaker:
         align: center
       win_rate:
         align: center
@@ -8582,7 +8640,7 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: ''
+    default_value: 0.3.3
     allow_multiple_values: true
     required: false
     ui_config:
