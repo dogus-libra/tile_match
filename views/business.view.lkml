@@ -330,6 +330,11 @@ view: business {
     sql: ${TABLE}.event_id ;;
   }
 
+  dimension: event_data_business_id {
+    type: string
+    sql: ${TABLE}.event_data_business_id ;;
+  }
+
   dimension: event_name {
     type: string
     sql: ${TABLE}.event_name ;;
@@ -1319,6 +1324,11 @@ view: business {
               when ${TABLE}.user_win_streak_group = 3 then 'Streak3'
               when ${TABLE}.user_win_streak_group = 4 then 'Streak4'
               when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
+  }
+
+  dimension: visible_area {
+    type: string
+    sql: ${TABLE}.visible_area ;;
   }
 
   measure: count {
