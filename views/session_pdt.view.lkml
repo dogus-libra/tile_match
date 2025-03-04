@@ -41,11 +41,18 @@ view: session_pdt {
                    max(event_type)                        as event_type,
                    max(event_version)                     as event_version,
                    max(installed_at)                      as installed,
+                   max(case when user_level_at < 2 and inventory_coin = 200 then 200
+                            when user_level_at < 2 and inventory_coin = 400 then 400
+                            when user_level_at < 2 and inventory_coin = 600 then 600
+                            end)                          as initial_coin,
                    max(inventory_coin)                    as inventory_coin,
                    max(inventory_life)                    as inventory_life,
                    max(ip_address)                        as ip_address,
                    max(user_adgroup)                      as user_adgroup,
                    max(user_campaign)                     as user_campaign,
+                   max(user_campaign_code)                as user_campaign_code,
+                   max(user_af_campaign)                  as user_af_campaign,
+                   max(user_af_campaign_code)             as user_af_campaign_code,
                    max(user_creative)                     as user_creative,
                    max(user_current_fps)                  as user_current_fps,
                    max(user_device)                       as user_device,
@@ -154,6 +161,11 @@ view: session_pdt {
     sql: FLOOR(DATEDIFF(hour,${TABLE}.installed,${TABLE}.session_start_time)/24) ;;
   }
 
+  dimension: initial_coin{
+    type: number
+    sql:  ${TABLE}.initial_coin;;
+  }
+
   dimension: inventory_coin {
     type: number
     sql: ${TABLE}.inventory_coin ;;
@@ -228,6 +240,21 @@ view: session_pdt {
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
+  }
+
+  dimension: user_af_campaign {
+    type: string
+    sql: ${TABLE}.user_af_campaign ;;
+  }
+
+  dimension: user_af_campaign_code {
+    type: string
+    sql: ${TABLE}.user_af_campaign_code ;;
   }
 
   dimension: user_creative {
@@ -620,10 +647,31 @@ view: session_pdt {
          end ;;
   }
 
-  dimension: user_split_test_name_Starter_Coin{
+  dimension: user_split_test_name_Starter_Coin_01_Android{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
-               when ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_01_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_400%' then 'Starter Coin 400'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_02_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_400%' then 'Starter Coin 400'
+               when ${initial_coin} = 600 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_600%' then 'Starter Coin 600'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_03_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_400%' then 'Starter Coin 400'
           end ;;
   }
 

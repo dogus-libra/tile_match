@@ -6,45 +6,49 @@ view: engagement_pdt {
   derived_table: {
     distribution: "advertising_id"
       sql: select advertising_id,
-                          date_trunc('day', session_start_time) as client,
-                          count(distinct session_id) as sessioncount,
-                          sum(session_time) / 60 as playtime,
-                          max(session_id) as session_id,
-                          min(arrival_ts) as arrival_ts,
-                          max(app_version) as app_version,
-                          max(build_no) as build_no,
-                          max(connection_type) as connection_type,
-                          max(event_id) as event_id,
-                          max(event_name) as event_name,
-                          max(event_type) as event_type,
-                          max(event_version) as event_version,
-                          max(installed) as installed_at,
-                          max(inventory_coin) as inventory_coin,
-                          max(inventory_life) as inventory_life,
-                          max(ip_address) as ip_address,
-                          max(user_adgroup) as user_adgroup,
-                          max(user_campaign) as user_campaign,
-                          max(user_creative) as user_creative,
-                          max(user_current_fps) as user_current_fps,
-                          max(user_device) as user_device,
-                          max(user_level_at) as user_level_at,
-                          max(user_level_id) as user_level_id,
-                          max(user_manufacturer) as user_manufacturer,
-                          max(user_network) as user_network,
-                          bool_or(user_notification_state) as user_notification_state,
-                          max(user_os_version) as user_os_version,
-                          max(user_platform) as user_platform,
-                          max(user_session_count) as user_session_count,
-                          max(user_split_test_name) as user_split_test_name,
-                          max(user_test_routing_value) as user_test_routing_value,
+                          date_trunc('day', session_start_time)  as client,
+                          count(distinct session_id)             as sessioncount,
+                          sum(session_time) / 60                 as playtime,
+                          max(session_id)                        as session_id,
+                          min(arrival_ts)                        as arrival_ts,
+                          max(app_version)                       as app_version,
+                          max(build_no)                          as build_no,
+                          max(connection_type)                   as connection_type,
+                          max(event_id)                          as event_id,
+                          max(event_name)                        as event_name,
+                          max(event_type)                        as event_type,
+                          max(event_version)                     as event_version,
+                          max(installed)                         as installed_at,
+                          max(initial_coin)                      as initial_coin,
+                          max(inventory_coin)                    as inventory_coin,
+                          max(inventory_life)                    as inventory_life,
+                          max(ip_address)                        as ip_address,
+                          max(user_adgroup)                      as user_adgroup,
+                          max(user_campaign)                     as user_campaign,
+                          max(user_campaign_code)                as user_campaign_code,
+                          max(user_af_campaign)                  as user_af_campaign,
+                          max(user_af_campaign_code)             as user_af_campaign_code,
+                          max(user_creative)                     as user_creative,
+                          max(user_current_fps)                  as user_current_fps,
+                          max(user_device)                       as user_device,
+                          max(user_level_at)                     as user_level_at,
+                          max(user_level_id)                     as user_level_id,
+                          max(user_manufacturer)                 as user_manufacturer,
+                          max(user_network)                      as user_network,
+                          bool_or(user_notification_state)       as user_notification_state,
+                          max(user_os_version)                   as user_os_version,
+                          max(user_platform)                     as user_platform,
+                          max(user_session_count)                as user_session_count,
+                          max(user_split_test_name)              as user_split_test_name,
+                          max(user_test_routing_value)           as user_test_routing_value,
                           max(user_total_attempt_at_current_lvl) as user_total_attempt_at_current_lvl,
-                          max(user_total_payment) as user_total_payment,
-                          max(user_total_session_time) as user_total_session_time,
-                          max(network) as network,
-                          max(campaign) as campaign,
-                          max(adgroup) as adgroup,
-                          max(creative) as creative,
-                          max(country) as country,
+                          max(user_total_payment)                as user_total_payment,
+                          max(user_total_session_time)           as user_total_session_time,
+                          max(network)                           as network,
+                          max(campaign)                          as campaign,
+                          max(adgroup)                           as adgroup,
+                          max(creative)                          as creative,
+                          max(country)                           as country,
                           max(user_game_mode)                    as user_game_mode,
                           max(user_grand_mode_level)             as user_grand_mode_level,
                           max(user_win_streak_count)             as user_win_streak_count,
@@ -126,6 +130,11 @@ view: engagement_pdt {
     sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.client)/24) ;;
   }
 
+  dimension: initial_coin {
+    type: number
+    sql: ${TABLE}.initial_coin ;;
+  }
+
   dimension: inventory_coin {
     type: number
     sql: ${TABLE}.inventory_coin ;;
@@ -171,6 +180,21 @@ view: engagement_pdt {
   dimension: user_campaign {
     type: string
     sql: ${TABLE}.user_campaign ;;
+  }
+
+  dimension: user_campaign_code {
+    type: string
+    sql: ${TABLE}.user_campaign_code ;;
+  }
+
+  dimension: user_af_campaign {
+    type: string
+    sql: ${TABLE}.user_af_campaign ;;
+  }
+
+  dimension: user_af_campaign_code {
+    type: string
+    sql: ${TABLE}.user_af_campaign_code ;;
   }
 
   dimension: user_creative {
@@ -563,10 +587,31 @@ view: engagement_pdt {
          end ;;
   }
 
-  dimension: user_split_test_name_Starter_Coin{
+  dimension: user_split_test_name_Starter_Coin_01_Android{
     type: string
-    sql:  case when ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
-               when ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_01_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_400%' then 'Starter Coin 400'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_02_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_400%' then 'Starter Coin 400'
+               when ${initial_coin} = 600 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_600%' then 'Starter Coin 600'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_03_IOS{
+    type: string
+    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_200%' then 'Starter Coin 200'
+               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_400%' then 'Starter Coin 400'
           end ;;
   }
 
