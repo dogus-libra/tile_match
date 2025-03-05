@@ -2731,6 +2731,26 @@ view: progression {
            end)  ;;
   }
 
+  measure: win_count_streak5 {
+    type: sum
+    sql: (case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and ${extra_move_count} is null then 1
+
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} > 5 and  ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+      else 0
+      end)  ;;
+  }
+
+  measure: win_count_streak8 {
+    type: sum
+    sql: (case when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and ${extra_move_count} is null then 1
+
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} > 8 and ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+      else 0
+      end)  ;;
+  }
+
   measure: fail_count {
     type: sum
     sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
@@ -2741,9 +2761,41 @@ view: progression {
            end) ;;
   }
 
+  measure: fail_count_streak5 {
+    type: sum
+    sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
+
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} > 5 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+      else 0
+      end) ;;
+  }
+
+  measure: fail_count_streak8 {
+    type: sum
+    sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
+
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} > 8 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+      else 0
+      end) ;;
+  }
+
   measure: win_rate {
     type: number
     sql: (1.0*${win_count}/nullif(${win_count} + ${fail_count},0)) ;;
+    value_format: "0%"
+  }
+
+  measure: win_rate_streak5 {
+    type: number
+    sql: (1.0*${win_count_streak5}/nullif(${win_count_streak5} + ${fail_count_streak5},0)) ;;
+    value_format: "0%"
+  }
+
+  measure: win_rate_streak8 {
+    type: number
+    sql:  (1.0*${win_count_streak8}/nullif(${win_count_streak8} + ${fail_count_streak8},0))  ;;
     value_format: "0%"
   }
 
