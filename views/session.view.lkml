@@ -62,7 +62,7 @@ view: session {
 
   dimension_group: event_timestamp {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour, hour_of_day]
     sql: ${TABLE}.event_timestamp ;;
   }
 
