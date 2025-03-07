@@ -12,6 +12,8 @@ view: users_pdt {
                           max(event_timestamp)             as last_event_time,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp,
+                          (case when max(event_timestamp) < DATEADD(day, -5, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no_5days,
+                          (case when max(event_timestamp) < DATEADD(day, -5, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp_5days,
                           (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no_3days,
                           (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp_3days,
                           max(case when user_level_at < 2 and inventory_coin = 200 then 200
@@ -341,6 +343,8 @@ view: users_pdt {
              connection_type,
              churn_last_level_no,
              churn_timestamp,
+             churn_last_level_no_5days,
+             churn_timestamp_5days,
              churn_last_level_no_3days,
              churn_timestamp_3days,
              last_event_time,
@@ -536,6 +540,11 @@ view: users_pdt {
     sql: ${TABLE}.churn_last_level_no ;;
   }
 
+  dimension: churn_last_level_no_5days {
+    type: number
+    sql: ${TABLE}.churn_last_level_no_5days ;;
+  }
+
   dimension: churn_last_level_no_3days {
     type: number
     sql: ${TABLE}.churn_last_level_no_3days ;;
@@ -544,6 +553,11 @@ view: users_pdt {
   dimension: churn_timestamp {
     type: date_time
     sql: ${TABLE}.churn_timestamp ;;
+  }
+
+  dimension: churn_timestamp_5days {
+    type: date_time
+    sql: ${TABLE}.churn_timestamp_5days ;;
   }
 
   dimension: churn_timestamp_3days {
