@@ -1825,6 +1825,11 @@ view: progression {
     sql: ${TABLE}.user_level_id ;;
   }
 
+  dimension: user_level_id_string {
+    type: string
+    sql: ${TABLE}.user_level_id_string ;;
+  }
+
   dimension: user_manufacturer {
     type: string
     sql: ${TABLE}.user_manufacturer ;;
