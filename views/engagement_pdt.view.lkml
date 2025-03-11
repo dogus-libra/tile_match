@@ -615,6 +615,20 @@ view: engagement_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Dynamic_Ease_Mode{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0603_DynamicEaseMode_Default%' then 'Dynamic Ease Mode Default'
+               when ${TABLE}.user_split_test_name like '%0603_DynamicEaseMode_Variant%' then 'Dynamic Ease Mode Variant'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Ad_Frequency{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0603_AdFrequency_Default%' then 'Ad Frequency Default'
+               when ${TABLE}.user_split_test_name like '%0603_AdFrequency_Variant%' then 'Ad Frequency Variant'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
