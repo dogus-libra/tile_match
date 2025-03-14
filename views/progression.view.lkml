@@ -346,9 +346,9 @@ view: progression {
 
   dimension: initial_coin{
     type: number
-    sql: case when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 200 then 200
-              when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 400 then 400
-              when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 600 then 600
+    sql: case when ${TABLE}.event_name = 'LevelCompleted' and ${user_level_at} < 2 and ${TABLE}.inventory_coin = 200 then 200
+              when ${TABLE}.event_name = 'LevelCompleted' and ${user_level_at} < 2 and ${TABLE}.inventory_coin = 400 then 400
+              when ${TABLE}.event_name = 'LevelCompleted' and ${user_level_at} < 2 and ${TABLE}.inventory_coin = 600 then 600
 
               end;;
   }
@@ -2175,24 +2175,10 @@ view: progression {
          end ;;
   }
 
-  dimension: user_split_test_name_Starter_Coin_01_Android{
-    type: string
-    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
-               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
-          end ;;
-  }
-
   dimension: user_split_test_name_Starter_Coin_01_IOS{
     type: string
     sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_200%' then 'Starter Coin 200'
                when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_400%' then 'Starter Coin 400'
-          end ;;
-  }
-
-  dimension: user_split_test_name_Starter_Coin_02_IOS{
-    type: string
-    sql:  case when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_400%' then 'Starter Coin 400'
-               when ${initial_coin} = 600 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_600%' then 'Starter Coin 600'
           end ;;
   }
 

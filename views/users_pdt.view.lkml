@@ -16,10 +16,23 @@ view: users_pdt {
                           (case when max(event_timestamp) < DATEADD(day, -5, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp_5days,
                           (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no_3days,
                           (case when max(event_timestamp) < DATEADD(day, -3, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp_3days,
-                          max(case when user_level_at < 2 and inventory_coin = 200 then 200
-                                   when user_level_at < 2 and inventory_coin = 400 then 400
-                                   when user_level_at < 2 and inventory_coin = 600 then 600
-                                   end)                    as initial_coin,
+
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 200 and user_split_test_name LIKE '%2802_StarterCoin_01_200%' THEN 'Starter_Coin_200'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%2802_StarterCoin_01_400%' THEN 'Starter_Coin_400'
+                                   end)                    as user_split_test_name_Starter_Coin_01_Android,
+
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 200 and user_split_test_name LIKE '%0303_StarterCoin_01_200%' THEN 'Starter_Coin_200'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%0303_StarterCoin_01_400%' THEN 'Starter_Coin_400'
+                                   end)                    as user_split_test_name_Starter_Coin_01_IOS,
+
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%0303_StarterCoin_02_400%' THEN 'Starter_Coin_400'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 600 and user_split_test_name LIKE '%0303_StarterCoin_02_600%' THEN 'Starter_Coin_600'
+                                   end)                    as user_split_test_name_Starter_Coin_02_IOS,
+
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 200 and user_split_test_name LIKE '%0303_StarterCoin_03_200%' THEN 'Starter_Coin_200'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%0303_StarterCoin_03_400%' THEN 'Starter_Coin_400'
+                                   end)                    as user_split_test_name_Starter_Coin_03_IOS,
+
                           max(event_version)               as last_event_version,
                           min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
@@ -338,7 +351,6 @@ view: users_pdt {
                                left join adj_usr on sess_user.advertising_id = idfa_or_gps_adid)
 
       select advertising_id,
-             initial_coin,
              first_build_no,
              connection_type,
              churn_last_level_no,
@@ -364,6 +376,10 @@ view: users_pdt {
              user_platform,
              user_session_count,
              user_split_test_name,
+             user_split_test_name_Starter_Coin_01_Android,
+             user_split_test_name_Starter_Coin_01_IOS,
+             user_split_test_name_Starter_Coin_02_IOS,
+             user_split_test_name_Starter_Coin_03_IOS,
              user_test_routing_value,
              user_total_payment,
              user_total_session_time,
@@ -1588,30 +1604,22 @@ view: users_pdt {
 
   dimension: user_split_test_name_Starter_Coin_01_Android{
     type: string
-    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_200%' then 'Starter Coin 200'
-               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%2802_StarterCoin_01_400%' then 'Starter Coin 400'
-          end ;;
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_01_Android ;;
   }
 
   dimension: user_split_test_name_Starter_Coin_01_IOS{
     type: string
-    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_200%' then 'Starter Coin 200'
-               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_01_400%' then 'Starter Coin 400'
-          end ;;
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_01_IOS ;;
   }
 
   dimension: user_split_test_name_Starter_Coin_02_IOS{
     type: string
-    sql:  case when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_400%' then 'Starter Coin 400'
-               when ${initial_coin} = 600 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_02_600%' then 'Starter Coin 600'
-          end ;;
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_02_IOS ;;
   }
 
   dimension: user_split_test_name_Starter_Coin_03_IOS{
     type: string
-    sql:  case when ${initial_coin} = 200 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_200%' then 'Starter Coin 200'
-               when ${initial_coin} = 400 and ${TABLE}.user_split_test_name like '%0303_StarterCoin_03_400%' then 'Starter Coin 400'
-          end ;;
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_03_IOS ;;
   }
 
   dimension: user_split_test_name_Dynamic_Ease_Mode{
