@@ -1300,6 +1300,13 @@ view: business {
           end ;;
   }
 
+  dimension: user_split_test_name_Blended_Easy_Balance{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1103_BlendedEasyBalance_Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1103_BlendedEasyBalance_Variant%' then 'Variant'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
