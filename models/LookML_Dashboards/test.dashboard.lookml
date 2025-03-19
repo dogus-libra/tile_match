@@ -1,23 +1,23 @@
 ---
-- dashboard: 40__melisa_balanced_level_test
-  title: 40 - Melisa Balanced Level Test
+- dashboard: 50__element_test
+  title: 50 - Element Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 3RMELW57inGR326JCJFxAU
+  preferred_slug: pQcPd1Kf5R5qpb5uV3Shi2
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,17 +314,18 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Blended_Easy_Balance: 263
+      progression.user_split_test_name_Offer_Frequency: 263
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 83
     col: 0
     width: 24
@@ -334,13 +335,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -564,21 +565,21 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Blended_Easy_Balance, player_count,
-      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
-      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
-      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_rate,
+      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
+      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
+      level_100_level_5, level_50_level_10, level_100_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       level_5_reach_rate:
         align: center
@@ -681,17 +682,18 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Blended_Easy_Balance: 280
+      progression.user_split_test_name_Offer_Frequency: 280
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 87
     col: 0
     width: 24
@@ -702,13 +704,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Blended_Easy_Balance]
+      engagement_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Blended_Easy_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -772,13 +774,14 @@
       Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
       Country: engagement_pdt.country
-      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
       Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
+      User Level At: engagement_pdt.user_level_at
     row: 91
     col: 0
     width: 8
@@ -789,13 +792,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Blended_Easy_Balance]
+      engagement_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Blended_Easy_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -850,13 +853,14 @@
       Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
       Country: engagement_pdt.country
-      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
       Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
+      User Level At: engagement_pdt.user_level_at
     row: 91
     col: 8
     width: 8
@@ -866,14 +870,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [session_pdt.user_split_test_name_Blended_Easy_Balance]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [session_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Blended_Easy_Balance, session_pdt.client_date
-        desc]
+      session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -927,13 +930,14 @@
       Installed Date: session_pdt.installed_date
       Client Date (only for Engagement): session_pdt.client_date
       Country: session_pdt.country
-      App Version: session_pdt.app_version
       Partner: session_pdt.network
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
       Country (Tier): session_pdt.country_tier
+      App Version: session_pdt.app_version
+      User Level At: session_pdt.user_level_at
     row: 91
     col: 16
     width: 8
@@ -944,13 +948,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Blended_Easy_Balance]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Blended_Easy_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1031,13 +1035,14 @@
       Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
       Country: engagement_pdt.country
-      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
       Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
+      User Level At: engagement_pdt.user_level_at
     row: 98
     col: 0
     width: 8
@@ -1048,13 +1053,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [engagement_pdt.user_split_test_name_Blended_Easy_Balance]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Blended_Easy_Balance, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1102,13 +1107,14 @@
       Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
       Country: engagement_pdt.country
-      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
       Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
+      User Level At: engagement_pdt.user_level_at
     row: 98
     col: 8
     width: 8
@@ -1119,14 +1125,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [session_pdt.user_split_test_name_Blended_Easy_Balance]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [session_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Blended_Easy_Balance, session_pdt.client_date
-        desc]
+      session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1199,13 +1204,14 @@
       Installed Date: session_pdt.installed_date
       Client Date (only for Engagement): session_pdt.client_date
       Country: session_pdt.country
-      App Version: session_pdt.app_version
       Partner: session_pdt.network
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
       Country (Tier): session_pdt.country_tier
+      App Version: session_pdt.app_version
+      User Level At: session_pdt.user_level_at
     row: 98
     col: 16
     width: 8
@@ -1215,12 +1221,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1277,7 +1281,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -1285,7 +1289,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -1320,13 +1324,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 105
     col: 0
     width: 8
@@ -1338,12 +1343,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1614,7 +1618,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -1709,13 +1713,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 24
     col: 0
     width: 24
@@ -1726,14 +1731,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_week
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2004,8 +2008,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      session_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2100,13 +2104,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 32
     col: 0
     width: 24
@@ -2117,10 +2122,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2391,7 +2396,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2412,7 +2417,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Blended_Easy_Balance:
+      users_pdt.user_split_test_name_Offer_Frequency:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2482,17 +2487,18 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: 256
+      users_pdt.user_split_test_name_Offer_Frequency: 256
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 20
     col: 0
     width: 24
@@ -2503,12 +2509,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, ret_1 desc 0]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2779,7 +2785,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2800,7 +2806,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Blended_Easy_Balance:
+      users_pdt.user_split_test_name_Offer_Frequency:
         align: center
       users_pdt.app_version:
         align: center
@@ -2874,13 +2880,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 40
     col: 0
     width: 24
@@ -2892,12 +2899,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      ret_14, users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3182,7 +3188,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3294,13 +3300,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 50
     col: 0
     width: 24
@@ -3311,14 +3318,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_week
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3603,7 +3609,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -3715,13 +3721,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 59
     col: 0
     width: 24
@@ -3732,12 +3739,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4022,7 +4029,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4132,13 +4139,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 68
     col: 0
     width: 24
@@ -4149,10 +4157,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Blended_Easy_Balance]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4437,9 +4445,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: Test Group
+      users_pdt.user_split_test_name_Offer_Frequency: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: 279
+      users_pdt.user_split_test_name_Offer_Frequency: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4472,7 +4480,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Blended_Easy_Balance:
+      users_pdt.user_split_test_name_Offer_Frequency:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4549,13 +4557,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 45
     col: 0
     width: 24
@@ -4567,18 +4576,17 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_Blended_Easy_Balance]
-    pivots: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency]
+    pivots: [progression.user_split_test_name_Offer_Frequency]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
-      progression.user_level_at: "[1,500]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance, progression.user_level_at]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4893,13 +4901,14 @@
       Installed Date: users_pdt.installed_date
       Client Date (only for Engagement): progression.event_timestamp_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 73
     col: 0
     width: 24
@@ -4911,20 +4920,19 @@
     type: looker_grid
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Blended_Easy_Balance,
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Offer_Frequency,
       target_win_rate, mean_attempt]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
-      progression.user_level_at: "[1,500]"
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
       progression.user_balance_version: ''
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, progression.user_level_at]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5372,13 +5380,14 @@
       Installed Date: users_pdt.installed_date
       Client Date (only for Engagement): progression.event_timestamp_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 117
     col: 0
     width: 24
@@ -5392,12 +5401,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5841,12 +5849,13 @@
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 3
     col: 0
     width: 24
@@ -5860,12 +5869,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Blended_Easy_Balance]
-    pivots: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6309,12 +6317,13 @@
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 13
     col: 0
     width: 24
@@ -6328,10 +6337,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Blended_Easy_Balance]
+      new_users, users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6720,7 +6729,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Blended_Easy_Balance:
+      users_pdt.user_split_test_name_Offer_Frequency:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6775,12 +6784,13 @@
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 0
     col: 0
     width: 24
@@ -6794,10 +6804,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Blended_Easy_Balance]
+      new_users, users_pdt.user_split_test_name_Offer_Frequency]
     filters:
-      users_pdt.user_split_test_name_Blended_Easy_Balance: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Blended_Easy_Balance]
+      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7186,7 +7196,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Blended_Easy_Balance:
+      users_pdt.user_split_test_name_Offer_Frequency:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -7241,12 +7251,13 @@
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 10
     col: 0
     width: 24
@@ -7256,12 +7267,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[11,20]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7318,7 +7327,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7326,7 +7335,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7361,13 +7370,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 105
     col: 8
     width: 8
@@ -7377,12 +7387,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[21,30]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7439,7 +7447,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7447,7 +7455,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7482,13 +7490,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 105
     col: 16
     width: 8
@@ -7498,12 +7507,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[31,50]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7560,7 +7567,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7568,7 +7575,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7603,13 +7610,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 108
     col: 0
     width: 8
@@ -7619,12 +7627,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[51,75]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7681,7 +7687,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7689,7 +7695,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7724,13 +7730,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 108
     col: 8
     width: 8
@@ -7740,12 +7747,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[76,100]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7802,7 +7807,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7810,7 +7815,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7845,13 +7850,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 108
     col: 16
     width: 8
@@ -7861,12 +7867,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[126,150]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7923,7 +7927,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7931,7 +7935,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -7966,13 +7970,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 111
     col: 8
     width: 8
@@ -7982,12 +7987,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[101,125]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8044,7 +8047,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8052,7 +8055,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -8087,13 +8090,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 111
     col: 0
     width: 8
@@ -8103,12 +8107,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[151,200]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8165,7 +8167,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8173,7 +8175,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -8208,13 +8210,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 111
     col: 16
     width: 8
@@ -8224,12 +8227,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[301,400]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8286,7 +8287,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8294,7 +8295,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -8329,13 +8330,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 114
     col: 8
     width: 8
@@ -8345,12 +8347,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[201,300]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8407,7 +8407,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8415,7 +8415,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -8450,13 +8450,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 114
     col: 0
     width: 8
@@ -8466,12 +8467,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Blended_Easy_Balance, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Blended_Easy_Balance: "-NULL"
-      progression.user_level_at: "[401,500]"
-    sorts: [progression.user_split_test_name_Blended_Easy_Balance]
+      progression.user_split_test_name_Offer_Frequency: "-NULL"
+    sorts: [progression.user_split_test_name_Offer_Frequency]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8528,7 +8527,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Blended_Easy_Balance: Test Group
+      progression.user_split_test_name_Offer_Frequency: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8536,7 +8535,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Blended_Easy_Balance:
+      progression.user_split_test_name_Offer_Frequency:
         align: center
       win_rate:
         align: center
@@ -8571,13 +8570,14 @@
     listen:
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
-      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
       Country (Tier): users_pdt.country_tier
+      App Version: progression.app_version
+      User Level At: progression.user_level_at
     row: 114
     col: 16
     width: 8
@@ -8640,16 +8640,16 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: 0.3.3
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
       type: advanced
       display: popover
     model: tile_match
-    explore: users_pdt
+    explore: progression
     listens_to_filters: []
-    field: users_pdt.app_version
+    field: progression.app_version
   - name: Partner
     title: Partner
     type: field_filter
@@ -8715,3 +8715,17 @@
     explore: users_pdt
     listens_to_filters: []
     field: users_pdt.user_platform
+  - name: User Level At
+    title: User Level At
+    type: field_filter
+    default_value: ">=500"
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+      options: []
+    model: tile_match
+    explore: progression
+    listens_to_filters: []
+    field: progression.user_level_at

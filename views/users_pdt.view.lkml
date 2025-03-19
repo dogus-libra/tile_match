@@ -60,7 +60,150 @@ view: users_pdt {
                           max(user_win_streak_count)       as user_win_streak_count,
                           max(user_win_streak_group)       as user_win_streak_group
 
-                   from tile_match.progression
+                   FROM ( SELECT
+                          advertising_id,
+                          build_no,
+                          connection_type,
+                          event_name,
+                          event_timestamp,
+                          event_version,
+                          installed_at,
+                          inventory_coin,
+                          ip_address,
+                          user_adgroup,
+                          user_campaign,
+                          user_creative,
+                          user_device,
+                          user_level_at,
+                          user_level_id,
+                          user_manufacturer,
+                          user_network,
+                          user_notification_state,
+                          user_os_version,
+                          user_platform,
+                          user_session_count,
+                          LAST_VALUE(user_split_test_name IGNORE NULLS) OVER (
+                                       PARTITION BY advertising_id
+                                       ORDER BY event_timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+                                    ) AS user_split_test_name,
+                          user_test_routing_value,
+                          user_total_payment,
+                          user_total_session_time,
+                          user_country_code,
+                          app_version,
+                          user_game_mode,
+                          user_grand_mode_level,
+                          user_win_streak_count,
+                          user_win_streak_group
+                          FROM
+                            (SELECT
+                            advertising_id,
+                            build_no,
+                            connection_type,
+                            event_name,
+                            event_timestamp,
+                            event_version,
+                            installed_at,
+                            inventory_coin,
+                            ip_address,
+                            user_adgroup,
+                            user_campaign,
+                            user_creative,
+                            user_device,
+                            user_level_at,
+                            user_level_id,
+                            user_manufacturer,
+                            user_network,
+                            user_notification_state,
+                            user_os_version,
+                            user_platform,
+                            user_session_count,
+                            user_split_test_name,
+                            user_test_routing_value,
+                            user_total_payment,
+                            user_total_session_time,
+                            user_country_code,
+                            app_version,
+                            user_game_mode,
+                            user_grand_mode_level,
+                            user_win_streak_count,
+                            user_win_streak_group
+
+                            FROM tile_match.session
+
+                            UNION ALL
+
+                            SELECT
+                            advertising_id,
+                            build_no,
+                            connection_type,
+                            event_name,
+                            event_timestamp,
+                            event_version,
+                            installed_at,
+                            inventory_coin,
+                            ip_address,
+                            user_adgroup,
+                            user_campaign,
+                            user_creative,
+                            user_device,
+                            user_level_at,
+                            user_level_id,
+                            user_manufacturer,
+                            user_network,
+                            user_notification_state,
+                            user_os_version,
+                            user_platform,
+                            user_session_count,
+                            user_split_test_name,
+                            user_test_routing_value,
+                            user_total_payment,
+                            user_total_session_time,
+                            user_country_code,
+                            app_version,
+                            user_game_mode,
+                            user_grand_mode_level,
+                            user_win_streak_count,
+                            user_win_streak_group
+
+                            FROM tile_match.monitoring
+
+                            UNION ALL
+
+                            SELECT
+                            advertising_id,
+                            build_no,
+                            connection_type,
+                            event_name,
+                            event_timestamp,
+                            event_version,
+                            installed_at,
+                            inventory_coin,
+                            ip_address,
+                            user_adgroup,
+                            user_campaign,
+                            user_creative,
+                            user_device,
+                            user_level_at,
+                            user_level_id,
+                            user_manufacturer,
+                            user_network,
+                            user_notification_state,
+                            user_os_version,
+                            user_platform,
+                            user_session_count,
+                            user_split_test_name,
+                            user_test_routing_value,
+                            user_total_payment,
+                            user_total_session_time,
+                            user_country_code,
+                            app_version,
+                            user_game_mode,
+                            user_grand_mode_level,
+                            user_win_streak_count,
+                            user_win_streak_group
+
+                            FROM tile_match.progression) AS cd) AS combined_data
                    group by advertising_id),
 
      ret_table as (select advertising_id as ret_advertising_id,
@@ -1640,6 +1783,27 @@ view: users_pdt {
     type: string
     sql:  case when ${TABLE}.user_split_test_name like '%1103_BlendedEasyBalance_Default%' then 'Default'
                when ${TABLE}.user_split_test_name like '%1103_BlendedEasyBalance_Variant%' then 'Variant'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Element{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_ElementDefault%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1403_ElementVariant%' then 'Variant'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Daily_Reward{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_DailyRewardsPassive%' then 'Passive'
+               when ${TABLE}.user_split_test_name like '%1403_DailyRewardsActive%' then 'Active'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Offer_Frequency{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Variant%' then 'Variant'
           end ;;
   }
 

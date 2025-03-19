@@ -95,6 +95,21 @@ view: business {
     sql: ${TABLE}.currency_change_avatar_current_amount ;;
   }
 
+  dimension: currency_change_avatar_frame_amount_type {
+    type: string
+    sql: ${TABLE}.currency_change_avatar_frame_amount_type ;;
+  }
+
+  dimension: currency_change_avatar_frame_change_amount {
+    type: number
+    sql: ${TABLE}.currency_change_avatar_frame_change_amount ;;
+  }
+
+  dimension: currency_change_avatar_frame_current_amount {
+    type: number
+    sql: ${TABLE}.currency_change_avatar_frame_current_amount ;;
+  }
+
   dimension: currency_change_coin_amount_type {
     type: string
     sql: ${TABLE}.currency_change_coin_amount_type ;;
@@ -288,6 +303,21 @@ view: business {
   dimension: currency_change_toss_current_amount {
     type: number
     sql: ${TABLE}.currency_change_toss_current_amount ;;
+  }
+
+  dimension: currency_change_reward_multiplier_amount_type {
+    type: string
+    sql: ${TABLE}.currency_change_reward_multiplier_amount_type ;;
+  }
+
+  dimension: currency_change_reward_multiplier_change_amount {
+    type: number
+    sql: ${TABLE}.currency_change_reward_multiplier_change_amount ;;
+  }
+
+  dimension: currency_change_reward_multiplier_current_amount {
+    type: number
+    sql: ${TABLE}.currency_change_reward_multiplier_current_amount ;;
   }
 
   dimension: currency_code {
@@ -616,6 +646,36 @@ view: business {
     sql: ${TABLE}.rewarded_ad_reward_avatar_amount_type ;;
   }
 
+  dimension: rewarded_ad_reward_avatar_frame_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_avatar_frame_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_avatar_frame_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_avatar_frame_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_bonus_slot_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_bonus_slot_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_bonus_slot_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_bonus_slot_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_bonus_time_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_bonus_time_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_bonus_time_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_bonus_time_amount_type ;;
+  }
+
   dimension: rewarded_ad_reward_magic_wand_amount {
     type: number
     sql: ${TABLE}.rewarded_ad_reward_magic_wand_amount ;;
@@ -684,6 +744,226 @@ view: business {
   dimension: rewarded_ad_reward_toss_amount_type {
     type: string
     sql: ${TABLE}.rewarded_ad_reward_toss_amount_type ;;
+  }
+
+  dimension: rewarded_ad_reward_reward_multiplier_amount {
+    type: number
+    sql: ${TABLE}.rewarded_ad_reward_reward_multiplier_amount ;;
+  }
+
+  dimension: rewarded_ad_reward_reward_multiplier_amount_type {
+    type: string
+    sql: ${TABLE}.rewarded_ad_reward_reward_multiplier_amount_type ;;
+  }
+
+  dimension: calendar_reward_coin_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_coin_amount ;;
+  }
+
+  dimension: calendar_reward_coin_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_coin_amount_type ;;
+  }
+
+  dimension: calendar_reward_environment_token_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_environment_token_amount ;;
+  }
+
+  dimension: calendar_reward_environment_token_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_environment_token_amount_type ;;
+  }
+
+  dimension: calendar_reward_event_score_multiplier_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_event_score_multiplier_amount ;;
+  }
+
+  dimension: calendar_reward_event_score_multiplier_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_event_score_multiplier_amount_type ;;
+  }
+
+  dimension: calendar_reward_event_token_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_event_token_amount ;;
+  }
+
+  dimension: calendar_reward_event_token_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_event_token_amount_type ;;
+  }
+
+  dimension: calendar_reward_extra_slot_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_extra_slot_amount ;;
+  }
+
+  dimension: calendar_reward_extra_slot_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_extra_slot_amount_type ;;
+  }
+
+  dimension: calendar_reward_extra_time_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_extra_time_amount ;;
+  }
+
+  dimension: calendar_reward_extra_time_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_extra_time_amount_type ;;
+  }
+
+  dimension: calendar_reward_avatar_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_avatar_amount ;;
+  }
+
+  dimension: calendar_reward_avatar_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_avatar_amount_type ;;
+  }
+
+  dimension: calendar_reward_avatar_frame_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_avatar_frame_amount ;;
+  }
+
+  dimension: calendar_reward_avatar_frame_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_avatar_frame_amount_type ;;
+  }
+
+  dimension: calendar_reward_bonus_slot_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_bonus_slot_amount ;;
+  }
+
+  dimension: calendar_reward_bonus_slot_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_bonus_slot_amount_type ;;
+  }
+
+  dimension: calendar_reward_bonus_time_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_bonus_time_amount ;;
+  }
+
+  dimension: calendar_reward_bonus_time_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_bonus_time_amount_type ;;
+  }
+
+  dimension: calendar_reward_magic_wand_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_magic_wand_amount ;;
+  }
+
+  dimension: calendar_reward_magic_wand_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_magic_wand_amount_type ;;
+  }
+
+  dimension: calendar_reward_magnet_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_magnet_amount ;;
+  }
+
+  dimension: calendar_reward_magnet_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_magnet_amount_type ;;
+  }
+
+  dimension: calendar_reward_shuffle_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_shuffle_amount ;;
+  }
+
+  dimension: calendar_reward_shuffle_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_shuffle_amount_type ;;
+  }
+
+  dimension: calendar_reward_glove_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_glove_amount ;;
+  }
+
+  dimension: calendar_reward_glove_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_glove_amount_type ;;
+  }
+
+  dimension: calendar_reward_life_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_life_amount ;;
+  }
+
+  dimension: calendar_reward_life_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_life_amount_type ;;
+  }
+
+  dimension: calendar_reward_time_freezer_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_time_freezer_amount ;;
+  }
+
+  dimension: calendar_reward_time_freezer_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_time_freezer_amount_type ;;
+  }
+
+  dimension: calendar_reward_toss_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_toss_amount ;;
+  }
+
+  dimension: calendar_reward_toss_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_toss_amount_type ;;
+  }
+
+  dimension: calendar_reward_reward_multiplier_amount {
+    type: number
+    sql: ${TABLE}.calendar_reward_reward_multiplier_amount ;;
+  }
+
+  dimension: calendar_reward_reward_multiplier_amount_type {
+    type: string
+    sql: ${TABLE}.calendar_reward_reward_multiplier_amount_type ;;
+  }
+
+  dimension: daily_day {
+    type: number
+    sql: ${TABLE}.daily_day ;;
+  }
+
+  dimension: daily_period_index {
+    type: number
+    sql: ${TABLE}.daily_period_index ;;
+  }
+
+  dimension: daily_reward_id {
+    type: number
+    sql: ${TABLE}.daily_reward_id ;;
+  }
+
+  dimension: monthly_day {
+    type: number
+    sql: ${TABLE}.monthly_day ;;
+  }
+
+  dimension: monthly_period_index {
+    type: number
+    sql: ${TABLE}.monthly_period_index ;;
+  }
+
+  dimension: monthly_reward_id {
+    type: number
+    sql: ${TABLE}.monthly_reward_id ;;
   }
 
   dimension: session_id {

@@ -839,6 +839,27 @@ view: session {
           end ;;
   }
 
+  dimension: user_split_test_name_Element{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_ElementDefault%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1403_ElementVariant%' then 'Variant'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Daily_Reward{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_DailyRewardsPassive%' then 'Passive'
+               when ${TABLE}.user_split_test_name like '%1403_DailyRewardsActive%' then 'Active'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Offer_Frequency{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Default%' then 'Default'
+               when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Variant%' then 'Variant'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
