@@ -1,10 +1,10 @@
 ---
-- dashboard: 50__element_test
-  title: 50 - Element Test
+- dashboard: 52__offer_frequency_test
+  title: 52 - Offer Frequency Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: pQcPd1Kf5R5qpb5uV3Shi2
+  preferred_slug: BTSmfd1uGsiB5uGt9SXwVS
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
@@ -565,10 +565,10 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_rate,
-      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
-      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
-      level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [progression.user_split_test_name_Offer_Frequency, player_count,
+      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
+      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
+      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -876,7 +876,8 @@
     filters:
       session_pdt.install_day_of_user: ''
       session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date desc]
+    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1131,7 +1132,8 @@
     filters:
       session_pdt.install_day_of_user: ''
       session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date desc]
+    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1221,7 +1223,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -1347,7 +1350,8 @@
     pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1737,7 +1741,8 @@
     fill_fields: [users_pdt.installed_week]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2903,7 +2908,8 @@
     pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3324,7 +3330,8 @@
     fill_fields: [users_pdt.installed_week]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5405,7 +5412,8 @@
     pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5873,7 +5881,8 @@
     pivots: [users_pdt.user_split_test_name_Offer_Frequency]
     filters:
       users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date desc]
+    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7267,7 +7276,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7387,7 +7397,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7507,7 +7518,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7627,7 +7639,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7747,7 +7760,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7867,7 +7881,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -7987,7 +8002,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -8107,7 +8123,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -8227,7 +8244,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -8347,7 +8365,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -8467,7 +8486,8 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count, progression.win_rate]
+    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+      progression.win_rate]
     filters:
       progression.user_split_test_name_Offer_Frequency: "-NULL"
     sorts: [progression.user_split_test_name_Offer_Frequency]
@@ -8640,7 +8660,7 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: ''
+    default_value: 0.3.5
     allow_multiple_values: true
     required: false
     ui_config:
@@ -8718,7 +8738,7 @@
   - name: User Level At
     title: User Level At
     type: field_filter
-    default_value: ">=500"
+    default_value: ">=45"
     allow_multiple_values: true
     required: false
     ui_config:

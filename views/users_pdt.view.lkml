@@ -33,6 +33,14 @@ view: users_pdt {
                                    when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%0303_StarterCoin_03_400%' THEN 'Starter_Coin_400'
                                    end)                    as user_split_test_name_Starter_Coin_03_IOS,
 
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 400 and user_split_test_name LIKE '%1703_StarterCoin_02_400%' THEN 'Starter_Coin_400'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 500 and user_split_test_name LIKE '%1703_StarterCoin_02_500%' THEN 'Starter_Coin_500'
+                                   end)                    as user_split_test_name_Starter_Coin_02,
+
+                          max(case when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 200 and user_split_test_name LIKE '%1703_StarterCoin_03_200%' THEN 'Starter_Coin_200'
+                                   when event_name = 'LevelCompleted' and user_level_at = 1 and inventory_coin = 300 and user_split_test_name LIKE '%1703_StarterCoin_03_300%' THEN 'Starter_Coin_300'
+                                   end)                    as user_split_test_name_Starter_Coin_03,
+
                           max(event_version)               as last_event_version,
                           min(installed_at)                as installed,
                           max(ip_address)                  as ip_address,
@@ -523,6 +531,8 @@ view: users_pdt {
              user_split_test_name_Starter_Coin_01_IOS,
              user_split_test_name_Starter_Coin_02_IOS,
              user_split_test_name_Starter_Coin_03_IOS,
+             user_split_test_name_Starter_Coin_02,
+             user_split_test_name_Starter_Coin_03,
              user_test_routing_value,
              user_total_payment,
              user_total_session_time,
@@ -1805,6 +1815,16 @@ view: users_pdt {
     sql:  case when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Default%' then 'Default'
                when ${TABLE}.user_split_test_name like '%1403_OfferFrequency_Variant%' then 'Variant'
           end ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_02{
+    type: string
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_02 ;;
+  }
+
+  dimension: user_split_test_name_Starter_Coin_03{
+    type: string
+    sql:  ${TABLE}.user_split_test_name_Starter_Coin_03 ;;
   }
 
   dimension: user_test_routing_value {
