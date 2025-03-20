@@ -668,7 +668,7 @@ view: users_pdt {
       ;;
 
     publish_as_db_view: yes
-    sql_trigger_value: select DATE_TRUNC('hour',getdate())  ;;
+    sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/2)  ;;
     sortkeys: ["advertising_id","country"]
   }
 
