@@ -1,23 +1,23 @@
 ---
-- dashboard: 52__offer_frequency_test
-  title: 52 - Offer Frequency Test
+- dashboard: 42__streak_breaker_test
+  title: 42 - Streak Breaker Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: BTSmfd1uGsiB5uGt9SXwVS
+  preferred_slug: ZbBZJQ2y9df0Y97xEStAUT
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
+      progression.user_split_test_name_Streak_Breaker_50_85:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,18 +314,18 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Offer_Frequency: 263
+      progression.user_split_test_name_Streak_Breaker_50_85: 263
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 83
     col: 0
     width: 24
@@ -335,13 +335,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, player_count, level_5_reach_count,
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, player_count, level_5_reach_count,
       level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
       level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -565,7 +565,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Offer_Frequency, player_count,
+    column_order: [progression.user_split_test_name_Streak_Breaker_50_85, player_count,
       level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
       level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
       level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
@@ -574,12 +574,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
+      progression.user_split_test_name_Streak_Breaker_50_85:
         align: center
       level_5_reach_rate:
         align: center
@@ -682,18 +682,18 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Offer_Frequency: 280
+      progression.user_split_test_name_Streak_Breaker_50_85: 280
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 87
     col: 0
     width: 24
@@ -704,13 +704,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -771,17 +771,17 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       average_of_sessioncount, mov_avg_of_avg_play_time]
     listen:
-      Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
+      Platform: engagement_pdt.user_platform
+      Installed Date: engagement_pdt.installed_date
       Country: engagement_pdt.country
+      Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Platform: engagement_pdt.user_platform
-      Country (Tier): engagement_pdt.country_tier
-      App Version: engagement_pdt.app_version
-      User Level At: engagement_pdt.user_level_at
+      Level No: engagement_pdt.user_level_at
     row: 91
     col: 0
     width: 8
@@ -792,13 +792,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -850,17 +850,17 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       average_of_playtime]
     listen:
-      Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
+      Platform: engagement_pdt.user_platform
+      Installed Date: engagement_pdt.installed_date
       Country: engagement_pdt.country
+      Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Platform: engagement_pdt.user_platform
-      Country (Tier): engagement_pdt.country_tier
-      App Version: engagement_pdt.app_version
-      User Level At: engagement_pdt.user_level_at
+      Level No: engagement_pdt.user_level_at
     row: 91
     col: 8
     width: 8
@@ -870,13 +870,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [session_pdt.user_split_test_name_Offer_Frequency]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [session_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Breaker_50_85, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -928,17 +928,17 @@
     defaults_version: 1
     hidden_fields: [moving_avg_of_avg_session_time]
     listen:
-      Installed Date: session_pdt.installed_date
       Client Date (only for Engagement): session_pdt.client_date
+      Platform: session_pdt.user_platform
+      Installed Date: session_pdt.installed_date
       Country: session_pdt.country
+      Country (Tier): session_pdt.country_tier
+      App Version: session_pdt.app_version
       Partner: session_pdt.network
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
-      Platform: session_pdt.user_platform
-      Country (Tier): session_pdt.country_tier
-      App Version: session_pdt.app_version
-      User Level At: session_pdt.user_level_at
+      Level No: session_pdt.user_level_at
     row: 91
     col: 16
     width: 8
@@ -949,13 +949,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1033,17 +1033,17 @@
       mov_avg_of_per90_playtime, engagement_pdt.per25playtime, mov_avg_of_per25_playtime,
       mov_avg_of_median_playtime]
     listen:
-      Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
+      Platform: engagement_pdt.user_platform
+      Installed Date: engagement_pdt.installed_date
       Country: engagement_pdt.country
+      Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Platform: engagement_pdt.user_platform
-      Country (Tier): engagement_pdt.country_tier
-      App Version: engagement_pdt.app_version
-      User Level At: engagement_pdt.user_level_at
+      Level No: engagement_pdt.user_level_at
     row: 98
     col: 0
     width: 8
@@ -1054,13 +1054,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [engagement_pdt.user_split_test_name_Offer_Frequency]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Offer_Frequency, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1105,17 +1105,17 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.per25sessioncount]
     listen:
-      Installed Date: engagement_pdt.installed_date
       Client Date (only for Engagement): engagement_pdt.client_date
+      Platform: engagement_pdt.user_platform
+      Installed Date: engagement_pdt.installed_date
       Country: engagement_pdt.country
+      Country (Tier): engagement_pdt.country_tier
+      App Version: engagement_pdt.app_version
       Partner: engagement_pdt.network
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Platform: engagement_pdt.user_platform
-      Country (Tier): engagement_pdt.country_tier
-      App Version: engagement_pdt.app_version
-      User Level At: engagement_pdt.user_level_at
+      Level No: engagement_pdt.user_level_at
     row: 98
     col: 8
     width: 8
@@ -1126,13 +1126,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [session_pdt.user_split_test_name_Offer_Frequency]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [session_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Offer_Frequency, session_pdt.client_date
+      session_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Streak_Breaker_50_85, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1203,17 +1203,17 @@
       moving_avg_of_per90_session_time, session_pdt.per25sessiontime, moving_avg_of_per25_session_time,
       moving_avg_of_per50_session_time]
     listen:
-      Installed Date: session_pdt.installed_date
       Client Date (only for Engagement): session_pdt.client_date
+      Platform: session_pdt.user_platform
+      Installed Date: session_pdt.installed_date
       Country: session_pdt.country
+      Country (Tier): session_pdt.country_tier
+      App Version: session_pdt.app_version
       Partner: session_pdt.network
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
-      Platform: session_pdt.user_platform
-      Country (Tier): session_pdt.country_tier
-      App Version: session_pdt.app_version
-      User Level At: session_pdt.user_level_at
+      Level No: session_pdt.user_level_at
     row: 98
     col: 16
     width: 8
@@ -1223,11 +1223,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[1,10]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1284,7 +1285,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -1292,7 +1293,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
+      progression.user_split_test_name_Streak_Breaker_50_85:
         align: center
       win_rate:
         align: center
@@ -1325,16 +1326,15 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
     row: 105
     col: 0
     width: 8
@@ -1346,11 +1346,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -1622,7 +1622,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -1715,16 +1715,16 @@
     series_column_widths:
       users_pdt.installed_date: 147
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 24
     col: 0
     width: 24
@@ -1735,13 +1735,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -2013,8 +2013,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Offer_Frequency: Test Group
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      session_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2107,16 +2107,16 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 32
     col: 0
     width: 24
@@ -2127,10 +2127,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2401,7 +2401,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2422,7 +2422,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Offer_Frequency:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2492,18 +2492,18 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Offer_Frequency: 256
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: 256
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 20
     col: 0
     width: 24
@@ -2514,12 +2514,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, ret_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2790,7 +2790,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2811,7 +2811,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Offer_Frequency:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85:
         align: center
       users_pdt.app_version:
         align: center
@@ -2883,16 +2883,16 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 40
     col: 0
     width: 24
@@ -2904,11 +2904,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+      ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -3194,7 +3194,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3304,16 +3304,16 @@
     series_column_widths:
       users_pdt.installed_date: 142
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 50
     col: 0
     width: 24
@@ -3324,13 +3324,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_week
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -3616,7 +3616,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -3726,16 +3726,16 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 59
     col: 0
     width: 24
@@ -3746,12 +3746,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4036,7 +4036,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4144,16 +4144,16 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 68
     col: 0
     width: 24
@@ -4164,10 +4164,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Offer_Frequency]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4452,9 +4452,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Offer_Frequency: Test Group
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Offer_Frequency: 279
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4487,7 +4487,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Offer_Frequency:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4562,16 +4562,16 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 45
     col: 0
     width: 24
@@ -4583,17 +4583,15 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      progression.user_split_test_name_Offer_Frequency]
-    pivots: [progression.user_split_test_name_Offer_Frequency]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
-      progression.installed_date: 30 days
       progression.install_day_of_user: ''
-      progression.user_split_test_name: ''
       progression.event_version: 1.0.2
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency, progression.user_level_at]
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4905,31 +4903,3236 @@
         - churn_ingame, SimplifiedElements - churn_between, SimplifiedElements - churn_ingame,
       DefaultElements - churn_between]
     listen:
-      Installed Date: users_pdt.installed_date
       Client Date (only for Engagement): progression.event_timestamp_date
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 73
     col: 0
     width: 24
     height: 10
+  - title: IAP Gross LTV Report (2)
+    name: IAP Gross LTV Report (2)
+    model: tile_match
+    explore: users_pdt
+    type: looker_grid
+    fields: [users_pdt.installed_date, player_1, player_2, player_3, player_4, player_5,
+      player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
+      ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
+      ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    filters:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+        desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      label: Player 1
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      _kind_hint: measure
+      measure: player_1
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      label: Player 2
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      _kind_hint: measure
+      measure: player_2
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      label: Player 3
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      _kind_hint: measure
+      measure: player_3
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      label: Player 4
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      _kind_hint: measure
+      measure: player_4
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      label: Player 5
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      _kind_hint: measure
+      measure: player_5
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      label: Player 7
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      _kind_hint: measure
+      measure: player_7
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      label: Player 14
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      _kind_hint: measure
+      measure: player_14
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Ltv1_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_iap
+      _kind_hint: measure
+      measure: ltv1_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_iap
+      _kind_hint: measure
+      measure: ltv3_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_iap
+      _kind_hint: measure
+      measure: ltv7_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_iap
+      _kind_hint: measure
+      measure: ltv14_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_ad
+      _kind_hint: measure
+      measure: ltv1_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_ad
+      _kind_hint: measure
+      measure: ltv3_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_ad
+      _kind_hint: measure
+      measure: ltv7_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_ad
+      _kind_hint: measure
+      measure: ltv14_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_gross
+      _kind_hint: measure
+      measure: ltv1_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_gross
+      _kind_hint: measure
+      measure: ltv3_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_gross
+      _kind_hint: measure
+      measure: ltv7_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_gross
+      _kind_hint: measure
+      measure: ltv14_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_net
+      _kind_hint: measure
+      measure: ltv1_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_net
+      _kind_hint: measure
+      measure: ltv3_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_net
+      _kind_hint: measure
+      measure: ltv7_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_net
+      _kind_hint: measure
+      measure: ltv14_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: table_calculation
+      expression: "${ltv1_iap_gross} / ${player_1}"
+      label: LTV 1
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_1
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: New Users
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      _kind_hint: measure
+      measure: new_users
+      type: count_distinct
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv3_iap_gross} / ${player_3}"
+      label: LTV 3
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv7_iap_gross} / ${player_7}"
+      label: LTV 7
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_7
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv14_iap_gross} / ${player_14}"
+      label: LTV 14
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_14
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_cell_visualizations:
+      new_users:
+        is_active: true
+    series_text_format:
+      ltv_1:
+        align: center
+      ltv_3:
+        align: center
+      ltv_7:
+        align: center
+      ltv_14:
+        align: center
+      users_pdt.installed_date:
+        align: center
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_14]}]
+    hidden_pivots: {}
+    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+      Level No: progression.user_level_at
+    row: 3
+    col: 0
+    width: 24
+    height: 7
+  - title: Blended Net LTV Report (2)
+    name: Blended Net LTV Report (2)
+    model: tile_match
+    explore: users_pdt
+    type: looker_grid
+    fields: [users_pdt.installed_date, player_1, player_2, player_3, player_4, player_5,
+      player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
+      ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
+      ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    filters:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+        desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      label: Player 1
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      _kind_hint: measure
+      measure: player_1
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      label: Player 2
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      _kind_hint: measure
+      measure: player_2
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      label: Player 3
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      _kind_hint: measure
+      measure: player_3
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      label: Player 4
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      _kind_hint: measure
+      measure: player_4
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      label: Player 5
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      _kind_hint: measure
+      measure: player_5
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      label: Player 7
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      _kind_hint: measure
+      measure: player_7
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      label: Player 14
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      _kind_hint: measure
+      measure: player_14
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Ltv1_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_iap
+      _kind_hint: measure
+      measure: ltv1_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_iap
+      _kind_hint: measure
+      measure: ltv3_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_iap
+      _kind_hint: measure
+      measure: ltv7_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_iap
+      _kind_hint: measure
+      measure: ltv14_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_ad
+      _kind_hint: measure
+      measure: ltv1_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_ad
+      _kind_hint: measure
+      measure: ltv3_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_ad
+      _kind_hint: measure
+      measure: ltv7_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_ad
+      _kind_hint: measure
+      measure: ltv14_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_gross
+      _kind_hint: measure
+      measure: ltv1_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_gross
+      _kind_hint: measure
+      measure: ltv3_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_gross
+      _kind_hint: measure
+      measure: ltv7_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_gross
+      _kind_hint: measure
+      measure: ltv14_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_net
+      _kind_hint: measure
+      measure: ltv1_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_net
+      _kind_hint: measure
+      measure: ltv3_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_net
+      _kind_hint: measure
+      measure: ltv7_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_net
+      _kind_hint: measure
+      measure: ltv14_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: table_calculation
+      expression: "${ltv1_blended_net} / ${player_1}"
+      label: LTV 1
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_1
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: New Users
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      _kind_hint: measure
+      measure: new_users
+      type: count_distinct
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv3_blended_net} / ${player_3}"
+      label: LTV 3
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv7_blended_net} / ${player_7}"
+      label: LTV 7
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_7
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv14_blended_net} / ${player_14}"
+      label: LTV 14
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_14
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_cell_visualizations:
+      new_users:
+        is_active: true
+    series_text_format:
+      ltv_1:
+        align: center
+      ltv_3:
+        align: center
+      ltv_7:
+        align: center
+      ltv_14:
+        align: center
+      users_pdt.installed_date:
+        align: center
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_14]}]
+    hidden_pivots: {}
+    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+      Level No: progression.user_level_at
+    row: 13
+    col: 0
+    width: 24
+    height: 7
+  - title: IAP Gross LTV Report (1)
+    name: IAP Gross LTV Report (1)
+    model: tile_match
+    explore: users_pdt
+    type: looker_grid
+    fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
+      new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    filters:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      label: Player 1
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      _kind_hint: measure
+      measure: player_1
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      label: Player 2
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      _kind_hint: measure
+      measure: player_2
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      label: Player 3
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      _kind_hint: measure
+      measure: player_3
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      label: Player 4
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      _kind_hint: measure
+      measure: player_4
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      label: Player 5
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      _kind_hint: measure
+      measure: player_5
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      label: Player 7
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      _kind_hint: measure
+      measure: player_7
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      label: Player 14
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      _kind_hint: measure
+      measure: player_14
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Ltv1_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_iap
+      _kind_hint: measure
+      measure: ltv1_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_iap
+      _kind_hint: measure
+      measure: ltv3_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_iap
+      _kind_hint: measure
+      measure: ltv7_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_iap
+      _kind_hint: measure
+      measure: ltv14_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_ad
+      _kind_hint: measure
+      measure: ltv1_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_ad
+      _kind_hint: measure
+      measure: ltv3_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_ad
+      _kind_hint: measure
+      measure: ltv7_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_ad
+      _kind_hint: measure
+      measure: ltv14_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_gross
+      _kind_hint: measure
+      measure: ltv1_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_gross
+      _kind_hint: measure
+      measure: ltv3_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_gross
+      _kind_hint: measure
+      measure: ltv7_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_gross
+      _kind_hint: measure
+      measure: ltv14_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_net
+      _kind_hint: measure
+      measure: ltv1_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_net
+      _kind_hint: measure
+      measure: ltv3_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_net
+      _kind_hint: measure
+      measure: ltv7_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_net
+      _kind_hint: measure
+      measure: ltv14_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: table_calculation
+      expression: "${ltv1_iap_gross} / ${player_1}"
+      label: LTV 1
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_1
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: New Users
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      _kind_hint: measure
+      measure: new_users
+      type: count_distinct
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv3_iap_gross} / ${player_3}"
+      label: LTV 3
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv7_iap_gross} / ${player_7}"
+      label: LTV 7
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_7
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv14_iap_gross} / ${player_14}"
+      label: LTV 14
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_14
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_cell_visualizations:
+      new_users:
+        is_active: true
+    series_text_format:
+      ltv_1:
+        align: center
+      ltv_3:
+        align: center
+      ltv_7:
+        align: center
+      ltv_14:
+        align: center
+      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_14]}]
+    hidden_pivots: {}
+    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+      Level No: progression.user_level_at
+    row: 0
+    col: 0
+    width: 24
+    height: 3
+  - title: Blended Net LTV Report (1)
+    name: Blended Net LTV Report (1)
+    model: tile_match
+    explore: users_pdt
+    type: looker_grid
+    fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
+      new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    filters:
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      label: Player 1
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
+        AND
+        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
+      _kind_hint: measure
+      measure: player_1
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      label: Player 2
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
+        AND
+        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
+      _kind_hint: measure
+      measure: player_2
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      label: Player 3
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
+        AND
+        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
+      _kind_hint: measure
+      measure: player_3
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      label: Player 4
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
+        AND
+        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
+      _kind_hint: measure
+      measure: player_4
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      label: Player 5
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
+        AND
+        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
+      _kind_hint: measure
+      measure: player_5
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      label: Player 7
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
+        AND
+        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
+      _kind_hint: measure
+      measure: player_7
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      label: Player 14
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      filter_expression: |-
+        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
+        AND
+        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
+      _kind_hint: measure
+      measure: player_14
+      type: count_distinct
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Ltv1_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_iap
+      _kind_hint: measure
+      measure: ltv1_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_iap
+      _kind_hint: measure
+      measure: ltv3_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_iap
+      _kind_hint: measure
+      measure: ltv7_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_iap_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_iap
+      _kind_hint: measure
+      measure: ltv14_iap_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_ad
+      _kind_hint: measure
+      measure: ltv1_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_ad
+      _kind_hint: measure
+      measure: ltv3_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_ad
+      _kind_hint: measure
+      measure: ltv7_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_ad
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_ad
+      _kind_hint: measure
+      measure: ltv14_ad
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_gross
+      _kind_hint: measure
+      measure: ltv1_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_gross
+      _kind_hint: measure
+      measure: ltv3_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_gross
+      _kind_hint: measure
+      measure: ltv7_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_gross
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_gross
+      _kind_hint: measure
+      measure: ltv14_blended_gross
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: measure
+      expression:
+      label: Ltv1_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv1_blended_net
+      _kind_hint: measure
+      measure: ltv1_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 1 day ago
+    - category: measure
+      expression:
+      label: Ltv3_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv3_blended_net
+      _kind_hint: measure
+      measure: ltv3_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 3 day ago
+    - category: measure
+      expression:
+      label: Ltv7_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv7_blended_net
+      _kind_hint: measure
+      measure: ltv7_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 7 day ago
+    - category: measure
+      expression:
+      label: Ltv14_blended_net
+      value_format:
+      value_format_name:
+      based_on: users_pdt.ltv14_blended_net
+      _kind_hint: measure
+      measure: ltv14_blended_net
+      type: sum
+      _type_hint: number
+      filters:
+        users_pdt.installed_date: before 14 day ago
+    - category: table_calculation
+      expression: "${ltv1_blended_net} / ${player_1}"
+      label: LTV 1
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_1
+      _type_hint: number
+    - category: measure
+      expression: ''
+      label: New Users
+      value_format:
+      value_format_name:
+      based_on: users_pdt.advertising_id
+      _kind_hint: measure
+      measure: new_users
+      type: count_distinct
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv3_blended_net} / ${player_3}"
+      label: LTV 3
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv7_blended_net} / ${player_7}"
+      label: LTV 7
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_7
+      _type_hint: number
+    - category: table_calculation
+      expression: "${ltv14_blended_net} / ${player_14}"
+      label: LTV 14
+      value_format:
+      value_format_name: usd
+      _kind_hint: measure
+      table_calculation: ltv_14
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_cell_visualizations:
+      new_users:
+        is_active: true
+    series_text_format:
+      ltv_1:
+        align: center
+      ltv_3:
+        align: center
+      ltv_7:
+        align: center
+      ltv_14:
+        align: center
+      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
+        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [ltv_14]}]
+    hidden_pivots: {}
+    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
+      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
+      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
+      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+      Level No: progression.user_level_at
+    row: 10
+    col: 0
+    width: 24
+    height: 3
+  - title: Win Rates (Level 11-20)
+    name: Win Rates (Level 11-20)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[11,20]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 105
+    col: 8
+    width: 8
+    height: 3
+  - title: Win Rates (Level 21-30)
+    name: Win Rates (Level 21-30)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[21,30]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 105
+    col: 16
+    width: 8
+    height: 3
+  - title: Win Rates (Level 31-50)
+    name: Win Rates (Level 31-50)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[31,50]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 108
+    col: 0
+    width: 8
+    height: 3
+  - title: Win Rates (Level 51-75)
+    name: Win Rates (Level 51-75)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[51,75]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 108
+    col: 8
+    width: 8
+    height: 3
+  - title: Win Rates (Level 76-100)
+    name: Win Rates (Level 76-100)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[76,100]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 108
+    col: 16
+    width: 8
+    height: 3
+  - title: Win Rates (Level 126-150)
+    name: Win Rates (Level 126-150)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[126,150]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 111
+    col: 8
+    width: 8
+    height: 3
+  - title: Win Rates (Level 101-125)
+    name: Win Rates (Level 101-125)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[101,125]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 111
+    col: 0
+    width: 8
+    height: 3
+  - title: Win Rates (Level 151-200)
+    name: Win Rates (Level 151-200)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[151,200]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 111
+    col: 16
+    width: 8
+    height: 3
+  - title: Win Rates (Level 301-400)
+    name: Win Rates (Level 301-400)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[301,400]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 114
+    col: 8
+    width: 8
+    height: 3
+  - title: Win Rates (Level 201-300)
+    name: Win Rates (Level 201-300)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[201,300]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 114
+    col: 0
+    width: 8
+    height: 3
+  - title: Win Rates (Level 401-500)
+    name: Win Rates (Level 401-500)
+    model: tile_match
+    explore: progression
+    type: looker_grid
+    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+      progression.win_rate]
+    filters:
+      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_level_at: "[401,500]"
+    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: win_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Fail Count
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: fail_count
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+    - category: table_calculation
+      expression: "${win_count}/(${fail_count}+${win_count})"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels:
+      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.win_rate: Win Rate (wo/extramoves)
+    series_cell_visualizations:
+      win_rate:
+        is_active: true
+      progression.win_rate:
+        is_active: true
+    series_text_format:
+      progression.user_split_test_name_Streak_Breaker_50_85:
+        align: center
+      win_rate:
+        align: center
+    hidden_pivots: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [win_count, fail_count]
+    listen:
+      Platform: users_pdt.user_platform
+      Installed Date: users_pdt.installed_date
+      Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
+      Partner: users_pdt.network
+      Campaign: users_pdt.campaign
+      Adgroup: users_pdt.adgroup
+      Creative: users_pdt.creative
+    row: 114
+    col: 16
+    width: 8
+    height: 3
   - title: Level Report
     name: Level Report
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
-      total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Offer_Frequency,
-      target_win_rate, mean_attempt]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
+    fields: [progression.user_level_at, unique_start, total_start, win_count_streak5,
+      total_lose_time, total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec,
+      time_begin_sec, progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Streak_Breaker_50_85,
+      target_win_rate, mean_attempt, win_count_streak8, win_count, total_start_streak5,
+      total_start_streak8, total_lose_allstreak5, total_lose_allstreak8, progression.win_rate_streak5,
+      progression.win_rate_streak8, unique_start_streak5, unique_start_streak8]
+    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
@@ -4937,9 +8140,10 @@
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
+      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
       progression.user_balance_version: ''
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, progression.user_level_at]
+      progression.event_timestamp_date: 30 days
+    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, progression.user_level_at]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5020,16 +8224,18 @@
         progression.event_name: LevelFailed
     - category: measure
       expression:
-      label: Win Count
+      label: Win Count (Streak5)
       value_format:
       value_format_name:
       based_on: progression.advertising_id
       _kind_hint: measure
-      measure: win_count
+      measure: win_count_streak5
       type: count_distinct
       _type_hint: number
       filters:
         progression.event_name: LevelCompleted
+        progression.user_win_streak_count: ">=5"
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
     - category: table_calculation
       expression: "${win_count}/${total_start}"
       label: Win Rate
@@ -5209,6 +8415,212 @@
       _kind_hint: measure
       table_calculation: abs_diff_target_diff_and_eff_diff
       _type_hint: number
+    - category: measure
+      expression:
+      label: Win Count (Streak8)
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: win_count_streak8
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+        progression.user_win_streak_count: ">=8"
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
+    - category: measure
+      expression:
+      label: Win Count
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: win_count
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelCompleted
+    - category: measure
+      expression:
+      label: Total Start (Streak5)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_start_streak5
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
+        progression.user_win_streak_count: ">=5"
+    - category: measure
+      expression:
+      label: Total Start (Streak8)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_start_streak8
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
+        progression.user_win_streak_count: ">=8"
+    - category: table_calculation
+      expression: "${win_count_streak5}/${total_start_streak5}"
+      label: Win Rate (Streak5)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_streak5
+      _type_hint: number
+    - category: table_calculation
+      expression: "${win_count_streak8}/${total_start_streak8}"
+      label: Win Rate (Streak8)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_streak8
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Total Lose (All)(Streak5)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_allstreak5
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
+        progression.user_win_streak_count: ">=5"
+    - category: measure
+      expression:
+      label: Total Lose (All)(Streak8)
+      value_format:
+      value_format_name:
+      based_on: progression.count
+      _kind_hint: measure
+      measure: total_lose_allstreak8
+      type: count
+      _type_hint: number
+      filters:
+        progression.event_name: LevelFailed
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
+        progression.user_win_streak_count: ">=8"
+    - category: table_calculation
+      expression: "${win_count_streak5}/(${total_lose_allstreak5}+${win_count_streak5})"
+      label: Win Rate (wo/kills)(Streak5)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_wokillsstreak5
+      _type_hint: number
+    - category: table_calculation
+      expression: "${win_count_streak8}/(${total_lose_allstreak8}+${win_count_streak8})"
+      label: Win Rate (wo/kills)(Streak8)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_wokillsstreak8
+      _type_hint: number
+    - category: measure
+      expression:
+      label: Unique Start (Streak5)
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: unique_start_streak5
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
+        progression.user_win_streak_count: ">=5"
+    - category: measure
+      expression:
+      label: Unique Start (Streak8)
+      value_format:
+      value_format_name:
+      based_on: progression.advertising_id
+      _kind_hint: measure
+      measure: unique_start_streak8
+      type: count_distinct
+      _type_hint: number
+      filters:
+        progression.event_name: LevelStarted
+        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
+        progression.user_win_streak_count: ">=8"
+    - category: table_calculation
+      expression: offset(${unique_start_streak5},1)
+      label: UniqueStart1 (Streak5)
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: uniquestart1_streak5
+      _type_hint: number
+    - category: table_calculation
+      expression: offset(${unique_start_streak8},1)
+      label: UniqueStart1 (Streak8)
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: uniquestart1_streak8
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${win_count_streak5}-${uniquestart1_streak5})/${win_count_streak5}"
+      label: Churn Between (Streak5)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_between_streak5
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${win_count_streak8}-${uniquestart1_streak8})/${win_count_streak8}"
+      label: Churn Between (Streak8)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_between_streak8
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start_streak5}-${win_count_streak5})/${unique_start_streak5}"
+      label: Churn InGame (Streak5)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_ingame_streak5
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start_streak8}-${win_count_streak8})/${unique_start_streak8}"
+      label: Churn InGame (Streak8)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_ingame_streak8
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start_streak5}-${uniquestart1_streak5})/${unique_start_streak5}"
+      label: Churn Total (Streak5)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_total_streak5
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start_streak8}-${uniquestart1_streak8})/${unique_start_streak8}"
+      label: Churn Total (Streak8)
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_total_streak8
+      _type_hint: number
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -5227,19 +8639,40 @@
     show_sql_query_menu_options: false
     pinned_columns:
       progression.user_level_at: left
-    column_order: [progression.user_level_at, Balanced_unique_start, Default_unique_start,
-      Balanced_total_start, Default_total_start, Balanced_win_count, Default_win_count,
-      Balanced_total_lose_time, Default_total_lose_time, Balanced_total_lose_zone,
-      Default_total_lose_zone, Balanced_total_lose_quit, Default_total_lose_quit,
-      Balanced_total_lose_all, Default_total_lose_all, Balanced_avg_remaining_time_sec,
-      Default_avg_remaining_time_sec, Balanced_time_begin_sec, Default_time_begin_sec,
-      Balanced_progression.win_rate, Default_progression.win_rate, Balanced_win_rate,
-      Default_win_rate, Balanced_win_rate_wokills, Default_win_rate_wokills, Balanced_app_kills,
-      Default_app_kills, Balanced_churn_ingame, Default_churn_ingame, Balanced_churn_between,
-      Default_churn_between, Balanced_churn_total, Default_churn_total, Balanced_churn_count,
-      Default_churn_count, Balanced_avg_level_play_time, Default_avg_level_play_time,
-      Balanced_app_kills_ratio, Default_app_kills_ratio, Balanced_all_extramoves_rate,
-      Default_all_extramoves_rate]
+    column_order: [progression.user_level_at, Streak Breaker Passive_win_count, Streak
+        Breaker Active5_win_count, Streak Breaker Active8_win_count, Streak Breaker
+        Passive_total_start, Streak Breaker Active5_total_start, Streak Breaker Active8_total_start,
+      Streak Breaker Passive_total_lose_time, Streak Breaker Active5_total_lose_time,
+      Streak Breaker Active8_total_lose_time, Streak Breaker Passive_total_lose_zone,
+      Streak Breaker Active5_total_lose_zone, Streak Breaker Active8_total_lose_zone,
+      Streak Breaker Passive_total_lose_quit, Streak Breaker Active5_total_lose_quit,
+      Streak Breaker Active8_total_lose_quit, Streak Breaker Passive_total_lose_all,
+      Streak Breaker Active8_total_lose_all, Streak Breaker Active5_total_lose_all,
+      Streak Breaker Passive_avg_remaining_time_sec, Streak Breaker Active5_avg_remaining_time_sec,
+      Streak Breaker Active8_avg_remaining_time_sec, Streak Breaker Passive_progression.win_rate,
+      Streak Breaker Active5_progression.win_rate, Streak Breaker Active8_progression.win_rate,
+      Streak Breaker Active5_progression.win_rate_streak5, Streak Breaker Active8_progression.win_rate_streak8,
+      Streak Breaker Passive_win_rate, Streak Breaker Active5_win_rate, Streak Breaker
+        Active8_win_rate, Streak Breaker Active5_win_rate_streak5, Streak Breaker
+        Active8_win_rate_streak8, Streak Breaker Passive_win_rate_wokills, Streak
+        Breaker Active5_win_rate_wokills, Streak Breaker Active8_win_rate_wokills,
+      Streak Breaker Active5_win_rate_wokillsstreak5, Streak Breaker Active8_win_rate_wokillsstreak8,
+      Streak Breaker Passive_app_kills, Streak Breaker Active5_app_kills, Streak Breaker
+        Active8_app_kills, Streak Breaker Passive_churn_ingame, Streak Breaker Active5_churn_ingame,
+      Streak Breaker Active8_churn_ingame, Streak Breaker Active5_churn_ingame_streak5,
+      Streak Breaker Active8_churn_ingame_streak8, Streak Breaker Passive_churn_between,
+      Streak Breaker Active5_churn_between, Streak Breaker Active8_churn_between,
+      Streak Breaker Active5_churn_between_streak5, Streak Breaker Active8_churn_between_streak8,
+      Streak Breaker Passive_churn_total, Streak Breaker Active5_churn_total, Streak
+        Breaker Active8_churn_total, Streak Breaker Active5_churn_total_streak5, Streak
+        Breaker Active8_churn_total_streak8, Streak Breaker Passive_churn_count, Streak
+        Breaker Active5_churn_count, Streak Breaker Active8_churn_count, Streak Breaker
+        Passive_avg_level_play_time, Streak Breaker Active5_avg_level_play_time, Streak
+        Breaker Active8_avg_level_play_time, Streak Breaker Passive_app_kills_ratio,
+      Streak Breaker Active5_app_kills_ratio, Streak Breaker Active8_app_kills_ratio,
+      Streak Breaker Passive_all_extramoves_rate, Streak Breaker Active5_all_extramoves_rate,
+      Streak Breaker Active8_all_extramoves_rate, Streak Breaker Passive_abs_diff_target_diff_and_eff_diff,
+      Streak Breaker Active5_abs_diff_target_diff_and_eff_diff, Streak Breaker Active8_abs_diff_target_diff_and_eff_diff]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -5247,8 +8680,78 @@
     series_labels:
       progression.user_level_at: Level No
       progression.win_rate: Win Rate (wo/extramoves)
+      progression.win_rate_streak5: Win Rate (wo/extramoves)(Streak5)
+      progression.win_rate_streak8: Win Rate (wo/extramoves)(Streak8)
     series_column_widths:
       progression.win_rate: 124
+      Streak Breaker Passive_win_count: 156
+      progression.user_level_at: 83
+      Streak Breaker Active5_unique_start: 154
+      Streak Breaker Active5_total_start: 92
+      Streak Breaker Active5_total_lose_time: 152
+      Streak Breaker Active5_total_lose_zone: 130
+      Streak Breaker Active5_total_lose_quit: 125
+      Streak Breaker Active5_total_lose_all: 117
+      Streak Breaker Active5_avg_remaining_time_sec: 177
+      Streak Breaker Active5_time_begin_sec: 127
+      Streak Breaker Active5_progression.win_rate: 178
+      Streak Breaker Active5_win_count: 154
+      Streak Breaker Active5_win_rate: 149
+      Streak Breaker Active5_win_rate_wokills: 137
+      Streak Breaker Active5_app_kills: 83
+      Streak Breaker Active5_churn_ingame: 113
+      Streak Breaker Active5_churn_between: 118
+      Streak Breaker Active5_churn_total: 97
+      Streak Breaker Active5_churn_count: 103
+      Streak Breaker Active5_avg_level_play_time: 143
+      Streak Breaker Active5_app_kills_ratio: 114
+      Streak Breaker Active5_all_extramoves_rate: 144
+      Streak Breaker Active5_abs_diff_target_diff_and_eff_diff: 202
+      Streak Breaker Active5_win_rate_streak5: 136
+      Streak Breaker Active5_win_rate_wokillsstreak5: 187
+      Streak Breaker Active8_unique_start: 154
+      Streak Breaker Active8_total_start: 159
+      Streak Breaker Active8_total_lose_time: 148
+      Streak Breaker Active8_total_lose_zone: 130
+      Streak Breaker Active8_total_lose_quit: 125
+      Streak Breaker Active8_total_lose_all: 117
+      Streak Breaker Active8_avg_remaining_time_sec: 177
+      Streak Breaker Active8_time_begin_sec: 127
+      Streak Breaker Active8_progression.win_rate: 178
+      Streak Breaker Active8_win_count: 154
+      Streak Breaker Active8_win_rate: 154
+      Streak Breaker Active8_win_rate_wokills: 137
+      Streak Breaker Active8_app_kills: 150
+      Streak Breaker Active8_churn_ingame: 113
+      Streak Breaker Active8_churn_between: 151
+      Streak Breaker Active8_churn_total: 144
+      Streak Breaker Active8_churn_count: 103
+      Streak Breaker Active8_avg_level_play_time: 143
+      Streak Breaker Active8_app_kills_ratio: 114
+      Streak Breaker Active8_all_extramoves_rate: 144
+      Streak Breaker Active8_abs_diff_target_diff_and_eff_diff: 202
+      Streak Breaker Active8_win_rate_streak8: 136
+      Streak Breaker Active8_win_rate_wokillsstreak8: 187
+      Streak Breaker Passive_unique_start: 156
+      Streak Breaker Passive_total_start: 167
+      Streak Breaker Passive_total_lose_time: 130
+      Streak Breaker Passive_total_lose_zone: 130
+      Streak Breaker Passive_total_lose_quit: 125
+      Streak Breaker Passive_total_lose_all: 117
+      Streak Breaker Passive_avg_remaining_time_sec: 177
+      Streak Breaker Passive_time_begin_sec: 127
+      Streak Breaker Passive_progression.win_rate: 178
+      Streak Breaker Passive_win_rate: 144
+      Streak Breaker Passive_win_rate_wokills: 137
+      Streak Breaker Passive_app_kills: 83
+      Streak Breaker Passive_churn_ingame: 113
+      Streak Breaker Passive_churn_between: 118
+      Streak Breaker Passive_churn_total: 97
+      Streak Breaker Passive_churn_count: 103
+      Streak Breaker Passive_avg_level_play_time: 143
+      Streak Breaker Passive_app_kills_ratio: 114
+      Streak Breaker Passive_all_extramoves_rate: 144
+      Streak Breaker Passive_abs_diff_target_diff_and_eff_diff: 202
     series_cell_visualizations:
       unique_start:
         is_active: false
@@ -5301,6 +8804,30 @@
         align: center
       abs_diff_target_diff_and_eff_diff:
         align: center
+      churn_total_streak8:
+        align: center
+      churn_total_streak5:
+        align: center
+      churn_ingame_streak8:
+        align: center
+      churn_ingame_streak5:
+        align: center
+      churn_between_streak8:
+        align: center
+      churn_between_streak5:
+        align: center
+      win_rate_wokillsstreak8:
+        align: center
+      win_rate_wokillsstreak5:
+        align: center
+      win_rate_streak8:
+        align: center
+      win_rate_streak5:
+        align: center
+      progression.win_rate_streak5:
+        align: center
+      progression.win_rate_streak8:
+        align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
@@ -5346,7 +8873,47 @@
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
                 value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [abs_diff_target_diff_and_eff_diff]}]
+        bold: false, italic: false, strikethrough: false, fields: [abs_diff_target_diff_and_eff_diff]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [progression.win_rate_streak5]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [progression.win_rate_streak8]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [win_rate_streak5]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [win_rate_streak8]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [win_rate_wokillsstreak5]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [win_rate_wokillsstreak8]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [churn_ingame_streak5]},
+      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
+          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+        bold: false, italic: false, strikethrough: false, fields: [churn_ingame_streak8]}]
     series_value_format:
       progression.win_rate:
         name: percent_1
@@ -5354,9 +8921,44 @@
         format_string: "#,##0.0%"
         label: Percent (1)
         label_prefix: Percent
-    hidden_pivots: {}
+    hidden_pivots:
+      Streak Breaker Active5:
+        measure_names:
+        - win_rate_streak8
+        - win_rate_wokillsstreak8
+        - progression.win_rate_streak8
+        - churn_ingame_streak8
+        - churn_between_streak8
+        - churn_total_streak5
+        - churn_total_streak8
+        - churn_between_streak5
+      Streak Breaker Active8:
+        measure_names:
+        - win_rate_streak5
+        - win_rate_wokillsstreak5
+        - progression.win_rate_streak5
+        - churn_total_streak5
+        - churn_ingame_streak5
+        - churn_between_streak5
+      Streak Breaker Passive:
+        measure_names:
+        - win_rate_streak5
+        - win_rate_streak8
+        - win_rate_wokillsstreak5
+        - win_rate_wokillsstreak8
+        - progression.win_rate_streak8
+        - progression.win_rate_streak5
+        - churn_total_streak8
+        - churn_total_streak5
+        - churn_ingame_streak8
+        - churn_ingame_streak5
+        - churn_between_streak8
+        - churn_between_streak5
     hidden_fields: [uniquestart1, all_extra_moves, target_win_rate, target_diff, eff_diff,
-      mean_attempt]
+      mean_attempt, win_count_streak8, total_lose_allstreak5, total_lose_allstreak8,
+      total_start_streak8, total_start_streak5, win_count_streak5, unique_start, time_begin_sec,
+      unique_start_streak5, unique_start_streak8, uniquestart1_streak5, uniquestart1_streak8,
+      churn_between_streak8, churn_total_streak8]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -5384,3224 +8986,20 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
+      Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
-      Client Date (only for Engagement): progression.event_timestamp_date
       Country: users_pdt.country
+      Country (Tier): users_pdt.country_tier
+      App Version: users_pdt.app_version
       Partner: users_pdt.network
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
+      Level No: progression.user_level_at
     row: 117
     col: 0
     width: 24
-    height: 15
-  - title: IAP Gross LTV Report (2)
-    name: IAP Gross LTV Report (2)
-    model: tile_match
-    explore: users_pdt
-    type: looker_grid
-    fields: [users_pdt.installed_date, player_1, player_2, player_3, player_4, player_5,
-      player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
-      ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
-      ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
-    filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
-        desc]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      label: Player 1
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      _kind_hint: measure
-      measure: player_1
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      label: Player 2
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      _kind_hint: measure
-      measure: player_2
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      label: Player 3
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      _kind_hint: measure
-      measure: player_3
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      label: Player 4
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      _kind_hint: measure
-      measure: player_4
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      label: Player 5
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      _kind_hint: measure
-      measure: player_5
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      label: Player 7
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      _kind_hint: measure
-      measure: player_7
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      label: Player 14
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      _kind_hint: measure
-      measure: player_14
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression:
-      label: Ltv1_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_iap
-      _kind_hint: measure
-      measure: ltv1_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_iap
-      _kind_hint: measure
-      measure: ltv3_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_iap
-      _kind_hint: measure
-      measure: ltv7_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_iap
-      _kind_hint: measure
-      measure: ltv14_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_ad
-      _kind_hint: measure
-      measure: ltv1_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_ad
-      _kind_hint: measure
-      measure: ltv3_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_ad
-      _kind_hint: measure
-      measure: ltv7_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_ad
-      _kind_hint: measure
-      measure: ltv14_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_gross
-      _kind_hint: measure
-      measure: ltv1_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_gross
-      _kind_hint: measure
-      measure: ltv3_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_gross
-      _kind_hint: measure
-      measure: ltv7_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_gross
-      _kind_hint: measure
-      measure: ltv14_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_net
-      _kind_hint: measure
-      measure: ltv1_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_net
-      _kind_hint: measure
-      measure: ltv3_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_net
-      _kind_hint: measure
-      measure: ltv7_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_net
-      _kind_hint: measure
-      measure: ltv14_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: table_calculation
-      expression: "${ltv1_iap_gross} / ${player_1}"
-      label: LTV 1
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_1
-      _type_hint: number
-    - category: measure
-      expression: ''
-      label: New Users
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      _kind_hint: measure
-      measure: new_users
-      type: count_distinct
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv3_iap_gross} / ${player_3}"
-      label: LTV 3
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_3
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv7_iap_gross} / ${player_7}"
-      label: LTV 7
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_7
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv14_iap_gross} / ${player_14}"
-      label: LTV 14
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_14
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: editable
-    limit_displayed_rows: false
-    enable_conditional_formatting: true
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_cell_visualizations:
-      new_users:
-        is_active: true
-    series_text_format:
-      ltv_1:
-        align: center
-      ltv_3:
-        align: center
-      ltv_7:
-        align: center
-      ltv_14:
-        align: center
-      users_pdt.installed_date:
-        align: center
-    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
-        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_14]}]
-    hidden_pivots: {}
-    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    defaults_version: 1
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Country (Tier): users_pdt.country_tier
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 3
-    col: 0
-    width: 24
-    height: 7
-  - title: Blended Net LTV Report (2)
-    name: Blended Net LTV Report (2)
-    model: tile_match
-    explore: users_pdt
-    type: looker_grid
-    fields: [users_pdt.installed_date, player_1, player_2, player_3, player_4, player_5,
-      player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
-      ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
-      ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Offer_Frequency]
-    pivots: [users_pdt.user_split_test_name_Offer_Frequency]
-    filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency, users_pdt.installed_date
-        desc]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      label: Player 1
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      _kind_hint: measure
-      measure: player_1
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      label: Player 2
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      _kind_hint: measure
-      measure: player_2
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      label: Player 3
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      _kind_hint: measure
-      measure: player_3
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      label: Player 4
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      _kind_hint: measure
-      measure: player_4
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      label: Player 5
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      _kind_hint: measure
-      measure: player_5
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      label: Player 7
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      _kind_hint: measure
-      measure: player_7
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      label: Player 14
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      _kind_hint: measure
-      measure: player_14
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression:
-      label: Ltv1_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_iap
-      _kind_hint: measure
-      measure: ltv1_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_iap
-      _kind_hint: measure
-      measure: ltv3_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_iap
-      _kind_hint: measure
-      measure: ltv7_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_iap
-      _kind_hint: measure
-      measure: ltv14_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_ad
-      _kind_hint: measure
-      measure: ltv1_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_ad
-      _kind_hint: measure
-      measure: ltv3_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_ad
-      _kind_hint: measure
-      measure: ltv7_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_ad
-      _kind_hint: measure
-      measure: ltv14_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_gross
-      _kind_hint: measure
-      measure: ltv1_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_gross
-      _kind_hint: measure
-      measure: ltv3_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_gross
-      _kind_hint: measure
-      measure: ltv7_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_gross
-      _kind_hint: measure
-      measure: ltv14_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_net
-      _kind_hint: measure
-      measure: ltv1_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_net
-      _kind_hint: measure
-      measure: ltv3_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_net
-      _kind_hint: measure
-      measure: ltv7_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_net
-      _kind_hint: measure
-      measure: ltv14_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: table_calculation
-      expression: "${ltv1_blended_net} / ${player_1}"
-      label: LTV 1
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_1
-      _type_hint: number
-    - category: measure
-      expression: ''
-      label: New Users
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      _kind_hint: measure
-      measure: new_users
-      type: count_distinct
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv3_blended_net} / ${player_3}"
-      label: LTV 3
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_3
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv7_blended_net} / ${player_7}"
-      label: LTV 7
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_7
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv14_blended_net} / ${player_14}"
-      label: LTV 14
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_14
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: editable
-    limit_displayed_rows: false
-    enable_conditional_formatting: true
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_cell_visualizations:
-      new_users:
-        is_active: true
-    series_text_format:
-      ltv_1:
-        align: center
-      ltv_3:
-        align: center
-      ltv_7:
-        align: center
-      ltv_14:
-        align: center
-      users_pdt.installed_date:
-        align: center
-    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
-        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_14]}]
-    hidden_pivots: {}
-    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    defaults_version: 1
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Country (Tier): users_pdt.country_tier
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 13
-    col: 0
-    width: 24
-    height: 7
-  - title: IAP Gross LTV Report (1)
-    name: IAP Gross LTV Report (1)
-    model: tile_match
-    explore: users_pdt
-    type: looker_grid
-    fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Offer_Frequency]
-    filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      label: Player 1
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      _kind_hint: measure
-      measure: player_1
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      label: Player 2
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      _kind_hint: measure
-      measure: player_2
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      label: Player 3
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      _kind_hint: measure
-      measure: player_3
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      label: Player 4
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      _kind_hint: measure
-      measure: player_4
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      label: Player 5
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      _kind_hint: measure
-      measure: player_5
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      label: Player 7
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      _kind_hint: measure
-      measure: player_7
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      label: Player 14
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      _kind_hint: measure
-      measure: player_14
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression:
-      label: Ltv1_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_iap
-      _kind_hint: measure
-      measure: ltv1_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_iap
-      _kind_hint: measure
-      measure: ltv3_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_iap
-      _kind_hint: measure
-      measure: ltv7_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_iap
-      _kind_hint: measure
-      measure: ltv14_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_ad
-      _kind_hint: measure
-      measure: ltv1_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_ad
-      _kind_hint: measure
-      measure: ltv3_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_ad
-      _kind_hint: measure
-      measure: ltv7_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_ad
-      _kind_hint: measure
-      measure: ltv14_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_gross
-      _kind_hint: measure
-      measure: ltv1_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_gross
-      _kind_hint: measure
-      measure: ltv3_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_gross
-      _kind_hint: measure
-      measure: ltv7_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_gross
-      _kind_hint: measure
-      measure: ltv14_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_net
-      _kind_hint: measure
-      measure: ltv1_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_net
-      _kind_hint: measure
-      measure: ltv3_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_net
-      _kind_hint: measure
-      measure: ltv7_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_net
-      _kind_hint: measure
-      measure: ltv14_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: table_calculation
-      expression: "${ltv1_iap_gross} / ${player_1}"
-      label: LTV 1
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_1
-      _type_hint: number
-    - category: measure
-      expression: ''
-      label: New Users
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      _kind_hint: measure
-      measure: new_users
-      type: count_distinct
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv3_iap_gross} / ${player_3}"
-      label: LTV 3
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_3
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv7_iap_gross} / ${player_7}"
-      label: LTV 7
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_7
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv14_iap_gross} / ${player_14}"
-      label: LTV 14
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_14
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: true
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_cell_visualizations:
-      new_users:
-        is_active: true
-    series_text_format:
-      ltv_1:
-        align: center
-      ltv_3:
-        align: center
-      ltv_7:
-        align: center
-      ltv_14:
-        align: center
-      users_pdt.user_split_test_name_Offer_Frequency:
-        align: center
-    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
-        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_14]}]
-    hidden_pivots: {}
-    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    defaults_version: 1
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Country (Tier): users_pdt.country_tier
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 0
-    col: 0
-    width: 24
-    height: 3
-  - title: Blended Net LTV Report (1)
-    name: Blended Net LTV Report (1)
-    model: tile_match
-    explore: users_pdt
-    type: looker_grid
-    fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Offer_Frequency]
-    filters:
-      users_pdt.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      label: Player 1
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>1
-        AND
-        (${users_pdt.retention_1}=0 OR ${users_pdt.retention_1}=1)
-      _kind_hint: measure
-      measure: player_1
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      label: Player 2
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>2
-        AND
-        (${users_pdt.retention_2}=0 OR ${users_pdt.retention_2}=1)
-      _kind_hint: measure
-      measure: player_2
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      label: Player 3
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>3
-        AND
-        (${users_pdt.retention_3}=0 OR ${users_pdt.retention_3}=1)
-      _kind_hint: measure
-      measure: player_3
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      label: Player 4
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>4
-        AND
-        (${users_pdt.retention_4}=0 OR ${users_pdt.retention_4}=1)
-      _kind_hint: measure
-      measure: player_4
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      label: Player 5
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>5
-        AND
-        (${users_pdt.retention_5}=0 OR ${users_pdt.retention_5}=1)
-      _kind_hint: measure
-      measure: player_5
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      label: Player 7
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>7
-        AND
-        (${users_pdt.retention_7}=0 OR ${users_pdt.retention_7}=1)
-      _kind_hint: measure
-      measure: player_7
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      label: Player 14
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      filter_expression: |-
-        diff_days(${users_pdt.installed_date},trunc_days(now()))>14
-        AND
-        (${users_pdt.retention_14}=0 OR ${users_pdt.retention_14}=1)
-      _kind_hint: measure
-      measure: player_14
-      type: count_distinct
-      _type_hint: number
-    - category: measure
-      expression:
-      label: Ltv1_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_iap
-      _kind_hint: measure
-      measure: ltv1_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_iap
-      _kind_hint: measure
-      measure: ltv3_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_iap
-      _kind_hint: measure
-      measure: ltv7_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_iap_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_iap
-      _kind_hint: measure
-      measure: ltv14_iap_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_ad
-      _kind_hint: measure
-      measure: ltv1_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_ad
-      _kind_hint: measure
-      measure: ltv3_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_ad
-      _kind_hint: measure
-      measure: ltv7_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_ad
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_ad
-      _kind_hint: measure
-      measure: ltv14_ad
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_gross
-      _kind_hint: measure
-      measure: ltv1_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_gross
-      _kind_hint: measure
-      measure: ltv3_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_gross
-      _kind_hint: measure
-      measure: ltv7_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_gross
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_gross
-      _kind_hint: measure
-      measure: ltv14_blended_gross
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: measure
-      expression:
-      label: Ltv1_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv1_blended_net
-      _kind_hint: measure
-      measure: ltv1_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 1 day ago
-    - category: measure
-      expression:
-      label: Ltv3_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv3_blended_net
-      _kind_hint: measure
-      measure: ltv3_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 3 day ago
-    - category: measure
-      expression:
-      label: Ltv7_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv7_blended_net
-      _kind_hint: measure
-      measure: ltv7_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 7 day ago
-    - category: measure
-      expression:
-      label: Ltv14_blended_net
-      value_format:
-      value_format_name:
-      based_on: users_pdt.ltv14_blended_net
-      _kind_hint: measure
-      measure: ltv14_blended_net
-      type: sum
-      _type_hint: number
-      filters:
-        users_pdt.installed_date: before 14 day ago
-    - category: table_calculation
-      expression: "${ltv1_blended_net} / ${player_1}"
-      label: LTV 1
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_1
-      _type_hint: number
-    - category: measure
-      expression: ''
-      label: New Users
-      value_format:
-      value_format_name:
-      based_on: users_pdt.advertising_id
-      _kind_hint: measure
-      measure: new_users
-      type: count_distinct
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv3_blended_net} / ${player_3}"
-      label: LTV 3
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_3
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv7_blended_net} / ${player_7}"
-      label: LTV 7
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_7
-      _type_hint: number
-    - category: table_calculation
-      expression: "${ltv14_blended_net} / ${player_14}"
-      label: LTV 14
-      value_format:
-      value_format_name: usd
-      _kind_hint: measure
-      table_calculation: ltv_14
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: editable
-    limit_displayed_rows: false
-    enable_conditional_formatting: true
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_cell_visualizations:
-      new_users:
-        is_active: true
-    series_text_format:
-      ltv_1:
-        align: center
-      ltv_3:
-        align: center
-      ltv_7:
-        align: center
-      ltv_14:
-        align: center
-      users_pdt.user_split_test_name_Offer_Frequency:
-        align: center
-    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
-        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_1]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_3]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_7]}, {type: along a scale..., value: !!null '',
-        background_color: "#1A73E8", font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: true, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [ltv_14]}]
-    hidden_pivots: {}
-    hidden_fields: [player_1, player_2, player_3, player_4, player_5, player_7, player_14,
-      ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
-      ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
-      ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net]
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    defaults_version: 1
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Country (Tier): users_pdt.country_tier
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 10
-    col: 0
-    width: 24
-    height: 3
-  - title: Win Rates (Level 11-20)
-    name: Win Rates (Level 11-20)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 105
-    col: 8
-    width: 8
-    height: 3
-  - title: Win Rates (Level 21-30)
-    name: Win Rates (Level 21-30)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 105
-    col: 16
-    width: 8
-    height: 3
-  - title: Win Rates (Level 31-50)
-    name: Win Rates (Level 31-50)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 108
-    col: 0
-    width: 8
-    height: 3
-  - title: Win Rates (Level 51-75)
-    name: Win Rates (Level 51-75)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 108
-    col: 8
-    width: 8
-    height: 3
-  - title: Win Rates (Level 76-100)
-    name: Win Rates (Level 76-100)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 108
-    col: 16
-    width: 8
-    height: 3
-  - title: Win Rates (Level 126-150)
-    name: Win Rates (Level 126-150)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 111
-    col: 8
-    width: 8
-    height: 3
-  - title: Win Rates (Level 101-125)
-    name: Win Rates (Level 101-125)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 111
-    col: 0
-    width: 8
-    height: 3
-  - title: Win Rates (Level 151-200)
-    name: Win Rates (Level 151-200)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 111
-    col: 16
-    width: 8
-    height: 3
-  - title: Win Rates (Level 301-400)
-    name: Win Rates (Level 301-400)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 114
-    col: 8
-    width: 8
-    height: 3
-  - title: Win Rates (Level 201-300)
-    name: Win Rates (Level 201-300)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 114
-    col: 0
-    width: 8
-    height: 3
-  - title: Win Rates (Level 401-500)
-    name: Win Rates (Level 401-500)
-    model: tile_match
-    explore: progression
-    type: looker_grid
-    fields: [progression.user_split_test_name_Offer_Frequency, win_count, fail_count,
-      progression.win_rate]
-    filters:
-      progression.user_split_test_name_Offer_Frequency: "-NULL"
-    sorts: [progression.user_split_test_name_Offer_Frequency]
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: win_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-    - category: measure
-      expression:
-      label: Fail Count
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: fail_count
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-    - category: table_calculation
-      expression: "${win_count}/(${fail_count}+${win_count})"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: center
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      progression.user_split_test_name_Offer_Frequency: Test Group
-      progression.win_rate: Win Rate (wo/extramoves)
-    series_cell_visualizations:
-      win_rate:
-        is_active: true
-      progression.win_rate:
-        is_active: true
-    series_text_format:
-      progression.user_split_test_name_Offer_Frequency:
-        align: center
-      win_rate:
-        align: center
-    hidden_pivots: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [win_count, fail_count]
-    listen:
-      Installed Date: users_pdt.installed_date
-      Country: users_pdt.country
-      Partner: users_pdt.network
-      Campaign: users_pdt.campaign
-      Adgroup: users_pdt.adgroup
-      Creative: users_pdt.creative
-      Platform: users_pdt.user_platform
-      Country (Tier): users_pdt.country_tier
-      App Version: progression.app_version
-      User Level At: progression.user_level_at
-    row: 114
-    col: 16
-    width: 8
-    height: 3
+    height: 12
   filters:
   - name: Installed Date
     title: Installed Date
@@ -8660,16 +9058,16 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: 0.3.5
+    default_value: 0.3.4
     allow_multiple_values: true
     required: false
     ui_config:
       type: advanced
       display: popover
     model: tile_match
-    explore: progression
+    explore: users_pdt
     listens_to_filters: []
-    field: progression.app_version
+    field: users_pdt.app_version
   - name: Partner
     title: Partner
     type: field_filter
@@ -8725,7 +9123,7 @@
   - name: Platform
     title: Platform
     type: field_filter
-    default_value: ios
+    default_value: android
     allow_multiple_values: true
     required: false
     ui_config:
@@ -8735,10 +9133,10 @@
     explore: users_pdt
     listens_to_filters: []
     field: users_pdt.user_platform
-  - name: User Level At
-    title: User Level At
+  - name: Level No
+    title: Level No
     type: field_filter
-    default_value: ">=45"
+    default_value: ">50"
     allow_multiple_values: true
     required: false
     ui_config:

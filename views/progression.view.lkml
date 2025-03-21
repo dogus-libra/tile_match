@@ -2231,6 +2231,13 @@ view: progression {
           end ;;
   }
 
+  dimension: user_split_test_name_Streak_Breaker_50_85{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1703_StreakBreaker_50_5%' then 'Streak Breaker 50'
+               when ${TABLE}.user_split_test_name like '%1703_StreakBreaker_85_5%' then 'Streak Breaker 85'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
@@ -2769,7 +2776,7 @@ view: progression {
     sql: (case when ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and ${extra_move_count} is null then 1
 
-      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} > 5 and  ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} >= 5 and  ${TABLE}.event_name = 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
       else 0
       end)  ;;
   }
@@ -2779,7 +2786,7 @@ view: progression {
     sql: (case when ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and ${extra_move_count} is null then 1
 
-      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} > 8 and ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} >= 8 and ${TABLE}.event_name= 'LevelCompleted' and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${end_game_offer_1_offer_type} is null then 1
       else 0
       end)  ;;
   }
@@ -2799,7 +2806,7 @@ view: progression {
     sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
 
-      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} > 5 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active5' and ${user_win_streak_count} >= 5 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
       else 0
       end) ;;
   }
@@ -2809,7 +2816,7 @@ view: progression {
     sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
                and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
 
-      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} > 8 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
+      when ${user_split_test_name_Streak_Breaker} = 'Streak Breaker Active8' and ${user_win_streak_count} >= 8 and ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_offer_type} is not null or ${TABLE}.event_name= 'LevelFailed')  then 1
       else 0
       end) ;;
   }

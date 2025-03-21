@@ -1827,6 +1827,13 @@ view: users_pdt {
     sql:  ${TABLE}.user_split_test_name_Starter_Coin_03 ;;
   }
 
+  dimension: user_split_test_name_Streak_Breaker_50_85{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1703_StreakBreaker_50_5%' then 'Streak Breaker 50'
+               when ${TABLE}.user_split_test_name like '%1703_StreakBreaker_85_5%' then 'Streak Breaker 85'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;
