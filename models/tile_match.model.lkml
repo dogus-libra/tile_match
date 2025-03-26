@@ -161,8 +161,20 @@ explore: tile_pass_ndt {
 
 explore: goodwill_tile_cost {}
 
-explore: goodwill_tile_raw {}
+explore: goodwill_tile_raw {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${goodwill_tile_raw.appsflyer_id} = ${users_pdt.user_apps_flyer_id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: cost_union_pdt {}
 
-explore: ad_revenue {}
+explore: ad_revenue {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${ad_revenue.appsflyer_id} = ${users_pdt.user_apps_flyer_id} ;;
+    relationship: many_to_one
+  }
+}
