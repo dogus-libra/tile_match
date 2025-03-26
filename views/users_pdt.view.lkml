@@ -67,7 +67,8 @@ view: users_pdt {
                           max(user_grand_mode_level)       as user_grand_mode_level,
                           max(user_win_streak_count)       as user_win_streak_count,
                           max(user_win_streak_group)       as user_win_streak_group,
-                          max(user_apps_flyer_id)          as user_apps_flyer_id
+                          max(user_apps_flyer_id)          as user_apps_flyer_id,
+                          max(user_id)                     as user_id
 
                    FROM ( SELECT
                           advertising_id,
@@ -104,7 +105,8 @@ view: users_pdt {
                           user_grand_mode_level,
                           user_win_streak_count,
                           user_win_streak_group,
-                          user_apps_flyer_id
+                          user_apps_flyer_id,
+                          user_id
                           FROM
                             (SELECT
                             advertising_id,
@@ -138,7 +140,8 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id
+                            user_apps_flyer_id,
+                            user_id
 
                             FROM tile_match.session
 
@@ -176,7 +179,8 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id
+                            user_apps_flyer_id,
+                            user_id
 
                             FROM tile_match.monitoring
 
@@ -214,7 +218,8 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id
+                            user_apps_flyer_id,
+                            user_id
 
                             FROM tile_match.progression) AS cd) AS combined_data
                    group by advertising_id),
@@ -521,6 +526,7 @@ view: users_pdt {
              ip_address,
              user_adgroup,
              user_apps_flyer_id,
+             user_id,
              user_campaign,
              user_creative,
              user_device,
@@ -1369,6 +1375,11 @@ view: users_pdt {
   dimension: user_apps_flyer_id {
     type: string
     sql: ${TABLE}.user_apps_flyer_id ;;
+  }
+
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: user_campaign {

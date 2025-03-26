@@ -164,7 +164,7 @@ explore: goodwill_tile_cost {}
 explore: goodwill_tile_raw {
   join: users_pdt {
     type: left_outer
-    sql_on: ${goodwill_tile_raw.appsflyer_id} = ${users_pdt.user_apps_flyer_id} ;;
+    sql_on: ${goodwill_tile_raw.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${goodwill_tile_raw.customer_user_id} = ${users_pdt.user_id} ;;
     relationship: many_to_one
   }
 }
@@ -174,7 +174,7 @@ explore: cost_union_pdt {}
 explore: ad_revenue {
   join: users_pdt {
     type: left_outer
-    sql_on: ${ad_revenue.appsflyer_id} = ${users_pdt.user_apps_flyer_id} ;;
+    sql_on: ${ad_revenue.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${ad_revenue.customer_user_id} = ${users_pdt.user_id} ;;
     relationship: many_to_one
   }
 }

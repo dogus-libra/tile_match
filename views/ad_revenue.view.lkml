@@ -12,6 +12,7 @@ view: ad_revenue {
       SELECT
 
         g.appsflyer_id,
+        g.customer_user_id,
         s.app_version AS app_version,
         TRUNC(g.event_time) AS event_date,
         SUM(g.event_revenue_usd) AS ad_revenue,
@@ -28,7 +29,7 @@ view: ad_revenue {
         AND s.event_date = TRUNC(g.event_time)
         AND g.event_name = 'af_ad_revenue'
 
-    GROUP BY s.app_version, TRUNC(g.event_time), g.appsflyer_id, g.campaign, g.monetization_network, g.platform, g.country_code, TRUNC(g.install_time)  ;;
+    GROUP BY s.app_version, TRUNC(g.event_time), g.appsflyer_id, g.campaign, g.monetization_network, g.platform, g.country_code, TRUNC(g.install_time), g.customer_user_id  ;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
@@ -58,6 +59,11 @@ view: ad_revenue {
   dimension: country_code {
     type: string
     sql: ${TABLE}.country_code ;;
+  }
+
+  dimension: customer_user_id {
+    type: string
+    sql: ${TABLE}.customer_user_id ;;
   }
 
   dimension_group: event {
