@@ -1856,6 +1856,28 @@ view: users_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_First500{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2803_First500_Default%' then 'First 500 Default'
+               when ${TABLE}.user_split_test_name like '%2803_First500_Variant%' then 'First 500 Variant'
+          end ;;
+  }
+
+  dimension: user_split_test_name_WB_Gifts{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2803_WBGifts_Passive%' then 'WBGifts Passive'
+               when ${TABLE}.user_split_test_name like '%2803_WBGifts_Active%' then 'WBGifts Active'
+          end ;;
+  }
+
+  dimension: user_split_test_name_Store_Cheap_Expensive{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%2803_Store_Default%' then 'Store Default'
+               when ${TABLE}.user_split_test_name like '%2803_Store_Expensive%' then 'Store Expensive'
+               when ${TABLE}.user_split_test_name like '%2803_Store_Cheap%' then 'Store Cheap'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;

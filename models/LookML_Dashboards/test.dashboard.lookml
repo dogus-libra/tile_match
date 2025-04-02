@@ -1,23 +1,23 @@
 ---
-- dashboard: 42__streak_breaker_test
-  title: 42 - Streak Breaker Test
+- dashboard: 55__streak_breaker_50__85_test
+  title: 55 - Streak Breaker 50 - 85 Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: ZbBZJQ2y9df0Y97xEStAUT
+  preferred_slug: MmNrKvlN2diFFo9nD12oEi
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, player_count, level_5_reach_count,
-      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
-      level_100_reach_count]
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
+      level_5_reach_count, level_10_reach_count, level_20_reach_count, level_30_reach_count,
+      level_50_reach_count, level_100_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +217,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,7 +314,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Streak_Breaker_50_85: 263
+      progression.user_split_test_name_Store_Cheap_Expensive: 263
     listen:
       Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
@@ -326,7 +326,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 83
+    row: 78
     col: 0
     width: 24
     height: 4
@@ -335,13 +335,13 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, player_count, level_5_reach_count,
-      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
-      level_100_reach_count, level_150_reach_count]
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
+      level_5_reach_count, level_10_reach_count, level_20_reach_count, level_30_reach_count,
+      level_50_reach_count, level_100_reach_count, level_150_reach_count]
     filters:
       progression.installed_date: 30 days
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -565,7 +565,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Streak_Breaker_50_85, player_count,
+    column_order: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
       level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
       level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
       level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
@@ -574,12 +574,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       level_5_reach_rate:
         align: center
@@ -682,7 +682,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Streak_Breaker_50_85: 280
+      progression.user_split_test_name_Store_Cheap_Expensive: 280
     listen:
       Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
@@ -694,7 +694,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 87
+    row: 82
     col: 0
     width: 24
     height: 4
@@ -704,13 +704,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -782,7 +782,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Level No: engagement_pdt.user_level_at
-    row: 91
+    row: 86
     col: 0
     width: 8
     height: 7
@@ -792,13 +792,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -861,7 +861,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Level No: engagement_pdt.user_level_at
-    row: 91
+    row: 86
     col: 8
     width: 8
     height: 7
@@ -870,13 +870,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [session_pdt.user_split_test_name_Streak_Breaker_50_85]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [session_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Streak_Breaker_50_85, session_pdt.client_date
+      session_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Store_Cheap_Expensive, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -939,7 +939,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Level No: session_pdt.user_level_at
-    row: 91
+    row: 86
     col: 16
     width: 8
     height: 7
@@ -949,13 +949,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1044,7 +1044,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Level No: engagement_pdt.user_level_at
-    row: 98
+    row: 93
     col: 0
     width: 8
     height: 7
@@ -1054,13 +1054,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Streak_Breaker_50_85, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1116,7 +1116,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Level No: engagement_pdt.user_level_at
-    row: 98
+    row: 93
     col: 8
     width: 8
     height: 7
@@ -1126,13 +1126,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [session_pdt.user_split_test_name_Streak_Breaker_50_85]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [session_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Streak_Breaker_50_85, session_pdt.client_date
+      session_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Store_Cheap_Expensive, session_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1214,7 +1214,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Level No: session_pdt.user_level_at
-    row: 98
+    row: 93
     col: 16
     width: 8
     height: 7
@@ -1223,12 +1223,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1285,7 +1285,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -1293,7 +1293,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -1335,7 +1335,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 105
+    row: 100
     col: 0
     width: 8
     height: 3
@@ -1346,11 +1346,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -1622,7 +1622,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -1725,7 +1725,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 24
+    row: 23
     col: 0
     width: 24
     height: 8
@@ -1735,13 +1735,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_week
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -2013,8 +2013,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      session_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2117,7 +2117,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 32
+    row: 31
     col: 0
     width: 24
     height: 8
@@ -2127,10 +2127,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2401,7 +2401,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2422,7 +2422,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+      users_pdt.user_split_test_name_Store_Cheap_Expensive:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2492,7 +2492,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: 256
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: 256
     listen:
       Platform: users_pdt.user_platform
       Installed Date: users_pdt.installed_date
@@ -2507,19 +2507,19 @@
     row: 20
     col: 0
     width: 24
-    height: 4
+    height: 3
   - title: Retention Report by App Version
     name: Retention Report by App Version
     model: tile_match
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, ret_1 desc 0]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2790,7 +2790,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2811,7 +2811,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+      users_pdt.user_split_test_name_Store_Cheap_Expensive:
         align: center
       users_pdt.app_version:
         align: center
@@ -2893,7 +2893,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 40
+    row: 39
     col: 0
     width: 24
     height: 5
@@ -2904,11 +2904,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -3194,7 +3194,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3314,23 +3314,23 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 50
+    row: 47
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Retention Coefficients (Weekly)
     name: Retention Coefficients (Weekly)
     model: tile_match
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_week
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_week
         desc]
     limit: 500
     column_limit: 50
@@ -3616,7 +3616,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -3736,22 +3736,22 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 59
+    row: 55
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Retention Coefficients by App Version
     name: Retention Coefficients by App Version
     model: tile_match
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4036,7 +4036,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4154,7 +4154,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 68
+    row: 63
     col: 0
     width: 24
     height: 5
@@ -4164,10 +4164,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4452,9 +4452,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: Test Group
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: 279
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4487,7 +4487,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+      users_pdt.user_split_test_name_Store_Cheap_Expensive:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4572,10 +4572,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 45
+    row: 44
     col: 0
     width: 24
-    height: 5
+    height: 3
   - title: Churn Report
     name: Churn Report
     model: tile_match
@@ -4583,14 +4583,14 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      users_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
       progression.install_day_of_user: ''
       progression.event_version: 1.0.2
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
     sorts: [progression.user_level_at]
     limit: 500
     column_limit: 50
@@ -4914,7 +4914,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 73
+    row: 68
     col: 0
     width: 24
     height: 10
@@ -4927,11 +4927,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -5396,11 +5396,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, users_pdt.installed_date
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -5865,10 +5865,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6257,7 +6257,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+      users_pdt.user_split_test_name_Store_Cheap_Expensive:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6332,10 +6332,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6724,7 +6724,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Streak_Breaker_50_85:
+      users_pdt.user_split_test_name_Store_Cheap_Expensive:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6795,12 +6795,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[11,20]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6857,7 +6857,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -6865,7 +6865,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -6907,7 +6907,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 105
+    row: 100
     col: 8
     width: 8
     height: 3
@@ -6916,12 +6916,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[21,30]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6978,7 +6978,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -6986,7 +6986,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7028,7 +7028,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 105
+    row: 100
     col: 16
     width: 8
     height: 3
@@ -7037,12 +7037,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[31,50]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7099,7 +7099,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7107,7 +7107,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7149,7 +7149,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 108
+    row: 103
     col: 0
     width: 8
     height: 3
@@ -7158,12 +7158,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[51,75]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7220,7 +7220,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7228,7 +7228,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7270,7 +7270,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 108
+    row: 103
     col: 8
     width: 8
     height: 3
@@ -7279,12 +7279,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[76,100]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7341,7 +7341,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7349,7 +7349,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7391,7 +7391,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 108
+    row: 103
     col: 16
     width: 8
     height: 3
@@ -7400,12 +7400,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[126,150]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7462,7 +7462,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7470,7 +7470,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7512,7 +7512,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 111
+    row: 106
     col: 8
     width: 8
     height: 3
@@ -7521,12 +7521,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[101,125]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7583,7 +7583,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7591,7 +7591,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7633,7 +7633,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 111
+    row: 106
     col: 0
     width: 8
     height: 3
@@ -7642,12 +7642,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[151,200]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7704,7 +7704,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7712,7 +7712,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7754,7 +7754,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 111
+    row: 106
     col: 16
     width: 8
     height: 3
@@ -7763,12 +7763,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[301,400]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7825,7 +7825,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7833,7 +7833,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7875,7 +7875,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 114
+    row: 109
     col: 8
     width: 8
     height: 3
@@ -7884,12 +7884,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[201,300]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7946,7 +7946,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7954,7 +7954,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -7996,7 +7996,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 114
+    row: 109
     col: 0
     width: 8
     height: 3
@@ -8005,12 +8005,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Streak_Breaker_50_85, win_count, fail_count,
+    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
       progression.win_rate]
     filters:
-      progression.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_level_at: "[401,500]"
-    sorts: [progression.user_split_test_name_Streak_Breaker_50_85]
+    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8067,7 +8067,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Streak_Breaker_50_85: Test Group
+      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8075,7 +8075,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Streak_Breaker_50_85:
+      progression.user_split_test_name_Store_Cheap_Expensive:
         align: center
       win_rate:
         align: center
@@ -8117,7 +8117,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-    row: 114
+    row: 109
     col: 16
     width: 8
     height: 3
@@ -8126,13 +8126,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_level_at, unique_start, total_start, win_count_streak5,
-      total_lose_time, total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec,
-      time_begin_sec, progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Streak_Breaker_50_85,
-      target_win_rate, mean_attempt, win_count_streak8, win_count, total_start_streak5,
-      total_start_streak8, total_lose_allstreak5, total_lose_allstreak8, progression.win_rate_streak5,
-      progression.win_rate_streak8, unique_start_streak5, unique_start_streak8]
-    pivots: [users_pdt.user_split_test_name_Streak_Breaker_50_85]
+    fields: [progression.user_level_at, unique_start, total_start, total_lose_time,
+      total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
+      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Store_Cheap_Expensive,
+      target_win_rate, mean_attempt, win_count]
+    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
     filters:
       progression.installed_date: 30 days
       progression.install_day_of_user: ''
@@ -8140,10 +8138,11 @@
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Streak_Breaker_50_85: "-NULL"
+      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
       progression.user_balance_version: ''
       progression.event_timestamp_date: 30 days
-    sorts: [users_pdt.user_split_test_name_Streak_Breaker_50_85, progression.user_level_at]
+    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, win_rate_wokills
+        desc 1]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8235,7 +8234,6 @@
       filters:
         progression.event_name: LevelCompleted
         progression.user_win_streak_count: ">=5"
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
     - category: table_calculation
       expression: "${win_count}/${total_start}"
       label: Win Rate
@@ -8417,20 +8415,6 @@
       _type_hint: number
     - category: measure
       expression:
-      label: Win Count (Streak8)
-      value_format:
-      value_format_name:
-      based_on: progression.advertising_id
-      _kind_hint: measure
-      measure: win_count_streak8
-      type: count_distinct
-      _type_hint: number
-      filters:
-        progression.event_name: LevelCompleted
-        progression.user_win_streak_count: ">=8"
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
-    - category: measure
-      expression:
       label: Win Count
       value_format:
       value_format_name:
@@ -8453,22 +8437,7 @@
       _type_hint: number
       filters:
         progression.event_name: LevelStarted
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
         progression.user_win_streak_count: ">=5"
-    - category: measure
-      expression:
-      label: Total Start (Streak8)
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: total_start_streak8
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelStarted
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
-        progression.user_win_streak_count: ">=8"
     - category: table_calculation
       expression: "${win_count_streak5}/${total_start_streak5}"
       label: Win Rate (Streak5)
@@ -8477,14 +8446,7 @@
       _kind_hint: measure
       table_calculation: win_rate_streak5
       _type_hint: number
-    - category: table_calculation
-      expression: "${win_count_streak8}/${total_start_streak8}"
-      label: Win Rate (Streak8)
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate_streak8
-      _type_hint: number
+      is_disabled: true
     - category: measure
       expression:
       label: Total Lose (All)(Streak5)
@@ -8497,22 +8459,7 @@
       _type_hint: number
       filters:
         progression.event_name: LevelFailed
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
         progression.user_win_streak_count: ">=5"
-    - category: measure
-      expression:
-      label: Total Lose (All)(Streak8)
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: total_lose_allstreak8
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
-        progression.user_win_streak_count: ">=8"
     - category: table_calculation
       expression: "${win_count_streak5}/(${total_lose_allstreak5}+${win_count_streak5})"
       label: Win Rate (wo/kills)(Streak5)
@@ -8521,14 +8468,7 @@
       _kind_hint: measure
       table_calculation: win_rate_wokillsstreak5
       _type_hint: number
-    - category: table_calculation
-      expression: "${win_count_streak8}/(${total_lose_allstreak8}+${win_count_streak8})"
-      label: Win Rate (wo/kills)(Streak8)
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate_wokillsstreak8
-      _type_hint: number
+      is_disabled: true
     - category: measure
       expression:
       label: Unique Start (Streak5)
@@ -8541,22 +8481,7 @@
       _type_hint: number
       filters:
         progression.event_name: LevelStarted
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active5
         progression.user_win_streak_count: ">=5"
-    - category: measure
-      expression:
-      label: Unique Start (Streak8)
-      value_format:
-      value_format_name:
-      based_on: progression.advertising_id
-      _kind_hint: measure
-      measure: unique_start_streak8
-      type: count_distinct
-      _type_hint: number
-      filters:
-        progression.event_name: LevelStarted
-        progression.user_split_test_name_Streak_Breaker_50_85: Streak Breaker Active8
-        progression.user_win_streak_count: ">=8"
     - category: table_calculation
       expression: offset(${unique_start_streak5},1)
       label: UniqueStart1 (Streak5)
@@ -8565,14 +8490,7 @@
       _kind_hint: measure
       table_calculation: uniquestart1_streak5
       _type_hint: number
-    - category: table_calculation
-      expression: offset(${unique_start_streak8},1)
-      label: UniqueStart1 (Streak8)
-      value_format:
-      value_format_name:
-      _kind_hint: measure
-      table_calculation: uniquestart1_streak8
-      _type_hint: number
+      is_disabled: true
     - category: table_calculation
       expression: "(${win_count_streak5}-${uniquestart1_streak5})/${win_count_streak5}"
       label: Churn Between (Streak5)
@@ -8581,14 +8499,7 @@
       _kind_hint: measure
       table_calculation: churn_between_streak5
       _type_hint: number
-    - category: table_calculation
-      expression: "(${win_count_streak8}-${uniquestart1_streak8})/${win_count_streak8}"
-      label: Churn Between (Streak8)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_between_streak8
-      _type_hint: number
+      is_disabled: true
     - category: table_calculation
       expression: "(${unique_start_streak5}-${win_count_streak5})/${unique_start_streak5}"
       label: Churn InGame (Streak5)
@@ -8597,14 +8508,7 @@
       _kind_hint: measure
       table_calculation: churn_ingame_streak5
       _type_hint: number
-    - category: table_calculation
-      expression: "(${unique_start_streak8}-${win_count_streak8})/${unique_start_streak8}"
-      label: Churn InGame (Streak8)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_ingame_streak8
-      _type_hint: number
+      is_disabled: true
     - category: table_calculation
       expression: "(${unique_start_streak5}-${uniquestart1_streak5})/${unique_start_streak5}"
       label: Churn Total (Streak5)
@@ -8613,14 +8517,7 @@
       _kind_hint: measure
       table_calculation: churn_total_streak5
       _type_hint: number
-    - category: table_calculation
-      expression: "(${unique_start_streak8}-${uniquestart1_streak8})/${unique_start_streak8}"
-      label: Churn Total (Streak8)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_total_streak8
-      _type_hint: number
+      is_disabled: true
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -8639,40 +8536,27 @@
     show_sql_query_menu_options: false
     pinned_columns:
       progression.user_level_at: left
-    column_order: [progression.user_level_at, Streak Breaker Passive_win_count, Streak
-        Breaker Active5_win_count, Streak Breaker Active8_win_count, Streak Breaker
-        Passive_total_start, Streak Breaker Active5_total_start, Streak Breaker Active8_total_start,
-      Streak Breaker Passive_total_lose_time, Streak Breaker Active5_total_lose_time,
-      Streak Breaker Active8_total_lose_time, Streak Breaker Passive_total_lose_zone,
-      Streak Breaker Active5_total_lose_zone, Streak Breaker Active8_total_lose_zone,
-      Streak Breaker Passive_total_lose_quit, Streak Breaker Active5_total_lose_quit,
-      Streak Breaker Active8_total_lose_quit, Streak Breaker Passive_total_lose_all,
-      Streak Breaker Active8_total_lose_all, Streak Breaker Active5_total_lose_all,
-      Streak Breaker Passive_avg_remaining_time_sec, Streak Breaker Active5_avg_remaining_time_sec,
-      Streak Breaker Active8_avg_remaining_time_sec, Streak Breaker Passive_progression.win_rate,
-      Streak Breaker Active5_progression.win_rate, Streak Breaker Active8_progression.win_rate,
-      Streak Breaker Active5_progression.win_rate_streak5, Streak Breaker Active8_progression.win_rate_streak8,
-      Streak Breaker Passive_win_rate, Streak Breaker Active5_win_rate, Streak Breaker
-        Active8_win_rate, Streak Breaker Active5_win_rate_streak5, Streak Breaker
-        Active8_win_rate_streak8, Streak Breaker Passive_win_rate_wokills, Streak
-        Breaker Active5_win_rate_wokills, Streak Breaker Active8_win_rate_wokills,
-      Streak Breaker Active5_win_rate_wokillsstreak5, Streak Breaker Active8_win_rate_wokillsstreak8,
-      Streak Breaker Passive_app_kills, Streak Breaker Active5_app_kills, Streak Breaker
-        Active8_app_kills, Streak Breaker Passive_churn_ingame, Streak Breaker Active5_churn_ingame,
-      Streak Breaker Active8_churn_ingame, Streak Breaker Active5_churn_ingame_streak5,
-      Streak Breaker Active8_churn_ingame_streak8, Streak Breaker Passive_churn_between,
-      Streak Breaker Active5_churn_between, Streak Breaker Active8_churn_between,
-      Streak Breaker Active5_churn_between_streak5, Streak Breaker Active8_churn_between_streak8,
-      Streak Breaker Passive_churn_total, Streak Breaker Active5_churn_total, Streak
-        Breaker Active8_churn_total, Streak Breaker Active5_churn_total_streak5, Streak
-        Breaker Active8_churn_total_streak8, Streak Breaker Passive_churn_count, Streak
-        Breaker Active5_churn_count, Streak Breaker Active8_churn_count, Streak Breaker
-        Passive_avg_level_play_time, Streak Breaker Active5_avg_level_play_time, Streak
-        Breaker Active8_avg_level_play_time, Streak Breaker Passive_app_kills_ratio,
-      Streak Breaker Active5_app_kills_ratio, Streak Breaker Active8_app_kills_ratio,
-      Streak Breaker Passive_all_extramoves_rate, Streak Breaker Active5_all_extramoves_rate,
-      Streak Breaker Active8_all_extramoves_rate, Streak Breaker Passive_abs_diff_target_diff_and_eff_diff,
-      Streak Breaker Active5_abs_diff_target_diff_and_eff_diff, Streak Breaker Active8_abs_diff_target_diff_and_eff_diff]
+    column_order: [progression.user_level_at, Streak Breaker 50_total_start, Streak
+        Breaker 85_total_start, Streak Breaker 50_win_count, Streak Breaker 85_win_count,
+      Streak Breaker 50_total_lose_time, Streak Breaker 85_total_lose_time, Streak
+        Breaker 50_total_lose_zone, Streak Breaker 85_total_lose_zone, Streak Breaker
+        50_total_lose_quit, Streak Breaker 85_total_lose_quit, Streak Breaker 50_total_lose_all,
+      Streak Breaker 85_total_lose_all, Streak Breaker 50_avg_remaining_time_sec,
+      Streak Breaker 85_avg_remaining_time_sec, Streak Breaker 50_progression.win_rate,
+      Streak Breaker 85_progression.win_rate, Streak Breaker 50_progression.win_rate_streak5_n,
+      Streak Breaker 85_progression.win_rate_streak5_n, Streak Breaker 50_win_rate,
+      Streak Breaker 85_win_rate, Streak Breaker 50_win_rate_streak5, Streak Breaker
+        85_win_rate_streak5, Streak Breaker 50_win_rate_wokills, Streak Breaker 85_win_rate_wokills,
+      Streak Breaker 50_win_rate_wokillsstreak5, Streak Breaker 85_win_rate_wokillsstreak5,
+      Streak Breaker 50_app_kills, Streak Breaker 85_app_kills, Streak Breaker 50_churn_ingame,
+      Streak Breaker 85_churn_ingame, Streak Breaker 50_churn_ingame_streak5, Streak
+        Breaker 85_churn_ingame_streak5, Streak Breaker 50_churn_between, Streak Breaker
+        85_churn_between, Streak Breaker 50_churn_total, Streak Breaker 85_churn_total,
+      Streak Breaker 50_churn_count, Streak Breaker 85_churn_count, Streak Breaker
+        50_avg_level_play_time, Streak Breaker 85_avg_level_play_time, Streak Breaker
+        50_app_kills_ratio, Streak Breaker 85_app_kills_ratio, Streak Breaker 50_all_extramoves_rate,
+      Streak Breaker 85_all_extramoves_rate, Streak Breaker 50_abs_diff_target_diff_and_eff_diff,
+      Streak Breaker 85_abs_diff_target_diff_and_eff_diff]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -8682,6 +8566,7 @@
       progression.win_rate: Win Rate (wo/extramoves)
       progression.win_rate_streak5: Win Rate (wo/extramoves)(Streak5)
       progression.win_rate_streak8: Win Rate (wo/extramoves)(Streak8)
+      progression.win_rate_streak5_n: Win Rate (wo/extramoves) (Streak 5)
     series_column_widths:
       progression.win_rate: 124
       Streak Breaker Passive_win_count: 156
@@ -8828,6 +8713,8 @@
         align: center
       progression.win_rate_streak8:
         align: center
+      progression.win_rate_streak5_n:
+        align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {steps: 5, constraints: {
@@ -8878,42 +8765,42 @@
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
               max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [progression.win_rate_streak5]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
               max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [progression.win_rate_streak8]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
                 value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [win_rate_streak5]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
                 value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [win_rate_streak8]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
               max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [win_rate_wokillsstreak5]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
               max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [win_rate_wokillsstreak8]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
                 value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [churn_ingame_streak5]},
-      {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
+        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
+          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
                 value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: [churn_ingame_streak8]}]
+        bold: false, italic: false, strikethrough: false, fields: []}]
     series_value_format:
       progression.win_rate:
         name: percent_1
@@ -8924,41 +8811,25 @@
     hidden_pivots:
       Streak Breaker Active5:
         measure_names:
-        - win_rate_streak8
-        - win_rate_wokillsstreak8
-        - progression.win_rate_streak8
-        - churn_ingame_streak8
-        - churn_between_streak8
         - churn_total_streak5
-        - churn_total_streak8
         - churn_between_streak5
       Streak Breaker Active8:
         measure_names:
         - win_rate_streak5
         - win_rate_wokillsstreak5
-        - progression.win_rate_streak5
         - churn_total_streak5
         - churn_ingame_streak5
         - churn_between_streak5
       Streak Breaker Passive:
         measure_names:
         - win_rate_streak5
-        - win_rate_streak8
         - win_rate_wokillsstreak5
-        - win_rate_wokillsstreak8
-        - progression.win_rate_streak8
-        - progression.win_rate_streak5
-        - churn_total_streak8
         - churn_total_streak5
-        - churn_ingame_streak8
         - churn_ingame_streak5
-        - churn_between_streak8
         - churn_between_streak5
     hidden_fields: [uniquestart1, all_extra_moves, target_win_rate, target_diff, eff_diff,
-      mean_attempt, win_count_streak8, total_lose_allstreak5, total_lose_allstreak8,
-      total_start_streak8, total_start_streak5, win_count_streak5, unique_start, time_begin_sec,
-      unique_start_streak5, unique_start_streak8, uniquestart1_streak5, uniquestart1_streak8,
-      churn_between_streak8, churn_total_streak8]
+      mean_attempt, unique_start, time_begin_sec, uniquestart1_streak8, churn_between_streak8,
+      churn_total_streak8]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -8996,15 +8867,15 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Level No: progression.user_level_at
-    row: 117
+    row: 112
     col: 0
     width: 24
-    height: 12
+    height: 13
   filters:
   - name: Installed Date
     title: Installed Date
     type: field_filter
-    default_value: 30 day
+    default_value: after 2025/03/17
     allow_multiple_values: true
     required: false
     ui_config:
@@ -9018,7 +8889,7 @@
   - name: Client Date (only for Engagement)
     title: Client Date (only for Engagement)
     type: field_filter
-    default_value: 30 day
+    default_value: after 2025/03/17
     allow_multiple_values: true
     required: false
     ui_config:
@@ -9058,7 +8929,7 @@
   - name: App Version
     title: App Version
     type: field_filter
-    default_value: 0.3.4
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
@@ -9123,7 +8994,7 @@
   - name: Platform
     title: Platform
     type: field_filter
-    default_value: android
+    default_value: ios
     allow_multiple_values: true
     required: false
     ui_config:
@@ -9136,7 +9007,7 @@
   - name: Level No
     title: Level No
     type: field_filter
-    default_value: ">50"
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
