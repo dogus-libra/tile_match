@@ -576,184 +576,184 @@ view: business {
         end ;;
   }
 
-  dimension: rewarded_ad_reward_coin_amount {
+  dimension: rewards_coin_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_coin_amount ;;
+    sql: ${TABLE}.rewards_coin_amount ;;
   }
 
-  dimension: rewarded_ad_reward_coin_amount_type {
+  dimension: rewards_coin_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_coin_amount_type ;;
+    sql: ${TABLE}.rewards_coin_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_environment_token_amount {
+  dimension: rewards_environment_token_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_environment_token_amount ;;
+    sql: ${TABLE}.rewards_environment_token_amount ;;
   }
 
-  dimension: rewarded_ad_reward_environment_token_amount_type {
+  dimension: rewards_environment_token_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_environment_token_amount_type ;;
+    sql: ${TABLE}.rewards_environment_token_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_event_score_multiplier_amount {
+  dimension: rewards_event_score_multiplier_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_event_score_multiplier_amount ;;
+    sql: ${TABLE}.rewards_event_score_multiplier_amount ;;
   }
 
-  dimension: rewarded_ad_reward_event_score_multiplier_amount_type {
+  dimension: rewards_event_score_multiplier_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_event_score_multiplier_amount_type ;;
+    sql: ${TABLE}.rewards_event_score_multiplier_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_event_token_amount {
+  dimension: rewards_event_token_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_event_token_amount ;;
+    sql: ${TABLE}.rewards_event_token_amount ;;
   }
 
-  dimension: rewarded_ad_reward_event_token_amount_type {
+  dimension: rewards_event_token_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_event_token_amount_type ;;
+    sql: ${TABLE}.rewards_event_token_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_extra_slot_amount {
+  dimension: rewards_extra_slot_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_extra_slot_amount ;;
+    sql: ${TABLE}.rewards_extra_slot_amount ;;
   }
 
-  dimension: rewarded_ad_reward_extra_slot_amount_type {
+  dimension: rewards_extra_slot_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_extra_slot_amount_type ;;
+    sql: ${TABLE}.rewards_extra_slot_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_extra_time_amount {
+  dimension: rewards_extra_time_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_extra_time_amount ;;
+    sql: ${TABLE}.rewards_extra_time_amount ;;
   }
 
-  dimension: rewarded_ad_reward_extra_time_amount_type {
+  dimension: rewards_extra_time_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_extra_time_amount_type ;;
+    sql: ${TABLE}.rewards_extra_time_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_avatar_amount {
+  dimension: rewards_avatar_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_avatar_amount ;;
+    sql: ${TABLE}.rewards_avatar_amount ;;
   }
 
-  dimension: rewarded_ad_reward_avatar_amount_type {
+  dimension: rewards_avatar_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_avatar_amount_type ;;
+    sql: ${TABLE}.rewards_avatar_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_avatar_frame_amount {
+  dimension: rewards_avatar_frame_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_avatar_frame_amount ;;
+    sql: ${TABLE}.rewards_avatar_frame_amount ;;
   }
 
-  dimension: rewarded_ad_reward_avatar_frame_amount_type {
+  dimension: rewards_avatar_frame_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_avatar_frame_amount_type ;;
+    sql: ${TABLE}.rewards_avatar_frame_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_bonus_slot_amount {
+  dimension: rewards_bonus_slot_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_bonus_slot_amount ;;
+    sql: ${TABLE}.rewards_bonus_slot_amount ;;
   }
 
-  dimension: rewarded_ad_reward_bonus_slot_amount_type {
+  dimension: rewards_bonus_slot_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_bonus_slot_amount_type ;;
+    sql: ${TABLE}.rewards_bonus_slot_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_bonus_time_amount {
+  dimension: rewards_bonus_time_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_bonus_time_amount ;;
+    sql: ${TABLE}.rewards_bonus_time_amount ;;
   }
 
-  dimension: rewarded_ad_reward_bonus_time_amount_type {
+  dimension: rewards_bonus_time_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_bonus_time_amount_type ;;
+    sql: ${TABLE}.rewards_bonus_time_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_magic_wand_amount {
+  dimension: rewards_magic_wand_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_magic_wand_amount ;;
+    sql: ${TABLE}.rewards_magic_wand_amount ;;
   }
 
-  dimension: rewarded_ad_reward_magic_wand_amount_type {
+  dimension: rewards_magic_wand_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_magic_wand_amount_type ;;
+    sql: ${TABLE}.rewards_magic_wand_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_magnet_amount {
+  dimension: rewards_magnet_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_magnet_amount ;;
+    sql: ${TABLE}.rewards_magnet_amount ;;
   }
 
-  dimension: rewarded_ad_reward_magnet_amount_type {
+  dimension: rewards_magnet_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_magnet_amount_type ;;
+    sql: ${TABLE}.rewards_magnet_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_shuffle_amount {
+  dimension: rewards_shuffle_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_shuffle_amount ;;
+    sql: ${TABLE}.rewards_shuffle_amount ;;
   }
 
-  dimension: rewarded_ad_reward_shuffle_amount_type {
+  dimension: rewards_shuffle_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_shuffle_amount_type ;;
+    sql: ${TABLE}.rewards_shuffle_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_glove_amount {
+  dimension: rewards_glove_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_glove_amount ;;
+    sql: ${TABLE}.rewards_glove_amount ;;
   }
 
-  dimension: rewarded_ad_reward_glove_amount_type {
+  dimension: rewards_glove_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_glove_amount_type ;;
+    sql: ${TABLE}.rewards_glove_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_life_amount {
+  dimension: rewards_life_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_life_amount ;;
+    sql: ${TABLE}.rewards_life_amount ;;
   }
 
-  dimension: rewarded_ad_reward_life_amount_type {
+  dimension: rewards_life_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_life_amount_type ;;
+    sql: ${TABLE}.rewards_life_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_time_freezer_amount {
+  dimension: rewards_time_freezer_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_time_freezer_amount ;;
+    sql: ${TABLE}.rewards_time_freezer_amount ;;
   }
 
-  dimension: rewarded_ad_reward_time_freezer_amount_type {
+  dimension: rewards_time_freezer_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_time_freezer_amount_type ;;
+    sql: ${TABLE}.rewards_time_freezer_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_toss_amount {
+  dimension: rewards_toss_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_toss_amount ;;
+    sql: ${TABLE}.rewards_toss_amount ;;
   }
 
-  dimension: rewarded_ad_reward_toss_amount_type {
+  dimension: rewards_toss_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_toss_amount_type ;;
+    sql: ${TABLE}.rewards_toss_amount_type ;;
   }
 
-  dimension: rewarded_ad_reward_reward_multiplier_amount {
+  dimension: rewards_reward_multiplier_amount {
     type: number
-    sql: ${TABLE}.rewarded_ad_reward_reward_multiplier_amount ;;
+    sql: ${TABLE}.rewards_reward_multiplier_amount ;;
   }
 
-  dimension: rewarded_ad_reward_reward_multiplier_amount_type {
+  dimension: rewards_reward_multiplier_amount_type {
     type: string
-    sql: ${TABLE}.rewarded_ad_reward_reward_multiplier_amount_type ;;
+    sql: ${TABLE}.rewards_reward_multiplier_amount_type ;;
   }
 
   dimension: calendar_reward_coin_amount {

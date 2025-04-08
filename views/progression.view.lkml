@@ -692,6 +692,11 @@ view: progression {
     sql: ${TABLE}.remain_tile_count ;;
   }
 
+  dimension: streak_breaker {
+    type: yesno
+    sql: ${TABLE}.streak_breaker ;;
+  }
+
   dimension: total_tile_count {
     type: string
     sql: ${TABLE}.total_tile_count ;;
