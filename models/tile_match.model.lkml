@@ -178,3 +178,5 @@ explore: ad_revenue {
     relationship: many_to_one
   }
 }
+
+explore: first_time_payer {}
