@@ -457,6 +457,11 @@ view: goodwill_tile_raw {
     sql:  case when ${TABLE}.event_name = 'af_purchase' then (split_part(split_part(${TABLE}.event_value, 'goodwilltiles.', 2), '.', 1)) end  ;;
   }
 
+  dimension: offer_id {
+    type: string
+    sql:  case when position('Offer' in ${TABLE}.event_value) > 0 THEN split_part(split_part(${TABLE}.event_value, 'Offer_', 2), '\"', 1) else null end ;;
+  }
+
   dimension: receipt_package_price {
     type: string
     sql: case when ${TABLE}.event_name = 'af_purchase' then replace((split_part(split_part(${TABLE}.event_value, '"af_revenue":"', 2), '"', 1)),',','.') end  ;;
