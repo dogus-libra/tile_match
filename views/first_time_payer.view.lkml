@@ -84,6 +84,21 @@ view: first_time_payer {
     sql: ${TABLE}.monetization_network ;;
   }
 
+  dimension: media_source {
+    type: string
+    sql: ${TABLE}.media_source ;;
+  }
+  dimension: network_name {
+    type: string
+    sql:
+        (case
+            when ${TABLE}.media_source in ('Facebook Ads','restricted') then 'facebook'
+            when (${TABLE}.media_source is null or ${TABLE}.media_source in ('Null','organic')) then 'Organic'
+            when ${TABLE}.media_source='applovin_int' then 'applovin'
+            when ${TABLE}.media_source='adjoe_int' then 'adjoe'
+          else ${TABLE}.media_source end) ;;
+  }
+
   dimension: platform {
     type: string
     sql: ${TABLE}.platform ;;

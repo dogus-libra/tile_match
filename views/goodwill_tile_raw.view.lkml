@@ -588,6 +588,17 @@ view: goodwill_tile_raw {
     type: string
     sql: ${TABLE}.monetization_network ;;
   }
+  dimension: network_name {
+    type: string
+    sql:
+              (case
+                  when ${TABLE}.media_source in ('Facebook Ads','restricted') then 'facebook'
+                  when (${TABLE}.media_source is null or ${TABLE}.media_source in ('Null','organic')) then 'Organic'
+                  when ${TABLE}.media_source='applovin_int' then 'applovin'
+                  when ${TABLE}.media_source='adjoe_int' then 'adjoe'
+                else ${TABLE}.media_source end) ;;
+  }
+
   dimension: network_account_id {
     type: string
     sql: ${TABLE}.network_account_id ;;
