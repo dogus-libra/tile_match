@@ -180,3 +180,5 @@ explore: ad_revenue {
 }
 
 explore: first_time_payer {}
+
+explore: inventory_pdt {}
