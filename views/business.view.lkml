@@ -418,6 +418,11 @@ view: business {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.event_timestamp)/24) ;;
+  }
+
   dimension: initial_coin{
     type: number
     sql: case when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 200 then 200
