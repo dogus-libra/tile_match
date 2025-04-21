@@ -2873,4 +2873,67 @@ view: progression {
     value_format: "0%"
   }
 
+  measure: diff_elo_score_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per20 {
+    type: percentile
+    percentile: 20
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per30 {
+    type: percentile
+    percentile: 30
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per40 {
+    type: percentile
+    percentile: 40
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per60 {
+    type: percentile
+    percentile: 60
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per70 {
+    type: percentile
+    percentile: 70
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per80 {
+    type: percentile
+    percentile: 80
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
+  measure: diff_elo_score_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${user_difficulty_elo_score} ;;
+    value_format: "##.00"
+  }
+
 }
