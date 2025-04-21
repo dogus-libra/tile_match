@@ -1024,6 +1024,13 @@ view: live_ops {
           end ;;
   }
 
+  dimension: user_split_test_name_Ads_Android{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%1704_Ads_Passive%' then 'Ads Passive'
+               when ${TABLE}.user_split_test_name like '%1704_Ads_Active%' then 'Ads Active'
+          end ;;
+  }
+
   dimension: user_test_routing_value {
     type: number
     sql: ${TABLE}.user_test_routing_value ;;

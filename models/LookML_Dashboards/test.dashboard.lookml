@@ -1,23 +1,22 @@
 ---
-- dashboard: 55__streak_breaker_50__85_test
-  title: 55 - Streak Breaker 50 - 85 Test
+- dashboard: 56__first_500_ios_test
+  title: 56 - First 500 iOS Test
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: MmNrKvlN2diFFo9nD12oEi
+  preferred_slug: zObUPgOM7yH4zmWOry5o2N
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
-      level_5_reach_count, level_10_reach_count, level_20_reach_count, level_30_reach_count,
-      level_50_reach_count, level_100_reach_count]
+    fields: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_count,
+      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
+      level_100_reach_count]
     filters:
-      progression.installed_date: 30 days
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+      progression.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -217,12 +216,12 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       level_5_reach_rate:
         align: center
@@ -314,10 +313,9 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Store_Cheap_Expensive: 263
+      progression.user_split_test_name_Ads_Android: 263
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -325,7 +323,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 78
     col: 0
     width: 24
@@ -335,13 +333,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
-      level_5_reach_count, level_10_reach_count, level_20_reach_count, level_30_reach_count,
-      level_50_reach_count, level_100_reach_count, level_150_reach_count]
+    fields: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_count,
+      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
+      level_100_reach_count, level_150_reach_count]
     filters:
-      progression.installed_date: 30 days
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+      progression.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -565,21 +562,21 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Store_Cheap_Expensive, player_count,
-      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
-      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
-      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_rate,
+      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
+      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
+      level_100_level_5, level_50_level_10, level_100_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       level_5_reach_rate:
         align: center
@@ -682,10 +679,9 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Store_Cheap_Expensive: 280
+      progression.user_split_test_name_Ads_Android: 280
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -693,7 +689,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 82
     col: 0
     width: 24
@@ -704,13 +700,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+      engagement_pdt.user_split_test_name_Ads_Android]
+    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -771,9 +767,8 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       average_of_sessioncount, mov_avg_of_avg_play_time]
     listen:
-      Client Date (only for Engagement): engagement_pdt.client_date
-      Platform: engagement_pdt.user_platform
-      Installed Date: engagement_pdt.installed_date
+      Client Time: engagement_pdt.client_time
+      Installed Time: users_pdt.installed_time
       Country: engagement_pdt.country
       Country (Tier): engagement_pdt.country_tier
       App Version: engagement_pdt.app_version
@@ -781,7 +776,7 @@
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Level No: engagement_pdt.user_level_at
+      Platform: engagement_pdt.user_platform
     row: 86
     col: 0
     width: 8
@@ -792,13 +787,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+      engagement_pdt.user_split_test_name_Ads_Android]
+    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -850,9 +845,8 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       average_of_playtime]
     listen:
-      Client Date (only for Engagement): engagement_pdt.client_date
-      Platform: engagement_pdt.user_platform
-      Installed Date: engagement_pdt.installed_date
+      Client Time: engagement_pdt.client_time
+      Installed Time: users_pdt.installed_time
       Country: engagement_pdt.country
       Country (Tier): engagement_pdt.country_tier
       App Version: engagement_pdt.app_version
@@ -860,7 +854,7 @@
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Level No: engagement_pdt.user_level_at
+      Platform: engagement_pdt.user_platform
     row: 86
     col: 8
     width: 8
@@ -870,14 +864,13 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [session_pdt.user_split_test_name_Store_Cheap_Expensive]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Ads_Android]
+    pivots: [session_pdt.user_split_test_name_Ads_Android]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Store_Cheap_Expensive, session_pdt.client_date
-        desc]
+      session_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Ads_Android, session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -928,9 +921,8 @@
     defaults_version: 1
     hidden_fields: [moving_avg_of_avg_session_time]
     listen:
-      Client Date (only for Engagement): session_pdt.client_date
-      Platform: session_pdt.user_platform
-      Installed Date: session_pdt.installed_date
+      Client Time: session_pdt.client_time
+      Installed Time: session_pdt.installed_time
       Country: session_pdt.country
       Country (Tier): session_pdt.country_tier
       App Version: session_pdt.app_version
@@ -938,7 +930,7 @@
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
-      Level No: session_pdt.user_level_at
+      Platform: session_pdt.user_platform
     row: 86
     col: 16
     width: 8
@@ -949,13 +941,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Ads_Android]
+    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1033,9 +1025,8 @@
       mov_avg_of_per90_playtime, engagement_pdt.per25playtime, mov_avg_of_per25_playtime,
       mov_avg_of_median_playtime]
     listen:
-      Client Date (only for Engagement): engagement_pdt.client_date
-      Platform: engagement_pdt.user_platform
-      Installed Date: engagement_pdt.installed_date
+      Client Time: engagement_pdt.client_time
+      Installed Time: users_pdt.installed_time
       Country: engagement_pdt.country
       Country (Tier): engagement_pdt.country_tier
       App Version: engagement_pdt.app_version
@@ -1043,7 +1034,7 @@
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Level No: engagement_pdt.user_level_at
+      Platform: engagement_pdt.user_platform
     row: 93
     col: 0
     width: 8
@@ -1054,13 +1045,13 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Ads_Android]
+    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
     fill_fields: [engagement_pdt.client_date]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Store_Cheap_Expensive, engagement_pdt.client_date
+      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
         desc]
     limit: 500
     column_limit: 50
@@ -1105,9 +1096,8 @@
     hidden_fields: [mov_avg_of_per25_playtime, mov_avg_of_median_playtime, mov_avg_of_per75_playtime,
       engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.per25sessioncount]
     listen:
-      Client Date (only for Engagement): engagement_pdt.client_date
-      Platform: engagement_pdt.user_platform
-      Installed Date: engagement_pdt.installed_date
+      Client Time: engagement_pdt.client_time
+      Installed Time: users_pdt.installed_time
       Country: engagement_pdt.country
       Country (Tier): engagement_pdt.country_tier
       App Version: engagement_pdt.app_version
@@ -1115,7 +1105,7 @@
       Campaign: engagement_pdt.campaign
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
-      Level No: engagement_pdt.user_level_at
+      Platform: engagement_pdt.user_platform
     row: 93
     col: 8
     width: 8
@@ -1126,14 +1116,13 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [session_pdt.user_split_test_name_Store_Cheap_Expensive]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Ads_Android]
+    pivots: [session_pdt.user_split_test_name_Ads_Android]
     fill_fields: [session_pdt.client_date]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Store_Cheap_Expensive, session_pdt.client_date
-        desc]
+      session_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [session_pdt.user_split_test_name_Ads_Android, session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1203,9 +1192,8 @@
       moving_avg_of_per90_session_time, session_pdt.per25sessiontime, moving_avg_of_per25_session_time,
       moving_avg_of_per50_session_time]
     listen:
-      Client Date (only for Engagement): session_pdt.client_date
-      Platform: session_pdt.user_platform
-      Installed Date: session_pdt.installed_date
+      Client Time: session_pdt.client_time
+      Installed Time: session_pdt.installed_time
       Country: session_pdt.country
       Country (Tier): session_pdt.country_tier
       App Version: session_pdt.app_version
@@ -1213,7 +1201,7 @@
       Campaign: session_pdt.campaign
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
-      Level No: session_pdt.user_level_at
+      Platform: session_pdt.user_platform
     row: 93
     col: 16
     width: 8
@@ -1223,12 +1211,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1285,7 +1272,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -1293,7 +1280,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -1326,8 +1313,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -1335,6 +1321,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 100
     col: 0
     width: 8
@@ -1346,12 +1333,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1622,7 +1608,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -1715,8 +1701,7 @@
     series_column_widths:
       users_pdt.installed_date: 147
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -1724,7 +1709,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 23
     col: 0
     width: 24
@@ -1735,14 +1720,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_week
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2013,8 +1997,8 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      session_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      session_pdt.user_split_test_name_Ads_Android: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
       users_pdt.installed_week: 151
     series_cell_visualizations:
@@ -2107,8 +2091,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -2116,7 +2099,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 31
     col: 0
     width: 24
@@ -2127,10 +2110,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2401,7 +2384,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2422,7 +2405,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Store_Cheap_Expensive:
+      users_pdt.user_split_test_name_Ads_Android:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2492,10 +2475,9 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: 256
+      users_pdt.user_split_test_name_Ads_Android: 256
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -2503,7 +2485,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 20
     col: 0
     width: 24
@@ -2514,12 +2496,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, ret_1 desc 0]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, ret_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2790,7 +2772,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -2811,7 +2793,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Store_Cheap_Expensive:
+      users_pdt.user_split_test_name_Ads_Android:
         align: center
       users_pdt.app_version:
         align: center
@@ -2883,8 +2865,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -2892,7 +2873,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 39
     col: 0
     width: 24
@@ -2904,12 +2885,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      ret_14, users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3194,7 +3174,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -3304,8 +3284,7 @@
     series_column_widths:
       users_pdt.installed_date: 142
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -3313,7 +3292,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 47
     col: 0
     width: 24
@@ -3324,14 +3303,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
       users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     fill_fields: [users_pdt.installed_week]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_week
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3616,7 +3594,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
       users_pdt.installed_week: 147
     series_cell_visualizations:
@@ -3726,8 +3704,7 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -3735,7 +3712,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 55
     col: 0
     width: 24
@@ -3746,12 +3723,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive,
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
       users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, ret_1_1 desc 0]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, ret_1_1 desc 0]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4036,7 +4013,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4144,8 +4121,7 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -4153,7 +4129,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 63
     col: 0
     width: 24
@@ -4164,10 +4140,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4452,9 +4428,9 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: Test Group
+      users_pdt.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: 279
+      users_pdt.user_split_test_name_Ads_Android: 279
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4487,7 +4463,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Store_Cheap_Expensive:
+      users_pdt.user_split_test_name_Ads_Android:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4562,8 +4538,7 @@
     totals_color: "#808080"
     hidden_series: [retention_7, retention_5, retention_4]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -4571,7 +4546,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 44
     col: 0
     width: 24
@@ -4583,14 +4558,14 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      users_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
       progression.install_day_of_user: ''
       progression.event_version: 1.0.2
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
     sorts: [progression.user_level_at]
     limit: 500
     column_limit: 50
@@ -4903,9 +4878,7 @@
         - churn_ingame, SimplifiedElements - churn_between, SimplifiedElements - churn_ingame,
       DefaultElements - churn_between]
     listen:
-      Client Date (only for Engagement): progression.event_timestamp_date
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -4913,7 +4886,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 68
     col: 0
     width: 24
@@ -4927,12 +4900,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5373,8 +5345,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -5382,7 +5353,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 3
     col: 0
     width: 24
@@ -5396,12 +5367,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, users_pdt.installed_date
-        desc]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5842,8 +5812,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -5851,7 +5820,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 13
     col: 0
     width: 24
@@ -5865,10 +5834,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      new_users, users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6257,7 +6226,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Store_Cheap_Expensive:
+      users_pdt.user_split_test_name_Ads_Android:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6309,8 +6278,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -6318,7 +6286,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 0
     col: 0
     width: 24
@@ -6332,10 +6300,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      new_users, users_pdt.user_split_test_name_Ads_Android]
     filters:
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+    sorts: [users_pdt.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6724,7 +6692,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Store_Cheap_Expensive:
+      users_pdt.user_split_test_name_Ads_Android:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6776,8 +6744,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -6785,7 +6752,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 10
     col: 0
     width: 24
@@ -6795,12 +6762,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[11,20]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6857,7 +6823,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -6865,7 +6831,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -6898,8 +6864,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -6907,6 +6872,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 100
     col: 8
     width: 8
@@ -6916,12 +6882,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[21,30]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6978,7 +6943,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -6986,7 +6951,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7019,8 +6984,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7028,6 +6992,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 100
     col: 16
     width: 8
@@ -7037,12 +7002,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[31,50]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7099,7 +7063,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7107,7 +7071,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7140,8 +7104,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7149,6 +7112,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 103
     col: 0
     width: 8
@@ -7158,12 +7122,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[51,75]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7220,7 +7183,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7228,7 +7191,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7261,8 +7224,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7270,6 +7232,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 103
     col: 8
     width: 8
@@ -7279,12 +7242,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[76,100]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7341,7 +7303,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7349,7 +7311,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7382,8 +7344,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7391,6 +7352,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 103
     col: 16
     width: 8
@@ -7400,12 +7362,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[126,150]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7462,7 +7423,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7470,7 +7431,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7503,8 +7464,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7512,6 +7472,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 106
     col: 8
     width: 8
@@ -7521,12 +7482,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[101,125]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7583,7 +7543,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7591,7 +7551,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7624,8 +7584,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7633,6 +7592,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 106
     col: 0
     width: 8
@@ -7642,12 +7602,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[151,200]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7704,7 +7663,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7712,7 +7671,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7745,8 +7704,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7754,6 +7712,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 106
     col: 16
     width: 8
@@ -7763,12 +7722,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[301,400]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7825,7 +7783,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7833,7 +7791,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7866,8 +7824,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7875,6 +7832,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 109
     col: 8
     width: 8
@@ -7884,12 +7842,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[201,300]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7946,7 +7903,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -7954,7 +7911,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -7987,8 +7944,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -7996,6 +7952,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 109
     col: 0
     width: 8
@@ -8005,12 +7962,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Store_Cheap_Expensive, win_count, fail_count,
-      progression.win_rate]
+    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
     filters:
-      progression.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[401,500]"
-    sorts: [progression.user_split_test_name_Store_Cheap_Expensive]
+    sorts: [progression.user_split_test_name_Ads_Android]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8067,7 +8023,7 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      progression.user_split_test_name_Store_Cheap_Expensive: Test Group
+      progression.user_split_test_name_Ads_Android: Test Group
       progression.win_rate: Win Rate (wo/extramoves)
     series_cell_visualizations:
       win_rate:
@@ -8075,7 +8031,7 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Store_Cheap_Expensive:
+      progression.user_split_test_name_Ads_Android:
         align: center
       win_rate:
         align: center
@@ -8108,8 +8064,7 @@
     defaults_version: 1
     hidden_fields: [win_count, fail_count]
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -8117,6 +8072,7 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
+      Platform: users_pdt.user_platform
     row: 109
     col: 16
     width: 8
@@ -8126,26 +8082,188 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_level_at, unique_start, total_start, total_lose_time,
-      total_lose_zone, total_lose_quit, total_lose_all, avg_remaining_time_sec, time_begin_sec,
-      progression.win_rate, all_extra_moves, users_pdt.user_split_test_name_Store_Cheap_Expensive,
-      target_win_rate, mean_attempt, win_count]
-    pivots: [users_pdt.user_split_test_name_Store_Cheap_Expensive]
+    fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
+      total_lose_zone, total_lose_quit, lose_count_all, avg_remaining_time_sec, time_begin_sec,
+      progression.win_rate, all_extra_moves, avg_level_play_time, target_win_rate,
+      mean_attempt, extramove_player, users_pdt.user_split_test_name_Ads_Android]
+    pivots: [users_pdt.user_split_test_name_Ads_Android]
     filters:
-      progression.installed_date: 30 days
-      progression.install_day_of_user: ''
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
       progression.connection_type: not 2
       progression.user_win_streak_group: ''
-      users_pdt.user_split_test_name_Store_Cheap_Expensive: "-NULL"
+      progression.app_version: ''
       progression.user_balance_version: ''
-      progression.event_timestamp_date: 30 days
-    sorts: [users_pdt.user_split_test_name_Store_Cheap_Expensive, win_rate_wokills
-        desc 1]
-    limit: 500
+      progression.user_game_mode: Normal
+      progression.user_platform: ''
+      progression.user_split_test_name_Streak_Breaker: ''
+      progression.user_win_streak_count: ''
+      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+      progression.user_level_at: "[1,1000]"
+    sorts: [users_pdt.user_split_test_name_Ads_Android, progression.user_level_at]
+    limit: 5000
     column_limit: 50
     dynamic_fields:
+    - category: table_calculation
+      expression: "${win_count}/${total_start}"
+      label: Win Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${win_count}/(${lose_count_all}+${win_count})"
+      label: Win Rate (wo/kills)
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: win_rate_wokills
+      _type_hint: number
+    - category: table_calculation
+      expression: "${total_start}-${win_count}-${lose_count_all}"
+      label: App Kills
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: app_kills
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start}-${win_count})/${unique_start}"
+      label: Churn InGame
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_ingame
+      _type_hint: number
+    - category: table_calculation
+      expression: offset(${unique_start},1)
+      label: UniqueStart1
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: uniquestart1
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${win_count}-${uniquestart1})/${win_count}"
+      label: Churn Between
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_between
+      _type_hint: number
+    - category: table_calculation
+      expression: "(${unique_start}-${uniquestart1})/${unique_start}"
+      label: Churn Total
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: churn_total
+      _type_hint: number
+    - category: table_calculation
+      expression: "${churn_total}*${unique_start}"
+      label: Churn Count
+      value_format:
+      value_format_name: decimal_0
+      _kind_hint: measure
+      table_calculation: churn_count
+      _type_hint: number
+    - category: table_calculation
+      expression: "${app_kills} /${total_start}"
+      label: App Kills Ratio
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: app_kills_ratio
+      _type_hint: number
+    - category: table_calculation
+      expression: "${all_extra_moves} / ${win_count}"
+      label: All ExtraMoves Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: all_extramoves_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${extramove_player} / ${win_count}"
+      label: ExtraMoves Player Rate
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: extramoves_player_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${total_lose_time}/${lose_count_all}"
+      label: Time Lose Perc
+      value_format:
+      value_format_name: percent_0
+      _kind_hint: measure
+      table_calculation: time_lose_perc
+      _type_hint: number
+    - category: table_calculation
+      expression: "${total_lose_zone}/${lose_count_all}"
+      label: Zone Lose Perc
+      value_format:
+      value_format_name: percent_0
+      _kind_hint: measure
+      table_calculation: zone_lose_perc
+      _type_hint: number
+    - category: table_calculation
+      expression: "${total_lose_quit}/${lose_count_all}"
+      label: Quit Lose Perc
+      value_format:
+      value_format_name: percent_0
+      _kind_hint: measure
+      table_calculation: quit_lose_perc
+      _type_hint: number
+    - category: table_calculation
+      expression: concat(${total_lose_time}," ","(",round(${time_lose_perc}*100,0),"%",")")
+      label: Lose Count (Time)
+      value_format:
+      value_format_name: ''
+      _kind_hint: measure
+      table_calculation: lose_count_time
+      _type_hint: string
+    - category: table_calculation
+      expression: concat(${total_lose_zone}," ","(",round(${zone_lose_perc}*100,0),"%",")")
+      label: Lose Count (Zone)
+      value_format:
+      value_format_name: ''
+      _kind_hint: measure
+      table_calculation: lose_count_zone
+      _type_hint: string
+    - category: table_calculation
+      expression: concat(${total_lose_quit}," ","(",round(${quit_lose_perc}*100,0),"%",")")
+      label: Lose Count (Quit)
+      value_format:
+      value_format_name: ''
+      _kind_hint: measure
+      table_calculation: lose_count_quit
+      _type_hint: string
+    - category: table_calculation
+      expression: 1/${target_win_rate}
+      label: Target Diff
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: target_diff
+      _type_hint: number
+    - category: table_calculation
+      expression: "(1/${progression.win_rate})*0.75 + (${mean_attempt})*0.25"
+      label: Eff Diff
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: eff_diff
+      _type_hint: number
+    - category: table_calculation
+      expression: abs(${target_diff}-${eff_diff})/${target_diff}
+      label: Abs Diff Target Diff and Eff Diff
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: abs_diff_target_diff_and_eff_diff
+      _type_hint: number
     - category: measure
       expression:
       label: Total Start
@@ -8211,93 +8329,28 @@
         progression.fail_type: Quit
     - category: measure
       expression:
-      label: Total Lose (All)
+      label: Lose Count (All)
       value_format:
       value_format_name:
       based_on: progression.count
       _kind_hint: measure
-      measure: total_lose_all
+      measure: lose_count_all
       type: count
       _type_hint: number
       filters:
         progression.event_name: LevelFailed
     - category: measure
       expression:
-      label: Win Count (Streak5)
+      label: Win Count
       value_format:
       value_format_name:
       based_on: progression.advertising_id
       _kind_hint: measure
-      measure: win_count_streak5
+      measure: win_count
       type: count_distinct
       _type_hint: number
       filters:
         progression.event_name: LevelCompleted
-        progression.user_win_streak_count: ">=5"
-    - category: table_calculation
-      expression: "${win_count}/${total_start}"
-      label: Win Rate
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate
-      _type_hint: number
-    - category: table_calculation
-      expression: "${win_count}/(${total_lose_all}+${win_count})"
-      label: Win Rate (wo/kills)
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate_wokills
-      _type_hint: number
-    - category: table_calculation
-      expression: "${total_start}-${win_count}-${total_lose_all}"
-      label: App Kills
-      value_format:
-      value_format_name:
-      _kind_hint: measure
-      table_calculation: app_kills
-      _type_hint: number
-    - category: table_calculation
-      expression: "(${unique_start}-${win_count})/${unique_start}"
-      label: Churn InGame
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_ingame
-      _type_hint: number
-    - category: table_calculation
-      expression: offset(${unique_start},1)
-      label: UniqueStart1
-      value_format:
-      value_format_name:
-      _kind_hint: measure
-      table_calculation: uniquestart1
-      _type_hint: number
-    - category: table_calculation
-      expression: "(${win_count}-${uniquestart1})/${win_count}"
-      label: Churn Between
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_between
-      _type_hint: number
-    - category: table_calculation
-      expression: "(${unique_start}-${uniquestart1})/${unique_start}"
-      label: Churn Total
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_total
-      _type_hint: number
-    - category: table_calculation
-      expression: "${churn_total}*${unique_start}"
-      label: Churn Count
-      value_format:
-      value_format_name: decimal_0
-      _kind_hint: measure
-      table_calculation: churn_count
-      _type_hint: number
     - category: measure
       expression: ''
       label: Avg Remaining Time (sec)
@@ -8317,22 +8370,6 @@
       _kind_hint: measure
       measure: time_begin_sec
       type: average
-      _type_hint: number
-    - category: table_calculation
-      expression: "${time_begin_sec} - ${avg_remaining_time_sec}"
-      label: Avg Level Play Time
-      value_format:
-      value_format_name: decimal_1
-      _kind_hint: measure
-      table_calculation: avg_level_play_time
-      _type_hint: number
-    - category: table_calculation
-      expression: "${app_kills} /${total_start}"
-      label: App Kills Ratio
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: app_kills_ratio
       _type_hint: number
     - category: measure
       expression: ''
@@ -8356,19 +8393,19 @@
       _type_hint: number
       filters:
         progression.extra_move_count: ">=1"
-    - category: table_calculation
-      expression: "${all_extra_moves} / ${win_count}"
-      label: All ExtraMoves Rate
+    - category: measure
+      expression: ''
+      label: Avg Level Play Time
       value_format:
-      value_format_name: percent_1
+      value_format_name: decimal_1
+      based_on: progression.level_play_time
       _kind_hint: measure
-      table_calculation: all_extramoves_rate
+      measure: avg_level_play_time
+      type: average
       _type_hint: number
     - category: measure
-      expression:
+      expression: ''
       label: Target Win Rate
-      value_format:
-      value_format_name:
       based_on: progression.target_win_rate
       _kind_hint: measure
       measure: target_win_rate
@@ -8376,148 +8413,29 @@
       _type_hint: number
       filters:
         progression.event_name: LevelCompleted
-    - category: table_calculation
-      expression: 1/${target_win_rate}
-      label: Target Diff
-      value_format:
-      value_format_name: decimal_2
-      _kind_hint: measure
-      table_calculation: target_diff
-      _type_hint: number
-    - category: table_calculation
-      expression: "(1/${progression.win_rate})*0.75 + (${mean_attempt})*0.25"
-      label: Eff Diff
-      value_format:
-      value_format_name: decimal_2
-      _kind_hint: measure
-      table_calculation: eff_diff
-      _type_hint: number
     - category: measure
-      expression:
+      expression: ''
       label: Mean Attempt
-      value_format:
-      value_format_name:
       based_on: progression.user_total_attempt_at_current_lvl
       _kind_hint: measure
       measure: mean_attempt
       type: average
       _type_hint: number
       filters:
-        progression.event_name: LevelCompleted
         progression.user_total_attempt_at_current_lvl: "<=20"
-    - category: table_calculation
-      expression: abs(${target_diff}-${eff_diff})/${target_diff}
-      label: Abs Diff Target Diff and Eff Diff
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: abs_diff_target_diff_and_eff_diff
-      _type_hint: number
-    - category: measure
-      expression:
-      label: Win Count
-      value_format:
-      value_format_name:
-      based_on: progression.advertising_id
-      _kind_hint: measure
-      measure: win_count
-      type: count_distinct
-      _type_hint: number
-      filters:
         progression.event_name: LevelCompleted
     - category: measure
       expression:
-      label: Total Start (Streak5)
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: total_start_streak5
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelStarted
-        progression.user_win_streak_count: ">=5"
-    - category: table_calculation
-      expression: "${win_count_streak5}/${total_start_streak5}"
-      label: Win Rate (Streak5)
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate_streak5
-      _type_hint: number
-      is_disabled: true
-    - category: measure
-      expression:
-      label: Total Lose (All)(Streak5)
-      value_format:
-      value_format_name:
-      based_on: progression.count
-      _kind_hint: measure
-      measure: total_lose_allstreak5
-      type: count
-      _type_hint: number
-      filters:
-        progression.event_name: LevelFailed
-        progression.user_win_streak_count: ">=5"
-    - category: table_calculation
-      expression: "${win_count_streak5}/(${total_lose_allstreak5}+${win_count_streak5})"
-      label: Win Rate (wo/kills)(Streak5)
-      value_format:
-      value_format_name: percent_1
-      _kind_hint: measure
-      table_calculation: win_rate_wokillsstreak5
-      _type_hint: number
-      is_disabled: true
-    - category: measure
-      expression:
-      label: Unique Start (Streak5)
+      label: ExtraMove Player
       value_format:
       value_format_name:
       based_on: progression.advertising_id
       _kind_hint: measure
-      measure: unique_start_streak5
+      measure: extramove_player
       type: count_distinct
       _type_hint: number
       filters:
-        progression.event_name: LevelStarted
-        progression.user_win_streak_count: ">=5"
-    - category: table_calculation
-      expression: offset(${unique_start_streak5},1)
-      label: UniqueStart1 (Streak5)
-      value_format:
-      value_format_name:
-      _kind_hint: measure
-      table_calculation: uniquestart1_streak5
-      _type_hint: number
-      is_disabled: true
-    - category: table_calculation
-      expression: "(${win_count_streak5}-${uniquestart1_streak5})/${win_count_streak5}"
-      label: Churn Between (Streak5)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_between_streak5
-      _type_hint: number
-      is_disabled: true
-    - category: table_calculation
-      expression: "(${unique_start_streak5}-${win_count_streak5})/${unique_start_streak5}"
-      label: Churn InGame (Streak5)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_ingame_streak5
-      _type_hint: number
-      is_disabled: true
-    - category: table_calculation
-      expression: "(${unique_start_streak5}-${uniquestart1_streak5})/${unique_start_streak5}"
-      label: Churn Total (Streak5)
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      table_calculation: churn_total_streak5
-      _type_hint: number
-      is_disabled: true
+        progression.extra_move_count: ">=1"
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -8536,27 +8454,25 @@
     show_sql_query_menu_options: false
     pinned_columns:
       progression.user_level_at: left
-    column_order: [progression.user_level_at, Streak Breaker 50_total_start, Streak
-        Breaker 85_total_start, Streak Breaker 50_win_count, Streak Breaker 85_win_count,
-      Streak Breaker 50_total_lose_time, Streak Breaker 85_total_lose_time, Streak
-        Breaker 50_total_lose_zone, Streak Breaker 85_total_lose_zone, Streak Breaker
-        50_total_lose_quit, Streak Breaker 85_total_lose_quit, Streak Breaker 50_total_lose_all,
-      Streak Breaker 85_total_lose_all, Streak Breaker 50_avg_remaining_time_sec,
-      Streak Breaker 85_avg_remaining_time_sec, Streak Breaker 50_progression.win_rate,
-      Streak Breaker 85_progression.win_rate, Streak Breaker 50_progression.win_rate_streak5_n,
-      Streak Breaker 85_progression.win_rate_streak5_n, Streak Breaker 50_win_rate,
-      Streak Breaker 85_win_rate, Streak Breaker 50_win_rate_streak5, Streak Breaker
-        85_win_rate_streak5, Streak Breaker 50_win_rate_wokills, Streak Breaker 85_win_rate_wokills,
-      Streak Breaker 50_win_rate_wokillsstreak5, Streak Breaker 85_win_rate_wokillsstreak5,
-      Streak Breaker 50_app_kills, Streak Breaker 85_app_kills, Streak Breaker 50_churn_ingame,
-      Streak Breaker 85_churn_ingame, Streak Breaker 50_churn_ingame_streak5, Streak
-        Breaker 85_churn_ingame_streak5, Streak Breaker 50_churn_between, Streak Breaker
-        85_churn_between, Streak Breaker 50_churn_total, Streak Breaker 85_churn_total,
-      Streak Breaker 50_churn_count, Streak Breaker 85_churn_count, Streak Breaker
-        50_avg_level_play_time, Streak Breaker 85_avg_level_play_time, Streak Breaker
-        50_app_kills_ratio, Streak Breaker 85_app_kills_ratio, Streak Breaker 50_all_extramoves_rate,
-      Streak Breaker 85_all_extramoves_rate, Streak Breaker 50_abs_diff_target_diff_and_eff_diff,
-      Streak Breaker 85_abs_diff_target_diff_and_eff_diff]
+    column_order: [progression.user_level_at, First 500 Default_unique_start, First
+        500 Variant_unique_start, First 500 Default_total_start, First 500 Variant_total_start,
+      First 500 Default_win_count, First 500 Variant_win_count, First 500 Default_lose_count_time,
+      First 500 Variant_lose_count_time, First 500 Default_lose_count_zone, First
+        500 Variant_lose_count_zone, First 500 Default_lose_count_quit, First 500
+        Variant_lose_count_quit, First 500 Default_lose_count_all, First 500 Variant_lose_count_all,
+      First 500 Default_app_kills, First 500 Variant_app_kills, First 500 Default_app_kills_ratio,
+      First 500 Variant_app_kills_ratio, First 500 Default_progression.win_rate, First
+        500 Variant_progression.win_rate, First 500 Default_win_rate_wokills, First
+        500 Variant_win_rate_wokills, First 500 Default_win_rate, First 500 Variant_win_rate,
+      First 500 Default_churn_ingame, First 500 Variant_churn_ingame, First 500 Default_churn_between,
+      First 500 Variant_churn_between, First 500 Default_churn_total, First 500 Variant_churn_total,
+      First 500 Default_churn_count, First 500 Variant_churn_count, First 500 Default_all_extramoves_rate,
+      First 500 Variant_all_extramoves_rate, First 500 Default_extramoves_player_rate,
+      First 500 Variant_extramoves_player_rate, First 500 Default_avg_level_play_time,
+      First 500 Variant_avg_level_play_time, First 500 Default_time_begin_sec, First
+        500 Variant_time_begin_sec, First 500 Default_target_diff, First 500 Variant_target_diff,
+      First 500 Default_eff_diff, First 500 Variant_eff_diff, First 500 Default_abs_diff_target_diff_and_eff_diff,
+      First 500 Variant_abs_diff_target_diff_and_eff_diff]
     show_totals: true
     show_row_totals: true
     truncate_header: false
@@ -8564,79 +8480,8 @@
     series_labels:
       progression.user_level_at: Level No
       progression.win_rate: Win Rate (wo/extramoves)
-      progression.win_rate_streak5: Win Rate (wo/extramoves)(Streak5)
-      progression.win_rate_streak8: Win Rate (wo/extramoves)(Streak8)
-      progression.win_rate_streak5_n: Win Rate (wo/extramoves) (Streak 5)
     series_column_widths:
       progression.win_rate: 124
-      Streak Breaker Passive_win_count: 156
-      progression.user_level_at: 83
-      Streak Breaker Active5_unique_start: 154
-      Streak Breaker Active5_total_start: 92
-      Streak Breaker Active5_total_lose_time: 152
-      Streak Breaker Active5_total_lose_zone: 130
-      Streak Breaker Active5_total_lose_quit: 125
-      Streak Breaker Active5_total_lose_all: 117
-      Streak Breaker Active5_avg_remaining_time_sec: 177
-      Streak Breaker Active5_time_begin_sec: 127
-      Streak Breaker Active5_progression.win_rate: 178
-      Streak Breaker Active5_win_count: 154
-      Streak Breaker Active5_win_rate: 149
-      Streak Breaker Active5_win_rate_wokills: 137
-      Streak Breaker Active5_app_kills: 83
-      Streak Breaker Active5_churn_ingame: 113
-      Streak Breaker Active5_churn_between: 118
-      Streak Breaker Active5_churn_total: 97
-      Streak Breaker Active5_churn_count: 103
-      Streak Breaker Active5_avg_level_play_time: 143
-      Streak Breaker Active5_app_kills_ratio: 114
-      Streak Breaker Active5_all_extramoves_rate: 144
-      Streak Breaker Active5_abs_diff_target_diff_and_eff_diff: 202
-      Streak Breaker Active5_win_rate_streak5: 136
-      Streak Breaker Active5_win_rate_wokillsstreak5: 187
-      Streak Breaker Active8_unique_start: 154
-      Streak Breaker Active8_total_start: 159
-      Streak Breaker Active8_total_lose_time: 148
-      Streak Breaker Active8_total_lose_zone: 130
-      Streak Breaker Active8_total_lose_quit: 125
-      Streak Breaker Active8_total_lose_all: 117
-      Streak Breaker Active8_avg_remaining_time_sec: 177
-      Streak Breaker Active8_time_begin_sec: 127
-      Streak Breaker Active8_progression.win_rate: 178
-      Streak Breaker Active8_win_count: 154
-      Streak Breaker Active8_win_rate: 154
-      Streak Breaker Active8_win_rate_wokills: 137
-      Streak Breaker Active8_app_kills: 150
-      Streak Breaker Active8_churn_ingame: 113
-      Streak Breaker Active8_churn_between: 151
-      Streak Breaker Active8_churn_total: 144
-      Streak Breaker Active8_churn_count: 103
-      Streak Breaker Active8_avg_level_play_time: 143
-      Streak Breaker Active8_app_kills_ratio: 114
-      Streak Breaker Active8_all_extramoves_rate: 144
-      Streak Breaker Active8_abs_diff_target_diff_and_eff_diff: 202
-      Streak Breaker Active8_win_rate_streak8: 136
-      Streak Breaker Active8_win_rate_wokillsstreak8: 187
-      Streak Breaker Passive_unique_start: 156
-      Streak Breaker Passive_total_start: 167
-      Streak Breaker Passive_total_lose_time: 130
-      Streak Breaker Passive_total_lose_zone: 130
-      Streak Breaker Passive_total_lose_quit: 125
-      Streak Breaker Passive_total_lose_all: 117
-      Streak Breaker Passive_avg_remaining_time_sec: 177
-      Streak Breaker Passive_time_begin_sec: 127
-      Streak Breaker Passive_progression.win_rate: 178
-      Streak Breaker Passive_win_rate: 144
-      Streak Breaker Passive_win_rate_wokills: 137
-      Streak Breaker Passive_app_kills: 83
-      Streak Breaker Passive_churn_ingame: 113
-      Streak Breaker Passive_churn_between: 118
-      Streak Breaker Passive_churn_total: 97
-      Streak Breaker Passive_churn_count: 103
-      Streak Breaker Passive_avg_level_play_time: 143
-      Streak Breaker Passive_app_kills_ratio: 114
-      Streak Breaker Passive_all_extramoves_rate: 144
-      Streak Breaker Passive_abs_diff_target_diff_and_eff_diff: 202
     series_cell_visualizations:
       unique_start:
         is_active: false
@@ -8652,8 +8497,6 @@
       total_lose_zone:
         align: center
       win_rate:
-        align: center
-      total_lose_all:
         align: center
       win_rate_wkills:
         align: center
@@ -8687,33 +8530,23 @@
         align: center
       all_extramoves_rate:
         align: center
+      lose_count_time:
+        align: center
+      lose_count_zone:
+        align: center
+      lose_count_quit:
+        align: center
+      lose_count_all:
+        align: center
+      target_difficulty:
+        align: center
+      eff_diff:
+        align: center
       abs_diff_target_diff_and_eff_diff:
         align: center
-      churn_total_streak8:
+      target_diff:
         align: center
-      churn_total_streak5:
-        align: center
-      churn_ingame_streak8:
-        align: center
-      churn_ingame_streak5:
-        align: center
-      churn_between_streak8:
-        align: center
-      churn_between_streak5:
-        align: center
-      win_rate_wokillsstreak8:
-        align: center
-      win_rate_wokillsstreak5:
-        align: center
-      win_rate_streak8:
-        align: center
-      win_rate_streak5:
-        align: center
-      progression.win_rate_streak5:
-        align: center
-      progression.win_rate_streak8:
-        align: center
-      progression.win_rate_streak5_n:
+      extramoves_player_rate:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -8749,58 +8582,22 @@
       {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
           options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
         bold: false, italic: false, strikethrough: false, fields: [progression.win_rate]},
       {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
         bold: false, italic: false, strikethrough: false, fields: [all_extramoves_rate]},
       {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
         color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
+          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
+              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
         bold: false, italic: false, strikethrough: false, fields: [abs_diff_target_diff_and_eff_diff]},
       {type: along a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
-              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
-              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
-              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {constraints: {min: {type: minimum}, mid: {type: number, value: 0},
-              max: {type: maximum}}, mirror: true, reverse: false, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}, {type: along
-          a scale..., value: !!null '', background_color: "#1A73E8", font_color: !!null '',
-        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4,
-          options: {steps: 5, constraints: {min: {type: minimum}, mid: {type: number,
-                value: 0}, max: {type: maximum}}, mirror: true, reverse: true, stepped: false}},
-        bold: false, italic: false, strikethrough: false, fields: []}]
+        color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2, palette_id: f0077e50-e03c-4a7e-930c-7321b2267283,
+          options: {steps: 5}}, bold: false, italic: false, strikethrough: false,
+        fields: [extramoves_player_rate]}]
     series_value_format:
       progression.win_rate:
         name: percent_1
@@ -8808,28 +8605,10 @@
         format_string: "#,##0.0%"
         label: Percent (1)
         label_prefix: Percent
-    hidden_pivots:
-      Streak Breaker Active5:
-        measure_names:
-        - churn_total_streak5
-        - churn_between_streak5
-      Streak Breaker Active8:
-        measure_names:
-        - win_rate_streak5
-        - win_rate_wokillsstreak5
-        - churn_total_streak5
-        - churn_ingame_streak5
-        - churn_between_streak5
-      Streak Breaker Passive:
-        measure_names:
-        - win_rate_streak5
-        - win_rate_wokillsstreak5
-        - churn_total_streak5
-        - churn_ingame_streak5
-        - churn_between_streak5
-    hidden_fields: [uniquestart1, all_extra_moves, target_win_rate, target_diff, eff_diff,
-      mean_attempt, unique_start, time_begin_sec, uniquestart1_streak8, churn_between_streak8,
-      churn_total_streak8]
+    hidden_pivots: {}
+    hidden_fields: [uniquestart1, all_extra_moves, total_lose_time, total_lose_zone,
+      total_lose_quit, time_lose_perc, zone_lose_perc, quit_lose_perc, target_win_rate,
+      mean_attempt, extramove_player, avg_remaining_time_sec]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -8857,8 +8636,7 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Platform: users_pdt.user_platform
-      Installed Date: users_pdt.installed_date
+      Installed Time: users_pdt.installed_time
       Country: users_pdt.country
       Country (Tier): users_pdt.country_tier
       App Version: users_pdt.app_version
@@ -8866,16 +8644,16 @@
       Campaign: users_pdt.campaign
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
-      Level No: progression.user_level_at
+      Platform: users_pdt.user_platform
     row: 112
     col: 0
     width: 24
     height: 13
   filters:
-  - name: Installed Date
-    title: Installed Date
+  - name: Installed Time
+    title: Installed Time
     type: field_filter
-    default_value: after 2025/03/17
+    default_value: after 2025/03/28 13:00
     allow_multiple_values: true
     required: false
     ui_config:
@@ -8883,13 +8661,13 @@
       display: popover
       options: []
     model: tile_match
-    explore: users_pdt
+    explore: progression
     listens_to_filters: []
-    field: users_pdt.installed_date
-  - name: Client Date (only for Engagement)
-    title: Client Date (only for Engagement)
+    field: users_pdt.installed_time
+  - name: Client Time
+    title: Client Time
     type: field_filter
-    default_value: after 2025/03/17
+    default_value: after 2025/03/28 13:00
     allow_multiple_values: true
     required: false
     ui_config:
@@ -8899,7 +8677,7 @@
     model: tile_match
     explore: engagement_pdt
     listens_to_filters: []
-    field: engagement_pdt.client_date
+    field: engagement_pdt.client_time
   - name: Country
     title: Country
     type: field_filter
@@ -9004,17 +8782,3 @@
     explore: users_pdt
     listens_to_filters: []
     field: users_pdt.user_platform
-  - name: Level No
-    title: Level No
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: advanced
-      display: popover
-      options: []
-    model: tile_match
-    explore: progression
-    listens_to_filters: []
-    field: progression.user_level_at
