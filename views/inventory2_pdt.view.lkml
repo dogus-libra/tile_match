@@ -1,19 +1,19 @@
 include: "/models/tile_match.model.lkml"
 
-view: inventory_pdt {
+view: inventory2_pdt {
   derived_table: {
     distribution: "advertising_id"
     sql:
       SELECT
 
-      "advertising_id",
-      "install_dt",
-      "country_code",
-      "user_platform",
-      "app_version",
-      "user_os_version",
-      DATE_TRUNC('day',"event_dt") as "event_date",
-      DATE_TRUNC('day',"arrival_dt") as "arrival_date",
+            "advertising_id",
+            "install_dt",
+            "country_code",
+            "user_platform",
+            "app_version",
+            "user_os_version",
+            DATE_TRUNC('day',"event_dt") as "event_date",
+            DATE_TRUNC('day',"arrival_dt") as "arrival_date",
 
       AVG("inventory_coin") AS "coin_inventory",
       AVG("inventory_environment_token") AS "environment_token_inventory",
@@ -26,39 +26,39 @@ view: inventory_pdt {
       AVG("inventory_shuffle") AS "shuffle_inventory",
       AVG("inventory_time_freezer") AS "time_freezer_inventory",
       AVG("inventory_toss") AS "toss_inventory",
-      AVG("user_level_at")::BIGINT AS "avg_level",
+      "user_level_at",
 
-      SUM(CASE WHEN "currency_change_magic_wand_change_amount">0 and "currency_change_magic_wand_change_amount"<50 and "currency_change_magic_wand_amount_type" = 'CountBased' THEN "currency_change_magic_wand_change_amount" END) AS "magic_wand_gain",
+      SUM(CASE WHEN "currency_change_magic_wand_change_amount">0 and "currency_change_magic_wand_change_amount"<20 and "currency_change_magic_wand_amount_type" = 'CountBased' THEN "currency_change_magic_wand_change_amount" END) AS "magic_wand_gain",
       SUM(CASE WHEN "currency_change_magic_wand_change_amount"<0 and "currency_change_magic_wand_amount_type" = 'CountBased' THEN "currency_change_magic_wand_change_amount" END) AS "magic_wand_spend",
 
-      SUM(CASE WHEN "currency_change_life_change_amount">0 and "currency_change_life_change_amount"<50 and "currency_change_life_amount_type" = 'CountBased' THEN "currency_change_life_change_amount" END) AS "life_gain",
+      SUM(CASE WHEN "currency_change_life_change_amount">0 and "currency_change_life_change_amount"<20 and "currency_change_life_amount_type" = 'CountBased' THEN "currency_change_life_change_amount" END) AS "life_gain",
       SUM(CASE WHEN "currency_change_life_change_amount"<0 and "currency_change_life_amount_type" = 'CountBased' THEN "currency_change_life_change_amount" END) AS "life_spend",
 
-      SUM(CASE WHEN "currency_change_glove_change_amount">0 and "currency_change_glove_change_amount"<50 and "currency_change_glove_amount_type" = 'CountBased' THEN "currency_change_glove_change_amount" END) AS "glove_gain",
+      SUM(CASE WHEN "currency_change_glove_change_amount">0 and "currency_change_glove_change_amount"<20 and "currency_change_glove_amount_type" = 'CountBased' THEN "currency_change_glove_change_amount" END) AS "glove_gain",
       SUM(CASE WHEN "currency_change_glove_change_amount"<0 and "currency_change_glove_amount_type" = 'CountBased' THEN "currency_change_glove_change_amount" END) AS "glove_spend",
 
       SUM(CASE WHEN "currency_change_extra_time_change_amount">0 and "currency_change_extra_time_change_amount"<20 and "currency_change_extra_time_amount_type" = 'CountBased' THEN "currency_change_extra_time_change_amount" END) AS "extra_time_gain",
       SUM(CASE WHEN "currency_change_extra_time_change_amount"<0 and "currency_change_extra_time_amount_type" = 'CountBased' THEN "currency_change_extra_time_change_amount" END) AS "extra_time_spend",
 
-      SUM(CASE WHEN "currency_change_extra_slot_change_amount">0 and "currency_change_extra_slot_change_amount"<50 and "currency_change_extra_slot_amount_type" = 'CountBased' THEN "currency_change_extra_slot_change_amount" END) AS "extra_slot_gain",
+      SUM(CASE WHEN "currency_change_extra_slot_change_amount">0 and "currency_change_extra_slot_change_amount"<20 and "currency_change_extra_slot_amount_type" = 'CountBased' THEN "currency_change_extra_slot_change_amount" END) AS "extra_slot_gain",
       SUM(CASE WHEN "currency_change_extra_slot_change_amount"<0 and "currency_change_extra_slot_amount_type" = 'CountBased' THEN "currency_change_extra_slot_change_amount" END) AS "extra_slot_spend",
 
-      SUM(CASE WHEN "currency_change_environment_token_change_amount">0 and "currency_change_environment_token_change_amount"<50 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_gain",
+      SUM(CASE WHEN "currency_change_environment_token_change_amount">0 and "currency_change_environment_token_change_amount"<20 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_gain",
       SUM(CASE WHEN "currency_change_environment_token_change_amount"<0 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_spend",
 
-      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<5000 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_gain",
+      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<500 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_gain",
       SUM(CASE WHEN "currency_change_coin_change_amount"<0 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_spend",
 
-      SUM(CASE WHEN "currency_change_magnet_change_amount">0 and "currency_change_magnet_change_amount"<50 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_gain",
+      SUM(CASE WHEN "currency_change_magnet_change_amount">0 and "currency_change_magnet_change_amount"<20 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_gain",
       SUM(CASE WHEN "currency_change_magnet_change_amount"<0 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_spend",
 
-      SUM(CASE WHEN "currency_change_shuffle_change_amount">0 and "currency_change_shuffle_change_amount"<50 and "currency_change_shuffle_amount_type" = 'CountBased' THEN "currency_change_shuffle_change_amount" END) AS "shuffle_gain",
+      SUM(CASE WHEN "currency_change_shuffle_change_amount">0 and "currency_change_shuffle_change_amount"<20 and "currency_change_shuffle_amount_type" = 'CountBased' THEN "currency_change_shuffle_change_amount" END) AS "shuffle_gain",
       SUM(CASE WHEN "currency_change_shuffle_change_amount"<0 and "currency_change_shuffle_amount_type" = 'CountBased' THEN "currency_change_shuffle_change_amount" END) AS "shuffle_spend",
 
-      SUM(CASE WHEN "currency_change_time_freezer_change_amount">0 and "currency_change_time_freezer_change_amount"<50 and "currency_change_time_freezer_amount_type" = 'CountBased' THEN "currency_change_time_freezer_change_amount" END) AS "time_freezer_gain",
+      SUM(CASE WHEN "currency_change_time_freezer_change_amount">0 and "currency_change_time_freezer_change_amount"<20 and "currency_change_time_freezer_amount_type" = 'CountBased' THEN "currency_change_time_freezer_change_amount" END) AS "time_freezer_gain",
       SUM(CASE WHEN "currency_change_time_freezer_change_amount"<0 and "currency_change_time_freezer_amount_type" = 'CountBased' THEN "currency_change_time_freezer_change_amount" END) AS "time_freezer_spend",
 
-      SUM(CASE WHEN "currency_change_toss_change_amount">0 and "currency_change_toss_change_amount"<50 and "currency_change_toss_amount_type" = 'CountBased' THEN "currency_change_toss_change_amount" END) AS "toss_gain",
+      SUM(CASE WHEN "currency_change_toss_change_amount">0 and "currency_change_toss_change_amount"<20 and "currency_change_toss_amount_type" = 'CountBased' THEN "currency_change_toss_change_amount" END) AS "toss_gain",
       SUM(CASE WHEN "currency_change_toss_change_amount"<0 and "currency_change_toss_amount_type" = 'CountBased' THEN "currency_change_toss_change_amount" END) AS "toss_spend"
       FROM
       (SELECT
@@ -69,7 +69,7 @@ view: inventory_pdt {
       "eventque_business"."app_version" AS "app_version",
       "eventque_business"."user_os_version" AS "user_os_version",
       case when "eventque_business"."user_platform" = 'Android' then 'android'
-           when "eventque_business"."user_platform" = 'IPhonePlayer' then 'ios' end as "user_platform",
+      when "eventque_business"."user_platform" = 'IPhonePlayer' then 'ios' end as "user_platform",
       "eventque_business"."advertising_id" AS "advertising_id",
       "eventque_business"."event_name" AS "event_name",
       "eventque_business"."source" AS "currency_change_source",
@@ -126,14 +126,14 @@ view: inventory_pdt {
       AND "eventque_business"."source" not in ('InAppPurchase','RewardedAdComplete','CoinRush','LevelComplete','Debugger')
       ) "dsg"
       WHERE {% incrementcondition %} "arrival_date" {%  endincrementcondition %}
-      GROUP BY "event_date", "advertising_id", "install_dt", "country_code", "user_platform", "app_version", "user_os_version","arrival_date"
+      GROUP BY "user_level_at", "event_date","advertising_id", "install_dt", "country_code", "user_platform", "app_version", "user_os_version","arrival_date"
       ;;
 
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT DATE_TRUNC('day',DATEADD('minute', -480 , GETDATE() )  )  ;;
-    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version"]
-    increment_key: "event_date"
+    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version","user_level_at"]
+    increment_key: "user_level_at"
     increment_offset: 7
   }
 
@@ -186,7 +186,7 @@ view: inventory_pdt {
 
   dimension: level_no {
     type: number
-    sql: ${TABLE}.avg_level ;;
+    sql: ${TABLE}.user_level_at ;;
   }
 
   dimension: user_os_version {
@@ -403,7 +403,7 @@ view: inventory_pdt {
   measure:coin_gain_avg  {
     type: average
     sql: ${coin_gain};;
-    filters: [coin_gain: ">=1 AND <=50000"]
+    filters: [coin_gain: ">=1 AND <=5000"]
   }
   measure:coin_gain_per10  {
     type: percentile
@@ -433,7 +433,7 @@ view: inventory_pdt {
   measure:coin_spend_avg  {
     type: average
     sql: ${coin_spend} ;;
-    filters: [coin_spend: ">=1 AND <=50000"]
+    filters: [coin_spend: ">=1 AND <=5000"]
   }
   measure:coin_spend_per10  {
     type: percentile
@@ -705,7 +705,7 @@ view: inventory_pdt {
     type: percentile
     percentile: 25
     sql: ${extra_time_spend};;
-    }
+  }
   measure:extra_time_spend_per50  {
     type: percentile
     percentile: 50

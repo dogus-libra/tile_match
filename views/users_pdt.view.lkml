@@ -1367,6 +1367,11 @@ view: users_pdt {
     sql: coalesce(${TABLE}.payment_90,0) ;;
   }
 
+  dimension: isPayer {
+    type: string
+    sql: (CASE WHEN ${ltvcurr_iap} >0 THEN 'payer' ELSE 'non-payer' END) ;;
+  }
+
   dimension: user_adgroup {
     type: string
     sql: ${TABLE}.user_adgroup ;;

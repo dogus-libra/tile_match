@@ -181,4 +181,18 @@ explore: ad_revenue {
 
 explore: first_time_payer {}
 
-explore: inventory_pdt {}
+explore: inventory_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${inventory_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: inventory2_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${inventory2_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
