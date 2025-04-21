@@ -427,6 +427,36 @@ view: business {
               end;;
   }
 
+  dimension: InGame_MagicWand_Spend {
+    type: number
+    sql: case when ${currency_change_magic_wand_change_amount}=3 AND ${source}='ExtraBoosterPanel' then 1 else 0 end ;;
+  }
+
+  dimension: InGame_Toss_Spend {
+    type: number
+    sql: case when ${currency_change_toss_change_amount}=3 AND ${source}='ExtraBoosterPanel' then 1 else 0 end ;;
+  }
+
+  dimension: InGame_Glove_Spend {
+    type: number
+    sql: case when ${currency_change_glove_change_amount}=3 AND ${source}='ExtraBoosterPanel' then 1 else 0 end ;;
+  }
+
+  dimension: InGame_Shuffle_Spend {
+    type: number
+    sql: case when ${currency_change_shuffle_change_amount}=3 AND ${source}='ExtraBoosterPanel' then 1 else 0 end ;;
+  }
+
+  dimension: InGame_TimeFreezer_Spend {
+    type: number
+    sql: case when ${currency_change_time_freezer_change_amount}=3 AND ${source}='ExtraBoosterPanel' then 1 else 0 end ;;
+  }
+
+  dimension: InGame_ExtraSlot_Spend {
+    type: number
+    sql: case when ${source}='ExtraBoosterPanel' AND ${currency_change_extra_slot_change_amount}=1 then 1 else 0 end ;;
+  }
+
   dimension: inventory_avatar {
     type: number
     sql: ${TABLE}.inventory_avatar ;;
