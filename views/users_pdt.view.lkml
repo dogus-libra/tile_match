@@ -9,6 +9,17 @@ view: users_pdt {
 
                           min(build_no)                    as first_build_no,
                           max(connection_type)             as connection_type,
+                          max(end_game_offer)              as end_game_offer,
+                          max(end_game_offer_1_offer_type) as end_game_offer_1_offer_type,
+                          max(end_game_offer_2_offer_type) as end_game_offer_2_offer_type,
+                          max(end_game_offer_3_offer_type) as end_game_offer_3_offer_type,
+                          max(end_game_offer_4_offer_type) as end_game_offer_4_offer_type,
+                          max(end_game_offer_5_offer_type) as end_game_offer_5_offer_type,
+                          max(end_game_offer_6_offer_type) as end_game_offer_6_offer_type,
+                          max(end_game_offer_7_offer_type) as end_game_offer_7_offer_type,
+                          max(end_game_offer_8_offer_type) as end_game_offer_8_offer_type,
+                          max(end_game_offer_9_offer_type) as end_game_offer_9_offer_type,
+                          max(end_game_offer_10_offer_type) as end_game_offer_10_offer_type,
                           max(event_timestamp)             as last_event_time,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(user_level_at) end) as churn_last_level_no,
                           (case when max(event_timestamp) < DATEADD(day, -7, CURRENT_DATE) then max(event_timestamp) end) as churn_timestamp,
@@ -74,6 +85,17 @@ view: users_pdt {
                           advertising_id,
                           build_no,
                           connection_type,
+                          end_game_offer,
+                          end_game_offer_1_offer_type,
+                          end_game_offer_2_offer_type,
+                          end_game_offer_3_offer_type,
+                          end_game_offer_4_offer_type,
+                          end_game_offer_5_offer_type,
+                          end_game_offer_6_offer_type,
+                          end_game_offer_7_offer_type,
+                          end_game_offer_8_offer_type,
+                          end_game_offer_9_offer_type,
+                          end_game_offer_10_offer_type,
                           event_name,
                           event_timestamp,
                           event_version,
@@ -112,6 +134,17 @@ view: users_pdt {
                             advertising_id,
                             build_no,
                             connection_type,
+                            null as end_game_offer,
+                            null as end_game_offer_1_offer_type,
+                            null as end_game_offer_2_offer_type,
+                            null as end_game_offer_3_offer_type,
+                            null as end_game_offer_4_offer_type,
+                            null as end_game_offer_5_offer_type,
+                            null as end_game_offer_6_offer_type,
+                            null as end_game_offer_7_offer_type,
+                            null as end_game_offer_8_offer_type,
+                            null as end_game_offer_9_offer_type,
+                            null as end_game_offer_10_offer_type,
                             event_name,
                             event_timestamp,
                             event_version,
@@ -151,6 +184,17 @@ view: users_pdt {
                             advertising_id,
                             build_no,
                             connection_type,
+                            null as end_game_offer,
+                            null as end_game_offer_1_offer_type,
+                            null as end_game_offer_2_offer_type,
+                            null as end_game_offer_3_offer_type,
+                            null as end_game_offer_4_offer_type,
+                            null as end_game_offer_5_offer_type,
+                            null as end_game_offer_6_offer_type,
+                            null as end_game_offer_7_offer_type,
+                            null as end_game_offer_8_offer_type,
+                            null as end_game_offer_9_offer_type,
+                            null as end_game_offer_10_offer_type,
                             event_name,
                             event_timestamp,
                             event_version,
@@ -190,6 +234,17 @@ view: users_pdt {
                             advertising_id,
                             build_no,
                             connection_type,
+                            end_game_offer,
+                            end_game_offer_1_offer_type,
+                            end_game_offer_2_offer_type,
+                            end_game_offer_3_offer_type,
+                            end_game_offer_4_offer_type,
+                            end_game_offer_5_offer_type,
+                            end_game_offer_6_offer_type,
+                            end_game_offer_7_offer_type,
+                            end_game_offer_8_offer_type,
+                            end_game_offer_9_offer_type,
+                            end_game_offer_10_offer_type,
                             event_name,
                             event_timestamp,
                             event_version,
@@ -520,6 +575,17 @@ view: users_pdt {
              churn_timestamp_5days,
              churn_last_level_no_3days,
              churn_timestamp_3days,
+             end_game_offer,
+             end_game_offer_1_offer_type,
+             end_game_offer_2_offer_type,
+             end_game_offer_3_offer_type,
+             end_game_offer_4_offer_type,
+             end_game_offer_5_offer_type,
+             end_game_offer_6_offer_type,
+             end_game_offer_7_offer_type,
+             end_game_offer_8_offer_type,
+             end_game_offer_9_offer_type,
+             end_game_offer_10_offer_type,
              last_event_time,
              last_event_version,
              installed,
@@ -749,6 +815,25 @@ view: users_pdt {
   dimension: connection_type {
     type: number
     sql: ${TABLE}.connection_type ;;
+  }
+
+  dimension: end_game_offer {
+    type: string
+    sql: ${TABLE}.end_game_offer ;;
+  }
+
+  dimension: extra_move_count {
+    type: number
+    sql:  case when end_game_offer_1_offer_type is not null and end_game_offer_2_offer_type is null then 1
+                             when end_game_offer_2_offer_type is not null and end_game_offer_3_offer_type is null then 2
+                             when end_game_offer_3_offer_type is not null and end_game_offer_4_offer_type is null then 3
+                             when end_game_offer_4_offer_type is not null and end_game_offer_5_offer_type is null then 4
+                             when end_game_offer_5_offer_type is not null and end_game_offer_6_offer_type is null then 5
+                             when end_game_offer_6_offer_type is not null and end_game_offer_7_offer_type is null then 6
+                             when end_game_offer_7_offer_type is not null and end_game_offer_8_offer_type is null then 7
+                             when end_game_offer_8_offer_type is not null and end_game_offer_9_offer_type is null then 8
+                             when end_game_offer_9_offer_type is not null and end_game_offer_10_offer_type is null then 9
+                             when end_game_offer_10_offer_type is not null  then 10 end ;;
   }
 
   dimension: event_version {
