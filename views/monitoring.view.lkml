@@ -26,6 +26,11 @@ view: monitoring {
     sql: ${TABLE}.app_version ;;
   }
 
+  dimension: asset {
+    type: string
+    sql: ${TABLE}.asset ;;
+  }
+
   dimension: apps_flyer_response_time {
     type: number
     sql: ${TABLE}.apps_flyer_response_time ;;
@@ -156,6 +161,11 @@ view: monitoring {
     sql: ${TABLE}.occured_issue ;;
   }
 
+  dimension: reason {
+    type: string
+    sql: ${TABLE}.reason ;;
+  }
+
   dimension_group: request {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -205,6 +215,11 @@ view: monitoring {
   dimension: period_index {
     type: number
     sql: ${TABLE}.period_index ;;
+  }
+
+  dimension: try {
+    type: number
+    sql: ${TABLE}.try ;;
   }
 
   dimension: tutorial_name {
