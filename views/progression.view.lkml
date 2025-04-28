@@ -287,16 +287,16 @@ view: progression {
     type: number
     sql:   (case when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and ${TABLE}.end_game_offer is null
 
-            then (case when end_game_offer_1_offer_type is not null and end_game_offer_2_offer_type is null then 1
-                       when end_game_offer_2_offer_type is not null and end_game_offer_3_offer_type is null then 2
-                       when end_game_offer_3_offer_type is not null and end_game_offer_4_offer_type is null then 3
-                       when end_game_offer_4_offer_type is not null and end_game_offer_5_offer_type is null then 4
-                       when end_game_offer_5_offer_type is not null and end_game_offer_6_offer_type is null then 5
-                       when end_game_offer_6_offer_type is not null and end_game_offer_7_offer_type is null then 6
-                       when end_game_offer_7_offer_type is not null and end_game_offer_8_offer_type is null then 7
-                       when end_game_offer_8_offer_type is not null and end_game_offer_9_offer_type is null then 8
-                       when end_game_offer_9_offer_type is not null and end_game_offer_10_offer_type is null then 9
-                       when end_game_offer_10_offer_type is not null  then 10 end)
+            then (case when ${TABLE}.end_game_offer_1_offer_type is not null and ${TABLE}.end_game_offer_2_offer_type is null then 1
+                       when ${TABLE}.end_game_offer_2_offer_type is not null and ${TABLE}.end_game_offer_3_offer_type is null then 2
+                       when ${TABLE}.end_game_offer_3_offer_type is not null and ${TABLE}.end_game_offer_4_offer_type is null then 3
+                       when ${TABLE}.end_game_offer_4_offer_type is not null and ${TABLE}.end_game_offer_5_offer_type is null then 4
+                       when ${TABLE}.end_game_offer_5_offer_type is not null and ${TABLE}.end_game_offer_6_offer_type is null then 5
+                       when ${TABLE}.end_game_offer_6_offer_type is not null and ${TABLE}.end_game_offer_7_offer_type is null then 6
+                       when ${TABLE}.end_game_offer_7_offer_type is not null and ${TABLE}.end_game_offer_8_offer_type is null then 7
+                       when ${TABLE}.end_game_offer_8_offer_type is not null and ${TABLE}.end_game_offer_9_offer_type is null then 8
+                       when ${TABLE}.end_game_offer_9_offer_type is not null and ${TABLE}.end_game_offer_10_offer_type is null then 9
+                       when ${TABLE}.end_game_offer_10_offer_type is not null  then 10 end)
 
                 else (length(${TABLE}.end_game_offer) - length(replace(${TABLE}.end_game_offer, 'failtype', ''))) / length('failtype')
            end) ;;
