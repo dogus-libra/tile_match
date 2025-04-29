@@ -652,15 +652,34 @@ view: progression {
 
   dimension: level_play_time {
     type: number
-    sql:  ${time_begin_streak} - ${TABLE}.time_remain;;
+    sql:  case when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:1%' then (${time_begin_streak} + 10) -                 ${TABLE}.time_remain
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:2%' then (${time_begin_streak} + 20) - ${TABLE}.time_remain
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:3%' then (${time_begin_streak} + 30) -  ${TABLE}.time_remain
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:4%' then (${time_begin_streak} + 40) - ${TABLE}.time_remain
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:5%' then (${time_begin_streak} + 50) - ${TABLE}.time_remain
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%timefreezer:6%' then (${time_begin_streak} + 60) - ${TABLE}.time_remain
+
+               when ${end_game_offer_1_bonus_time} is not null then (${end_game_offer_1_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_2_bonus_time} is not null then (${end_game_offer_2_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_3_bonus_time} is not null then (${end_game_offer_3_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_4_bonus_time} is not null then (${end_game_offer_4_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_5_bonus_time} is not null then (${end_game_offer_5_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_6_bonus_time} is not null then (${end_game_offer_6_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_7_bonus_time} is not null then (${end_game_offer_7_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_8_bonus_time} is not null then (${end_game_offer_8_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_9_bonus_time} is not null then (${end_game_offer_9_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+               when ${end_game_offer_10_bonus_time} is not null then (${end_game_offer_10_bonus_time} + ${time_begin_streak}) - ${TABLE}.time_remain
+
+        else ${time_begin_streak} - ${TABLE}.time_remain
+        end ;;
   }
 
   dimension: time_begin_streak {
     type: number
-    sql:  case when ${event_name} = 'LevelCompleted' and ${boosters} like '%extratime:1%' then ${time_begin} + 15
-               when ${event_name} = 'LevelCompleted' and ${boosters} like '%extratime:2%' then ${time_begin} + 30
-               when ${event_name} = 'LevelCompleted' and ${boosters} like '%extratime:3%' then ${time_begin} + 45
-               when ${event_name} = 'LevelCompleted' and ${boosters} like '%extratime:4%' then ${time_begin} + 60
+    sql:  case when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%extratime:1%' then ${time_begin} + 15
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%extratime:2%' then ${time_begin} + 30
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%extratime:3%' then ${time_begin} + 45
+               when (${event_name} = 'LevelCompleted' or ${event_name} = 'LevelFailed') and ${boosters} like '%extratime:4%' then ${time_begin} + 60
                else ${time_begin} end ;;
   }
 
