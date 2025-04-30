@@ -2955,4 +2955,32 @@ view: progression {
     value_format: "##.00"
   }
 
+  measure: user_level_reach_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${user_level_at} ;;
+    value_format: "##"
+  }
+
+  measure: user_level_reach_per25 {
+    type: percentile
+    percentile: 25
+    sql: ${user_level_at} ;;
+    value_format: "##"
+  }
+
+  measure: user_level_reach_per75 {
+    type: percentile
+    percentile: 75
+    sql: ${user_level_at} ;;
+    value_format: "##"
+  }
+
+  measure: user_level_reach_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${user_level_at} ;;
+    value_format: "##"
+  }
+
 }
