@@ -2854,6 +2854,16 @@ view: progression {
            end) ;;
   }
 
+  measure: fail_count_time {
+    type: sum
+    sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
+               and (${extra_move_count} is not null or ${TABLE}.event_name= 'LevelFailed') then 1
+
+      when ${TABLE}.event_timestamp>=to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS') and (${end_game_offer_1_fail_type} = 'TimeOver' or (${TABLE}.event_name= 'LevelFailed' and ${TABLE}.fail_type = 'TimeOver'))  then 1
+      else 0
+      end) ;;
+  }
+
   measure: fail_count_streak5 {
     type: sum
     sql: (case when ${TABLE}.event_timestamp<to_timestamp('23.01.2025 00:00:00', 'DD-MM-YYYY HH24:MI:SS')
