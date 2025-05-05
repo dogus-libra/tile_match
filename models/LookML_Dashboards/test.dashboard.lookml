@@ -1,22 +1,21 @@
 ---
-- dashboard: 56__first_500_ios_test
-  title: 56 - First 500 iOS Test
+- dashboard: 60__easy_mode_and_difficulty_ios
+  title: 60 - Easy Mode and Difficulty (iOS)
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: zObUPgOM7yH4zmWOry5o2N
+  preferred_slug: zXzGlLIRzXQ6d4rFPzLZZA
   elements:
   - title: Level Reaches until Day 1
     name: Level Reaches until Day 1
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_count,
-      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
-      level_100_reach_count]
+    fields: [player_count, level_5_reach_count, level_10_reach_count, level_20_reach_count,
+      level_30_reach_count, level_50_reach_count, level_100_reach_count, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -221,8 +220,6 @@
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       level_5_reach_rate:
         align: center
       level_10_reach_rate:
@@ -244,6 +241,8 @@
       level_10_level_5:
         align: center
       level_100_level_50:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -313,7 +312,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      progression.user_split_test_name_Ads_Android: 263
+      firebase_test.Difficulty_Android_testgroup: 181
     listen:
       Installed Time: users_pdt.installed_time
       Country: users_pdt.country
@@ -324,7 +323,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 78
+    row: 86
     col: 0
     width: 24
     height: 4
@@ -333,12 +332,12 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_count,
-      level_10_reach_count, level_20_reach_count, level_30_reach_count, level_50_reach_count,
-      level_100_reach_count, level_150_reach_count]
+    fields: [player_count, level_5_reach_count, level_10_reach_count, level_20_reach_count,
+      level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count,
+      firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -562,22 +561,23 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [progression.user_split_test_name_Ads_Android, player_count, level_5_reach_rate,
-      level_10_reach_rate, level_20_reach_rate, level_30_reach_rate, level_50_reach_rate,
-      level_100_reach_rate, level_150_reach_rate, level_10_level_5, level_50_level_5,
-      level_100_level_5, level_50_level_10, level_100_level_50]
+    column_order: [firebase_test.Difficulty_Android_testgroup, player_count,
+      level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
+      level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
+      level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50,
+      level_150_level_50]
     show_totals: true
     show_row_totals: true
     truncate_header: false
     minimum_column_width: 75
     series_labels:
       progression.user_split_test_name_Ads_Android: Test Group
+    series_column_widths:
+      firebase_test.Difficulty_Android_testgroup: 192
     series_cell_visualizations:
       player_count:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       level_5_reach_rate:
         align: center
       level_10_reach_rate:
@@ -603,6 +603,8 @@
       level_150_reach_rate:
         align: center
       level_150_level_50:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -678,8 +680,6 @@
     defaults_version: 1
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count]
-    series_column_widths:
-      progression.user_split_test_name_Ads_Android: 280
     listen:
       Installed Time: users_pdt.installed_time
       Country: users_pdt.country
@@ -690,7 +690,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 82
+    row: 90
     col: 0
     width: 24
     height: 4
@@ -700,14 +700,12 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Ads_Android]
-    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [engagement_pdt.client_date]
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
-        desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -777,7 +775,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
-    row: 86
+    row: 94
     col: 0
     width: 8
     height: 7
@@ -787,14 +785,12 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      engagement_pdt.user_split_test_name_Ads_Android]
-    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [engagement_pdt.client_date]
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
-        desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -855,7 +851,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
-    row: 86
+    row: 94
     col: 8
     width: 8
     height: 7
@@ -864,13 +860,12 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, session_pdt.user_split_test_name_Ads_Android]
-    pivots: [session_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [session_pdt.client_date]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Ads_Android, session_pdt.client_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -931,7 +926,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
-    row: 86
+    row: 94
     col: 16
     width: 8
     height: 7
@@ -941,14 +936,12 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, engagement_pdt.user_split_test_name_Ads_Android]
-    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [engagement_pdt.client_date]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
-        desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1035,7 +1028,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
-    row: 93
+    row: 101
     col: 0
     width: 8
     height: 7
@@ -1045,14 +1038,12 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, engagement_pdt.user_split_test_name_Ads_Android]
-    pivots: [engagement_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [engagement_pdt.client_date]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      engagement_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [engagement_pdt.user_split_test_name_Ads_Android, engagement_pdt.client_date
-        desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1106,7 +1097,7 @@
       Adgroup: engagement_pdt.adgroup
       Creative: engagement_pdt.creative
       Platform: engagement_pdt.user_platform
-    row: 93
+    row: 101
     col: 8
     width: 8
     height: 7
@@ -1116,13 +1107,12 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, session_pdt.user_split_test_name_Ads_Android]
-    pivots: [session_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [session_pdt.client_date]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       session_pdt.install_day_of_user: ''
-      session_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [session_pdt.user_split_test_name_Ads_Android, session_pdt.client_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [session_pdt.client_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1202,7 +1192,7 @@
       Adgroup: session_pdt.adgroup
       Creative: session_pdt.creative
       Platform: session_pdt.user_platform
-    row: 93
+    row: 101
     col: 16
     width: 8
     height: 7
@@ -1211,11 +1201,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[1,10]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1280,9 +1270,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -1322,10 +1312,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 100
+    row: 108
     col: 0
     width: 8
-    height: 3
+    height: 4
   - title: Retention Report (Daily)
     name: Retention Report (Daily)
     model: tile_match
@@ -1333,11 +1323,12 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.installed_date
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1710,7 +1701,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 23
+    row: 27
     col: 0
     width: 24
     height: 8
@@ -1720,13 +1711,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
-      users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [users_pdt.installed_week]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.installed_week,
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_week desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2100,7 +2090,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 31
+    row: 35
     col: 0
     width: 24
     height: 8
@@ -2110,10 +2100,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android]
+      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2405,7 +2395,7 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Ads_Android:
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2475,7 +2465,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      users_pdt.user_split_test_name_Ads_Android: 256
+      firebase_test.Difficulty_Android_testgroup: 189
     listen:
       Installed Time: users_pdt.installed_time
       Country: users_pdt.country
@@ -2486,22 +2476,23 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 20
+    row: 23
     col: 0
     width: 24
-    height: 3
+    height: 4
   - title: Retention Report by App Version
     name: Retention Report by App Version
     model: tile_match
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
-      users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.app_version,
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, ret_1 desc 0]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.app_version
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2793,8 +2784,6 @@
         align: center
       retention_14:
         align: center
-      users_pdt.user_split_test_name_Ads_Android:
-        align: center
       users_pdt.app_version:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
@@ -2874,10 +2863,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 39
+    row: 43
     col: 0
     width: 24
-    height: 5
+    height: 6
   - title: Retention Coefficients (Daily)
     name: Retention Coefficients (Daily)
     model: tile_match
@@ -2885,11 +2874,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      ret_14, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3293,7 +3282,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 47
+    row: 53
     col: 0
     width: 24
     height: 8
@@ -3303,13 +3292,12 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
-      users_pdt.installed_week]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
-    fill_fields: [users_pdt.installed_week]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.installed_week,
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_week desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -3713,7 +3701,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 55
+    row: 61
     col: 0
     width: 24
     height: 8
@@ -3723,12 +3711,13 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android,
-      users_pdt.app_version]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.app_version,
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, ret_1_1 desc 0]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.app_version
+        desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4130,20 +4119,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 63
+    row: 69
     col: 0
     width: 24
-    height: 5
+    height: 7
   - title: Retention Coefficients
     name: Retention Coefficients
     model: tile_match
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.user_split_test_name_Ads_Android]
+      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4430,7 +4419,7 @@
     series_labels:
       users_pdt.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
-      users_pdt.user_split_test_name_Ads_Android: 279
+      firebase_test.Difficulty_Android_testgroup: 197
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4463,7 +4452,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      users_pdt.user_split_test_name_Ads_Android:
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4547,10 +4536,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 44
+    row: 49
     col: 0
     width: 24
-    height: 3
+    height: 4
   - title: Churn Report
     name: Churn Report
     model: tile_match
@@ -4558,14 +4547,14 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
       progression.install_day_of_user: ''
       progression.event_version: 1.0.2
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
     sorts: [progression.user_level_at]
     limit: 500
     column_limit: 50
@@ -4887,7 +4876,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 68
+    row: 76
     col: 0
     width: 24
     height: 10
@@ -4900,11 +4889,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5354,7 +5343,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 3
+    row: 4
     col: 0
     width: 24
     height: 7
@@ -5367,11 +5356,11 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, users_pdt.installed_date desc]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -5821,10 +5810,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 13
+    row: 15
     col: 0
     width: 24
-    height: 7
+    height: 8
   - title: IAP Gross LTV Report (1)
     name: IAP Gross LTV Report (1)
     model: tile_match
@@ -5834,10 +5823,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Ads_Android]
+      new_users, firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6226,7 +6215,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Ads_Android:
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6290,7 +6279,7 @@
     row: 0
     col: 0
     width: 24
-    height: 3
+    height: 4
   - title: Blended Net LTV Report (1)
     name: Blended Net LTV Report (1)
     model: tile_match
@@ -6300,10 +6289,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, users_pdt.user_split_test_name_Ads_Android]
+      new_users, firebase_test.Difficulty_Android_testgroup]
     filters:
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
-    sorts: [users_pdt.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6692,7 +6681,7 @@
         align: center
       ltv_14:
         align: center
-      users_pdt.user_split_test_name_Ads_Android:
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6753,20 +6742,19 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 10
+    row: 11
     col: 0
     width: 24
-    height: 3
+    height: 4
   - title: Win Rates (Level 11-20)
     name: Win Rates (Level 11-20)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[11,20]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6831,8 +6819,6 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
         align: center
     hidden_pivots: {}
@@ -6873,20 +6859,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 100
+    row: 108
     col: 8
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 21-30)
     name: Win Rates (Level 21-30)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[21,30]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6951,9 +6937,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -6993,20 +6979,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 100
+    row: 108
     col: 16
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 31-50)
     name: Win Rates (Level 31-50)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[31,50]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7071,9 +7057,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7113,20 +7099,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 103
+    row: 112
     col: 0
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 51-75)
     name: Win Rates (Level 51-75)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[51,75]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7191,9 +7177,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7233,20 +7219,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 103
+    row: 112
     col: 8
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 76-100)
     name: Win Rates (Level 76-100)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[76,100]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7311,9 +7297,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7353,20 +7339,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 103
+    row: 112
     col: 16
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 126-150)
     name: Win Rates (Level 126-150)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[126,150]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7431,9 +7417,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7473,20 +7459,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 106
+    row: 116
     col: 8
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 101-125)
     name: Win Rates (Level 101-125)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[101,125]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7551,9 +7537,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7593,20 +7579,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 106
+    row: 116
     col: 0
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 151-200)
     name: Win Rates (Level 151-200)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[151,200]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7671,9 +7657,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7713,20 +7699,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 106
+    row: 116
     col: 16
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 301-400)
     name: Win Rates (Level 301-400)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[301,400]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7791,9 +7777,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7833,20 +7819,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 109
+    row: 120
     col: 8
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 201-300)
     name: Win Rates (Level 201-300)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[201,300]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7911,9 +7897,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7953,20 +7939,20 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 109
+    row: 120
     col: 0
     width: 8
-    height: 3
+    height: 4
   - title: Win Rates (Level 401-500)
     name: Win Rates (Level 401-500)
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [progression.user_split_test_name_Ads_Android, win_count, fail_count, progression.win_rate]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
     filters:
-      progression.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[401,500]"
-    sorts: [progression.user_split_test_name_Ads_Android]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8031,9 +8017,9 @@
       progression.win_rate:
         is_active: true
     series_text_format:
-      progression.user_split_test_name_Ads_Android:
-        align: center
       win_rate:
+        align: center
+      firebase_test.Difficulty_Android_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -8073,10 +8059,10 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 109
+    row: 120
     col: 16
     width: 8
-    height: 3
+    height: 4
   - title: Level Report
     name: Level Report
     model: tile_match
@@ -8085,8 +8071,8 @@
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, lose_count_all, avg_remaining_time_sec, time_begin_sec,
       progression.win_rate, all_extra_moves, avg_level_play_time, target_win_rate,
-      mean_attempt, extramove_player, users_pdt.user_split_test_name_Ads_Android]
-    pivots: [users_pdt.user_split_test_name_Ads_Android]
+      mean_attempt, extramove_player, firebase_test.Difficulty_Android_testgroup]
+    pivots: [firebase_test.Difficulty_Android_testgroup]
     filters:
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
@@ -8098,9 +8084,9 @@
       progression.user_platform: ''
       progression.user_split_test_name_Streak_Breaker: ''
       progression.user_win_streak_count: ''
-      users_pdt.user_split_test_name_Ads_Android: "-NULL"
       progression.user_level_at: "[1,1000]"
-    sorts: [users_pdt.user_split_test_name_Ads_Android, progression.user_level_at]
+      firebase_test.Difficulty_Android_testgroup: "-NULL"
+    sorts: [firebase_test.Difficulty_Android_testgroup, progression.user_level_at]
     limit: 5000
     column_limit: 50
     dynamic_fields:
@@ -8645,7 +8631,7 @@
       Adgroup: users_pdt.adgroup
       Creative: users_pdt.creative
       Platform: users_pdt.user_platform
-    row: 112
+    row: 124
     col: 0
     width: 24
     height: 13
@@ -8653,7 +8639,7 @@
   - name: Installed Time
     title: Installed Time
     type: field_filter
-    default_value: after 2025/03/28 13:00
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
@@ -8667,7 +8653,7 @@
   - name: Client Time
     title: Client Time
     type: field_filter
-    default_value: after 2025/03/28 13:00
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
