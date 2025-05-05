@@ -31,6 +31,7 @@ view: engagement_pdt {
                           max(user_creative)                     as user_creative,
                           max(user_current_fps)                  as user_current_fps,
                           max(user_device)                       as user_device,
+                          max(user_id)                           as user_id,
                           max(user_level_at)                     as user_level_at,
                           max(user_level_id)                     as user_level_id,
                           max(user_manufacturer)                 as user_manufacturer,
@@ -210,6 +211,11 @@ view: engagement_pdt {
   dimension: user_device {
     type: string
     sql: ${TABLE}.user_device ;;
+  }
+
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: user_game_mode {

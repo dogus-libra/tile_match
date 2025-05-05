@@ -741,6 +741,11 @@ view: progression {
     sql: ${TABLE}.user_balance_version ;;
   }
 
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
+  }
+
   dimension: user_is_bonus_mode_active {
     type: yesno
     sql: ${TABLE}.user_is_bonus_mode_active ;;

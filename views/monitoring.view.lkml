@@ -313,6 +313,11 @@ view: monitoring {
     sql: ${TABLE}.user_grand_mode_level ;;
   }
 
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
+  }
+
   dimension: user_level_at {
     type: number
     sql: ${TABLE}.user_level_at ;;

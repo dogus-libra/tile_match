@@ -33,6 +33,11 @@ explore: progression {
     sql_on: ${progression.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
+  join: firebase_test {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${progression.user_id}=${firebase_test.advertising_id}  ;;
+  }
 }
 
 # To create more sophisticated Explores that involve multiple views, you can use the join parameter.
@@ -45,6 +50,11 @@ explore: session {
     sql_on: ${session.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
+  join: firebase_test {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${session.user_id}=${firebase_test.advertising_id}  ;;
+  }
 }
 
 explore: business {
@@ -52,6 +62,11 @@ explore: business {
     type: left_outer
     sql_on: ${business.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
+  }
+  join: firebase_test {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${business.user_id}=${firebase_test.advertising_id}  ;;
   }
 }
 
@@ -84,19 +99,34 @@ explore: users_pdt {
     relationship: one_to_many
     sql_on: ${users_pdt.advertising_id}=${business.advertising_id}  ;;
   }
+  join: firebase_test {
+    relationship: one_to_one
+    sql_on: ${users_pdt.advertising_id}=${firebase_test.advertising_id}  ;;
+  }
 }
 
 explore: tile_match_raw {}
 
 explore: tile_match_cost {}
 
-explore: session_pdt {}
+explore: session_pdt {
+  join: firebase_test {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${session_pdt.user_id}=${firebase_test.advertising_id}  ;;
+  }
+}
 
 explore: engagement_pdt {
   join: users_pdt {
     type: left_outer
     sql_on: ${engagement_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
+  }
+  join: firebase_test {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${engagement_pdt.user_id}=${firebase_test.advertising_id}  ;;
   }
 }
 
@@ -122,6 +152,10 @@ explore: monitoring {
     type: left_outer
     sql_on: ${monitoring.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
+  }
+  join: firebase_test {
+    relationship: many_to_one
+    sql_on: ${monitoring.user_id}=${firebase_test.advertising_id}  ;;
   }
 }
 
@@ -196,3 +230,5 @@ explore: inventory2_pdt {
     relationship: many_to_one
   }
 }
+
+explore: firebase_test {}

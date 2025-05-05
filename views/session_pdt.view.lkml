@@ -56,6 +56,7 @@ view: session_pdt {
                    max(user_creative)                     as user_creative,
                    max(user_current_fps)                  as user_current_fps,
                    max(user_device)                       as user_device,
+                   max(user_id)                           as user_id,
                    max(user_level_at)                     as user_level_at,
                    max(user_level_id)                     as user_level_id,
                    max(user_manufacturer)                 as user_manufacturer,
@@ -281,6 +282,11 @@ view: session_pdt {
   dimension: user_grand_mode_level {
     type: number
     sql: ${TABLE}.user_grand_mode_level ;;
+  }
+
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: user_win_streak_count {
