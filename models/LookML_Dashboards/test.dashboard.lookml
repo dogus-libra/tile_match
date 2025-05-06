@@ -12,10 +12,10 @@
     explore: progression
     type: looker_grid
     fields: [player_count, level_5_reach_count, level_10_reach_count, level_20_reach_count,
-      level_30_reach_count, level_50_reach_count, level_100_reach_count, firebase_test.Difficulty_Android_testgroup]
+      level_30_reach_count, level_50_reach_count, level_100_reach_count, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -242,7 +242,7 @@
         align: center
       level_100_level_50:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -312,7 +312,7 @@
     hidden_fields: [level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count]
     series_column_widths:
-      firebase_test.Difficulty_Android_testgroup: 181
+      firebase_test.StreakBreaker_03_iOS_testgroup: 181
     listen:
       Installed Time: users_pdt.installed_time
       Country: users_pdt.country
@@ -334,10 +334,10 @@
     type: looker_grid
     fields: [player_count, level_5_reach_count, level_10_reach_count, level_20_reach_count,
       level_30_reach_count, level_50_reach_count, level_100_reach_count, level_150_reach_count,
-      firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -561,7 +561,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [firebase_test.Difficulty_Android_testgroup, player_count,
+    column_order: [firebase_test.StreakBreaker_03_iOS_testgroup, player_count,
       level_5_reach_rate, level_10_reach_rate, level_20_reach_rate, level_30_reach_rate,
       level_50_reach_rate, level_100_reach_rate, level_150_reach_rate, level_10_level_5,
       level_50_level_5, level_100_level_5, level_50_level_10, level_100_level_50,
@@ -573,7 +573,7 @@
     series_labels:
       progression.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
-      firebase_test.Difficulty_Android_testgroup: 192
+      firebase_test.StreakBreaker_03_iOS_testgroup: 192
     series_cell_visualizations:
       player_count:
         is_active: true
@@ -604,7 +604,7 @@
         align: center
       level_150_level_50:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -700,11 +700,11 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -785,11 +785,11 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, average_of_sessioncount, average_of_playtime,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -860,11 +860,11 @@
     model: tile_match
     explore: session_pdt
     type: looker_line
-    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+    fields: [session_pdt.client_date, session_pdt.avg_sessiontime, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       session_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [session_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -936,11 +936,11 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25playtime, median_of_playtime,
-      engagement_pdt.per75playtime, engagement_pdt.per90playtime, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      engagement_pdt.per75playtime, engagement_pdt.per90playtime, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -1038,11 +1038,11 @@
     explore: engagement_pdt
     type: looker_line
     fields: [engagement_pdt.client_date, engagement_pdt.per25sessioncount, median_of_sessioncount,
-      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      engagement_pdt.per75sessioncount, engagement_pdt.per90sessioncount, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       engagement_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [engagement_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -1107,11 +1107,11 @@
     explore: session_pdt
     type: looker_line
     fields: [session_pdt.client_date, session_pdt.per25sessiontime, session_pdt.per50sessiontime,
-      session_pdt.per75sessiontime, session_pdt.per90sessiontime, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      session_pdt.per75sessiontime, session_pdt.per90sessiontime, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       session_pdt.install_day_of_user: ''
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [session_pdt.client_date desc]
     limit: 500
     column_limit: 50
@@ -1201,11 +1201,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[1,10]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -1272,7 +1272,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -1323,11 +1323,11 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1,
       player_2, player_3, player_4, player_5, player_7, new_users, player_14, ret_14,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.installed_date
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup, users_pdt.installed_date
         desc]
     limit: 500
     column_limit: 50
@@ -1712,10 +1712,10 @@
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
       player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.installed_week,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
@@ -2100,10 +2100,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.Difficulty_Android_testgroup]
+      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -2395,7 +2395,7 @@
         align: center
       retention_14:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -2465,7 +2465,7 @@
     hidden_fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2,
       player_3, player_4, player_5, player_7, ret_14, player_14, ret_1]
     series_column_widths:
-      firebase_test.Difficulty_Android_testgroup: 189
+      firebase_test.StreakBreaker_03_iOS_testgroup: 189
     listen:
       Installed Time: users_pdt.installed_time
       Country: users_pdt.country
@@ -2487,11 +2487,11 @@
     type: looker_grid
     fields: [ret_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
       player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.app_version,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.app_version
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup, users_pdt.app_version
         desc]
     limit: 500
     column_limit: 50
@@ -2874,10 +2874,10 @@
     type: looker_grid
     fields: [users_pdt.installed_date, ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7,
       player_1, player_2, player_3, player_4, player_5, player_7, new_users, player_14,
-      ret_14, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      ret_14, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
@@ -3293,10 +3293,10 @@
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
       player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.installed_week,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [users_pdt.installed_week desc]
     limit: 500
     column_limit: 50
@@ -3712,11 +3712,11 @@
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
       player_4, player_5, player_7, new_users, player_14, ret_14, users_pdt.app_version,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup, users_pdt.app_version
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup, users_pdt.app_version
         desc]
     limit: 500
     column_limit: 50
@@ -4129,10 +4129,10 @@
     explore: users_pdt
     type: looker_grid
     fields: [ret_1_1, ret_2, ret_3, ret_4, ret_5, ret_7, player_1, player_2, player_3,
-      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.Difficulty_Android_testgroup]
+      player_4, player_5, player_7, new_users, player_14, ret_14, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -4419,7 +4419,7 @@
     series_labels:
       users_pdt.user_split_test_name_Ads_Android: Test Group
     series_column_widths:
-      firebase_test.Difficulty_Android_testgroup: 197
+      firebase_test.StreakBreaker_03_iOS_testgroup: 197
     series_cell_visualizations:
       new_users:
         is_active: false
@@ -4452,7 +4452,7 @@
         align: center
       ret_14_ret_7:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -4547,14 +4547,14 @@
     type: looker_line
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_move,
       total_lose_zone, total_lose_quit, total_lose_all, remaining_time_sec, avg_moves_made,
-      firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.fail_type: ''
       progression.event_name: ''
       progression.install_day_of_user: ''
       progression.event_version: 1.0.2
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [progression.user_level_at]
     limit: 500
     column_limit: 50
@@ -4889,10 +4889,10 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
@@ -5356,10 +5356,10 @@
       player_7, player_14, ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross,
       ltv1_ad, ltv3_ad, ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross,
       ltv7_blended_gross, ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net,
-      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      ltv7_blended_net, ltv14_blended_net, new_users, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     sorts: [users_pdt.installed_date desc]
     limit: 500
     column_limit: 50
@@ -5823,10 +5823,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, firebase_test.Difficulty_Android_testgroup]
+      new_users, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6215,7 +6215,7 @@
         align: center
       ltv_14:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6289,10 +6289,10 @@
       ltv1_iap_gross, ltv3_iap_gross, ltv7_iap_gross, ltv14_iap_gross, ltv1_ad, ltv3_ad,
       ltv7_ad, ltv14_ad, ltv1_blended_gross, ltv3_blended_gross, ltv7_blended_gross,
       ltv14_blended_gross, ltv1_blended_net, ltv3_blended_net, ltv7_blended_net, ltv14_blended_net,
-      new_users, firebase_test.Difficulty_Android_testgroup]
+      new_users, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6681,7 +6681,7 @@
         align: center
       ltv_14:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
@@ -6751,10 +6751,10 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[11,20]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6868,11 +6868,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[21,30]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -6939,7 +6939,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -6988,11 +6988,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[31,50]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7059,7 +7059,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7108,11 +7108,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[51,75]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7179,7 +7179,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7228,11 +7228,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[76,100]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7299,7 +7299,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7348,11 +7348,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[126,150]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7419,7 +7419,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7468,11 +7468,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[101,125]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7539,7 +7539,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7588,11 +7588,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[151,200]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7659,7 +7659,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7708,11 +7708,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[301,400]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7779,7 +7779,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7828,11 +7828,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[201,300]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -7899,7 +7899,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -7948,11 +7948,11 @@
     model: tile_match
     explore: progression
     type: looker_grid
-    fields: [win_count, fail_count, progression.win_rate, firebase_test.Difficulty_Android_testgroup]
+    fields: [win_count, fail_count, progression.win_rate, firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_level_at: "[401,500]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup]
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -8019,7 +8019,7 @@
     series_text_format:
       win_rate:
         align: center
-      firebase_test.Difficulty_Android_testgroup:
+      firebase_test.StreakBreaker_03_iOS_testgroup:
         align: center
     hidden_pivots: {}
     x_axis_gridlines: false
@@ -8071,8 +8071,8 @@
     fields: [progression.user_level_at, unique_start, total_start, win_count, total_lose_time,
       total_lose_zone, total_lose_quit, lose_count_all, avg_remaining_time_sec, time_begin_sec,
       progression.win_rate, all_extra_moves, avg_level_play_time, target_win_rate,
-      mean_attempt, extramove_player, firebase_test.Difficulty_Android_testgroup]
-    pivots: [firebase_test.Difficulty_Android_testgroup]
+      mean_attempt, extramove_player, firebase_test.StreakBreaker_03_iOS_testgroup]
+    pivots: [firebase_test.StreakBreaker_03_iOS_testgroup]
     filters:
       progression.user_split_test_name: ''
       progression.event_version: 1.0.2
@@ -8085,8 +8085,8 @@
       progression.user_split_test_name_Streak_Breaker: ''
       progression.user_win_streak_count: ''
       progression.user_level_at: "[1,1000]"
-      firebase_test.Difficulty_Android_testgroup: "-NULL"
-    sorts: [firebase_test.Difficulty_Android_testgroup, progression.user_level_at]
+      firebase_test.StreakBreaker_03_iOS_testgroup: "-NULL"
+    sorts: [firebase_test.StreakBreaker_03_iOS_testgroup, progression.user_level_at]
     limit: 5000
     column_limit: 50
     dynamic_fields:

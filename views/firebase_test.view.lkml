@@ -7,7 +7,8 @@ view: firebase_test {
                end)) as routing_group,
           max(firebase_exp_77) as exp_77,
           max(firebase_exp_78) as exp_78,
-          max(firebase_exp_79) as exp_79
+          max(firebase_exp_79) as exp_79,
+          max(firebase_exp_80) as exp_80
           from "tile_match"."firebase_daily_user" "fb"
           group by advertising_id
     ;;
@@ -40,6 +41,11 @@ view: firebase_test {
     sql: ${TABLE}.exp_79 ;;
   }
 
+  dimension: exp_80 {
+    type: string
+    sql: ${TABLE}.exp_80 ;;
+  }
+
   dimension: EasyMode_And_Difficulty_iOS_testgroup {
     type:string
     sql: case when ${exp_77}='0' then 'Dynamic Off Blended Default'
@@ -58,6 +64,12 @@ view: firebase_test {
     type:string
     sql: case when ${exp_79}='0' then 'Dynamic Off'
               when ${exp_79}='1' then 'Dynamic On' end ;;
+  }
+
+  dimension: StreakBreaker_03_iOS_testgroup {
+    type:string
+    sql: case when ${exp_80}='0' then 'StreakBreaker85'
+              when ${exp_80}='1' then 'StreakBreaker50' end ;;
   }
 
 }
