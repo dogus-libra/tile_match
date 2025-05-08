@@ -1946,6 +1946,13 @@ view: users_pdt {
           end ;;
   }
 
+  dimension: user_split_test_name_Streak_Breaker_50_85_v2{
+    type: string
+    sql:  case when ${TABLE}.user_split_test_name like '%0505_StreakBreaker_50%' then 'Streak Breaker 50'
+               when ${TABLE}.user_split_test_name like '%0505_StreakBreaker_85%' then 'Streak Breaker 85'
+          end ;;
+  }
+
   dimension: user_split_test_name_First500{
     type: string
     sql:  case when ${TABLE}.user_split_test_name like '%2803_First500_Default%' then 'First 500 Default'
