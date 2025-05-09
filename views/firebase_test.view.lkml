@@ -1,16 +1,27 @@
 view: firebase_test {
   derived_table: {
     distribution: "advertising_id"
-    sql:  select advertising_id,
-          max((case when test_routing_value::smallint>=0 and test_routing_value::smallint<=50 then '0'
-                    when test_routing_value::smallint>50 and test_routing_value::smallint<=100 then '1'
-               end)) as routing_group,
-          max(firebase_exp_77) as exp_77,
-          max(firebase_exp_78) as exp_78,
-          max(firebase_exp_79) as exp_79,
-          max(firebase_exp_80) as exp_80
-          from "tile_match"."firebase_daily_user" "fb"
-          group by advertising_id
+    sql:  SELECT
+    fb.*,
+    coalesce(fb.f_exp_80::BIGINT, usr.StreakBreaker_03_iOS) as exp_80
+FROM (
+    SELECT
+        advertising_id,
+        max(firebase_exp_77) as exp_77,
+        max(firebase_exp_78) as exp_78,
+        max(firebase_exp_79) as exp_79,
+        max(firebase_exp_80) as f_exp_80
+    FROM "tile_match"."firebase_daily_user"
+    group by advertising_id) fb
+LEFT JOIN (
+    SELECT
+        advertising_id,
+        (case when max(user_split_test_name) like '%0505_StreakBreaker_85%' then 0
+             when max(user_split_test_name) like '%0505_StreakBreaker_50%' then 1 end)::BIGINT as StreakBreaker_03_iOS
+    FROM "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
+    group by advertising_id) usr
+ON (fb.advertising_id = usr.advertising_id)
+
     ;;
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('day',DATEADD('minute', -540 , getdate() )  )  ;;
@@ -26,6 +37,7 @@ view: firebase_test {
     type: string
     sql: ${TABLE}.routing_group ;;
   }
+
   dimension: exp_77 {
     type: string
     sql: ${TABLE}.exp_77 ;;
