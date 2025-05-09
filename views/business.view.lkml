@@ -543,7 +543,7 @@ view: business {
   }
 
   dimension: package_id {
-    type: number
+    type: string
     sql: ${TABLE}.package_id ;;
   }
 
