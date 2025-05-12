@@ -828,4 +828,59 @@ view: monitoring {
     type: count
     drill_fields: [user_split_test_name, event_name]
   }
+
+  measure: loading_scene_avg{
+    type: average
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per25{
+    type: percentile
+    percentile: 25
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per50{
+    type: percentile
+    percentile: 50
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per75{
+    type: percentile
+    percentile: 75
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per90{
+    type: percentile
+    percentile: 90
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per95{
+    type: percentile
+    percentile: 95
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
+
+  measure: loading_scene_per99{
+    type: percentile
+    percentile: 99
+    sql: ${duration} ;;
+    filters: [event_name: "LoadingSceneCompleted"]
+    value_format: "0.00"
+  }
 }
