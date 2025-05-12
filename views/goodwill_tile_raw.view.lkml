@@ -524,6 +524,10 @@ view: goodwill_tile_raw {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.install_time ;;
   }
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.install_time,${TABLE}.event_time)/24) ;;
+  }
   dimension: ip {
     type: string
     sql: ${TABLE}.ip ;;

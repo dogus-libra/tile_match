@@ -53,6 +53,11 @@ view: first_time_payer {
     sql: ${TABLE}.install_time ;;
   }
 
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.install_time,${TABLE}.event_time)/24) ;;
+  }
+
   dimension: payment_row_number {
     type: string
     sql: ${TABLE}.rn ;;
