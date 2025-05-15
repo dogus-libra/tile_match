@@ -852,8 +852,21 @@ view: business {
   }
 
   dimension: store_visit_source {
-    type: number
-    sql: ${TABLE}.store_visit_source ;;
+    type: string
+    sql: case when ${TABLE}.store_visit_source = 0 then 'None'
+              when ${TABLE}.store_visit_source = 1 then 'BoosterExchangePanelMenu'
+              when ${TABLE}.store_visit_source = 2 then 'BoosterExchangePanelGamePlay'
+              when ${TABLE}.store_visit_source = 3 then 'CoinIndicatorMenu'
+              when ${TABLE}.store_visit_source = 4 then 'CoinIndicatorGamePlay'
+              when ${TABLE}.store_visit_source = 5 then 'LifeIndicatorMenu'
+              when ${TABLE}.store_visit_source = 6 then 'LifeIndicatorGamePlay'
+              when ${TABLE}.store_visit_source = 7 then 'ExtraLifePanelMenu'
+              when ${TABLE}.store_visit_source = 8 then 'ExtraLifePanelGamePlay'
+              when ${TABLE}.store_visit_source = 9 then 'EndGameOfferPanel'
+              when ${TABLE}.store_visit_source = 10 then 'MenuStoreButton'
+              when ${TABLE}.store_visit_source = 11 then 'MenuSwipe'
+              when ${TABLE}.store_visit_source = 12 then 'RestorePurchase'
+              end;;
   }
 
   dimension: team_activity {
