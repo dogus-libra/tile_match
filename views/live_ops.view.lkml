@@ -1116,7 +1116,7 @@ view: live_ops {
   dimension: tile_pass_30th_stage_time_raw {
     type:  date_time
     sql: case
-         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}>=27
+         when ${live_ops_engagement_type}= 3 and ${live_ops_pass_type}='Free' and ${live_ops_default_stage_index}<=30 and ${live_ops_default_stage_index}>=27
          then ${TABLE}.event_timestamp
          end
         ;;
