@@ -706,6 +706,58 @@ view: progression {
         ) ;;
   }
 
+  dimension: fruit_type_count {
+    type: number
+    sql: (
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%blue5%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%green1%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%green6%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%orange2%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%orange3%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%purple3%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%red3%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%red5%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%red6%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%yellow1%' THEN 1 ELSE 0 END) +
+          (CASE WHEN ${TABLE}.tiles_on_board LIKE '%yellow5%' THEN 1 ELSE 0 END)
+        ) ;;
+  }
+
+  dimension: fruit_total_count {
+    type: number
+    sql: (
+      CASE WHEN POSITION('blue5:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'blue5:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('green1:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'green1:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('green6:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'green6:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('orange2:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'orange2:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('orange3:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'orange3:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('purple3:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'purple3:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('red3:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'red3:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('red5:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'red5:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('red6:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'red6:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('yellow1:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'yellow1:', 2), '|', 1) AS INT) ELSE 0 END +
+      CASE WHEN POSITION('yellow5:' IN ${TABLE}.tiles_on_board) > 0 THEN CAST(split_part(split_part(${TABLE}.tiles_on_board, 'yellow5:', 2), '|', 1) AS INT) ELSE 0 END
+    ) ;;
+  }
+
+  dimension: fruitsOnBoard {
+    type: string
+    sql:  RTRIM(
+    CASE WHEN POSITION('blue5:' IN ${TABLE}.tiles_on_board) > 0 THEN 'blueberry, ' ELSE '' END ||
+    CASE WHEN POSITION('green1:' IN ${TABLE}.tiles_on_board) > 0 THEN 'apple, ' ELSE '' END ||
+    CASE WHEN POSITION('green6:' IN ${TABLE}.tiles_on_board) > 0 THEN 'lime, ' ELSE '' END ||
+    CASE WHEN POSITION('orange2:' IN ${TABLE}.tiles_on_board) > 0 THEN 'pear, ' ELSE '' END ||
+    CASE WHEN POSITION('orange3:' IN ${TABLE}.tiles_on_board) > 0 THEN 'orange, ' ELSE '' END ||
+    CASE WHEN POSITION('purple3:' IN ${TABLE}.tiles_on_board) > 0 THEN 'grape, ' ELSE '' END ||
+    CASE WHEN POSITION('red3:' IN ${TABLE}.tiles_on_board) > 0 THEN 'cherry, ' ELSE '' END ||
+    CASE WHEN POSITION('red5:' IN ${TABLE}.tiles_on_board) > 0 THEN 'waterlemon, ' ELSE '' END ||
+    CASE WHEN POSITION('red6:' IN ${TABLE}.tiles_on_board) > 0 THEN 'strawberry, ' ELSE '' END ||
+    CASE WHEN POSITION('yellow1:' IN ${TABLE}.tiles_on_board) > 0 THEN 'banana, ' ELSE '' END ||
+    CASE WHEN POSITION('yellow5:' IN ${TABLE}.tiles_on_board) > 0 THEN 'lemon, ' ELSE '' END,
+    ', '
+  ) ;;
+  }
+
   dimension: remain_tile_count {
     type: string
     sql: ${TABLE}.remain_tile_count ;;
