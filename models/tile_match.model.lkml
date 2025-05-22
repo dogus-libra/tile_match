@@ -232,3 +232,5 @@ explore: inventory2_pdt {
 }
 
 explore: firebase_test {}
+
+explore: eventque_union {}
