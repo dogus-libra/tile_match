@@ -14,7 +14,7 @@ view: progression3_pdt {
       FROM
           tile_match.progression
       WHERE
-          event_name = 'LevelCompleted' AND
+          event_name = 'LevelStarted' AND
           user_win_streak_count IS NOT NULL
       GROUP BY
           advertising_id, user_level_at
