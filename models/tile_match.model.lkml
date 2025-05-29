@@ -234,3 +234,11 @@ explore: inventory2_pdt {
 explore: firebase_test {}
 
 explore: eventque_union {}
+
+explore: progression3_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${progression3_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
