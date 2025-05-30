@@ -6,7 +6,7 @@ view: progression3_pdt {
       SELECT
           advertising_id,
           user_level_at,
-          max(user_win_streak_count) AS max_win_streak,
+          max(coalesce(user_win_streak_count,0)) AS max_win_streak,
           max(user_platform) as user_platform,
           max(installed_at) as install_dt,
           max(app_version) as app_version,
@@ -14,8 +14,7 @@ view: progression3_pdt {
       FROM
           tile_match.progression
       WHERE
-          event_name = 'LevelCompleted' AND
-          user_win_streak_count IS NOT NULL
+          event_name = 'LevelStarted'
       GROUP BY
           advertising_id, user_level_at
       ORDER BY
