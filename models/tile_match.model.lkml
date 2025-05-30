@@ -242,3 +242,11 @@ explore: progression3_pdt {
     relationship: many_to_one
   }
 }
+
+explore: streak_inventory_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${streak_inventory_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
