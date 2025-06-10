@@ -6,7 +6,12 @@ view: firebase_test {
     coalesce(fb.f_exp_80::BIGINT, usr.StreakBreaker_03_iOS) as exp_80,
     coalesce(fb.f_exp_83::BIGINT, usr.Starter_Prices_iOS) as exp_83,
     coalesce(fb.f_exp_88::BIGINT, usr.Balance_Exclude_02_iOS) as exp_88,
-    coalesce(fb.f_exp_89::BIGINT, usr.Balance_02_iOS) as exp_89
+    coalesce(fb.f_exp_89::BIGINT, usr.Balance_02_iOS) as exp_89,
+    coalesce(fb.f_exp_90::BIGINT, usr.StorePrices_iOS) as exp_90,
+    coalesce(fb.f_exp_91::BIGINT, usr.Ads_iOS) as exp_91,
+    coalesce(fb.f_exp_92::BIGINT, usr.StreakBreaker_iOS) as exp_92,
+    coalesce(fb.f_exp_93::BIGINT, usr.StreakBreaker_Android) as exp_93,
+    coalesce(fb.f_exp_94::BIGINT, usr.Balance_02_iOS_02) as exp_94
 FROM (
     SELECT
         advertising_id,
@@ -16,7 +21,12 @@ FROM (
         max(firebase_exp_80) as f_exp_80,
         max(firebase_exp_83) as f_exp_83,
         max(firebase_exp_88) as f_exp_88,
-        max(firebase_exp_89) as f_exp_89
+        max(firebase_exp_89) as f_exp_89,
+        max(firebase_exp_90) as f_exp_90,
+        max(firebase_exp_91) as f_exp_91,
+        max(firebase_exp_92) as f_exp_92,
+        max(firebase_exp_93) as f_exp_93,
+        max(firebase_exp_94) as f_exp_94
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
 LEFT JOIN (
@@ -34,13 +44,31 @@ LEFT JOIN (
 
         (case when max(user_split_test_name) like '%1605_DefaultLevels%' then 0
               when max(user_split_test_name) like '%1605_BalancedLevels_EasyModeOn%' then 1
-              when max(user_split_test_name) like '%1605_BalancedLevels_EasyModeOff%' then 2 end)::BIGINT as Balance_02_iOS
+              when max(user_split_test_name) like '%1605_BalancedLevels_EasyModeOff%' then 2 end)::BIGINT as Balance_02_iOS,
+
+        (case when max(user_split_test_name) like '%2905_Default%' then 0
+              when max(user_split_test_name) like '%2905_Cheaper%' then 1 end)::BIGINT as StorePrices_iOS,
+
+        (case when max(user_split_test_name) like '%3005_ad_default%' then 0
+              when max(user_split_test_name) like '%3005_ad_soft%' then 1
+              when max(user_split_test_name) like '%3005_ad_softer%' then 2 end)::BIGINT as Ads_iOS,
+
+        (case when max(user_split_test_name) like '%3005_SB_Default%' then 0
+              when max(user_split_test_name) like '%3005_SB_New_Algorithm%' then 1 end)::BIGINT as StreakBreaker_iOS,
+
+        (case when max(user_split_test_name) like '%3005_SB_Default%' then 0
+              when max(user_split_test_name) like '%3005_SB_New_Algorithm%' then 1 end)::BIGINT as StreakBreaker_Android,
+
+        (case when max(user_split_test_name) like '%0406_BlendedDefault%' then 0
+              when max(user_split_test_name) like '%0406_BlendedEasyOn%' then 1
+              when max(user_split_test_name) like '%0406_BlendedEasyOff%' then 2 end)::BIGINT as Balance_02_iOS_02
+
+
 
     FROM "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
     group by advertising_id) usr
-ON (fb.advertising_id = usr.advertising_id)
+ON (fb.advertising_id = usr.advertising_id) ;;
 
-    ;;
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('day',DATEADD('minute', -540 , getdate() )  )  ;;
     sortkeys: ["advertising_id"]
@@ -91,6 +119,31 @@ ON (fb.advertising_id = usr.advertising_id)
     sql: ${TABLE}.exp_89 ;;
   }
 
+  dimension: exp_90 {
+    type: string
+    sql: ${TABLE}.exp_90 ;;
+  }
+
+  dimension: exp_91 {
+    type: string
+    sql: ${TABLE}.exp_91 ;;
+  }
+
+  dimension: exp_92 {
+    type: string
+    sql: ${TABLE}.exp_92 ;;
+  }
+
+  dimension: exp_93 {
+    type: string
+    sql: ${TABLE}.exp_93 ;;
+  }
+
+  dimension: exp_94 {
+    type: string
+    sql: ${TABLE}.exp_94 ;;
+  }
+
   dimension: EasyMode_And_Difficulty_iOS_testgroup {
     type:string
     sql: case when ${exp_77}='0' then 'Dynamic Off Blended Default'
@@ -135,6 +188,38 @@ ON (fb.advertising_id = usr.advertising_id)
     sql: case when ${exp_89} = '0' then 'Default Levels'
               when ${exp_89} = '1' then 'Balanced Levels Easy ModeOn'
               when ${exp_89} = '2' then 'Balanced Levels Easy ModeOff' end ;;
+  }
+
+  dimension: Store_Prices_iOS_testgroup {
+    type:string
+    sql: case when ${exp_90} = '0' then 'Default'
+              when ${exp_90} = '1' then 'Cheaper' end ;;
+  }
+
+  dimension: Ads_iOS_testgroup {
+    type:string
+    sql: case when ${exp_91} = '0' then 'Default'
+              when ${exp_91} = '1' then 'Soft'
+              when ${exp_91} = '2' then 'Softer' end ;;
+  }
+
+  dimension: StreakBreaker_iOS_testgroup {
+    type:string
+    sql: case when ${exp_92}='0' then 'Default'
+              when ${exp_92}='1' then 'New_Algorithm' end ;;
+  }
+
+  dimension: StreakBreaker_Android_testgroup {
+    type:string
+    sql: case when ${exp_93}='0' then 'Default'
+              when ${exp_93}='1' then 'New Algorithm' end ;;
+  }
+
+  dimension: Balance_02_iOS_02_testgroup {
+    type:string
+    sql: case when ${exp_94} = '0' then 'Blended Default'
+              when ${exp_94} = '1' then 'Blended EasyOn'
+              when ${exp_94} = '2' then 'Blended EasyOff' end ;;
   }
 
 }
