@@ -13,7 +13,9 @@ view: firebase_test {
     coalesce(fb.f_exp_93::BIGINT, usr.StreakBreaker_Android) as exp_93,
     coalesce(fb.f_exp_94::BIGINT, usr.Balance_02_iOS_02) as exp_94,
     coalesce(fb.f_exp_95::BIGINT, usr.StreakBreaker_iOS_02) as exp_95,
-    coalesce(fb.f_exp_96::BIGINT, usr.StreakBreaker_Android_02) as exp_96
+    coalesce(fb.f_exp_96::BIGINT, usr.StreakBreaker_Android_02) as exp_96,
+    coalesce(fb.f_exp_97::BIGINT, usr.DynamicStickers_Android) as exp_97,
+    coalesce(fb.f_exp_98::BIGINT, usr.DynamicStickers_iOS) as exp_98
 FROM (
     SELECT
         advertising_id,
@@ -30,7 +32,10 @@ FROM (
         max(firebase_exp_93) as f_exp_93,
         max(firebase_exp_94) as f_exp_94,
         max(firebase_exp_95) as f_exp_95,
-        max(firebase_exp_96) as f_exp_96
+        max(firebase_exp_96) as f_exp_96,
+        max(firebase_exp_97) as f_exp_97,
+        max(firebase_exp_98) as f_exp_98
+
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
 LEFT JOIN (
@@ -73,7 +78,13 @@ LEFT JOIN (
 
         (case when max(user_split_test_name) like '%1106_SB_Default%' then 0
               when max(user_split_test_name) like '%1106_SB_Levels_Off_Start_55%' then 1
-              when max(user_split_test_name) like '%1106_SB_Levels_On_Start_85%' then 2 end)::BIGINT as StreakBreaker_Android_02
+              when max(user_split_test_name) like '%1106_SB_Levels_On_Start_85%' then 2 end)::BIGINT as StreakBreaker_Android_02,
+
+        (case when max(user_split_test_name) like '%2006_DynamicStickers%' then 0
+              when max(user_split_test_name) like '%2006_DefaultStickers%' then 1 end)::BIGINT as DynamicStickers_Android,
+
+        (case when max(user_split_test_name) like '%2006_DynamicStickers%' then 0
+              when max(user_split_test_name) like '%2006_DefaultStickers%' then 1 end)::BIGINT as DynamicStickers_iOS
 
 
 
@@ -166,6 +177,17 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     sql: ${TABLE}.exp_96 ;;
   }
 
+  dimension: exp_97 {
+    type: string
+    sql: ${TABLE}.exp_97 ;;
+  }
+
+  dimension: exp_98 {
+    type: string
+    sql: ${TABLE}.exp_98 ;;
+  }
+
+
   dimension: EasyMode_And_Difficulty_iOS_testgroup {
     type:string
     sql: case when ${exp_77}='0' then 'Dynamic Off Blended Default'
@@ -256,6 +278,18 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     sql: case when ${exp_96} = '0' then 'Default'
               when ${exp_96} = '1' then 'SB Levels Off Start 55'
               when ${exp_96} = '2' then 'SB Levels On Start 85' end ;;
+  }
+
+  dimension: DynamicStickers_Android_testgroup {
+    type:string
+    sql: case when ${exp_97} = '0' then 'Dynamic Stickers'
+              when ${exp_97} = '1' then 'Default Stickers' end ;;
+  }
+
+  dimension: DynamicStickers_iOS_testgroup {
+    type:string
+    sql: case when ${exp_98} = '0' then 'Dynamic Stickers'
+              when ${exp_98} = '1' then 'Default Stickers' end ;;
   }
 
 }
