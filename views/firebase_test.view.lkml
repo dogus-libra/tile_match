@@ -15,7 +15,10 @@ view: firebase_test {
     coalesce(fb.f_exp_95::BIGINT, usr.StreakBreaker_iOS_02) as exp_95,
     coalesce(fb.f_exp_96::BIGINT, usr.StreakBreaker_Android_02) as exp_96,
     coalesce(fb.f_exp_97::BIGINT, usr.DynamicStickers_Android) as exp_97,
-    coalesce(fb.f_exp_98::BIGINT, usr.DynamicStickers_iOS) as exp_98
+    coalesce(fb.f_exp_98::BIGINT, usr.DynamicStickers_iOS) as exp_98,
+    coalesce(fb.f_exp_99::BIGINT, usr.Meta_Android) as exp_99,
+    coalesce(fb.f_exp_100::BIGINT, usr.Meta_iOS) as exp_100,
+    coalesce(fb.f_exp_101::BIGINT, usr.StreakBreaker_iOS_Exclude_03) as exp_101
 FROM (
     SELECT
         advertising_id,
@@ -34,7 +37,10 @@ FROM (
         max(firebase_exp_95) as f_exp_95,
         max(firebase_exp_96) as f_exp_96,
         max(firebase_exp_97) as f_exp_97,
-        max(firebase_exp_98) as f_exp_98
+        max(firebase_exp_98) as f_exp_98,
+        max(firebase_exp_99) as f_exp_99,
+        max(firebase_exp_100) as f_exp_100,
+        max(firebase_exp_101) as f_exp_101
 
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
@@ -84,7 +90,18 @@ LEFT JOIN (
               when max(user_split_test_name) like '%2006_DefaultStickers%' then 1 end)::BIGINT as DynamicStickers_Android,
 
         (case when max(user_split_test_name) like '%2006_DynamicStickers%' then 0
-              when max(user_split_test_name) like '%2006_DefaultStickers%' then 1 end)::BIGINT as DynamicStickers_iOS
+              when max(user_split_test_name) like '%2006_DefaultStickers%' then 1 end)::BIGINT as DynamicStickers_iOS,
+
+        (case when max(user_split_test_name) like '%2706_Default_Meta%' then 0
+              when max(user_split_test_name) like '%2706_Default_Children%' then 1
+              when max(user_split_test_name) like '%2706_Default_Story%' then 2 end)::BIGINT as Meta_Android,
+
+        (case when max(user_split_test_name) like '%2706_Default_Meta%' then 0
+              when max(user_split_test_name) like '%2706_Default_Children%' then 1
+              when max(user_split_test_name) like '%2706_Default_Story%' then 2 end)::BIGINT as Meta_iOS,
+
+        (case when max(user_split_test_name) like '%0307_SB_Default%' then 0
+              when max(user_split_test_name) like '%0307_SB_Levels_Off_Start_55%' then 1 end)::BIGINT as StreakBreaker_iOS_Exclude_03
 
 
 
@@ -185,6 +202,21 @@ ON (fb.advertising_id = usr.advertising_id) ;;
   dimension: exp_98 {
     type: string
     sql: ${TABLE}.exp_98 ;;
+  }
+
+  dimension: exp_99 {
+    type: string
+    sql: ${TABLE}.exp_99 ;;
+  }
+
+  dimension: exp_100 {
+    type: string
+    sql: ${TABLE}.exp_100 ;;
+  }
+
+  dimension: exp_101 {
+    type: string
+    sql: ${TABLE}.exp_101 ;;
   }
 
 
@@ -290,6 +322,26 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     type:string
     sql: case when ${exp_98} = '0' then 'Dynamic Stickers'
               when ${exp_98} = '1' then 'Default Stickers' end ;;
+  }
+
+  dimension: Meta_Android_testgroup {
+    type:string
+    sql: case when ${exp_99} = '0' then 'Default_Meta'
+              when ${exp_99} = '1' then 'Default_Children'
+              when ${exp_99} = '2' then 'Default_Story' end ;;
+  }
+
+  dimension: Meta_iOS_testgroup {
+    type:string
+    sql: case when ${exp_100} = '0' then 'Default Meta'
+              when ${exp_100} = '1' then 'Default Children'
+              when ${exp_100} = '2' then 'Default Story' end ;;
+  }
+
+  dimension: StreakBreaker_iOS_Exclude_03_testgroup {
+    type:string
+    sql: case when ${exp_101} = '0' then 'SB Default'
+              when ${exp_101} = '1' then 'SB Levels Off Start 55' end ;;
   }
 
 }
