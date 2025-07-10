@@ -18,7 +18,10 @@ view: firebase_test {
     coalesce(fb.f_exp_98::BIGINT, usr.DynamicStickers_iOS) as exp_98,
     coalesce(fb.f_exp_99::BIGINT, usr.Meta_Android) as exp_99,
     coalesce(fb.f_exp_100::BIGINT, usr.Meta_iOS) as exp_100,
-    coalesce(fb.f_exp_101::BIGINT, usr.StreakBreaker_iOS_Exclude_03) as exp_101
+    coalesce(fb.f_exp_101::BIGINT, usr.StreakBreaker_iOS_Exclude_03) as exp_101,
+    coalesce(fb.f_exp_102::BIGINT, usr.Streak_Breaker_0907) as exp_102,
+    coalesce(fb.f_exp_103::BIGINT, usr.Streak_Breaker_0907) as exp_103,
+    coalesce(fb.f_exp_104::BIGINT, usr.Streak_Breaker_0907) as exp_104
 FROM (
     SELECT
         advertising_id,
@@ -40,7 +43,10 @@ FROM (
         max(firebase_exp_98) as f_exp_98,
         max(firebase_exp_99) as f_exp_99,
         max(firebase_exp_100) as f_exp_100,
-        max(firebase_exp_101) as f_exp_101
+        max(firebase_exp_101) as f_exp_101,
+        max(firebase_exp_102) as f_exp_102,
+        max(firebase_exp_103) as f_exp_103,
+        max(firebase_exp_104) as f_exp_104
 
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
@@ -101,7 +107,12 @@ LEFT JOIN (
               when max(user_split_test_name) like '%2706_Default_Story%' then 2 end)::BIGINT as Meta_iOS,
 
         (case when max(user_split_test_name) like '%0307_SB_Default%' then 0
-              when max(user_split_test_name) like '%0307_SB_Levels_Off_Start_55%' then 1 end)::BIGINT as StreakBreaker_iOS_Exclude_03
+              when max(user_split_test_name) like '%0307_SB_Levels_Off_Start_55%' then 1 end)::BIGINT as StreakBreaker_iOS_Exclude_03,
+
+        (case when max(user_split_test_name) like '%0907_ST_55%' then 0
+              when max(user_split_test_name) like '%0907_ST_55_CH115%' then 1
+              when max(user_split_test_name) like '%0907_ST_85%' then 2 end)::BIGINT as Streak_Breaker_0907
+
 
 
 
@@ -217,6 +228,21 @@ ON (fb.advertising_id = usr.advertising_id) ;;
   dimension: exp_101 {
     type: string
     sql: ${TABLE}.exp_101 ;;
+  }
+
+  dimension: exp_102 {
+    type: string
+    sql: ${TABLE}.exp_102 ;;
+  }
+
+  dimension: exp_103 {
+    type: string
+    sql: ${TABLE}.exp_103 ;;
+  }
+
+  dimension: exp_104 {
+    type: string
+    sql: ${TABLE}.exp_104 ;;
   }
 
 
@@ -342,6 +368,27 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     type:string
     sql: case when ${exp_101} = '0' then 'SB Default'
               when ${exp_101} = '1' then 'SB Levels Off Start 55' end ;;
+  }
+
+  dimension: StreakBreaker_iOS_03_testgroup {
+    type:string
+    sql: case when ${exp_102} = '0' then 'Default Meta'
+              when ${exp_102} = '1' then 'Default Children'
+              when ${exp_102} = '2' then 'Default Story' end ;;
+  }
+
+  dimension: Streak_Breaker_Android_testgroup {
+    type:string
+    sql: case when ${exp_103} = '0' then 'Default Meta'
+              when ${exp_103} = '1' then 'Default Children'
+              when ${exp_103} = '2' then 'Default Story' end ;;
+  }
+
+  dimension: Streak_Breaker_iOS_Exclude_03_testgroup {
+    type:string
+    sql: case when ${exp_104} = '0' then 'Default Meta'
+              when ${exp_104} = '1' then 'Default Children'
+              when ${exp_104} = '2' then 'Default Story' end ;;
   }
 
 }
