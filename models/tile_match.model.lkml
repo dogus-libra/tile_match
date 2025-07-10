@@ -250,3 +250,5 @@ explore: streak_inventory_pdt {
     relationship: many_to_one
   }
 }
+
+explore: ecpm {}
