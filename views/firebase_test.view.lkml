@@ -372,23 +372,23 @@ ON (fb.advertising_id = usr.advertising_id) ;;
 
   dimension: StreakBreaker_iOS_03_testgroup {
     type:string
-    sql: case when ${exp_102} = '0' then 'Default Meta'
-              when ${exp_102} = '1' then 'Default Children'
-              when ${exp_102} = '2' then 'Default Story' end ;;
+    sql: case when ${exp_102} = '0' then 'ST 55'
+              when ${exp_102} = '1' then 'ST 55 CH115'
+              when ${exp_102} = '2' then 'ST 85' end ;;
   }
 
   dimension: Streak_Breaker_Android_testgroup {
     type:string
-    sql: case when ${exp_103} = '0' then 'Default Meta'
-              when ${exp_103} = '1' then 'Default Children'
-              when ${exp_103} = '2' then 'Default Story' end ;;
+    sql: case when ${exp_103} = '0' then 'ST 55'
+              when ${exp_103} = '1' then 'ST 55 CH115'
+              when ${exp_103} = '2' then 'ST 85' end ;;
   }
 
   dimension: Streak_Breaker_iOS_Exclude_03_testgroup {
     type:string
-    sql: case when ${exp_104} = '0' then 'Default Meta'
-              when ${exp_104} = '1' then 'Default Children'
-              when ${exp_104} = '2' then 'Default Story' end ;;
+    sql: case when ${exp_104} = '0' then 'ST 55'
+              when ${exp_104} = '1' then 'ST 55 CH115'
+              when ${exp_104} = '2' then 'ST 85' end ;;
   }
 
 }
