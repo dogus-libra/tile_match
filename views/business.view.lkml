@@ -1557,6 +1557,36 @@ view: business {
     sql: ${TABLE}.visible_area ;;
   }
 
+  dimension: ad_network_placement {
+    type: string
+    sql: ${TABLE}.ad_network_placement ;;
+  }
+
+  dimension: ad_ecpm {
+    type: number
+    sql: ${TABLE}.ad_ecpm ;;
+  }
+
+  dimension: ad_placement {
+    type: string
+    sql: ${TABLE}.ad_placement ;;
+  }
+
+  dimension: no_ads_panel_open_source {
+    type: string
+    sql: ${TABLE}.no_ads_panel_open_source ;;
+  }
+
+  dimension: dsp_name {
+    type: string
+    sql: ${TABLE}.dsp_name ;;
+  }
+
+  dimension: ad_network_name {
+    type: string
+    sql: ${TABLE}.ad_network_name ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [business_event_name, team_name, user_split_test_name, event_name]
