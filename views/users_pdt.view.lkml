@@ -326,6 +326,9 @@ view: users_pdt {
                                   when datediff('hour',installed_at,  sysdate) > 2172
                                       then case when datediff('hour', installed_at, event_timestamp) between 2148 and 2172 then 1 else 0 end end) as retention_90,
                           max(case
+                                  when datediff('hour',installed_at,  sysdate) > 2880
+                                      then case when datediff('hour', installed_at, event_timestamp) between 2856 and 2880 then 1 else 0 end end) as retention_120,
+                          max(case
                                   when datediff('hour',installed_at,  sysdate) > 4332
                                       then case when datediff('hour', installed_at, event_timestamp) between 4308 and 4332 then 1 else 0 end end) as retention_180,
                           max(case
@@ -360,6 +363,7 @@ view: users_pdt {
                         null                                         as ltv45_iap,
                         null                                         as ltv60_iap,
                         null                                         as ltv90_iap,
+                        null                                         as ltv120_iap,
                         null                                         as ltvcurr_iap,
                         null                                         as ltv1_ad,
                         null                                         as ltv2_ad,
@@ -376,6 +380,7 @@ view: users_pdt {
                         null                                         as ltv45_ad,
                         null                                         as ltv60_ad,
                         null                                         as ltv90_ad,
+                        null                                         as ltv120_ad,
                         null                                         as ltvcurr_ad,
                         null                                         as payment_1,
                         null                                         as payment_3,
@@ -385,7 +390,8 @@ view: users_pdt {
                         null                                         as payment_28,
                         null                                         as payment_45,
                         null                                         as payment_60,
-                        null                                         as payment_90
+                        null                                         as payment_90,
+                        null                                         as payment_120
 
                  from adjust.tile_match_raw
                  group by idfa_or_gps_adid),
@@ -438,6 +444,8 @@ view: users_pdt {
                         sum(case
                                 when (datediff('hour', install_time, event_time) < 2172) and event_name='af_purchase' then event_revenue_usd  end)       as ltv90_iap,
                         sum(case
+                                when (datediff('hour', install_time, event_time) < 2892) and event_name='af_purchase' then event_revenue_usd  end)       as ltv120_iap,
+                        sum(case
                                 when event_name='af_purchase' then event_revenue_usd  end)
                                   as ltvcurr_iap,
                         sum(case
@@ -471,6 +479,8 @@ view: users_pdt {
                         sum(case
                                 when (datediff('hour', install_time, event_time) < 2172) and event_name='af_ad_revenue' then event_revenue_usd  end)     as ltv90_ad,
                         sum(case
+                                when (datediff('hour', install_time, event_time) < 2892) and event_name='af_ad_revenue' then event_revenue_usd  end)     as ltv120_ad,
+                        sum(case
                                 when event_name='af_ad_revenue' then event_revenue_usd  end)
                                   as ltvcurr_ad,
                         count(distinct case
@@ -499,7 +509,10 @@ view: users_pdt {
                                   as payment_60,
                         count(distinct case
                                             when (datediff('hour', install_time, event_time) < 2172) and event_name='af_purchase' then event_time end)
-                                  as payment_90
+                                  as payment_90,
+                        count(distinct case
+                                            when (datediff('hour', install_time, event_time) < 2892) and event_name='af_purchase' then event_time end)
+                                  as payment_120
 
                  from apps_flyer.goodwill_tile_raw
                  group by idfa_or_gps_adid),
@@ -532,6 +545,7 @@ view: users_pdt {
                         max(ltv45_iap)                                                                     as ltv45_iap,
                         max(ltv60_iap)                                                                     as ltv60_iap,
                         max(ltv90_iap)                                                                     as ltv90_iap,
+                        max(ltv120_iap)                                                                    as ltv120_iap,
                         max(ltvcurr_iap)                                                                   as ltvcurr_iap,
                         max(ltv1_ad)                                                                       as ltv1_ad,
                         max(ltv2_ad)                                                                       as ltv2_ad,
@@ -548,6 +562,7 @@ view: users_pdt {
                         max(ltv45_ad)                                                                      as ltv45_ad,
                         max(ltv60_ad)                                                                      as ltv60_ad,
                         max(ltv90_ad)                                                                      as ltv90_ad,
+                        max(ltv120_ad)                                                                     as ltv120_ad,
                         max(ltvcurr_ad)                                                                    as ltvcurr_ad,
                         max(payment_1)                                                                     as payment_1,
                         max(payment_3)                                                                     as payment_3,
@@ -557,7 +572,8 @@ view: users_pdt {
                         max(payment_28)                                                                    as payment_28,
                         max(payment_45)                                                                    as payment_45,
                         max(payment_60)                                                                    as payment_60,
-                        max(payment_90)                                                                    as payment_90
+                        max(payment_90)                                                                    as payment_90,
+                        max(payment_120)                                                                   as payment_120
                  from adf_usr
                  group by idfa_or_gps_adid),
 
@@ -634,6 +650,7 @@ view: users_pdt {
              retention_45,
              retention_60,
              retention_90,
+             retention_120,
              retention_180,
              retention_360,
              ltv1_iap,
@@ -651,6 +668,7 @@ view: users_pdt {
              ltv45_iap,
              ltv60_iap,
              ltv90_iap,
+             ltv120_iap,
              ltvcurr_iap,
              ltv1_ad,
              ltv2_ad,
@@ -667,6 +685,7 @@ view: users_pdt {
              ltv45_ad,
              ltv60_ad,
              ltv90_ad,
+             ltv120_ad,
              ltvcurr_ad,
              payment_1,
              payment_3,
@@ -677,6 +696,7 @@ view: users_pdt {
              payment_45,
              payment_60,
              payment_90,
+             payment_120,
              idfa_or_gps_adid,
              network_name,
              campaign_name,
@@ -952,6 +972,11 @@ view: users_pdt {
     sql: ${TABLE}.retention_90 ;;
   }
 
+  dimension: retention_120 {
+    type: number
+    sql: ${TABLE}.retention_120 ;;
+  }
+
   dimension: retention_180 {
     type: number
     sql: ${TABLE}.retention_180 ;;
@@ -1037,6 +1062,11 @@ view: users_pdt {
     sql: coalesce(${TABLE}.ltv90_iap,0) ;;
   }
 
+  dimension: ltv120_iap {
+    type: number
+    sql: coalesce(${TABLE}.ltv120_iap,0) ;;
+  }
+
   dimension: ltvcurr_iap {
     type: number
     sql: coalesce(${TABLE}.ltvcurr_iap,0) ;;
@@ -1115,6 +1145,11 @@ view: users_pdt {
   dimension: ltv90_iap_net {
     type: number
     sql: ${ltv90_iap}*0.7 ;;
+  }
+
+  dimension: ltv120_iap_net {
+    type: number
+    sql: ${ltv120_iap}*0.7 ;;
   }
 
   dimension: ltvcurr_iap_net {
@@ -1197,6 +1232,11 @@ view: users_pdt {
     sql: ${ltv90_iap_net} + ${ltv90_ad} ;;
   }
 
+  dimension: ltv120_blended_net {
+    type: number
+    sql: ${ltv120_iap_net} + ${ltv120_ad} ;;
+  }
+
   dimension: ltvcurr_blended_net {
     type: number
     sql: ${ltvcurr_iap_net} + ${ltvcurr_ad} ;;
@@ -1275,6 +1315,11 @@ view: users_pdt {
   dimension: ltv90_blended_gross {
     type: number
     sql: ${ltv90_iap} + ${ltv90_ad} ;;
+  }
+
+  dimension: ltv120_blended_gross {
+    type: number
+    sql: ${ltv120_iap} + ${ltv120_ad} ;;
   }
 
   dimension: ltvcurr_blended_gross {
@@ -1357,6 +1402,11 @@ view: users_pdt {
     sql: coalesce(${TABLE}.ltv90_ad,0) ;;
   }
 
+  dimension: ltv120_ad {
+    type: number
+    sql: coalesce(${TABLE}.ltv120_ad,0) ;;
+  }
+
   dimension: ltvcurr_ad {
     type: number
     sql: coalesce(${TABLE}.ltvcurr_ad,0) ;;
@@ -1407,6 +1457,11 @@ view: users_pdt {
     sql: case when ${TABLE}.ltv90_iap>0 then ${TABLE}.advertising_id end ;;
   }
 
+  dimension: payer120 {
+    type: number
+    sql: case when ${TABLE}.ltv120_iap>0 then ${TABLE}.advertising_id end ;;
+  }
+
   dimension: payment1 {
     type: number
     sql: coalesce(${TABLE}.payment_1,0) ;;
@@ -1450,6 +1505,11 @@ view: users_pdt {
   dimension: payment90 {
     type: number
     sql: coalesce(${TABLE}.payment_90,0) ;;
+  }
+
+  dimension: payment120 {
+    type: number
+    sql: coalesce(${TABLE}.payment_120,0) ;;
   }
 
   dimension: isPayer {
