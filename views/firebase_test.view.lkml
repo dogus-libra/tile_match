@@ -109,7 +109,7 @@ LEFT JOIN (
         (case when max(user_split_test_name) like '%0307_SB_Default%' then 0
               when max(user_split_test_name) like '%0307_SB_Levels_Off_Start_55%' then 1 end)::BIGINT as StreakBreaker_iOS_Exclude_03,
 
-        (case when max(user_split_test_name) like '%0907_ST_55%' then 0
+        (case when max(user_split_test_name) like '%0907_ST_55%' and max(user_split_test_name) not like '%0907_ST_55_CH115%' then 0
               when max(user_split_test_name) like '%0907_ST_55_CH115%' then 1
               when max(user_split_test_name) like '%0907_ST_85%' then 2 end)::BIGINT as Streak_Breaker_0907
 

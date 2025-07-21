@@ -103,6 +103,11 @@ explore: users_pdt {
     relationship: one_to_one
     sql_on: ${users_pdt.advertising_id}=${firebase_test.advertising_id}  ;;
   }
+  join: goodwill_tile_raw {
+    type: left_outer
+    sql_on: ${goodwill_tile_raw.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${goodwill_tile_raw.customer_user_id} = ${users_pdt.user_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: tile_match_raw {}
