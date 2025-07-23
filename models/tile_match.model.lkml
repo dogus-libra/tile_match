@@ -257,3 +257,11 @@ explore: streak_inventory_pdt {
 }
 
 explore: ecpm {}
+
+explore: level_x_reach_day {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${level_x_reach_day.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
