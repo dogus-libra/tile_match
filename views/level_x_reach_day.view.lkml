@@ -60,6 +60,10 @@ ORDER BY advertising_id, milestone_level ;;
     type: date
     sql: ${TABLE}.milestone_reach_date ;;
   }
+  dimension: milestone_reach_week {
+    type: date_week
+    sql: ${TABLE}.milestone_reach_date ;;
+  }
   dimension: days_to_milestone {
     type: number
     sql: ${TABLE}.days_to_milestone ;;
