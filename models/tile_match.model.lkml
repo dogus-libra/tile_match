@@ -265,3 +265,11 @@ explore: level_x_reach_day {
     relationship: many_to_one
   }
 }
+
+explore: level_reach_percentile {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${level_reach_percentile.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: one_to_one
+  }
+}

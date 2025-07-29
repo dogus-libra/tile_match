@@ -1,5 +1,6 @@
 view: level_x_reach_day {
   derived_table: {
+    distribution: "advertising_id"
     sql:
       WITH milestone_levels AS (
            SELECT 50 AS milestone_level UNION ALL
@@ -46,6 +47,11 @@ SELECT
 
 FROM user_milestones
 ORDER BY advertising_id, milestone_level ;;
+
+
+    publish_as_db_view: yes
+    sql_trigger_value: select DATE_TRUNC('day',DATEADD('minute', -540 , getdate() )  )  ;;
+    sortkeys: ["advertising_id"]
   }
 
   dimension: advertising_id {
