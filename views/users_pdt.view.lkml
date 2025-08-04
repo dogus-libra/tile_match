@@ -343,6 +343,8 @@ view: users_pdt {
                         max(UPPER(country))                          as country,
                         min(app_version_short)                       as f_app_version,
                         max(app_version_short)                       as l_app_version,
+                        null                                         as first_payment_date,
+                        null                                         as last_payment_date,
                         null                                         as ltv1_iap,
                         null                                         as ltv2_iap,
                         null                                         as ltv3_iap,
@@ -408,6 +410,8 @@ view: users_pdt {
                         max(UPPER(country_code))                                                             as country,
                         min(app_version)                                                                     as f_app_version,
                         max(app_version)                                                                     as l_app_version,
+                        min(case when event_name='af_purchase' then event_time end)                          as first_payment_date,
+                        max(case when event_name='af_purchase' then event_time end)                          as last_payment_date,
                         sum(case
                                 when (datediff('hour', install_time, event_time) < 36) and event_name='af_purchase' then event_revenue_usd  end)         as ltv1_iap,
                         sum(case
@@ -525,6 +529,8 @@ view: users_pdt {
                         max(country)                                                                       as country,
                         min(f_app_version)                                                                 as f_app_version,
                         max(l_app_version)                                                                 as l_app_version,
+                        min(first_payment_date)                                                            as first_payment_date,
+                        max(last_payment_date)                                                             as last_payment_date,
                         max(ltv1_iap)                                                                      as ltv1_iap,
                         max(ltv2_iap)                                                                      as ltv2_iap,
                         max(ltv3_iap)                                                                      as ltv3_iap,
@@ -693,6 +699,8 @@ view: users_pdt {
              COALESCE(country, user_country_code) as country,
              COALESCE(f_app_version, fst_app_version) as first_app_version,
              COALESCE(l_app_version, lst_app_version) as last_app_version,
+             first_payment_date,
+             last_payment_date,
              COALESCE((CASE
                  WHEN network_name = 'Apple Search Ads' THEN 'apple'
                  WHEN network_name = 'Google Ads ACI' THEN 'adwords'
@@ -2097,6 +2105,18 @@ view: users_pdt {
               when ${country} in ('AF','AL','DZ','AO','AM','BD','BZ','BJ','BT','BO','BF','BI','KH','CM','CV','CF','TD','CO','CG','CD','CI','DJ','EC','EG','SV','SZ','ET','FJ','GM','GH','GT','GN','HT','HN','IN','ID','IQ','JM','JO','KE','XK','KG','LA','LB','LR','LY','MG','MW','ML','MR','MD','MN','MA','MZ','MM','NA','NP','NI','NG','PK','PS','PG','PY','PH','RW','SN','SL','SB','SO','SS','LK','SD','SR','SY','TJ','TZ','TL','TG','TT','TN','UG','UA','UZ','VU','VE','VN','EH','YE','ZM','ZW')
               then 'Tier 3'
               else ${country} end;;
+  }
+
+  dimension_group: first_payment_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.first_payment_date ;;
+  }
+
+  dimension_group: last_payment_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.last_payment_date ;;
   }
 
   measure: count {

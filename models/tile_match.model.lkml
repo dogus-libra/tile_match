@@ -108,6 +108,11 @@ explore: users_pdt {
     sql_on: ${goodwill_tile_raw.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${goodwill_tile_raw.customer_user_id} = ${users_pdt.user_id} ;;
     relationship: one_to_many
   }
+  join: first_last_payments {
+    type: left_outer
+    sql_on: ${first_last_payments.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${first_last_payments.customer_user_id} = ${users_pdt.user_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: tile_match_raw {}
@@ -273,3 +278,5 @@ explore: level_reach_percentile {
     relationship: one_to_one
   }
 }
+
+explore: first_last_payments {}

@@ -747,6 +747,19 @@ view: goodwill_tile_raw {
     type: string
     sql: ${TABLE}.wifi ;;
   }
+
+  dimension: purchase_grand_level {
+    type: number
+    description: "Satın alma sırasındaki Grand Mode seviyesi."
+    sql: JSON_EXTRACT_PATH_TEXT(${TABLE}.event_value, 'GrandModeLevel') ;;
+  }
+
+  dimension: purchase_original_level {
+    type: number
+    description: "Satın alma sırasındaki Original Level."
+    sql: JSON_EXTRACT_PATH_TEXT(${TABLE}.event_value, 'OriginalLevel') ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [app_name, event_name]

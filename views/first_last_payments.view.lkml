@@ -1,15 +1,51 @@
-view: first_time_payer {
+view: first_last_payments {
   derived_table: {
     distribution: "appsflyer_id"
     sql:
 
-SELECT *,
+    WITH ranked_purchases AS (
+      SELECT
+        appsflyer_id,
+        customer_user_id,
+        event_name,
+        install_time,
+        campaign,
+        country_code,
+        monetization_network,
+        media_source,
+        platform,
+        event_time,
+        event_value,
+        event_revenue_usd,
+        ROW_NUMBER() OVER (PARTITION BY appsflyer_id ORDER BY event_time ASC) AS rn,--(en eski ödeme = 1)
+        ROW_NUMBER() OVER (PARTITION BY appsflyer_id ORDER BY event_time DESC) AS rn_desc -- (en yeni ödeme = 1)
+      FROM
+        apps_flyer.goodwill_tile_raw
+      WHERE
+        event_name = 'af_purchase'
+    )
 
-       ROW_NUMBER() OVER (PARTITION BY appsflyer_id ORDER BY event_time ASC) AS rn
+      SELECT
+      appsflyer_id,
+      MAX(customer_user_id) as customer_user_id,
+      MAX(event_name) as event_name,
+      MAX(install_time) as install_time,
+      MAX(campaign) as campaign,
+      MAX(country_code) as country_code,
+      MAX(monetization_network) as monetization_network,
+      MAX(media_source) as media_source,
+      MAX(platform) as platform,
 
-       FROM apps_flyer.goodwill_tile_raw
+      MAX(CASE WHEN rn = 1 THEN event_time END) AS first_payment_date,
+      MAX(CASE WHEN rn = 1 THEN event_revenue_usd END) AS first_payment_amount,
+      MAX(CASE WHEN rn = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS first_payment_level,
 
-       WHERE event_name = 'af_purchase';;
+      MAX(CASE WHEN rn_desc = 1 THEN event_time END) AS last_payment_date,
+      MAX(CASE WHEN rn_desc = 1 THEN event_revenue_usd END) AS last_payment_amount,
+      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS last_payment_level
+
+      FROM ranked_purchases
+      GROUP BY appsflyer_id;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
@@ -21,9 +57,9 @@ SELECT *,
     sql: ${TABLE}.appsflyer_id ;;
   }
 
-  dimension: app_version {
+  dimension: customer_user_id {
     type: string
-    sql: ${TABLE}.app_version ;;
+    sql: ${TABLE}.customer_user_id ;;
   }
 
   dimension: event_name {
@@ -42,6 +78,22 @@ SELECT *,
     sql: ${TABLE}.event_time ;;
   }
 
+  dimension_group: first_payment_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.first_payment_date ;;
+  }
+
+  dimension: first_payment_amount {
+    type: number
+    sql: ${TABLE}.first_payment_amount ;;
+  }
+
+  dimension: first_payment_level {
+    type: number
+    sql: ${TABLE}.first_payment_level ;;
+  }
+
   dimension: event_revenue_usd {
     type: number
     sql: ${TABLE}.event_revenue_usd ;;
@@ -56,6 +108,22 @@ SELECT *,
   dimension: install_day_of_user {
     type: number
     sql: FLOOR(DATEDIFF(hour,${TABLE}.install_time,${TABLE}.event_time)/24) ;;
+  }
+
+  dimension_group: last_payment_date {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.last_payment_date ;;
+  }
+
+  dimension: last_payment_amount {
+    type: number
+    sql: ${TABLE}.last_payment_amount ;;
+  }
+
+  dimension: last_payment_level {
+    type: number
+    sql: ${TABLE}.last_payment_level ;;
   }
 
   dimension: payment_row_number {

@@ -304,6 +304,7 @@ view: progression {
 
   dimension: event_id {
     type: string
+    primary_key: yes
     sql: ${TABLE}.event_id ;;
   }
 
@@ -3468,12 +3469,12 @@ view: progression {
 
   measure: level_complete_count_normal {
     type: sum
-    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${TABLE}.user_game_mode is null then 1 else 0 end) ;;
+    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${user_game_mode} = 'Normal' then 1 else 0 end) ;;
   }
 
   measure: level_complete_count_grand {
     type: sum
-    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${TABLE}.user_game_mode = 1 then 1 else 0 end) ;;
+    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${user_game_mode} = 'Grand Mode' then 1 else 0 end) ;;
   }
 
   measure: level_complete_count_total {
