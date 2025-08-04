@@ -3466,6 +3466,21 @@ view: progression {
     type: median
   }
 
+  measure: level_complete_count_normal {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${TABLE}.user_game_mode is null then 1 else 0 end) ;;
+  }
+
+  measure: level_complete_count_grand {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelCompleted' and ${TABLE}.user_game_mode = 1 then 1 else 0 end) ;;
+  }
+
+  measure: level_complete_count_total {
+    type: sum
+    sql: (case when ${TABLE}.event_name='LevelCompleted' then 1 else 0 end) ;;
+  }
+
   measure: start_count {
     type: sum
     sql: (case when ${TABLE}.event_name='LevelStarted' then 1 else 0 end) ;;
