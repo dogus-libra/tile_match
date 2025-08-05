@@ -3018,8 +3018,8 @@ view: progression {
   }
 
   measure: stdev_time_remain {
-    type: max
-    sql: ${user_total_attempt_at_current_lvl} ;;
+    type: number
+    sql: stddev(case when ${time_remain}>0 and ${time_remain}<600 then ${time_remain} end ) ;;
     value_format: "##.00"
   }
 
