@@ -2999,9 +2999,27 @@ view: progression {
     sql: ${TABLE}.ego_free_win_streak_count ;;
   }
 
-  measure: stdev_time_remain {
+  dimension: grand_mode_loop_num {
     type: number
-    sql: stddev(case when ${time_remain}>0 and ${time_remain}<600 then ${time_remain} end ) ;;
+    sql:
+    CASE WHEN ${TABLE}.app_version >= '0.4.6'
+         THEN FLOOR((${user_grand_mode_level} - 1) / 250) + 1
+         ELSE FLOOR((${user_grand_mode_level} - 1) / 100) + 1
+    END ;;
+  }
+
+  dimension: grand_mode_level_id {
+    type: number
+    sql:
+    CASE WHEN ${TABLE}.app_version >= '0.4.6'
+         THEN MOD(${user_grand_mode_level} - 1, 250) + 1
+         ELSE MOD(${user_grand_mode_level} - 1, 100) + 1
+    END ;;
+  }
+
+  measure: stdev_time_remain {
+    type: max
+    sql: ${user_total_attempt_at_current_lvl} ;;
     value_format: "##.00"
   }
 
