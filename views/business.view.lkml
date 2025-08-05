@@ -1552,6 +1552,11 @@ view: business {
               when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
   }
 
+  dimension: ego_free_win_streak_count {
+    type: number
+    sql: ${TABLE}.ego_free_win_streak_count ;;
+  }
+
   dimension: visible_area {
     type: string
     sql: ${TABLE}.visible_area ;;

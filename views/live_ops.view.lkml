@@ -1071,6 +1071,11 @@ view: live_ops {
               when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
   }
 
+  dimension: ego_free_win_streak_count {
+    type: number
+    sql: ${TABLE}.ego_free_win_streak_count ;;
+  }
+
   dimension: tile_pass_start_time_raw {
     type:  date_time
     sql: case

@@ -2989,6 +2989,16 @@ view: progression {
               when ${TABLE}.user_win_streak_group = 5 then 'Streak5' end;;
   }
 
+  dimension: valid_win_streak_count  {
+    type: number
+    sql: ${TABLE}.valid_win_streak_count ;;
+  }
+
+  dimension: ego_free_win_streak_count {
+    type: number
+    sql: ${TABLE}.ego_free_win_streak_count ;;
+  }
+
   measure: stdev_time_remain {
     type: number
     sql: stddev(case when ${time_remain}>0 and ${time_remain}<600 then ${time_remain} end ) ;;
