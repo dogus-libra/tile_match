@@ -42,7 +42,8 @@ view: first_last_payments {
 
       MAX(CASE WHEN rn_desc = 1 THEN event_time END) AS last_payment_date,
       MAX(CASE WHEN rn_desc = 1 THEN event_revenue_usd END) AS last_payment_amount,
-      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS last_payment_level
+      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS last_payment_level,
+      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'GrandModeLevel') END)::INTEGER AS last_payment_grand_level
 
       FROM ranked_purchases
       GROUP BY appsflyer_id;;
@@ -124,6 +125,11 @@ view: first_last_payments {
   dimension: last_payment_level {
     type: number
     sql: ${TABLE}.last_payment_level ;;
+  }
+
+  dimension: last_payment_grand_level {
+    type: number
+    sql: ${TABLE}.last_payment_grand_level ;;
   }
 
   dimension: payment_row_number {
