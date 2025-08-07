@@ -110,7 +110,7 @@ explore: users_pdt {
   }
   join: first_last_payments {
     type: left_outer
-    sql_on: ${first_last_payments.appsflyer_id} = ${users_pdt.user_apps_flyer_id} OR ${first_last_payments.customer_user_id} = ${users_pdt.user_id} ;;
+    sql_on: ${first_last_payments.customer_user_id} = ${users_pdt.user_id} ;;
     relationship: one_to_many
   }
 }
