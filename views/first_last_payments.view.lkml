@@ -1,56 +1,88 @@
 view: first_last_payments {
   derived_table: {
-    distribution: "appsflyer_id"
+    distribution: "customer_user_id"
     sql:
 
-    WITH ranked_purchases AS (
-      SELECT
+WITH user_spine AS (
+    SELECT
         appsflyer_id,
         customer_user_id,
-        event_name,
         install_time,
         campaign,
         country_code,
-        monetization_network,
         media_source,
-        platform,
-        event_time,
-        event_value,
-        event_revenue_usd,
-        ROW_NUMBER() OVER (PARTITION BY appsflyer_id ORDER BY event_time ASC) AS rn,--(en eski ödeme = 1)
-        ROW_NUMBER() OVER (PARTITION BY appsflyer_id ORDER BY event_time DESC) AS rn_desc -- (en yeni ödeme = 1)
-      FROM
-        apps_flyer.goodwill_tile_raw
-      WHERE
-        event_name = 'af_purchase'
-    )
+        platform
+    FROM (
+        SELECT
+            appsflyer_id,
+            customer_user_id,
+            event_time AS install_time,
+            campaign,
+            country_code,
+            media_source,
+            platform,
+            ROW_NUMBER() OVER (PARTITION BY customer_user_id ORDER BY event_time asc) as rn -- first install time
+        FROM
+            apps_flyer.goodwill_tile_raw
+        WHERE
+            event_name = 'install'
+    ) AS ranked_installs
+    WHERE
+        rn = 1
+),
 
-      SELECT
-      appsflyer_id,
-      MAX(customer_user_id) as customer_user_id,
-      MAX(event_name) as event_name,
-      MAX(install_time) as install_time,
-      MAX(campaign) as campaign,
-      MAX(country_code) as country_code,
-      MAX(monetization_network) as monetization_network,
-      MAX(media_source) as media_source,
-      MAX(platform) as platform,
+purchase_summary AS (
+    SELECT
+        customer_user_id,
+        MAX(CASE WHEN rn = 1 THEN event_time END) AS first_payment_date,
+        MAX(CASE WHEN rn = 1 THEN event_revenue_usd END) AS first_payment_amount,
+        MAX(CASE WHEN rn = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS first_payment_level,
+        MAX(CASE WHEN rn_desc = 1 THEN event_time END) AS last_payment_date,
+        MAX(CASE WHEN rn_desc = 1 THEN event_revenue_usd END) AS last_payment_amount,
+        MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS last_payment_level,
+        MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'GrandModeLevel') END)::INTEGER AS last_payment_grand_level
+    FROM (
+        SELECT
+            appsflyer_id AS appsflyer_id,
+            customer_user_id,
+            event_time,
+            event_value,
+            event_revenue_usd,
+            ROW_NUMBER() OVER (PARTITION BY customer_user_id ORDER BY event_time ASC) AS rn,
+            ROW_NUMBER() OVER (PARTITION BY customer_user_id ORDER BY event_time DESC) AS rn_desc
+        FROM
+            apps_flyer.goodwill_tile_raw
+        WHERE
+            event_name = 'af_purchase'
+    ) AS ranked_purchases
+    GROUP BY
+        customer_user_id
+)
 
-      MAX(CASE WHEN rn = 1 THEN event_time END) AS first_payment_date,
-      MAX(CASE WHEN rn = 1 THEN event_revenue_usd END) AS first_payment_amount,
-      MAX(CASE WHEN rn = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS first_payment_level,
-
-      MAX(CASE WHEN rn_desc = 1 THEN event_time END) AS last_payment_date,
-      MAX(CASE WHEN rn_desc = 1 THEN event_revenue_usd END) AS last_payment_amount,
-      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'OriginalLevel') END)::INTEGER AS last_payment_level,
-      MAX(CASE WHEN rn_desc = 1 THEN JSON_EXTRACT_PATH_TEXT(event_value, 'GrandModeLevel') END)::INTEGER AS last_payment_grand_level
-
-      FROM ranked_purchases
-      GROUP BY appsflyer_id;;
+-- Adım 3: Kullanıcı omurgası ile ödeme özetini birleştirerek nihai tabloyu oluşturuyoruz.
+SELECT
+    spine.appsflyer_id,
+    spine.customer_user_id,
+    spine.install_time,
+    spine.campaign,
+    spine.country_code,
+    spine.media_source,
+    spine.platform,
+    summary.first_payment_date,
+    summary.first_payment_amount,
+    summary.first_payment_level,
+    summary.last_payment_date,
+    summary.last_payment_amount,
+    summary.last_payment_level,
+    summary.last_payment_grand_level
+FROM
+    user_spine AS spine
+LEFT JOIN
+    purchase_summary AS summary ON spine.customer_user_id = summary.customer_user_id;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
-    sortkeys: ["appsflyer_id"]
+    sortkeys: ["customer_user_id"]
   }
 
   dimension: appsflyer_id {
