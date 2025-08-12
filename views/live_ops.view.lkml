@@ -246,6 +246,11 @@ view: live_ops {
     sql: ${TABLE}.live_ops_bonus_bank_max_score ;;
   }
 
+  dimension: live_ops_chest_index {
+    type: number
+    sql: ${TABLE}.live_ops_chest_index ;;
+  }
+
   dimension: live_ops_pass_type {
     type: string
     sql: ${TABLE}.live_ops_pass_type ;;
