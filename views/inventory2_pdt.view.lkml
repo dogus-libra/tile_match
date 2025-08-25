@@ -121,7 +121,7 @@ view: inventory2_pdt {
 
       FROM "tile_match"."business" "eventque_business"
 
-      WHERE "eventque_business"."user_country_code" in ('DE','GB','FR','US','IT','IE','AU','AT','NO','NL','NZ','BE','CA','DK','ES','SE','CH','JP','KR','FI','LU')
+      WHERE "eventque_business"."user_country_code" in ('DE','GB','FR','US','IT','IE','AU','AT','NO','NL','NZ','BE','CA','DK','ES','SE','CH','JP','KR','FI','LU', 'UK')
       AND "eventque_business"."event_name" = 'CurrencyChange'
       AND "eventque_business"."source" not in ('InAppPurchase','RewardedAdComplete','CoinRush','LevelComplete','Debugger')
       ) "dsg"
