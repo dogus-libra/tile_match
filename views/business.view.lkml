@@ -1572,6 +1572,21 @@ view: business {
     sql: ${TABLE}.ad_ecpm ;;
   }
 
+  dimension: ad_is_first {
+    type: yesno
+    sql: ${TABLE}.ad_is_first ;;
+  }
+
+  dimension: rewarded_ecpm {
+    type: number
+    sql: ${TABLE}.rewarded_ecpm ;;
+  }
+
+  dimension: interstitial_ecpm {
+    type: number
+    sql: ${TABLE}.interstitial_ecpm ;;
+  }
+
   dimension: ad_placement {
     type: string
     sql: ${TABLE}.ad_placement ;;

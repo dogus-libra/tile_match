@@ -81,6 +81,16 @@ view: live_ops {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.event_timestamp)/24) ;;
+  }
+
+  dimension: pass_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.live_ops_start_date,${TABLE}.event_timestamp)/24) ;;
+  }
+
   dimension: initial_coin{
     type: number
     sql: case when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 200 then 200
@@ -1150,4 +1160,40 @@ view: live_ops {
     type: average
     sql: ${duration} ;;
   }
+
+  measure: pass_stage_per10 {
+    type: percentile
+    percentile: 10
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
+  measure: pass_stage_per25 {
+    type: percentile
+    percentile: 25
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
+  measure: pass_stage_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
+  measure: pass_stage_per75 {
+    type: percentile
+    percentile: 75
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
+  measure: pass_stage_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
 }
