@@ -1196,4 +1196,18 @@ view: live_ops {
     value_format: "##"
   }
 
+  measure: pass_stage_per95 {
+    type: percentile
+    percentile: 95
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
+  measure: pass_stage_per99 {
+    type: percentile
+    percentile: 99
+    sql: ${live_ops_default_stage_index} ;;
+    value_format: "##"
+  }
+
 }
