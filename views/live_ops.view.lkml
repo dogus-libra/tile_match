@@ -1119,6 +1119,31 @@ view: live_ops {
     sql: ${TABLE}.ego_free_win_streak_count ;;
   }
 
+  dimension: meta_started {
+    type:  number
+    sql: case when ${event_name} = 'MetaStarted' and ${meta_environment_id} is not null then 1  end ;;
+  }
+
+  dimension: meta_completed {
+    type:  number
+    sql: case when ${event_name} = 'MetaCompleted' and ${meta_environment_id} is not null then 1 end ;;
+  }
+
+  measure: meta_complete_ratio {
+    type: number
+    sql: (sum(${meta_completed})*1.0 / sum(${meta_started}))  ;;
+  }
+
+  measure: total_started {
+    type: count
+    filters: [event_name: "MetaStarted"]
+  }
+
+  measure: total_completed {
+    type: count
+    filters: [event_name: "MetaCompleted"]
+  }
+
   dimension: tile_pass_start_time_raw {
     type:  date_time
     sql: case

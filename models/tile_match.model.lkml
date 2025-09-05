@@ -113,6 +113,11 @@ explore: users_pdt {
     sql_on: ${first_last_payments.customer_user_id} = ${users_pdt.user_id} ;;
     relationship: one_to_many
   }
+  join: meta_ndt {
+    type: left_outer
+    sql_on: ${meta_ndt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: tile_match_raw {}
@@ -280,3 +285,5 @@ explore: level_reach_percentile {
 }
 
 explore: first_last_payments {}
+
+explore: meta_ndt {}
