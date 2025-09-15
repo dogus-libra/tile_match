@@ -333,7 +333,34 @@ view: live_ops {
 
   dimension: live_ops_target_team_kitchen {
     type: string
-    sql: case when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  250 then 'Group 1'
+    sql: case when ${TABLE}.live_ops_start_date>=to_timestamp('08.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS') then
+
+      (  case when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  125 then 'Group 1'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  250 then 'Group 2'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  500 then 'Group 3'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  750 then 'Group 4'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  1000 then 'Group 5'
+
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 2 and ${live_ops_target} =  125 then 'Group 1'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 2 and ${live_ops_target} =  250 then 'Group 2'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 2 and ${live_ops_target} =  500 then 'Group 3'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 2 and ${live_ops_target} =  750 then 'Group 4'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 2 and ${live_ops_target} =  1000 then 'Group 5'
+
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  250 then 'Group 1'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  500 then 'Group 2'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  1000 then 'Group 3'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  1500 then 'Group 4'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  2000 then 'Group 5'
+
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  500 then 'Group 1'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  1000 then 'Group 2'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  2000 then 'Group 3'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  3000 then 'Group 4'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  4000 then 'Group 5'
+    end) else
+
+    (    case when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  250 then 'Group 1'
               when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  500 then 'Group 2'
               when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  1500 then 'Group 3'
               when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 1 and ${live_ops_target} =  2000 then 'Group 4'
@@ -351,12 +378,14 @@ view: live_ops {
               when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  2000 then 'Group 4'
               when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 3 and ${live_ops_step} = 3 and ${live_ops_target} =  3000 then 'Group 5'
 
-              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0 and ${live_ops_step} = 0 and ${live_ops_target} =  1000 then 'Group 1'
-              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0 and ${live_ops_step} = 0 and ${live_ops_target} =  2000 then 'Group 2'
-              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0 and ${live_ops_step} = 0 and ${live_ops_target} =  5000 then 'Group 3'
-              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0 and ${live_ops_step} = 0 and ${live_ops_target} =  6000 then 'Group 4'
-              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0 and ${live_ops_step} = 0 and ${live_ops_target} =  8000 then 'Group 5'
-    end ;;
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  1000 then 'Group 1'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  2000 then 'Group 2'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  5000 then 'Group 3'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  6000 then 'Group 4'
+              when ${live_ops_event_name} = 'TeamJourney' and ${live_ops_engagement_type} = 0  and ${live_ops_target} =  8000 then 'Group 5'
+    end) end
+
+    ;;
   }
 
   dimension: live_ops_type {
