@@ -21,7 +21,13 @@ view: firebase_test {
     coalesce(fb.f_exp_101::BIGINT, usr.StreakBreaker_iOS_Exclude_03) as exp_101,
     coalesce(fb.f_exp_102::BIGINT, usr.Streak_Breaker_0907) as exp_102,
     coalesce(fb.f_exp_103::BIGINT, usr.Streak_Breaker_0907) as exp_103,
-    coalesce(fb.f_exp_104::BIGINT, usr.Streak_Breaker_0907) as exp_104
+    coalesce(fb.f_exp_104::BIGINT, usr.Streak_Breaker_0907) as exp_104,
+    coalesce(fb.f_exp_105::BIGINT, usr.StreakBreaker35_02_Excluded_iOS) as exp_105,
+    coalesce(fb.f_exp_106::BIGINT, usr.StreakBreaker35_Android) as exp_106,
+    coalesce(fb.f_exp_107::BIGINT, usr.StreakBreaker35_02_Users_iOS) as exp_107,
+    coalesce(fb.f_exp_108::BIGINT, usr.CollectAndWin_Targets_iOS) as exp_108,
+    coalesce(fb.f_exp_109::BIGINT, usr.CollectAndWin_Targets_Android) as exp_109
+
 FROM (
     SELECT
         advertising_id,
@@ -46,7 +52,12 @@ FROM (
         max(firebase_exp_101) as f_exp_101,
         max(firebase_exp_102) as f_exp_102,
         max(firebase_exp_103) as f_exp_103,
-        max(firebase_exp_104) as f_exp_104
+        max(firebase_exp_104) as f_exp_104,
+        max(firebase_exp_105) as f_exp_105,
+        max(firebase_exp_106) as f_exp_106,
+        max(firebase_exp_107) as f_exp_107,
+        max(firebase_exp_108) as f_exp_108,
+        max(firebase_exp_109) as f_exp_109
 
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
@@ -111,9 +122,22 @@ LEFT JOIN (
 
         (case when max(user_split_test_name) like '%0907_ST_55%' and max(user_split_test_name) not like '%0907_ST_55_CH115%' then 0
               when max(user_split_test_name) like '%0907_ST_55_CH115%' then 1
-              when max(user_split_test_name) like '%0907_ST_85%' then 2 end)::BIGINT as Streak_Breaker_0907
+              when max(user_split_test_name) like '%0907_ST_85%' then 2 end)::BIGINT as Streak_Breaker_0907,
 
+        (case when max(user_split_test_name) like '%1209_SB_55%' then 0
+              when max(user_split_test_name) like '%1209_SB_35%' then 1 end)::BIGINT as StreakBreaker35_02_Excluded_iOS,
 
+        (case when max(user_split_test_name) like '%1209_SB_55%' then 0
+              when max(user_split_test_name) like '%1209_SB_35%' then 1 end)::BIGINT as StreakBreaker35_Android,
+
+        (case when max(user_split_test_name) like '%1209_SB_55%' then 0
+              when max(user_split_test_name) like '%1209_SB_35%' then 1 end)::BIGINT as StreakBreaker35_02_Users_iOS,
+
+        (case when max(user_split_test_name) like '%1209_Unranked_C&W%' then 0
+              when max(user_split_test_name) like '%1209_Ranked_C&W%' then 1 end)::BIGINT as CollectAndWin_Targets_iOS,
+
+        (case when max(user_split_test_name) like '%1209_Unranked_C&W%' then 0
+              when max(user_split_test_name) like '%1209_Ranked_C&W%' then 1 end)::BIGINT as CollectAndWin_Targets_Android
 
 
     FROM "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
@@ -243,6 +267,31 @@ ON (fb.advertising_id = usr.advertising_id) ;;
   dimension: exp_104 {
     type: string
     sql: ${TABLE}.exp_104 ;;
+  }
+
+  dimension: exp_105 {
+    type: string
+    sql: ${TABLE}.exp_105 ;;
+  }
+
+  dimension: exp_106 {
+    type: string
+    sql: ${TABLE}.exp_106 ;;
+  }
+
+  dimension: exp_107 {
+    type: string
+    sql: ${TABLE}.exp_107 ;;
+  }
+
+  dimension: exp_108 {
+    type: string
+    sql: ${TABLE}.exp_108 ;;
+  }
+
+  dimension: exp_109 {
+    type: string
+    sql: ${TABLE}.exp_109 ;;
   }
 
 
@@ -389,6 +438,36 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     sql: case when ${exp_104} = '0' then 'ST 55'
               when ${exp_104} = '1' then 'ST 55 CH115'
               when ${exp_104} = '2' then 'ST 85' end ;;
+  }
+
+  dimension: StreakBreaker35_02_Excluded_iOS_testgroup {
+    type:string
+    sql: case when ${exp_105} = '0' then 'SB 55'
+              when ${exp_105} = '1' then 'SB 35' end ;;
+  }
+
+  dimension: StreakBreaker35_Android_testgroup {
+    type:string
+    sql: case when ${exp_106} = '0' then 'SB 55'
+              when ${exp_106} = '1' then 'SB 35' end ;;
+  }
+
+  dimension: StreakBreaker35_02_Users_iOS_testgroup {
+    type:string
+    sql: case when ${exp_107} = '0' then 'SB 55'
+              when ${exp_107} = '1' then 'SB 35' end ;;
+  }
+
+  dimension: CollectAndWin_Targets_iOS_testgroup {
+    type:string
+    sql: case when ${exp_108} = '0' then 'Unranked'
+              when ${exp_108} = '1' then 'Ranked' end ;;
+  }
+
+  dimension: CollectAndWin_Targets_Android_testgroup {
+    type:string
+    sql: case when ${exp_109} = '0' then 'Unranked'
+              when ${exp_109} = '1' then 'Ranked' end ;;
   }
 
 }
