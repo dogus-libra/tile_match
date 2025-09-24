@@ -3540,6 +3540,13 @@ view: progression {
     value_format: "##"
   }
 
+  measure: time_remain_per25 {
+    type: percentile
+    percentile: 25
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
   measure: time_remain_per30 {
     type: percentile
     percentile: 30
@@ -3571,6 +3578,13 @@ view: progression {
   measure: time_remain_per70 {
     type: percentile
     percentile: 70
+    sql: ${time_remain} ;;
+    value_format: "##"
+  }
+
+  measure: time_remain_per75 {
+    type: percentile
+    percentile: 75
     sql: ${time_remain} ;;
     value_format: "##"
   }

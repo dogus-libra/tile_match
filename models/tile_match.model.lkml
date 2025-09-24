@@ -287,3 +287,11 @@ explore: level_reach_percentile {
 explore: first_last_payments {}
 
 explore: meta_ndt {}
+
+explore: time_remain_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${time_remain_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
