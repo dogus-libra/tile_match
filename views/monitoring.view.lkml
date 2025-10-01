@@ -888,4 +888,53 @@ view: monitoring {
     filters: [event_name: "LoadingSceneCompleted"]
     value_format: "0.00"
   }
+
+  measure: fps_avg{
+    type: average
+    sql: ${TABLE}.user_current_fps ;;
+    filters: [user_current_fps: ">=1"]
+    value_format: "0.00"
+  }
+
+  measure: fps_per25{
+    type: percentile
+    percentile: 25
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per50{
+    type: percentile
+    percentile: 50
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per75{
+    type: percentile
+    percentile: 75
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per90{
+    type: percentile
+    percentile: 90
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per95{
+    type: percentile
+    percentile: 95
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per99{
+    type: percentile
+    percentile: 99
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
 }
