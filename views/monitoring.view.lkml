@@ -896,6 +896,27 @@ view: monitoring {
     value_format: "0.00"
   }
 
+  measure: fps_per1{
+    type: percentile
+    percentile: 1
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per5{
+    type: percentile
+    percentile: 5
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
+  measure: fps_per10{
+    type: percentile
+    percentile: 10
+    sql: ${TABLE}.user_current_fps ;;
+    value_format: "0.00"
+  }
+
   measure: fps_per25{
     type: percentile
     percentile: 25
