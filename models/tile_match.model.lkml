@@ -295,3 +295,11 @@ explore: time_remain_pdt {
     relationship: many_to_one
   }
 }
+
+explore: social {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${social.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
