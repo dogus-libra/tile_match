@@ -132,8 +132,8 @@ view: inventory_pdt {
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT DATE_TRUNC('day',DATEADD('minute', -480 , GETDATE() )  )  ;;
-    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version"]
-    increment_key: "event_date"
+    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version","arrival_date"]
+    increment_key: "arrival_date"
     increment_offset: 7
   }
 

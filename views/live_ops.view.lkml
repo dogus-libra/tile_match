@@ -414,6 +414,61 @@ view: live_ops {
     sql: ${TABLE}.live_ops_start_time ;;
   }
 
+  dimension: event_card_set_no {
+    type: string
+    sql: ${TABLE}.event_card_set_no ;;
+  }
+
+  dimension: card_package_type {
+    type: number
+    sql: ${TABLE}.card_package_type ;;
+  }
+
+  dimension: event_card_id {
+    type: string
+    sql: ${TABLE}.event_card_id ;;
+  }
+
+  dimension: event_is_pity {
+    type: yesno
+    sql: ${TABLE}.event_is_pity ;;
+  }
+
+  dimension: card_package_id {
+    type: number
+    sql: ${TABLE}.card_package_id ;;
+  }
+
+  dimension: event_stage_index {
+    type: string
+    sql: ${TABLE}.event_stage_index ;;
+  }
+
+  dimension: event_package_source {
+    type: number
+    sql: ${TABLE}.event_package_source ;;
+  }
+
+  dimension: event_package_type {
+    type: string
+    sql: ${TABLE}.event_package_type ;;
+  }
+
+  dimension: event_card_rarity {
+    type: number
+    sql: ${TABLE}.event_card_rarity ;;
+  }
+
+  dimension: card_package_rarity {
+    type: number
+    sql: ${TABLE}.card_package_rarity ;;
+  }
+
+  dimension: event_is_team_member {
+    type: yesno
+    sql: ${TABLE}.event_is_team_member ;;
+  }
+
   dimension: meta_active_item_count_int {
     type: number
     sql: ${TABLE}.active_item_count_int ;;
