@@ -13,7 +13,6 @@ view: inventory2_pdt {
             "app_version",
             "user_os_version",
             DATE_TRUNC('day',"event_dt") as "event_date",
-            DATE_TRUNC('day',"arrival_dt") as "arrival_date",
 
       AVG("inventory_coin") AS "coin_inventory",
       AVG("inventory_environment_token") AS "environment_token_inventory",
@@ -125,15 +124,16 @@ view: inventory2_pdt {
       AND "eventque_business"."event_name" = 'CurrencyChange'
       AND "eventque_business"."source" not in ('InAppPurchase','RewardedAdComplete','CoinRush','LevelComplete','Debugger')
       ) "dsg"
-      WHERE {% incrementcondition %} "arrival_date" {%  endincrementcondition %}
-      GROUP BY "user_level_at", "event_date","advertising_id", "install_dt", "country_code", "user_platform", "app_version", "user_os_version","arrival_date"
+      WHERE {% incrementcondition %} "event_date" {%  endincrementcondition %}
+      AND "dsg"."event_dt" <= "dsg"."arrival_dt"
+      GROUP BY "user_level_at", "event_date","advertising_id", "install_dt", "country_code", "user_platform", "app_version", "user_os_version"
       ;;
 
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT DATE_TRUNC('day',DATEADD('minute', -480 , GETDATE() )  )  ;;
-    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version","user_level_at","arrival_date"]
-    increment_key: "arrival_date"
+    sortkeys: ["advertising_id", "event_date", "install_dt", "country_code", "user_platform", "app_version","user_level_at"]
+    increment_key: "event_date"
     increment_offset: 7
   }
 
@@ -145,10 +145,10 @@ view: inventory2_pdt {
     type: string
     sql: ${TABLE}.app_version ;;
   }
-  dimension_group: arrival_ts {
+  dimension_group: arrival_date {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.arrival_ts ;;
+    sql: ${TABLE}.arrival_date ;;
   }
 
   dimension: country_code {
