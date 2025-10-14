@@ -1203,6 +1203,36 @@ view: live_ops {
     sql: ${TABLE}.ego_free_win_streak_count ;;
   }
 
+  dimension: wpf_watcher_index {
+    type: string
+    sql: ${TABLE}.wpf_watcher_index ;;
+  }
+
+  dimension: wpf_donation_cnt_at_once {
+    type: string
+    sql: ${TABLE}.wpf_donation_cnt_at_once ;;
+  }
+
+  dimension: wpf_bar_ratio {
+    type: string
+    sql: ${TABLE}.wpf_bar_ratio ;;
+  }
+
+  dimension: wpf_token_score {
+    type: string
+    sql: ${TABLE}.wpf_token_score ;;
+  }
+
+  dimension: wpf_email {
+    type: string
+    sql: ${TABLE}.wpf_email ;;
+  }
+
+  dimension: wpf_badge_code {
+    type: string
+    sql: ${TABLE}.wpf_badge_code ;;
+  }
+
   dimension: meta_started {
     type:  number
     sql: case when ${event_name} = 'MetaStarted' and ${meta_environment_id} is not null then 1  end ;;
