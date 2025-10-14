@@ -607,6 +607,7 @@ view: business {
               when ${TABLE}.rewarded_ad_type = 3 then  'ContinueGameWithEndGameOffer'
               when ${TABLE}.rewarded_ad_type = 4 then  'GetInGameBoosters'
               when ${TABLE}.rewarded_ad_type = 5 then  'GetExtraLives'
+              when ${TABLE}.rewarded_ad_type = 6 then  'WFP'
 
         end ;;
   }
