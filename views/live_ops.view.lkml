@@ -419,11 +419,6 @@ view: live_ops {
     sql: ${TABLE}.event_card_set_no ;;
   }
 
-  dimension: card_package_type {
-    type: number
-    sql: ${TABLE}.card_package_type ;;
-  }
-
   dimension: event_card_id {
     type: string
     sql: ${TABLE}.event_card_id ;;
@@ -432,11 +427,6 @@ view: live_ops {
   dimension: event_is_pity {
     type: yesno
     sql: ${TABLE}.event_is_pity ;;
-  }
-
-  dimension: card_package_id {
-    type: number
-    sql: ${TABLE}.card_package_id ;;
   }
 
   dimension: event_stage_index {
@@ -457,11 +447,6 @@ view: live_ops {
   dimension: event_card_rarity {
     type: number
     sql: ${TABLE}.event_card_rarity ;;
-  }
-
-  dimension: card_package_rarity {
-    type: number
-    sql: ${TABLE}.card_package_rarity ;;
   }
 
   dimension: event_is_team_member {
@@ -497,6 +482,126 @@ view: live_ops {
   dimension: package_order {
     type: number
     sql: ${TABLE}.package_order ;;
+  }
+
+  dimension: packed_cards_1_id {
+    type: number
+    sql: ${TABLE}.packed_cards_1_id ;;
+  }
+
+  dimension: packed_cards_2_id {
+    type: number
+    sql: ${TABLE}.packed_cards_2_id ;;
+  }
+
+  dimension: packed_cards_3_id {
+    type: number
+    sql: ${TABLE}.packed_cards_3_id ;;
+  }
+
+  dimension: packed_cards_4_id {
+    type: number
+    sql: ${TABLE}.packed_cards_4_id ;;
+  }
+
+  dimension: packed_cards_5_id {
+    type: number
+    sql: ${TABLE}.packed_cards_5_id ;;
+  }
+
+  dimension: packed_cards_6_id {
+    type: number
+    sql: ${TABLE}.packed_cards_6_id ;;
+  }
+
+  dimension: packed_cards_1_type {
+    type: number
+    sql: ${TABLE}.packed_cards_1_type ;;
+  }
+
+  dimension: packed_cards_2_type {
+    type: number
+    sql: ${TABLE}.packed_cards_2_type ;;
+  }
+
+  dimension: packed_cards_3_type {
+    type: number
+    sql: ${TABLE}.packed_cards_3_type ;;
+  }
+
+  dimension: packed_cards_4_type {
+    type: number
+    sql: ${TABLE}.packed_cards_4_type ;;
+  }
+
+  dimension: packed_cards_5_type {
+    type: number
+    sql: ${TABLE}.packed_cards_5_type ;;
+  }
+
+  dimension: packed_cards_6_type {
+    type: number
+    sql: ${TABLE}.packed_cards_6_type ;;
+  }
+
+  dimension: packed_cards_1_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_1_rarity ;;
+  }
+
+  dimension: packed_cards_2_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_2_rarity ;;
+  }
+
+  dimension: packed_cards_3_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_3_rarity ;;
+  }
+
+  dimension: packed_cards_4_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_4_rarity ;;
+  }
+
+  dimension: packed_cards_5_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_5_rarity ;;
+  }
+
+  dimension: packed_cards_6_rarity {
+    type: number
+    sql: ${TABLE}.packed_cards_6_rarity ;;
+  }
+
+  dimension: packed_cards_1_count {
+    type: number
+    sql: ${TABLE}.packed_cards_1_count ;;
+  }
+
+  dimension: packed_cards_2_count {
+    type: number
+    sql: ${TABLE}.packed_cards_2_count ;;
+  }
+
+  dimension: packed_cards_3_count {
+    type: number
+    sql: ${TABLE}.packed_cards_3_count ;;
+  }
+
+  dimension: packed_cards_4_count {
+    type: number
+    sql: ${TABLE}.packed_cards_4_count ;;
+  }
+
+  dimension: packed_cards_5_count {
+    type: number
+    sql: ${TABLE}.packed_cards_5_count ;;
+  }
+
+  dimension: packed_cards_6_count {
+    type: number
+    sql: ${TABLE}.packed_cards_6_count ;;
   }
 
   dimension_group: request {

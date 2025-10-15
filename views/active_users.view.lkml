@@ -19,6 +19,7 @@ SELECT event_day,
           AND coalesce(se.campaign, 'organic') = days.campaign
           AND coalesce(se.adgroup, 'organic') = days.adgroup
           AND coalesce(se.creative, 'organic') = days.creative
+          AND se.network = days.network
           AND se.user_platform = days.user_platform) AS weekly_active_users,
 
        (SELECT COUNT(DISTINCT advertising_id)
@@ -28,6 +29,7 @@ SELECT event_day,
           AND coalesce(s.campaign, 'organic')  = days.campaign
           AND coalesce(s.adgroup, 'organic')   = days.adgroup
           AND coalesce(s.creative, 'organic') = days.creative
+          AND s.network = days.network
           AND s.user_platform = days.user_platform)  AS monthly_active_users
 
 FROM (SELECT DISTINCT trunc(session_start_time)     AS event_day,
