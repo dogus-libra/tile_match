@@ -1314,7 +1314,7 @@ view: live_ops {
   }
 
   dimension: wpf_donation_cnt_at_once {
-    type: string
+    type: number
     sql: ${TABLE}.wpf_donation_cnt_at_once ;;
   }
 
