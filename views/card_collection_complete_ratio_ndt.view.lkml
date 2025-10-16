@@ -12,6 +12,7 @@ view: card_collection_complete_ratio_ndt {
       column: event_stage_index {}
       column: max_collection_complete_ratio {}
       column: app_version {}
+      column: event_package_type {}
       filters: {
         field: live_ops.live_ops_start_time_date
         value: "NOT NULL"
@@ -29,6 +30,10 @@ view: card_collection_complete_ratio_ndt {
     description: ""
   }
 
+  dimension: event_package_type {
+    description: ""
+  }
+
   dimension: app_version {
     description: ""
   }
@@ -38,6 +43,7 @@ view: card_collection_complete_ratio_ndt {
   }
 
   dimension: max_collection_complete_ratio {
+    type: number
     description: ""
   }
 

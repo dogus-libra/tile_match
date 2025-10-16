@@ -439,6 +439,21 @@ view: live_ops {
     sql: ${TABLE}.event_package_source ;;
   }
 
+  dimension: event_package_source_str {
+    type: string
+    sql: case when ${TABLE}.event_package_source = 105 then 'DailyRewardsPanel'
+              when ${TABLE}.event_package_source = 106 then 'WelcomeBackRewardsPanel'
+              when ${TABLE}.event_package_source = 500 then 'CollectAndWin'
+              when ${TABLE}.event_package_source = 502 then 'StreakRace'
+              when ${TABLE}.event_package_source = 503 then 'SeasonalPass'
+              when ${TABLE}.event_package_source = 504 then 'Quests'
+              when ${TABLE}.event_package_source = 507 then 'PayAndProceedVertical'
+              when ${TABLE}.event_package_source = 508 then 'PayAndProceedZigzag'
+              when ${TABLE}.event_package_source = 509 then 'StreakPath'
+              when ${TABLE}.event_package_source = 512 then 'CardCollection'
+              when ${TABLE}.event_package_source = 700 then 'InviteFriends' end;;
+  }
+
   dimension: event_package_type {
     type: string
     sql: ${TABLE}.event_package_type ;;
