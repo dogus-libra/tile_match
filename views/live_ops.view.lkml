@@ -485,32 +485,32 @@ view: live_ops {
   }
 
   dimension: packed_cards_1_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_1_id ;;
   }
 
   dimension: packed_cards_2_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_2_id ;;
   }
 
   dimension: packed_cards_3_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_3_id ;;
   }
 
   dimension: packed_cards_4_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_4_id ;;
   }
 
   dimension: packed_cards_5_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_5_id ;;
   }
 
   dimension: packed_cards_6_id {
-    type: number
+    type: string
     sql: ${TABLE}.packed_cards_6_id ;;
   }
 
@@ -1346,6 +1346,12 @@ view: live_ops {
   dimension: meta_completed {
     type:  number
     sql: case when ${event_name} = 'MetaCompleted' and ${meta_environment_id} is not null then 1 end ;;
+  }
+
+  measure: max_collection_complete_ratio {
+    type: max
+    sql: (${live_ops_complete_ratio}) ;;
+    filters: [event_name: "CardCollectionPackageEarned"]
   }
 
   measure: meta_complete_ratio {

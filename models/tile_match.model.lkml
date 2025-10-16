@@ -303,3 +303,11 @@ explore: social {
     relationship: many_to_one
   }
 }
+
+explore: card_collection_complete_ratio_ndt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${card_collection_complete_ratio_ndt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
