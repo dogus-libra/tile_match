@@ -792,6 +792,16 @@ view: business {
     sql: ${TABLE}.rewards_reward_multiplier_amount_type ;;
   }
 
+  dimension: rewards_world_food_programme_token_amount {
+    type: number
+    sql: ${TABLE}.rewards_world_food_programme_token_amount ;;
+  }
+
+  dimension: rewards_world_food_programme_token_amount_type {
+    type: string
+    sql: ${TABLE}.rewards_world_food_programme_token_amount_type ;;
+  }
+
   dimension: daily_day {
     type: number
     sql: ${TABLE}.daily_day ;;
@@ -1098,6 +1108,16 @@ view: business {
   dimension: user_session_count {
     type: number
     sql: ${TABLE}.user_session_count ;;
+  }
+
+  dimension: user_nickname {
+    type: string
+    sql: ${TABLE}.user_nickname ;;
+  }
+
+  dimension: user_device_memory {
+    type: string
+    sql: ${TABLE}.user_device_memory ;;
   }
 
   dimension: user_split_test_name {
@@ -1591,6 +1611,11 @@ view: business {
   dimension: ad_placement {
     type: string
     sql: ${TABLE}.ad_placement ;;
+  }
+
+  dimension: ad_placement_boolean {
+    type: string
+    sql: ${TABLE}.ad_placement_boolean ;;
   }
 
   dimension: no_ads_panel_open_source {

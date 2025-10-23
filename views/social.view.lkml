@@ -261,6 +261,15 @@ view: social {
     type: number
     sql: ${TABLE}.user_elo_rank ;;
   }
+  dimension: user_nickname {
+    type: string
+    sql: ${TABLE}.user_nickname ;;
+  }
+
+  dimension: user_device_memory {
+    type: string
+    sql: ${TABLE}.user_device_memory ;;
+  }
   dimension: user_fb_install_referrer_account_id {
     type: string
     sql: ${TABLE}.user_fb_install_referrer_account_id ;;
@@ -411,14 +420,14 @@ view: social {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	user_fb_install_referrer_adgroup_name,
-	user_fb_install_referrer_campaign_name,
-	user_fb_install_referrer_campaign_group_name,
-	user_fb_install_referrer_ad_objective_name,
-	team_name,
-	user_split_test_name,
-	event_name
-	]
+  user_fb_install_referrer_adgroup_name,
+  user_fb_install_referrer_campaign_name,
+  user_fb_install_referrer_campaign_group_name,
+  user_fb_install_referrer_ad_objective_name,
+  team_name,
+  user_split_test_name,
+  event_name
+  ]
   }
 
 }

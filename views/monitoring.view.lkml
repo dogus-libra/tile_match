@@ -371,6 +371,16 @@ view: monitoring {
     sql: ${TABLE}.user_session_count ;;
   }
 
+  dimension: user_nickname {
+    type: string
+    sql: ${TABLE}.user_nickname ;;
+  }
+
+  dimension: user_device_memory {
+    type: string
+    sql: ${TABLE}.user_device_memory ;;
+  }
+
   dimension: user_split_test_name {
     type: string
     sql: ${TABLE}.user_split_test_name ;;

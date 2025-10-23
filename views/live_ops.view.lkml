@@ -70,6 +70,11 @@ view: live_ops {
     sql: ${TABLE}.event_type ;;
   }
 
+  dimension: event_user_rank {
+    type: string
+    sql: ${TABLE}.event_user_rank ;;
+  }
+
   dimension: event_version {
     type: string
     sql: ${TABLE}.event_version ;;
@@ -214,6 +219,12 @@ view: live_ops {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.live_ops_start_date ;;
+  }
+
+  dimension_group: card_collection_start_time {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.card_collection_start_time ;;
   }
 
   dimension: live_ops_step {
@@ -415,7 +426,7 @@ view: live_ops {
   }
 
   dimension: event_card_set_no {
-    type: string
+    type: number
     sql: ${TABLE}.event_card_set_no ;;
   }
 
@@ -617,6 +628,71 @@ view: live_ops {
   dimension: packed_cards_6_count {
     type: number
     sql: ${TABLE}.packed_cards_6_count ;;
+  }
+
+  dimension: set_complete_ratio_1 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_1 ;;
+  }
+
+  dimension: set_complete_ratio_2 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_2 ;;
+  }
+
+  dimension: set_complete_ratio_3 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_3 ;;
+  }
+
+  dimension: set_complete_ratio_4 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_4 ;;
+  }
+
+  dimension: set_complete_ratio_5 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_5 ;;
+  }
+
+  dimension: set_complete_ratio_6 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_6 ;;
+  }
+
+  dimension: set_complete_ratio_7 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_7 ;;
+  }
+
+  dimension: set_complete_ratio_8 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_8 ;;
+  }
+
+  dimension: set_complete_ratio_9 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_9 ;;
+  }
+
+  dimension: set_complete_ratio_10 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_10 ;;
+  }
+
+  dimension: event_set_complete_ratio {
+    type: number
+    sql: ${TABLE}.event_set_complete_ratio ;;
+  }
+
+  dimension: event_remaining_card_count {
+    type: number
+    sql: ${TABLE}.event_remaining_card_count ;;
+  }
+
+  dimension: event_daily_limit_ratio {
+    type: number
+    sql: ${TABLE}.event_daily_limit_ratio ;;
   }
 
   dimension_group: request {
@@ -863,6 +939,16 @@ view: live_ops {
   dimension: user_session_count {
     type: number
     sql: ${TABLE}.user_session_count ;;
+  }
+
+  dimension: user_nickname {
+    type: string
+    sql: ${TABLE}.user_nickname ;;
+  }
+
+  dimension: user_device_memory {
+    type: string
+    sql: ${TABLE}.user_device_memory ;;
   }
 
   dimension: user_split_test_name {
@@ -1351,6 +1437,16 @@ view: live_ops {
   dimension: wpf_badge_code {
     type: string
     sql: ${TABLE}.wpf_badge_code ;;
+  }
+
+  dimension: win_count_elo_score {
+    type: number
+    sql: ${TABLE}.win_count_elo_score ;;
+  }
+
+  dimension: play_time_elo_score {
+    type: number
+    sql: ${TABLE}.play_time_elo_score ;;
   }
 
   dimension: meta_started {
