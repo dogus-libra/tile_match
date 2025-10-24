@@ -442,7 +442,9 @@ view: live_ops {
 
   dimension: event_stage_index {
     type: string
-    sql: ${TABLE}.event_stage_index ;;
+    sql: case when ${TABLE}.event_stage_index = 0 then 'Default'
+              when ${TABLE}.event_stage_index = 1 then 'Deluxe'
+               end;;
   }
 
   dimension: event_package_source {
