@@ -11,13 +11,13 @@ view: card_collection_complete_ratio_ndt {
       column: user_platform {}
       column: event_stage_index {}
       column: max_collection_complete_ratio {}
-      column: app_version {}
-      column: event_package_type {}
+      column: sum_package_card_count {}
       column: event_name {}
       filters: {
-        field: live_ops.event_type
-        value: "CardCollection"
+        field: live_ops.event_name
+        value: "CardCollectionPackageEarned"
       }
+
     }
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
@@ -31,15 +31,7 @@ view: card_collection_complete_ratio_ndt {
     description: ""
   }
 
-  dimension: event_package_type {
-    description: ""
-  }
-
   dimension: event_name {
-    description: ""
-  }
-
-  dimension: app_version {
     description: ""
   }
 
@@ -49,6 +41,10 @@ view: card_collection_complete_ratio_ndt {
 
   dimension: max_collection_complete_ratio {
     type: number
+    description: ""
+  }
+
+  dimension: sum_package_card_count {
     description: ""
   }
 
@@ -102,6 +98,84 @@ view: card_collection_complete_ratio_ndt {
     percentile: 90
     sql: ${max_collection_complete_ratio}::double precision;;
     value_format: "0.00"
+  }
+
+  measure: unique_card_count_per25 {
+    type: number
+    sql: case when  ${live_ops_start_time_date} <= to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per25} * 81
+              when  ${live_ops_start_time_date} > to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per25} * 108
+              else null end;;
+    value_format: "0"
+  }
+
+  measure: unique_card_count_per50 {
+    type: number
+    sql: case when  ${live_ops_start_time_date} <= to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per50} * 81
+              when  ${live_ops_start_time_date} > to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per50} * 108
+              else null end;;
+    value_format: "0"
+  }
+
+  measure: unique_card_count_per75 {
+    type: number
+    sql: case when  ${live_ops_start_time_date} <= to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per75} * 81
+              when  ${live_ops_start_time_date} > to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per75} * 108
+              else null end;;
+    value_format: "0"
+  }
+
+  measure: unique_card_count_per90 {
+    type: number
+    sql: case when  ${live_ops_start_time_date} <= to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per90} * 81
+              when  ${live_ops_start_time_date} > to_timestamp('29.09.2025 08:00:00', 'DD-MM-YYYY HH24:MI:SS')  then ${collection_complete_ratio_per90} * 108
+              else null end;;
+    value_format: "0"
+  }
+
+  measure: total_card_count_avg {
+    type: average
+    sql: ${sum_package_card_count};;
+    value_format: "0"
+  }
+
+  measure: total_card_count_max {
+    type: max
+    sql: ${sum_package_card_count};;
+    value_format: "0"
+  }
+
+  measure: total_card_count_per25 {
+    type: percentile
+    percentile: 25
+    sql: ${sum_package_card_count};;
+  }
+
+  measure: total_card_count_per50 {
+    type: percentile
+    percentile: 50
+    sql: ${sum_package_card_count};;
+    value_format: "0"
+  }
+
+  measure: total_card_count_per75 {
+    type: percentile
+    percentile: 75
+    sql: ${sum_package_card_count};;
+    value_format: "0"
+  }
+
+  measure: total_card_count_per90 {
+    type: percentile
+    percentile: 90
+    sql: ${sum_package_card_count};;
+    value_format: "0"
+  }
+
+  measure: total_card_count_per99 {
+    type: percentile
+    percentile: 99
+    sql: ${sum_package_card_count};;
+    value_format: "0"
   }
 
 }

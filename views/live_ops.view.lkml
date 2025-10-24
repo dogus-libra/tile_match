@@ -474,12 +474,12 @@ view: live_ops {
 
   dimension: event_package_card_count {
     type: number
-    sql: case when ${TABLE}.event_package_type = 0 then 2
-              when ${TABLE}.event_package_type = 1 then 3
-              when ${TABLE}.event_package_type = 2 then 4
-              when ${TABLE}.event_package_type = 3 then 5
-              when ${TABLE}.event_package_type = 4 then 6
-              else 0 end  ;;
+    sql: case when ${TABLE}.event_package_type = '0' then 2
+              when ${TABLE}.event_package_type = '1' then 3
+              when ${TABLE}.event_package_type = '2' then 4
+              when ${TABLE}.event_package_type = '3' then 5
+              when ${TABLE}.event_package_type = '4' then 6
+              end  ;;
   }
 
   dimension: event_card_rarity {
@@ -1474,6 +1474,12 @@ view: live_ops {
   measure: max_collection_complete_ratio {
     type: max
     sql: (${live_ops_complete_ratio}) ;;
+    filters: [event_name: "CardCollectionPackageEarned"]
+  }
+
+  measure: sum_package_card_count {
+    type: sum
+    sql: (${event_package_card_count}) ;;
     filters: [event_name: "CardCollectionPackageEarned"]
   }
 
