@@ -472,6 +472,16 @@ view: live_ops {
     sql: ${TABLE}.event_package_type ;;
   }
 
+  dimension: event_package_card_count {
+    type: number
+    sql: case when ${TABLE}.event_package_type = 0 then 2
+              when ${TABLE}.event_package_type = 1 then 3
+              when ${TABLE}.event_package_type = 2 then 4
+              when ${TABLE}.event_package_type = 3 then 5
+              when ${TABLE}.event_package_type = 4 then 6
+              else 0 end  ;;
+  }
+
   dimension: event_card_rarity {
     type: number
     sql: ${TABLE}.event_card_rarity ;;

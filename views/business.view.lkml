@@ -320,6 +320,21 @@ view: business {
     sql: ${TABLE}.currency_change_reward_multiplier_current_amount ;;
   }
 
+  dimension: currency_change_world_food_programme_token_amount_type {
+    type: number
+    sql: ${TABLE}.currency_change_world_food_programme_token_amount_type ;;
+  }
+
+  dimension: currency_change_world_food_programme_token_change_amount {
+    type: number
+    sql: ${TABLE}.currency_change_world_food_programme_token_change_amount ;;
+  }
+
+  dimension: currency_change_world_food_programme_token_current_amount {
+    type: number
+    sql: ${TABLE}.currency_change_world_food_programme_token_current_amount ;;
+  }
+
   dimension: currency_code {
     type: string
     sql: ${TABLE}.currency_code ;;
@@ -530,6 +545,11 @@ view: business {
   dimension: inventory_toss {
     type: number
     sql: ${TABLE}.inventory_toss ;;
+  }
+
+  dimension: inventory_wfp_token {
+    type: number
+    sql: ${TABLE}.inventory_wfp_token ;;
   }
 
   dimension: ip_address {
