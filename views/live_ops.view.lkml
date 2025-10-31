@@ -1436,6 +1436,16 @@ view: live_ops {
     sql: ${TABLE}.wpf_bar_ratio ;;
   }
 
+  dimension: wpf_bar_ratio_num {
+    type: number
+    sql:
+      (
+        CAST(SPLIT_PART(${wpf_bar_ratio}, '/', 1) AS NUMERIC) /
+        CAST(SPLIT_PART(${wpf_bar_ratio}, '/', 2) AS NUMERIC)
+      )
+    ;;
+  }
+
   dimension: wpf_token_score {
     type: string
     sql: ${TABLE}.wpf_token_score ;;
