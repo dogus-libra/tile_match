@@ -175,6 +175,16 @@ view: live_ops {
     sql: ${TABLE}.inventory_toss ;;
   }
 
+  dimension: inventory_unlimited_life {
+    type: number
+    sql: ${TABLE}.inventory_unlimited_life ;;
+  }
+
+  dimension: inventory_wfp_token {
+    type: number
+    sql: ${TABLE}.inventory_wfp_token ;;
+  }
+
   dimension: ip_address {
     type: string
     sql: ${TABLE}.ip_address ;;
@@ -240,6 +250,11 @@ view: live_ops {
   dimension: live_ops_is_free {
     type: yesno
     sql: ${TABLE}.live_ops_is_free ;;
+  }
+
+  dimension: live_ops_is_first {
+    type: yesno
+    sql: ${TABLE}.live_ops_is_first ;;
   }
 
   dimension: live_ops_bonus_bank_score {
@@ -690,6 +705,16 @@ view: live_ops {
   dimension: set_complete_ratio_10 {
     type: number
     sql: ${TABLE}.set_complete_ratio_10 ;;
+  }
+
+  dimension: set_complete_ratio_11 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_11 ;;
+  }
+
+  dimension: set_complete_ratio_12 {
+    type: number
+    sql: ${TABLE}.set_complete_ratio_12 ;;
   }
 
   dimension: event_set_complete_ratio {
