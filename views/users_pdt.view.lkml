@@ -274,63 +274,64 @@ view: users_pdt {
                             FROM tile_match.progression) AS cd) AS combined_data
                    group by advertising_id),
 
-     ret_table as (select advertising_id as ret_advertising_id,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 36
-                                      then case when datediff('hour', installed_at, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 60
-                                      then case when datediff('hour', installed_at, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 84
-                                      then case when datediff('hour', installed_at, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 108
-                                      then case when datediff('hour', installed_at, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 132
-                                      then case when datediff('hour', installed_at, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 180
-                                      then case when datediff('hour', installed_at, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 252
-                                      then case when datediff('hour', installed_at, event_timestamp) between 228 and 252 then 1 else 0 end end) as retention_10,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 348
-                                      then case when datediff('hour', installed_at, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 444
-                                      then case when datediff('hour', installed_at, event_timestamp) between 420 and 444 then 1 else 0 end end) as retention_18,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 516
-                                      then case when datediff('hour', installed_at, event_timestamp) between 492 and 516 then 1 else 0 end end) as retention_21,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 588
-                                      then case when datediff('hour', installed_at, event_timestamp) between 564 and 588 then 1 else 0 end end) as retention_24,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 684
-                                      then case when datediff('hour', installed_at, event_timestamp) between 660 and 684 then 1 else 0 end end) as retention_28,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 1092
-                                      then case when datediff('hour', installed_at, event_timestamp) between 1068 and 1092 then 1 else 0 end end) as retention_45,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 1452
-                                      then case when datediff('hour', installed_at, event_timestamp) between 1428 and 1452 then 1 else 0 end end) as retention_60,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 2172
-                                      then case when datediff('hour', installed_at, event_timestamp) between 2148 and 2172 then 1 else 0 end end) as retention_90,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 2880
-                                      then case when datediff('hour', installed_at, event_timestamp) between 2856 and 2880 then 1 else 0 end end) as retention_120,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 4332
-                                      then case when datediff('hour', installed_at, event_timestamp) between 4308 and 4332 then 1 else 0 end end) as retention_180,
-                          max(case
-                                  when datediff('hour',installed_at,  sysdate) > 8652
-                                      then case when datediff('hour', installed_at, event_timestamp) between 8628 and 8652 then 1 else 0 end end) as retention_360
-                   from tile_match.monitoring
-                   group by advertising_id),
+     ret_table as (with monit as (select advertising_id as advertising_id_temp, min(installed_at) as insta from tile_match.monitoring group by advertising_id_temp)
+                    select advertising_id as ret_advertising_id,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 36
+                                    then case when datediff('hour', insta, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 60
+                                    then case when datediff('hour', insta, event_timestamp) between 36 and 60 then 1 else 0 end end)   as retention_2,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 84
+                                    then case when datediff('hour', insta, event_timestamp) between 60 and 84 then 1 else 0 end end)   as retention_3,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 108
+                                    then case when datediff('hour', insta, event_timestamp) between 84 and 108 then 1 else 0 end end)  as retention_4,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 132
+                                    then case when datediff('hour', insta, event_timestamp) between 108 and 132 then 1 else 0 end end) as retention_5,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 180
+                                    then case when datediff('hour', insta, event_timestamp) between 156 and 180 then 1 else 0 end end) as retention_7,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 252
+                                    then case when datediff('hour', insta, event_timestamp) between 228 and 252 then 1 else 0 end end) as retention_10,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 348
+                                    then case when datediff('hour', insta, event_timestamp) between 324 and 348 then 1 else 0 end end) as retention_14,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 444
+                                    then case when datediff('hour', insta, event_timestamp) between 420 and 444 then 1 else 0 end end) as retention_18,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 516
+                                    then case when datediff('hour', insta, event_timestamp) between 492 and 516 then 1 else 0 end end) as retention_21,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 588
+                                    then case when datediff('hour', insta, event_timestamp) between 564 and 588 then 1 else 0 end end) as retention_24,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 684
+                                    then case when datediff('hour', insta, event_timestamp) between 660 and 684 then 1 else 0 end end) as retention_28,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 1092
+                                    then case when datediff('hour', insta, event_timestamp) between 1068 and 1092 then 1 else 0 end end) as retention_45,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 1452
+                                    then case when datediff('hour', insta, event_timestamp) between 1428 and 1452 then 1 else 0 end end) as retention_60,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 2172
+                                    then case when datediff('hour', insta, event_timestamp) between 2148 and 2172 then 1 else 0 end end) as retention_90,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 2880
+                                    then case when datediff('hour', insta, event_timestamp) between 2856 and 2880 then 1 else 0 end end) as retention_120,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 4332
+                                    then case when datediff('hour', insta, event_timestamp) between 4308 and 4332 then 1 else 0 end end) as retention_180,
+                        max(case
+                                when datediff('hour',insta,  sysdate) > 8652
+                                    then case when datediff('hour', insta, event_timestamp) between 8628 and 8652 then 1 else 0 end end) as retention_360
+                    from tile_match.monitoring mon left join monit on (monit.advertising_id_temp=mon.advertising_id)
+                    group by advertising_id),
 
      ad_usr as (select idfa_or_gps_adid,
                         max(network_name)                            as network_name,
