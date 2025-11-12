@@ -698,8 +698,8 @@ view: users_pdt {
              creative_name,
              fb_install_referrer_adgroup_name,
              COALESCE(country, user_country_code) as country,
-             COALESCE(f_app_version, fst_app_version) as first_app_version,
-             COALESCE(l_app_version, lst_app_version) as last_app_version,
+             COALESCE(fst_app_version, f_app_version) as first_app_version,
+             COALESCE(lst_app_version, l_app_version) as last_app_version,
              first_payment_date,
              last_payment_date,
              COALESCE((CASE
