@@ -45,8 +45,8 @@ view: inventory2_pdt {
       SUM(CASE WHEN "currency_change_environment_token_change_amount">0 and "currency_change_environment_token_change_amount"<20 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_gain",
       SUM(CASE WHEN "currency_change_environment_token_change_amount"<0 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_spend",
 
-      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<500 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_gain",
-      SUM(CASE WHEN "currency_change_coin_change_amount"<0 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_spend",
+      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<500 THEN "currency_change_coin_change_amount" END) AS "coin_gain",
+      SUM(CASE WHEN "currency_change_coin_change_amount"<0 THEN "currency_change_coin_change_amount" END) AS "coin_spend",
 
       SUM(CASE WHEN "currency_change_magnet_change_amount">0 and "currency_change_magnet_change_amount"<20 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_gain",
       SUM(CASE WHEN "currency_change_magnet_change_amount"<0 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_spend",

@@ -10,9 +10,8 @@ view: inventory_pdt {
       "install_dt",
       "country_code",
       "user_platform",
-      "app_version",
-      "user_os_version",
-      DATE_TRUNC('day',"event_dt") as "event_date",
+       DATE_TRUNC('day',"event_dt") as "event_date",
+       "app_version",
 
       AVG("inventory_coin") AS "coin_inventory",
       AVG("inventory_environment_token") AS "environment_token_inventory",
@@ -26,6 +25,10 @@ view: inventory_pdt {
       AVG("inventory_time_freezer") AS "time_freezer_inventory",
       AVG("inventory_toss") AS "toss_inventory",
       AVG("user_level_at")::BIGINT AS "avg_level",
+
+      SUM(CASE WHEN "currency_change_coin_change_amount"<0 and "currency_change_source" = 'ExtraBoosterPanel' THEN "currency_change_coin_change_amount" END) AS "ingame_booster_coin_spend",
+
+      SUM(CASE WHEN "currency_change_coin_change_amount"<0 and "currency_change_source" = 'EndGameOfferPanel' THEN "currency_change_coin_change_amount" END) AS "end_game_offer_coin_spend",
 
       SUM(CASE WHEN "currency_change_magic_wand_change_amount">0 and "currency_change_magic_wand_change_amount"<50 and "currency_change_magic_wand_amount_type" = 'CountBased' THEN "currency_change_magic_wand_change_amount" END) AS "magic_wand_gain",
       SUM(CASE WHEN "currency_change_magic_wand_change_amount"<0 and "currency_change_magic_wand_amount_type" = 'CountBased' THEN "currency_change_magic_wand_change_amount" END) AS "magic_wand_spend",
@@ -45,8 +48,8 @@ view: inventory_pdt {
       SUM(CASE WHEN "currency_change_environment_token_change_amount">0 and "currency_change_environment_token_change_amount"<50 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_gain",
       SUM(CASE WHEN "currency_change_environment_token_change_amount"<0 and "currency_change_environment_token_amount_type" = 'CountBased' THEN "currency_change_environment_token_change_amount" END) AS "environment_token_spend",
 
-      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<5000 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_gain",
-      SUM(CASE WHEN "currency_change_coin_change_amount"<0 and "currency_change_coin_amount_type" = 'CountBased' THEN "currency_change_coin_change_amount" END) AS "coin_spend",
+      SUM(CASE WHEN "currency_change_coin_change_amount">0 and "currency_change_coin_change_amount"<5000 THEN "currency_change_coin_change_amount" END) AS "coin_gain",
+      SUM(CASE WHEN "currency_change_coin_change_amount"<0 THEN "currency_change_coin_change_amount" END) AS "coin_spend",
 
       SUM(CASE WHEN "currency_change_magnet_change_amount">0 and "currency_change_magnet_change_amount"<50 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_gain",
       SUM(CASE WHEN "currency_change_magnet_change_amount"<0 and "currency_change_magnet_amount_type" = 'CountBased' THEN "currency_change_magnet_change_amount" END) AS "magnet_spend",
@@ -126,7 +129,7 @@ view: inventory_pdt {
       ) "dsg"
       WHERE {% incrementcondition %} "event_date" {%  endincrementcondition %}
       AND "dsg"."event_dt" <= "dsg"."arrival_dt"
-      GROUP BY "event_date", "advertising_id", "install_dt", "country_code", "user_platform", "app_version", "user_os_version"
+      GROUP BY "event_date", "advertising_id", "install_dt", "country_code", "user_platform", "app_version"
       ;;
 
 
@@ -209,6 +212,25 @@ view: inventory_pdt {
     description: ""
     type: number
     sql: abs(${TABLE}.coin_spend) ;;
+  }
+
+  dimension: ingame_booster_coin_spend {
+    description: ""
+    type: number
+    sql: abs(${TABLE}.ingame_booster_coin_spend) ;;
+  }
+
+  dimension: end_game_offer_coin_spend {
+    description: ""
+    type: number
+    sql: abs(${TABLE}.end_game_offer_coin_spend) ;;
+  }
+
+  dimension: end_game_offer_coin_spend_ratio {
+    description: ""
+    type: number
+    sql: ${end_game_offer_coin_spend}::double precision / ${coin_spend}::double precision  ;;
+    value_format_name: percent_2
   }
 
   dimension: coin_inventory {
@@ -1358,5 +1380,59 @@ view: inventory_pdt {
     type: percentile
     percentile: 90
     sql: ${toss_inventory} ;;
+  }
+
+  measure:ingame_booster_coin_spend_avg  {
+    type: average
+    sql: ${ingame_booster_coin_spend} ;;
+  }
+  measure:ingame_booster_coin_spend_per25  {
+    type: percentile
+    percentile: 25
+    sql: ${ingame_booster_coin_spend} ;;
+  }
+  measure:ingame_booster_coin_spend_per50  {
+    type: percentile
+    percentile: 50
+    sql: ${ingame_booster_coin_spend} ;;
+  }
+  measure:ingame_booster_coin_spend_per75  {
+    type: percentile
+    percentile: 75
+    sql: ${ingame_booster_coin_spend} ;;
+  }
+  measure:ingame_booster_coin_spend_per90  {
+    type: percentile
+    percentile: 90
+    sql: ${ingame_booster_coin_spend} ;;
+  }
+
+  measure:end_game_offer_coin_spend_avg  {
+    type: average
+    sql: ${end_game_offer_coin_spend} ;;
+  }
+  measure:end_game_offer_coin_spend_per25  {
+    type: percentile
+    percentile: 25
+    sql: ${end_game_offer_coin_spend} ;;
+  }
+  measure:end_game_offer_coin_spend_per50  {
+    type: percentile
+    percentile: 50
+    sql: ${end_game_offer_coin_spend} ;;
+  }
+  measure:end_game_offer_coin_spend_per75  {
+    type: percentile
+    percentile: 75
+    sql: ${end_game_offer_coin_spend} ;;
+  }
+  measure:end_game_offer_coin_spend_per90  {
+    type: percentile
+    percentile: 90
+    sql: ${end_game_offer_coin_spend} ;;
+  }
+  measure: ratio {
+    type: number
+    sql: ${end_game_offer_coin_spend_avg} / ${coin_spend} ;;
   }
 }

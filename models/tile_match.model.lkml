@@ -118,6 +118,11 @@ explore: users_pdt {
     sql_on: ${meta_ndt.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: one_to_many
   }
+  join: inventory_pdt {
+    type: left_outer
+    sql_on: ${users_pdt.advertising_id} = ${inventory_pdt.advertising_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: tile_match_raw {}

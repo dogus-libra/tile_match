@@ -477,6 +477,21 @@ view: business {
     sql: case when ${source}='ExtraBoosterPanel' AND ${currency_change_extra_slot_change_amount}=1 then 1 else 0 end ;;
   }
 
+  dimension: InGame_Booster_Spend {
+    type: number
+    sql: ${InGame_MagicWand_Spend} + ${InGame_Glove_Spend} + ${InGame_Shuffle_Spend} + ${InGame_Toss_Spend} + ${InGame_TimeFreezer_Spend}  ;;
+  }
+
+  dimension: InGame_Booster_Coin_Spend {
+    type: number
+    sql: case when ${source}='ExtraBoosterPanel' AND ${currency_change_coin_change_amount} < 0 then -(${currency_change_coin_change_amount}) end ;;
+  }
+
+  dimension: ExtraMove_Coin_Spend {
+    type: number
+    sql: case when ${source}='EndGameOfferPanel' AND ${currency_change_coin_change_amount} < 0 then -(${currency_change_coin_change_amount}) end ;;
+  }
+
   dimension: inventory_avatar {
     type: number
     sql: ${TABLE}.inventory_avatar ;;
@@ -1657,4 +1672,5 @@ view: business {
     type: count
     drill_fields: [business_event_name, team_name, user_split_test_name, event_name]
   }
+
 }

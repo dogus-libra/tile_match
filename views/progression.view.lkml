@@ -80,7 +80,7 @@ view: progression {
 
   dimension: boosters_ingame_num {
     type: number
-    sql:  ${boosters_extraslot_num} + ${boosters_glove_num} + ${boosters_magicwand_num} + ${boosters_shuffle_num} + ${boosters_timefreezer_num} + ${boosters_toss_num} ;;
+    sql: ${boosters_glove_num} + ${boosters_magicwand_num} + ${boosters_shuffle_num} + ${boosters_timefreezer_num} + ${boosters_toss_num} ;;
   }
 
   dimension: boosters_pregame_num {
