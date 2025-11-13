@@ -1,4 +1,4 @@
-view: card_collection_pdt {
+view: card_collection_set_completed_pdt {
   derived_table: {
     distribution: "advertising_id"
     sql:
@@ -9,13 +9,14 @@ view: card_collection_pdt {
                         live_ops_start_time,
                         event_stage_index,
                         advertising_id,
+                        installed_at,
                         max(user_platform) as user_platform,
-                        COUNT(*) AS completed_set_count
+                        COUNT(distinct event_card_set_no) AS completed_set_count
                     FROM
                         tile_match.live_ops
                     WHERE
                         event_name = 'CardCollectionSetCompleted'
-                    GROUP BY 1, 2, 3
+                    GROUP BY 1, 2, 3, 4
                         ),
 
         UserPackageCounts AS (
@@ -24,13 +25,14 @@ view: card_collection_pdt {
                         event_stage_index,
                         event_package_type,
                         advertising_id,
+                        installed_at,
                         max(user_platform) as user_platform,
                         COUNT(*) AS packages_earned_count
                     FROM
                         tile_match.live_ops
                     WHERE
                         event_name = 'CardCollectionPackageEarned'
-                    GROUP BY 1, 2, 3, 4
+                    GROUP BY 1, 2, 3, 4, 5
                         )
 
         SELECT
@@ -39,6 +41,7 @@ view: card_collection_pdt {
             pkg.event_package_type as event_package_type,
             pkg.advertising_id as advertising_id,
             pkg.user_platform as user_platform,
+            pkg.installed_at as installed_at,
             sets.completed_set_count AS completed_set_count,
             pkg.packages_earned_count as packages_earned_count
         FROM
@@ -50,6 +53,7 @@ view: card_collection_pdt {
             AND pkg.event_stage_index = sets.event_stage_index
             AND pkg.advertising_id = sets.advertising_id
             AND pkg.user_platform = sets.user_platform
+            AND pkg.installed_at = sets.installed_at
         ;;
 
     publish_as_db_view: yes
@@ -76,7 +80,7 @@ view: card_collection_pdt {
   dimension_group: installed {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.install_dt ;;
+    sql: ${TABLE}.installed_at ;;
   }
 
   dimension: event_package_type {
@@ -100,12 +104,7 @@ view: card_collection_pdt {
 
   dimension: completed_set_count {
     type: number
-    sql: ${TABLE}.completed_set_count ;;
-  }
-
-  dimension: packages_earned_count {
-    type: number
-    sql: ${TABLE}.packages_earned_count ;;
+    sql: case when ${TABLE}.completed_set_count is null then 0 else ${TABLE}.completed_set_count end;;
   }
 
   measure: completed_set_count_avg {
@@ -153,54 +152,6 @@ view: card_collection_pdt {
     type: percentile
     percentile: 99
     sql: ${TABLE}.completed_set_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_avg {
-    type: number
-    sql:  AVG(${TABLE}.packages_earned_count);;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per10  {
-    type: percentile
-    percentile: 10
-    sql: ${TABLE}.packages_earned_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per25  {
-    type: percentile
-    percentile: 25
-    sql: ${TABLE}.packages_earned_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per50  {
-    type: percentile
-    percentile: 50
-    sql: ${TABLE}.packages_earned_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per75  {
-    type: percentile
-    percentile: 75
-    sql: ${TABLE}.packages_earned_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per90  {
-    type: percentile
-    percentile: 90
-    sql: ${TABLE}.packages_earned_count  ;;
-    value_format: "0.0"
-  }
-
-  measure: packages_earned_count_per99  {
-    type: percentile
-    percentile: 99
-    sql: ${TABLE}.packages_earned_count  ;;
     value_format: "0.0"
   }
 

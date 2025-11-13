@@ -317,10 +317,18 @@ explore: card_collection_complete_ratio_ndt {
   }
 }
 
-explore: card_collection_pdt {
+explore: card_collection_set_completed_pdt {
   join: users_pdt {
     type: left_outer
-    sql_on: ${card_collection_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${card_collection_set_completed_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: card_collection_package_earned_pdt {
+  join: users_pdt {
+    type: left_outer
+    sql_on: ${card_collection_package_earned_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
 }
