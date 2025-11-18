@@ -508,6 +508,11 @@ view: session {
     sql: CAST(SPLIT_PART(${user_device_memory}, '/', 2) AS INT) ;;
   }
 
+  dimension: user_device_memory_ratio {
+    type: number
+    sql: ${user_device_memory_free}::double precision / ${user_device_memory_total}::double precision ;;
+  }
+
   dimension: user_split_test_name {
     type: string
     sql: ${TABLE}.user_split_test_name ;;
