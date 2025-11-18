@@ -381,6 +381,16 @@ view: monitoring {
     sql: ${TABLE}.user_device_memory ;;
   }
 
+  dimension: user_device_memory_free {
+    type: number
+    sql: CAST(SPLIT_PART(${user_device_memory}, '/', 1) AS INT) ;;
+  }
+
+  dimension: user_device_memory_total {
+    type: number
+    sql: CAST(SPLIT_PART(${user_device_memory}, '/', 2) AS INT) ;;
+  }
+
   dimension: user_split_test_name {
     type: string
     sql: ${TABLE}.user_split_test_name ;;

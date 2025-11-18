@@ -82,6 +82,11 @@ view: session {
     sql: ${TABLE}.installed_at ;;
   }
 
+  dimension: install_day_of_user {
+    type: number
+    sql: FLOOR(DATEDIFF(hour,${TABLE}.installed_at,${TABLE}.event_timestamp)/24) ;;
+  }
+
   dimension: initial_coin{
     type: number
     sql: case when ${TABLE}.user_level_at < 2 and ${TABLE}.inventory_coin = 200 then 200
@@ -491,6 +496,16 @@ view: session {
   dimension: user_device_memory {
     type: string
     sql: ${TABLE}.user_device_memory ;;
+  }
+
+  dimension: user_device_memory_free {
+    type: number
+    sql: CAST(SPLIT_PART(${user_device_memory}, '/', 1) AS INT) ;;
+  }
+
+  dimension: user_device_memory_total {
+    type: number
+    sql: CAST(SPLIT_PART(${user_device_memory}, '/', 2) AS INT) ;;
   }
 
   dimension: user_split_test_name {
