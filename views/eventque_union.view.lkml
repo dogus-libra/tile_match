@@ -661,6 +661,7 @@ view: eventque_union {
 
 FROM
   tile_match.business
+WHERE event_timestamp BETWEEN sysdate-30 AND sysdate
 
 UNION ALL
 
@@ -992,6 +993,7 @@ SELECT
 
 FROM
   tile_match.live_ops
+WHERE event_timestamp BETWEEN sysdate-30 AND sysdate
 
 UNION ALL
 
@@ -1323,6 +1325,7 @@ SELECT
 
 FROM
   tile_match.monitoring
+WHERE event_timestamp BETWEEN sysdate-30 AND sysdate
 
 UNION ALL
 
@@ -1654,6 +1657,7 @@ SELECT
 
 FROM
   tile_match.progression
+WHERE event_timestamp BETWEEN sysdate-30 AND sysdate
 
 UNION ALL
 
@@ -1983,7 +1987,10 @@ SELECT
   NULL AS welcome_back_period,
   NULL AS win_count_elo_score
 
-FROM tile_match.session) AS combined_data) ;;
+FROM tile_match.session
+WHERE event_timestamp BETWEEN sysdate-30 AND sysdate
+
+) AS combined_data) ;;
 
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('day',DATEADD('minute', -540 , getdate() )  )  ;;
