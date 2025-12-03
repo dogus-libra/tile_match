@@ -32,7 +32,10 @@ view: firebase_test {
     coalesce(fb.f_exp_112::BIGINT, usr.Longer_Durations_200_300_02Exc_iOS) as exp_112,
     coalesce(fb.f_exp_113::BIGINT, usr.Longer_Durations_900_1600_02Exc_iOS) as exp_113,
     coalesce(fb.f_exp_114::BIGINT, usr.Longer_Durations_200_300_Android) as exp_114,
-    coalesce(fb.f_exp_115::BIGINT, usr.Longer_Durations_900_1600_Android) as exp_115
+    coalesce(fb.f_exp_115::BIGINT, usr.Longer_Durations_900_1600_Android) as exp_115,
+    coalesce(fb.f_exp_116::BIGINT, usr.Extended_StreakBreaker_02_iOS) as exp_116,
+    coalesce(fb.f_exp_117::BIGINT, usr.Extended_StreakBreaker_02_Excluded_iOS) as exp_117,
+    coalesce(fb.f_exp_118::BIGINT, usr.Extended_StreakBreaker_Android) as exp_118
 
 FROM (
     SELECT
@@ -69,7 +72,10 @@ FROM (
         max(firebase_exp_112) as f_exp_112,
         max(firebase_exp_113) as f_exp_113,
         max(firebase_exp_114) as f_exp_114,
-        max(firebase_exp_115) as f_exp_115
+        max(firebase_exp_115) as f_exp_115,
+        max(firebase_exp_116) as f_exp_116,
+        max(firebase_exp_117) as f_exp_117,
+        max(firebase_exp_118) as f_exp_118
 
     FROM "tile_match"."firebase_daily_user"
     group by advertising_id) fb
@@ -167,7 +173,16 @@ LEFT JOIN (
               when max(user_split_test_name) like '%1710_200-300_LongDurations%' then 1 end)::BIGINT as Longer_Durations_200_300_Android,
 
         (case when max(user_split_test_name) like '%1710_900-1600_DefaultDurations%' then 0
-              when max(user_split_test_name) like '%1710_900-1600_LongDurations%' then 1 end)::BIGINT as Longer_Durations_900_1600_Android
+              when max(user_split_test_name) like '%1710_900-1600_LongDurations%' then 1 end)::BIGINT as Longer_Durations_900_1600_Android,
+
+        (case when max(user_split_test_name) like '%2811_DefaultSB_02%' then 0
+              when max(user_split_test_name) like '%2811_ExtendedSB_02%' then 1 end)::BIGINT as Extended_StreakBreaker_02_iOS,
+
+        (case when max(user_split_test_name) like '%2811_DefaultSB_02_Excluded%' then 0
+              when max(user_split_test_name) like '%2811_ExtendedSB_02_Excluded%' then 1 end)::BIGINT as Extended_StreakBreaker_02_Excluded_iOS,
+
+        (case when max(user_split_test_name) like '%2811_DefaultSB%' then 0
+              when max(user_split_test_name) like '%2811_ExtendedSB%' then 1 end)::BIGINT as Extended_StreakBreaker_Android
 
 
     FROM "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
@@ -352,6 +367,21 @@ ON (fb.advertising_id = usr.advertising_id) ;;
   dimension: exp_115 {
     type: string
     sql: ${TABLE}.exp_115 ;;
+  }
+
+  dimension: exp_116 {
+    type: string
+    sql: ${TABLE}.exp_116 ;;
+  }
+
+  dimension: exp_117 {
+    type: string
+    sql: ${TABLE}.exp_117 ;;
+  }
+
+  dimension: exp_118 {
+    type: string
+    sql: ${TABLE}.exp_118 ;;
   }
 
   dimension: EasyMode_And_Difficulty_iOS_testgroup {
@@ -564,5 +594,24 @@ ON (fb.advertising_id = usr.advertising_id) ;;
     sql: case when ${exp_115} = '0' then 'Default Durations'
               when ${exp_115} = '1' then 'Long Durations' end ;;
   }
+
+  dimension: Extended_StreakBreaker_02_iOS {
+    type:string
+    sql: case when ${exp_116} = '0' then 'Default SB'
+              when ${exp_116} = '1' then 'Extended SB' end ;;
+  }
+
+  dimension: Extended_StreakBreaker_02_Excluded_iOS {
+    type:string
+    sql: case when ${exp_117} = '0' then 'Default SB'
+              when ${exp_117} = '1' then 'Extended SB' end ;;
+  }
+
+  dimension: Extended_StreakBreaker_Android {
+    type:string
+    sql: case when ${exp_118} = '0' then 'Default SB'
+              when ${exp_118} = '1' then 'Extended SB' end ;;
+  }
+
 
 }
