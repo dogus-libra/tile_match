@@ -30,7 +30,7 @@ explore: progression {
   }
   join: users_pdt {
     type: left_outer
-    sql_on: ${progression.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${progression.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
   join: firebase_test {
@@ -47,7 +47,7 @@ explore: progression {
 explore: session {
   join: users_pdt {
     type: left_outer
-    sql_on: ${session.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${session.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
   join: firebase_test {
@@ -60,7 +60,7 @@ explore: session {
 explore: business {
   join: users_pdt {
     type: left_outer
-    sql_on: ${business.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${business.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
   join: firebase_test {
@@ -73,7 +73,7 @@ explore: business {
 explore: live_ops {
   join: users_pdt {
     type: left_outer
-    sql_on: ${live_ops.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${live_ops.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
 }
@@ -81,23 +81,23 @@ explore: live_ops {
 explore: users_pdt {
   join: progression {
     relationship: one_to_many
-    sql_on: ${users_pdt.advertising_id}=${progression.advertising_id}  ;;
+    sql_on: ${users_pdt.advertising_id}=${progression.user_id}  ;;
   }
   join: session {
     relationship: one_to_many
-    sql_on: ${users_pdt.advertising_id}=${session.advertising_id}  ;;
+    sql_on: ${users_pdt.advertising_id}=${session.user_id}  ;;
   }
   join: live_ops {
     relationship: one_to_many
-    sql_on: ${users_pdt.advertising_id}=${live_ops.advertising_id}  ;;
+    sql_on: ${users_pdt.advertising_id}=${live_ops.user_id}  ;;
   }
   join: monitoring {
     relationship: one_to_many
-    sql_on: ${users_pdt.advertising_id}=${monitoring.advertising_id}  ;;
+    sql_on: ${users_pdt.advertising_id}=${monitoring.user_id}  ;;
   }
   join: business {
     relationship: one_to_many
-    sql_on: ${users_pdt.advertising_id}=${business.advertising_id}  ;;
+    sql_on: ${users_pdt.advertising_id}=${business.user_id}  ;;
   }
   join: firebase_test {
     relationship: one_to_one
@@ -140,7 +140,7 @@ explore: session_pdt {
 explore: engagement_pdt {
   join: users_pdt {
     type: left_outer
-    sql_on: ${engagement_pdt.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${engagement_pdt.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
   join: firebase_test {
@@ -170,7 +170,7 @@ explore: stdev {
 explore: monitoring {
   join: users_pdt {
     type: left_outer
-    sql_on: ${monitoring.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${monitoring.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
   join: firebase_test {
@@ -304,7 +304,7 @@ explore: time_remain_pdt {
 explore: social {
   join: users_pdt {
     type: left_outer
-    sql_on: ${social.advertising_id} = ${users_pdt.advertising_id} ;;
+    sql_on: ${social.user_id} = ${users_pdt.advertising_id} ;;
     relationship: many_to_one
   }
 }
