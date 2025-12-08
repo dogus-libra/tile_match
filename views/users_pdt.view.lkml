@@ -3,9 +3,9 @@ include: "/models/tile_match.model.lkml"
 
 view: users_pdt {
   derived_table: {
-    distribution: "advertising_id"
+    distribution: "user_id"
     sql:
-      with sess_user as (select advertising_id,
+      with sess_user as (select user_id,
 
                           min(build_no)                    as first_build_no,
                           max(connection_type)             as connection_type,
@@ -77,11 +77,10 @@ view: users_pdt {
                           max(user_grand_mode_level)       as user_grand_mode_level,
                           max(user_win_streak_count)       as user_win_streak_count,
                           max(user_win_streak_group)       as user_win_streak_group,
-                          max(user_apps_flyer_id)          as user_apps_flyer_id,
-                          max(user_id)                     as user_id
+                          max(user_apps_flyer_id)          as user_apps_flyer_id
 
                    FROM ( SELECT
-                          advertising_id,
+                          user_id,
                           build_no,
                           connection_type,
                           end_game_offer_1_offer_type,
@@ -113,7 +112,7 @@ view: users_pdt {
                           user_platform,
                           user_session_count,
                           LAST_VALUE(user_split_test_name IGNORE NULLS) OVER (
-                                       PARTITION BY advertising_id
+                                       PARTITION BY user_id
                                        ORDER BY event_timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
                                     ) AS user_split_test_name,
                           user_test_routing_value,
@@ -125,11 +124,10 @@ view: users_pdt {
                           user_grand_mode_level,
                           user_win_streak_count,
                           user_win_streak_group,
-                          user_apps_flyer_id,
-                          user_id
+                          user_apps_flyer_id
                           FROM
                             (SELECT
-                            advertising_id,
+                            user_id,
                             build_no,
                             connection_type,
                             null as end_game_offer_1_offer_type,
@@ -170,15 +168,14 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id,
-                            user_id
+                            user_apps_flyer_id
 
                             FROM tile_match.session
 
                             UNION ALL
 
                             SELECT
-                            advertising_id,
+                            user_id,
                             build_no,
                             connection_type,
                             null as end_game_offer_1_offer_type,
@@ -219,15 +216,14 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id,
-                            user_id
+                            user_apps_flyer_id
 
                             FROM tile_match.monitoring
 
                             UNION ALL
 
                             SELECT
-                            advertising_id,
+                            user_id,
                             build_no,
                             connection_type,
                             end_game_offer_1_offer_type,
@@ -268,14 +264,13 @@ view: users_pdt {
                             user_grand_mode_level,
                             user_win_streak_count,
                             user_win_streak_group,
-                            user_apps_flyer_id,
-                            user_id
+                            user_apps_flyer_id
 
                             FROM tile_match.progression) AS cd) AS combined_data
-                   group by advertising_id),
+                   group by user_id),
 
-     ret_table as (with monit as (select advertising_id as advertising_id_temp, min(installed_at) as insta from tile_match.monitoring group by advertising_id_temp)
-                    select advertising_id as ret_advertising_id,
+     ret_table as (with monit as (select user_id as user_id_temp, min(installed_at) as insta from tile_match.monitoring group by user_id_temp)
+                    select user_id as ret_user_id,
                         max(case
                                 when datediff('hour',insta,  sysdate) > 36
                                     then case when datediff('hour', insta, event_timestamp) between 12 and 36 then 1 else 0 end end)   as retention_1,
@@ -330,8 +325,8 @@ view: users_pdt {
                         max(case
                                 when datediff('hour',insta,  sysdate) > 8652
                                     then case when datediff('hour', insta, event_timestamp) between 8628 and 8652 then 1 else 0 end end) as retention_360
-                    from tile_match.monitoring mon left join monit on (monit.advertising_id_temp=mon.advertising_id)
-                    group by advertising_id),
+                    from tile_match.monitoring mon left join monit on (monit.user_id_temp=mon.user_id)
+                    group by user_id),
 
      ad_usr as (select idfa_or_gps_adid,
                         max(network_name)                            as network_name,
@@ -394,7 +389,7 @@ view: users_pdt {
                  from adjust.tile_match_raw
                  group by idfa_or_gps_adid),
 
-     af_usr as (select coalesce(UPPER(idfv), LOWER(advertising_id))  as idfa_or_gps_adid,
+     af_usr as (select coalesce(customer_user_id,coalesce(UPPER(idfv), LOWER(advertising_id)))  as idfa_or_gps_adid,
                         max(case when event_name='install' then
                               (case
                                  when media_source in ('Facebook Ads','restricted') then 'facebook'
@@ -581,10 +576,10 @@ view: users_pdt {
 
      joined_table as (select *
                       from sess_user
-                               left join ret_table on sess_user.advertising_id = ret_table.ret_advertising_id
-                               left join adj_usr on sess_user.advertising_id = idfa_or_gps_adid)
+                               left join ret_table on sess_user.user_id = ret_table.ret_user_id
+                               left join adj_usr on sess_user.user_id = idfa_or_gps_adid)
 
-      select advertising_id,
+      select user_id,
              first_build_no,
              connection_type,
              churn_last_level_no,
@@ -599,8 +594,7 @@ view: users_pdt {
              installed,
              ip_address,
              user_adgroup,
-             user_apps_flyer_id,
-             user_id,
+             user_apps_flyer_id
              user_campaign,
              user_creative,
              user_device,
@@ -761,13 +755,13 @@ view: users_pdt {
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/2)  ;;
-    sortkeys: ["advertising_id","country"]
+    sortkeys: ["user_id","country"]
   }
 
   dimension: advertising_id {
     primary_key: yes
     type: string
-    sql: ${TABLE}.advertising_id ;;
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: app_version {
