@@ -81,7 +81,7 @@ FROM (
     group by advertising_id) fb
 LEFT JOIN (
     SELECT
-        advertising_id,
+        user_id,
         (case when max(user_split_test_name) like '%0505_StreakBreaker_85%' then 0
               when max(user_split_test_name) like '%0505_StreakBreaker_50%' then 1 end)::BIGINT as StreakBreaker_03_iOS,
 
@@ -186,8 +186,8 @@ LEFT JOIN (
 
 
     FROM "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
-    group by advertising_id) usr
-ON (fb.advertising_id = usr.advertising_id) ;;
+    group by user_id) usr
+ON (fb.advertising_id = usr.user_id) ;;
 
     publish_as_db_view: yes
     sql_trigger_value: select DATE_TRUNC('day',DATEADD('minute', -540 , getdate() )  )  ;;

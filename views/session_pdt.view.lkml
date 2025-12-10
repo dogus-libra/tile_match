@@ -3,7 +3,7 @@ include: "/models/tile_match.model.lkml"
 
 view: session_pdt {
   derived_table: {
-    distribution: "advertising_id"
+    distribution: "user_id"
     sql:
 
     select sess.*,
@@ -15,21 +15,21 @@ view: session_pdt {
             COALESCE(fmr.creative,sess.user_creative) as creative
     from (select *,
              max(case when datediff('hour', installed, session_start_time) between 12 and 36 then 1 else 0 end)
-             over (partition by advertising_id) as retention_1,
+             over (partition by user_id) as retention_1,
              max(case when datediff('hour', installed, session_start_time) between 36 and 60 then 1 else 0 end)
-             over (partition by advertising_id) as retention_2,
+             over (partition by user_id) as retention_2,
              max(case when datediff('hour', installed, session_start_time) between 60 and 84 then 1 else 0 end)
-             over (partition by advertising_id) as retention_3,
+             over (partition by user_id) as retention_3,
              max(case when datediff('hour', installed, session_start_time) between 84 and 108 then 1 else 0 end)
-             over (partition by advertising_id) as retention_4,
+             over (partition by user_id) as retention_4,
              max(case when datediff('hour', installed, session_start_time) between 108 and 132 then 1 else 0 end)
-             over (partition by advertising_id) as retention_5,
+             over (partition by user_id) as retention_5,
              max(case when datediff('hour', installed, session_start_time) between 156 and 180 then 1 else 0 end)
-             over (partition by advertising_id) as retention_7,
+             over (partition by user_id) as retention_7,
              max(case when datediff('hour', installed, session_start_time) between 324 and 348 then 1 else 0 end)
-             over (partition by advertising_id) as retention_14
+             over (partition by user_id) as retention_14
 
-      from (select advertising_id,
+      from (select user_id,
                    session_id,
                    max(session_time)                      as session_time,
                    min(event_timestamp)                   as session_start_time,
@@ -79,9 +79,9 @@ view: session_pdt {
 
           from tile_match.session
           where event_name = 'SessionActive'
-          group by session_id, advertising_id
+          group by session_id, user_id
           having trunc(session_start_time) between (trunc(sysdate)-721) and (trunc(sysdate)-1) ) sess_in) sess
-          left join (select advertising_id,
+          left join (select user_id,
                              max(network)                                 as network,
                              max(campaign)                                as campaign,
                              null                                         as fb_install_referrer_campaign_group_name,
@@ -92,17 +92,17 @@ view: session_pdt {
                              max(country)                                 as country,
                              min(first_app_version)                       as app_version
                       from "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
-                      group by advertising_id) fmr
-    on (sess.advertising_id = fmr.advertising_id) ;;
+                      group by user_id) fmr
+    on (sess.user_id = fmr.user_id) ;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
-    sortkeys: ["advertising_id","country","session_start_time"]
+    sortkeys: ["user_id","country","session_start_time"]
   }
 
   dimension: advertising_id {
     type: string
-    sql: ${TABLE}.advertising_id ;;
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: app_version {
