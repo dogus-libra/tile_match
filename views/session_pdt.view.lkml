@@ -56,7 +56,6 @@ view: session_pdt {
                    max(user_creative)                     as user_creative,
                    max(user_current_fps)                  as user_current_fps,
                    max(user_device)                       as user_device,
-                   max(user_id)                           as user_id,
                    max(user_level_at)                     as user_level_at,
                    max(user_level_id)                     as user_level_id,
                    max(user_manufacturer)                 as user_manufacturer,
@@ -81,7 +80,7 @@ view: session_pdt {
           where event_name = 'SessionActive'
           group by session_id, user_id
           having trunc(session_start_time) between (trunc(sysdate)-721) and (trunc(sysdate)-1) ) sess_in) sess
-          left join (select user_id,
+          left join (select usr.user_id as usr_user_id,
                              max(network)                                 as network,
                              max(campaign)                                as campaign,
                              null                                         as fb_install_referrer_campaign_group_name,
@@ -91,9 +90,9 @@ view: session_pdt {
                              null                                         as fb_install_referrer_adgroup_name,
                              max(country)                                 as country,
                              min(first_app_version)                       as app_version
-                      from "LOOKER_SCRATCH"."5J_tile_match_users_pdt"
-                      group by user_id) fmr
-    on (sess.user_id = fmr.user_id) ;;
+                      from "LOOKER_SCRATCH"."5J_tile_match_users_pdt" usr
+                      group by usr_user_id) fmr
+    on (sess.user_id = fmr.usr_user_id) ;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
