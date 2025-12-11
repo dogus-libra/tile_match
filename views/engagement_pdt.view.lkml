@@ -4,8 +4,8 @@ include: "/models/tile_match.model.lkml"
 
 view: engagement_pdt {
   derived_table: {
-    distribution: "advertising_id"
-      sql: select advertising_id,
+    distribution: "user_id"
+      sql: select user_id,
                           date_trunc('day', session_start_time)  as client,
                           count(distinct session_id)             as sessioncount,
                           sum(session_time) / 60                 as playtime,
@@ -31,7 +31,6 @@ view: engagement_pdt {
                           max(user_creative)                     as user_creative,
                           max(user_current_fps)                  as user_current_fps,
                           max(user_device)                       as user_device,
-                          max(user_id)                           as user_id,
                           max(user_level_at)                     as user_level_at,
                           max(user_level_id)                     as user_level_id,
                           max(user_manufacturer)                 as user_manufacturer,
@@ -55,17 +54,17 @@ view: engagement_pdt {
                           max(user_win_streak_count)             as user_win_streak_count,
                           max(user_win_streak_group)             as user_win_streak_group
            from "LOOKER_SCRATCH"."5J_tile_match_session_pdt"
-           group by advertising_id, client ;;
+           group by user_id, client ;;
 
     publish_as_db_view: yes
     sql_trigger_value: SELECT TRUNC((DATE_PART('hour', SYSDATE))/4)  ;;
-    sortkeys: ["advertising_id","country","client"]
+    sortkeys: ["user_id","country","client"]
     }
 
 
   dimension: advertising_id {
     type: string
-    sql: ${TABLE}.advertising_id ;;
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: app_version {
