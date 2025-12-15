@@ -1590,7 +1590,7 @@ view: business {
 
   dimension: user_total_valid_attempt_at_current_level {
     type: number
-    sql: ${TABLE}.user_total_valid_attempt_at_current_level ;;
+    sql: COALESCE(${TABLE}.user_total_valid_attempt_at_current_level, 0) + 1 ;;
   }
 
   dimension: user_total_payment {
