@@ -257,6 +257,11 @@ view: live_ops {
     sql: ${TABLE}.live_ops_is_first ;;
   }
 
+  dimension: event_is_first {
+    type: yesno
+    sql: ${TABLE}.event_is_first ;;
+  }
+
   dimension: live_ops_bonus_bank_score {
     type: number
     sql: ${TABLE}.live_ops_bonus_bank_score ;;
